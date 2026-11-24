@@ -6,6 +6,7 @@ import { SpeakButton } from "@/components/Speak";
 import { TermView } from "@/components/Term";
 import { VideoCard } from "@/components/VideoCard";
 import { languageSummaries } from "@/lib/summaries";
+import { exams } from "@/data/exams";
 
 const SAMPLE_WORD = "terimakasih";
 
@@ -105,6 +106,30 @@ export default function Home() {
               <span className="step-sample">Lalu ulangi lewat kartu hafalan berjadwal.</span>
             </li>
           </ol>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="wrap">
+          <div className="section-head split">
+            <div className="stack">
+              <h2>Siap untuk ujian resmi</h2>
+              <p className="muted">
+                Latihan dengan jenis soal seperti ujian aslinya: True/False/Not Given di IELTS, Re-order Paragraphs dan
+                dikte di PTE, soal ★ di JLPT, sampai i&apos;rab di TOAFL. Format diambil dari situs penyelenggara resmi.
+              </p>
+            </div>
+            <Link className="btn" href="/ujian/">
+              Semua ujian
+            </Link>
+          </div>
+          <div className="chips">
+            {exams.map((e) => (
+              <Link key={e.id} className="chip" href={`/ujian/${e.id}/`}>
+                {e.name}
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 

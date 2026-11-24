@@ -38,6 +38,9 @@ export function SiteFooter() {
               <Link href="/latihan/">Kartu hafalan dan kuis</Link>
             </li>
             <li>
+              <Link href="/ujian/">Latihan ujian (IELTS, JLPT, HSK, …)</Link>
+            </li>
+            <li>
               <Link href="/video/">Video pilihan</Link>
             </li>
             <li>

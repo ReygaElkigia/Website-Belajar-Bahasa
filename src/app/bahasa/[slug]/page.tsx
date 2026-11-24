@@ -7,6 +7,7 @@ import { ChallengeMeter, formatSpeakers } from "@/components/LangMeta";
 import { SpeakButton } from "@/components/Speak";
 import { VideoCard } from "@/components/VideoCard";
 import { VoiceNotice } from "@/components/VoiceNotice";
+import { examsForLang } from "@/data/exams";
 
 export const dynamicParams = false;
 
@@ -90,6 +91,24 @@ export default async function LanguagePage({ params }: { params: Promise<{ slug:
             <UnitList slug={l.slug} items={unitItems} />
           </div>
           <aside className="aside-sticky">
+            {examsForLang(l.slug).length > 0 && (
+              <div className="panel">
+                <h3>Persiapan ujian resmi</h3>
+                <p className="small muted">Latihan dengan format seperti ujian aslinya.</p>
+                <ul style={{ listStyle: "none", margin: "12px 0 0", padding: 0, display: "grid", gap: 8 }}>
+                  {examsForLang(l.slug).map((e) => (
+                    <li key={e.id}>
+                      <Link href={`/ujian/${e.id}/`} style={{ fontWeight: 600 }}>
+                        {e.name}
+                      </Link>
+                      <span className="tiny muted" style={{ display: "block" }}>
+                        {e.level}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
             <div className="panel">
               <h3>Sebelum mulai</h3>
               <p className="small muted">{l.alphabet.intro}</p>

@@ -6,10 +6,11 @@ Situs belajar bahasa dunia dari bahasa Indonesia: huruf, kosakata bersuara, fras
 
 - **12 bahasa**: Inggris, Jepang, Korea, Mandarin, Arab, Jerman, Prancis, Spanyol, Rusia, Italia, Thai, Hindi.
 - **Huruf**: tabel hiragana/katakana, hangul, pinyin dan nada, hijaiyah, Kiril, aksara Thai, Dewanagari, dan pola bunyi untuk bahasa berhuruf Latin. Setiap huruf bisa diketuk untuk didengar.
-- **8 unit per bahasa**: 80 kosakata inti dan 31 frasa, dengan romanisasi, catatan pemakaian, suara, dan kuis penutup (pilih arti, pilih kata, tebak dari suara).
+- **12 unit per bahasa**: 120 kosakata inti dan 43 frasa, dengan romanisasi, catatan pemakaian, suara, dan kuis penutup (pilih arti, pilih kata, tebak dari suara).
 - **Tata bahasa**: 4–5 catatan per bahasa tentang hal yang paling berbeda dari bahasa Indonesia.
 - **Kamus**: cari dalam bahasa apa pun (aksara asli atau romanisasi); setiap entri menampilkan 12 bahasa sekaligus. Kata di luar kamus diterjemahkan online (MyMemory) ke 40 bahasa.
 - **Video**: video YouTube pilihan per bahasa, dimuat hanya saat diputar.
+- **Latihan ujian resmi**: 14 ujian (IELTS, PTE, TOEFL iBT 2026, JLPT N5, TOPIK I, HSK 1, TOAFL, Goethe A1, DELF A1, DELE A1, ТРКИ, CILS A1, CU-TFL, Hindi A1). Info format bersumber dari situs penyelenggara resmi (tautan di tiap halaman); soal latihan ditulis sendiri meniru jenis tugas aslinya (True/False/Not Given, Re-order Paragraphs, Write from Dictation, soal ★ JLPT, i'rab TOAFL, dan lainnya). Data ada di `src/data/exams/`.
 - **Kartu hafalan**: sistem Leitner 5 kotak; progres, runtunan hari, dan skor tersimpan di `localStorage`, tanpa akun.
 
 Suara memakai Web Speech API bawaan peramban, jadi kualitas dan ketersediaannya bergantung pada perangkat. Situs memberi tahu bila suara untuk suatu bahasa tidak terpasang.
