@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { conceptById, concepts, languages, onlineLanguages, phraseConcepts } from "@/data";
+import { conceptById, concepts, languages, onlineLanguages, phraseConcepts, units } from "@/data";
 import { HeroGreeting, type Greeting } from "@/components/HeroGreeting";
 import { LanguageIndex } from "@/components/LanguageIndex";
 import { SpeakButton } from "@/components/Speak";
@@ -61,7 +61,7 @@ export default function Home() {
               </p>
             </div>
           </div>
-          <LanguageIndex items={languageSummaries()} />
+          <LanguageIndex items={languageSummaries()} totalUnits={units.length} />
         </div>
       </section>
 
@@ -69,7 +69,7 @@ export default function Home() {
         <div className="wrap">
           <div className="section-head">
             <h2>Satu unit, empat langkah</h2>
-            <p className="muted">Setiap bahasa punya delapan unit dengan urutan yang sama. Contoh di bawah diambil dari bahasa Jepang.</p>
+            <p className="muted">Setiap bahasa punya {units.length} unit dengan urutan yang sama. Contoh di bawah diambil dari bahasa Jepang.</p>
           </div>
           <ol className="steps">
             <li className="step">

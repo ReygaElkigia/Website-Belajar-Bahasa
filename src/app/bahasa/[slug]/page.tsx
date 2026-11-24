@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!l) return {};
   return {
     title: `Belajar bahasa ${l.name}`,
-    description: `Belajar bahasa ${l.name} dari bahasa Indonesia: ${l.alphabet.title.toLowerCase()}, 8 unit kosakata dan frasa bersuara, tata bahasa, dan video.`,
+    description: `Belajar bahasa ${l.name} dari bahasa Indonesia: ${l.alphabet.title.toLowerCase()}, ${units.length} unit kosakata dan frasa bersuara, tata bahasa, dan video.`,
   };
 }
 
@@ -84,7 +84,7 @@ export default async function LanguagePage({ params }: { params: Promise<{ slug:
         <div className="wrap two-col">
           <div>
             <div className="section-head">
-              <h2>Delapan unit</h2>
+              <h2>{units.length} unit</h2>
               <p className="muted">Kerjakan berurutan. Setiap unit berisi sepuluh kata, beberapa frasa, dan kuis penutup.</p>
             </div>
             <UnitList slug={l.slug} items={unitItems} />

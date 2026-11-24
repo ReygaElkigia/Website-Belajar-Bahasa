@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { LanguageIndex } from "@/components/LanguageIndex";
-import { languages, onlineLanguages } from "@/data";
+import { languages, onlineLanguages, units } from "@/data";
 import { languageSummaries } from "@/lib/summaries";
 
 export const metadata: Metadata = {
@@ -15,14 +15,14 @@ export default function LanguagesPage() {
         <div className="wrap stack">
           <h1>Semua bahasa</h1>
           <p className="lead">
-            {languages.length} bahasa dengan kurikulum lengkap. Setiap bahasa punya pengenalan huruf, delapan unit kosakata dan
+            {languages.length} bahasa dengan kurikulum lengkap. Setiap bahasa punya pengenalan huruf, {units.length} unit kosakata dan
             frasa, catatan tata bahasa, serta video.
           </p>
         </div>
       </header>
       <section className="section">
         <div className="wrap">
-          <LanguageIndex items={languageSummaries()} withFilter />
+          <LanguageIndex items={languageSummaries()} totalUnits={units.length} withFilter />
           <p className="small muted mt-6">
             Mencari bahasa lain, seperti Belanda, Turki, atau Vietnam? Kamus Tutur bisa menerjemahkan online ke {onlineLanguages.length} bahasa
             sambil kurikulumnya kami tambah.

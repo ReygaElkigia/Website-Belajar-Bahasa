@@ -96,6 +96,46 @@ toko | shop
 ini | this
 itu | that
 membayar | to pay
+mobil | car
+bus | bus
+kereta | train
+pesawat | airplane
+sepeda | bicycle
+tiket | ticket
+jalan | road | | jalan di kota: street
+bandara | airport
+berangkat | to leave | | juga: to depart
+tiba | to arrive
+kepala | head
+mata | eye
+tangan | hand
+kaki | foot | | jamak: feet; tungkai: leg
+perut | stomach
+sakit | sick | | juga: ill
+dokter | doctor
+obat | medicine
+rumahsakit | hospital
+demam | fever
+cuaca | weather
+panas | hot
+dingin | cold
+hujan | rain
+matahari | sun
+angin | wind
+laut | sea
+gunung | mountain
+sungai | river
+musim | season
+bekerja | to work
+belajar | to study | | mempelajari keterampilan: to learn
+membaca | to read
+menulis | to write
+tidur | to sleep
+pergi | to go
+datang | to come
+kantor | office
+sekolah | school
+libur | holiday | | Amerika: vacation
 `,
   phrases: `
 s1 | How are you?
@@ -129,6 +169,18 @@ b1 | How much is it?
 b2 | It's too expensive.
 b3 | I'd like to buy this.
 b4 | Can I pay by card?
+t1 | Where does this bus go?
+t2 | One ticket to Bandung, please.
+t3 | What time does the train leave?
+h1 | I'm sick.
+h2 | I have a headache.
+h3 | Please call a doctor!
+c1 | It's very hot today.
+c2 | It will rain tomorrow.
+c3 | The weather is nice.
+g1 | I work in an office.
+g2 | I study every day.
+g3 | What are your hobbies?
 `,
   alphabet: {
     title: "Alfabet dan bunyi",

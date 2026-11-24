@@ -96,6 +96,46 @@ toko | der Laden
 ini | das hier
 itu | das da
 membayar | bezahlen
+mobil | das Auto
+bus | der Bus
+kereta | der Zug
+pesawat | das Flugzeug
+sepeda | das Fahrrad
+tiket | die Fahrkarte | | juga: das Ticket
+jalan | die Straße
+bandara | der Flughafen
+berangkat | abfahren | | pesawat: abfliegen
+tiba | ankommen
+kepala | der Kopf
+mata | das Auge
+tangan | die Hand
+kaki | der Fuß | | tungkai: das Bein
+perut | der Bauch
+sakit | krank
+dokter | der Arzt | | perempuan: die Ärztin
+obat | das Medikament
+rumahsakit | das Krankenhaus
+demam | das Fieber
+cuaca | das Wetter
+panas | heiß
+dingin | kalt
+hujan | der Regen
+matahari | die Sonne
+angin | der Wind
+laut | das Meer
+gunung | der Berg
+sungai | der Fluss
+musim | die Jahreszeit
+bekerja | arbeiten
+belajar | lernen | | kuliah: studieren
+membaca | lesen
+menulis | schreiben
+tidur | schlafen
+pergi | gehen | | dengan kendaraan: fahren
+datang | kommen
+kantor | das Büro
+sekolah | die Schule
+libur | der Urlaub | | libur sekolah: die Ferien
 `,
   phrases: `
 s1 | Wie geht's?
@@ -129,6 +169,18 @@ b1 | Wie viel kostet das?
 b2 | Das ist zu teuer.
 b3 | Ich möchte das kaufen.
 b4 | Kann ich mit Karte zahlen?
+t1 | Wohin fährt dieser Bus?
+t2 | Eine Fahrkarte nach Bandung, bitte.
+t3 | Wann fährt der Zug ab?
+h1 | Ich bin krank.
+h2 | Ich habe Kopfschmerzen.
+h3 | Bitte rufen Sie einen Arzt!
+c1 | Heute ist es sehr heiß.
+c2 | Morgen regnet es.
+c3 | Das Wetter ist schön.
+g1 | Ich arbeite in einem Büro.
+g2 | Ich lerne jeden Tag.
+g3 | Was sind deine Hobbys?
 `,
   alphabet: {
     title: "Alfabet dan aturan bunyi",

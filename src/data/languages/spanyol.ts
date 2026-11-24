@@ -96,6 +96,46 @@ toko | la tienda
 ini | esto
 itu | eso
 membayar | pagar
+mobil | el coche | | Amerika Latin: el carro, el auto
+bus | el autobús
+kereta | el tren
+pesawat | el avión
+sepeda | la bicicleta
+tiket | el billete | | Amerika Latin: el boleto
+jalan | la carretera | | jalan di kota: la calle
+bandara | el aeropuerto
+berangkat | salir
+tiba | llegar
+kepala | la cabeza
+mata | el ojo
+tangan | la mano
+kaki | el pie | | tungkai: la pierna
+perut | el estómago
+sakit | enfermo
+dokter | el médico
+obat | el medicamento
+rumahsakit | el hospital
+demam | la fiebre
+cuaca | el tiempo
+panas | caluroso | | cuaca panas: hace calor
+dingin | frío
+hujan | la lluvia
+matahari | el sol
+angin | el viento
+laut | el mar
+gunung | la montaña
+sungai | el río
+musim | la estación
+bekerja | trabajar
+belajar | estudiar | | mempelajari keterampilan: aprender
+membaca | leer
+menulis | escribir
+tidur | dormir
+pergi | ir
+datang | venir
+kantor | la oficina
+sekolah | la escuela
+libur | las vacaciones
 `,
   phrases: `
 s1 | ¿Cómo estás?
@@ -129,6 +169,18 @@ b1 | ¿Cuánto cuesta?
 b2 | Es demasiado caro.
 b3 | Quiero comprar esto.
 b4 | ¿Puedo pagar con tarjeta?
+t1 | ¿Adónde va este autobús?
+t2 | Un billete para Bandung, por favor.
+t3 | ¿A qué hora sale el tren?
+h1 | Estoy enfermo. | | penutur perempuan: enferma
+h2 | Me duele la cabeza.
+h3 | ¡Llame a un médico, por favor!
+c1 | Hoy hace mucho calor.
+c2 | Mañana va a llover.
+c3 | Hace buen tiempo.
+g1 | Trabajo en una oficina.
+g2 | Estudio todos los días.
+g3 | ¿Cuáles son tus pasatiempos?
 `,
   alphabet: {
     title: "Alfabet dan bunyi",

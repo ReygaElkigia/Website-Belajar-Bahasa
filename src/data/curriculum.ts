@@ -9,6 +9,10 @@ export const units: Unit[] = [
   { id: "waktu", title: "Waktu dan hari", summary: "Menanyakan jam dan hari, lalu membuat janji.", level: "A2" },
   { id: "arah", title: "Arah dan tempat", summary: "Menanyakan jalan dan memahami petunjuk arah.", level: "A2" },
   { id: "belanja", title: "Belanja", summary: "Menanyakan harga dan membayar.", level: "A2" },
+  { id: "transportasi", title: "Transportasi", summary: "Membeli tiket dan menanyakan jadwal keberangkatan.", level: "A2" },
+  { id: "kesehatan", title: "Tubuh dan kesehatan", summary: "Menyebut bagian tubuh dan meminta pertolongan saat sakit.", level: "A2" },
+  { id: "cuaca", title: "Cuaca dan alam", summary: "Membicarakan cuaca, musim, dan alam sekitar.", level: "A2" },
+  { id: "kegiatan", title: "Pekerjaan dan kegiatan", summary: "Bercerita tentang pekerjaan, sekolah, dan kegiatan sehari-hari.", level: "A2" },
 ];
 
 const c = (unit: Concept["unit"], pos: string, list: [string, string][]): Concept[] =>
@@ -132,6 +136,66 @@ export const concepts: Concept[] = [
     ["itu", "itu"],
   ]),
   ...c("belanja", "verba", [["membayar", "membayar"]]),
+
+  ...c("transportasi", "nomina", [
+    ["mobil", "mobil"],
+    ["bus", "bus"],
+    ["kereta", "kereta"],
+    ["pesawat", "pesawat"],
+    ["sepeda", "sepeda"],
+    ["tiket", "tiket"],
+    ["jalan", "jalan (raya)"],
+    ["bandara", "bandara"],
+  ]),
+  ...c("transportasi", "verba", [
+    ["berangkat", "berangkat"],
+    ["tiba", "tiba"],
+  ]),
+
+  ...c("kesehatan", "nomina", [
+    ["kepala", "kepala"],
+    ["mata", "mata"],
+    ["tangan", "tangan"],
+    ["kaki", "kaki"],
+    ["perut", "perut"],
+  ]),
+  ...c("kesehatan", "adjektiva", [["sakit", "sakit"]]),
+  ...c("kesehatan", "nomina", [
+    ["dokter", "dokter"],
+    ["obat", "obat"],
+    ["rumahsakit", "rumah sakit"],
+    ["demam", "demam"],
+  ]),
+
+  ...c("cuaca", "nomina", [["cuaca", "cuaca"]]),
+  ...c("cuaca", "adjektiva", [
+    ["panas", "panas"],
+    ["dingin", "dingin"],
+  ]),
+  ...c("cuaca", "nomina", [
+    ["hujan", "hujan"],
+    ["matahari", "matahari"],
+    ["angin", "angin"],
+    ["laut", "laut"],
+    ["gunung", "gunung"],
+    ["sungai", "sungai"],
+    ["musim", "musim"],
+  ]),
+
+  ...c("kegiatan", "verba", [
+    ["bekerja", "bekerja"],
+    ["belajar", "belajar"],
+    ["membaca", "membaca"],
+    ["menulis", "menulis"],
+    ["tidur", "tidur"],
+    ["pergi", "pergi"],
+    ["datang", "datang"],
+  ]),
+  ...c("kegiatan", "nomina", [
+    ["kantor", "kantor"],
+    ["sekolah", "sekolah"],
+    ["libur", "libur"],
+  ]),
 ];
 
 const p = (unit: PhraseConcept["unit"], list: [string, string][]): PhraseConcept[] =>
@@ -184,6 +248,26 @@ export const phraseConcepts: PhraseConcept[] = [
     ["b2", "Terlalu mahal."],
     ["b3", "Saya mau membeli ini."],
     ["b4", "Bisa bayar pakai kartu?"],
+  ]),
+  ...p("transportasi", [
+    ["t1", "Bus ini pergi ke mana?"],
+    ["t2", "Satu tiket ke Bandung, tolong."],
+    ["t3", "Keretanya berangkat jam berapa?"],
+  ]),
+  ...p("kesehatan", [
+    ["h1", "Saya sakit."],
+    ["h2", "Kepala saya sakit."],
+    ["h3", "Tolong panggil dokter!"],
+  ]),
+  ...p("cuaca", [
+    ["c1", "Hari ini panas sekali."],
+    ["c2", "Besok akan hujan."],
+    ["c3", "Cuacanya bagus."],
+  ]),
+  ...p("kegiatan", [
+    ["g1", "Saya bekerja di kantor."],
+    ["g2", "Saya belajar setiap hari."],
+    ["g3", "Apa hobimu?"],
   ]),
 ];
 

@@ -96,6 +96,46 @@ toko | 商店 | shāngdiàn
 ini | 这个 | zhège
 itu | 那个 | nàge
 membayar | 付钱 | fù qián
+mobil | 汽车 | qìchē | singkat: 车
+bus | 公交车 | gōngjiāochē
+kereta | 火车 | huǒchē | kereta bawah tanah: 地铁 (dìtiě)
+pesawat | 飞机 | fēijī
+sepeda | 自行车 | zìxíngchē
+tiket | 票 | piào
+jalan | 路 | lù
+bandara | 机场 | jīchǎng
+berangkat | 出发 | chūfā
+tiba | 到达 | dàodá | lisan: 到 (dào)
+kepala | 头 | tóu
+mata | 眼睛 | yǎnjing
+tangan | 手 | shǒu
+kaki | 脚 | jiǎo | tungkai: 腿 (tuǐ)
+perut | 肚子 | dùzi
+sakit | 生病 | shēngbìng | rasa sakit: 疼 (téng)
+dokter | 医生 | yīshēng
+obat | 药 | yào
+rumahsakit | 医院 | yīyuàn
+demam | 发烧 | fāshāo
+cuaca | 天气 | tiānqì
+panas | 热 | rè
+dingin | 冷 | lěng
+hujan | 雨 | yǔ | turun hujan: 下雨 (xiàyǔ)
+matahari | 太阳 | tàiyáng
+angin | 风 | fēng
+laut | 海 | hǎi
+gunung | 山 | shān
+sungai | 河 | hé
+musim | 季节 | jìjié
+bekerja | 工作 | gōngzuò
+belajar | 学习 | xuéxí
+membaca | 读 | dú | membaca buku: 看书 (kàn shū)
+menulis | 写 | xiě
+tidur | 睡觉 | shuìjiào
+pergi | 去 | qù
+datang | 来 | lái
+kantor | 办公室 | bàngōngshì
+sekolah | 学校 | xuéxiào
+libur | 假期 | jiàqī | berlibur: 放假 (fàngjià)
 `,
   phrases: `
 s1 | 你好吗？ | nǐ hǎo ma?
@@ -129,6 +169,18 @@ b1 | 多少钱？ | duōshao qián?
 b2 | 太贵了。 | tài guì le.
 b3 | 我想买这个。 | wǒ xiǎng mǎi zhège.
 b4 | 可以刷卡吗？ | kěyǐ shuākǎ ma?
+t1 | 这路公交车去哪儿？ | zhè lù gōngjiāochē qù nǎr?
+t2 | 一张去万隆的票。 | yì zhāng qù Wànlóng de piào.
+t3 | 火车几点出发？ | huǒchē jǐ diǎn chūfā?
+h1 | 我生病了。 | wǒ shēngbìng le.
+h2 | 我头疼。 | wǒ tóu téng.
+h3 | 请叫医生！ | qǐng jiào yīshēng!
+c1 | 今天非常热。 | jīntiān fēicháng rè.
+c2 | 明天会下雨。 | míngtiān huì xiàyǔ.
+c3 | 天气很好。 | tiānqì hěn hǎo.
+g1 | 我在办公室工作。 | wǒ zài bàngōngshì gōngzuò.
+g2 | 我每天学习。 | wǒ měitiān xuéxí.
+g3 | 你的爱好是什么？ | nǐ de àihào shì shénme?
 `,
   alphabet: {
     title: "Pinyin, nada, dan karakter",

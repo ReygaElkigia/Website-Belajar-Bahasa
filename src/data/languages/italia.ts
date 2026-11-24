@@ -96,6 +96,46 @@ toko | il negozio
 ini | questo
 itu | quello
 membayar | pagare
+mobil | la macchina | | juga: l'auto
+bus | l'autobus
+kereta | il treno
+pesawat | l'aereo
+sepeda | la bicicletta
+tiket | il biglietto
+jalan | la strada
+bandara | l'aeroporto
+berangkat | partire
+tiba | arrivare
+kepala | la testa
+mata | l'occhio
+tangan | la mano | | jamak: le mani
+kaki | il piede | | tungkai: la gamba
+perut | la pancia
+sakit | malato
+dokter | il medico
+obat | la medicina
+rumahsakit | l'ospedale
+demam | la febbre
+cuaca | il tempo
+panas | caldo
+dingin | freddo
+hujan | la pioggia
+matahari | il sole
+angin | il vento
+laut | il mare
+gunung | la montagna
+sungai | il fiume
+musim | la stagione
+bekerja | lavorare
+belajar | studiare
+membaca | leggere
+menulis | scrivere
+tidur | dormire
+pergi | andare
+datang | venire
+kantor | l'ufficio
+sekolah | la scuola
+libur | le vacanze
 `,
   phrases: `
 s1 | Come stai?
@@ -129,6 +169,18 @@ b1 | Quanto costa?
 b2 | È troppo caro.
 b3 | Vorrei comprare questo.
 b4 | Posso pagare con la carta?
+t1 | Dove va questo autobus?
+t2 | Un biglietto per Bandung, per favore.
+t3 | A che ora parte il treno?
+h1 | Sto male.
+h2 | Ho mal di testa.
+h3 | Chiami un medico, per favore!
+c1 | Oggi fa molto caldo.
+c2 | Domani pioverà.
+c3 | Fa bel tempo.
+g1 | Lavoro in un ufficio.
+g2 | Studio ogni giorno.
+g3 | Quali sono i tuoi hobby?
 `,
   alphabet: {
     title: "Alfabet dan bunyi",
