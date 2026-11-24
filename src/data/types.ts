@@ -6,7 +6,11 @@ export type UnitId =
   | "makan"
   | "waktu"
   | "arah"
-  | "belanja";
+  | "belanja"
+  | "transportasi"
+  | "kesehatan"
+  | "cuaca"
+  | "kegiatan";
 
 export interface Unit {
   id: UnitId;

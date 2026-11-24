@@ -96,6 +96,46 @@ toko | 가게 | gage
 ini | 이것 | igeot | lisan: 이거
 itu | 그것 | geugeot | lisan: 그거
 membayar | 계산하다 | gyesanhada
+mobil | 자동차 | jadongcha | singkat: 차
+bus | 버스 | beoseu
+kereta | 기차 | gicha | kereta bawah tanah: 지하철
+pesawat | 비행기 | bihaenggi
+sepeda | 자전거 | jajeongeo
+tiket | 표 | pyo | juga 티켓
+jalan | 길 | gil
+bandara | 공항 | gonghang
+berangkat | 출발하다 | chulbalhada
+tiba | 도착하다 | dochakhada
+kepala | 머리 | meori | juga berarti rambut
+mata | 눈 | nun | juga berarti salju
+tangan | 손 | son
+kaki | 발 | bal | tungkai: 다리
+perut | 배 | bae | juga berarti kapal dan pir
+sakit | 아프다 | apeuda
+dokter | 의사 | uisa
+obat | 약 | yak
+rumahsakit | 병원 | byeongwon
+demam | 열 | yeol
+cuaca | 날씨 | nalssi
+panas | 덥다 | deopda | benda panas: 뜨겁다
+dingin | 춥다 | chupda | benda dingin: 차갑다
+hujan | 비 | bi
+matahari | 해 | hae | juga 태양
+angin | 바람 | baram
+laut | 바다 | bada
+gunung | 산 | san
+sungai | 강 | gang
+musim | 계절 | gyejeol
+bekerja | 일하다 | ilhada
+belajar | 공부하다 | gongbuhada
+membaca | 읽다 | ikda
+menulis | 쓰다 | sseuda
+tidur | 자다 | jada
+pergi | 가다 | gada
+datang | 오다 | oda
+kantor | 회사 | hoesa | arti harfiah: perusahaan; ruang kantor: 사무실
+sekolah | 학교 | hakgyo
+libur | 휴가 | hyuga | hari libur: 휴일
 `,
   phrases: `
 s1 | 잘 지내세요? | jal jinaeseyo?
@@ -129,6 +169,18 @@ b1 | 얼마예요? | eolmayeyo?
 b2 | 너무 비싸요. | neomu bissayo.
 b3 | 이거 사고 싶어요. | igeo sago sipeoyo.
 b4 | 카드로 계산할 수 있어요? | kadeuro gyesanhal su isseoyo?
+t1 | 이 버스는 어디에 가요? | i beoseuneun eodie gayo?
+t2 | 반둥 가는 표 한 장 주세요. | Bandung ganeun pyo han jang juseyo.
+t3 | 기차가 몇 시에 출발해요? | gichaga myeot sie chulbalhaeyo?
+h1 | 몸이 아파요. | momi apayo.
+h2 | 머리가 아파요. | meoriga apayo.
+h3 | 의사를 불러 주세요! | uisareul bulleo juseyo!
+c1 | 오늘 정말 더워요. | oneul jeongmal deowoyo.
+c2 | 내일 비가 올 거예요. | naeil biga ol geoyeyo.
+c3 | 날씨가 좋아요. | nalssiga joayo.
+g1 | 저는 회사에서 일해요. | jeoneun hoesa-eseo ilhaeyo.
+g2 | 저는 매일 공부해요. | jeoneun maeil gongbuhaeyo.
+g3 | 취미가 뭐예요? | chwimiga mwoyeyo?
 `,
   alphabet: {
     title: "Hangul",

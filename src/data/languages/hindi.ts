@@ -96,6 +96,46 @@ toko | दुकान | dukān
 ini | यह | yah
 itu | वह | vah
 membayar | भुगतान करना | bhugtān karnā
+mobil | गाड़ी | gāṛī | juga कार (kār)
+bus | बस | bas
+kereta | रेलगाड़ी | relgāṛī | juga ट्रेन (ṭren)
+pesawat | हवाई जहाज़ | havāī jahāz
+sepeda | साइकिल | sāikil
+tiket | टिकट | ṭikaṭ
+jalan | सड़क | saṛak
+bandara | हवाई अड्डा | havāī aḍḍā
+berangkat | रवाना होना | ravānā honā
+tiba | पहुँचना | pahuṃchnā
+kepala | सिर | sir
+mata | आँख | āṃkh
+tangan | हाथ | hāth
+kaki | पैर | pair
+perut | पेट | peṭ
+sakit | बीमार | bīmār
+dokter | डॉक्टर | ḍôkṭar
+obat | दवा | davā
+rumahsakit | अस्पताल | aspatāl
+demam | बुख़ार | bukhār
+cuaca | मौसम | mausam | juga berarti musim
+panas | गर्म | garm
+dingin | ठंडा | ṭhaṃḍā
+hujan | बारिश | bārish
+matahari | सूरज | sūraj
+angin | हवा | havā
+laut | समुद्र | samudra
+gunung | पहाड़ | pahāṛ
+sungai | नदी | nadī
+musim | ऋतु | ṛtu | sehari-hari: मौसम
+bekerja | काम करना | kām karnā
+belajar | सीखना | sīkhnā | belajar di sekolah: पढ़ाई करना
+membaca | पढ़ना | paṛhnā
+menulis | लिखना | likhnā
+tidur | सोना | sonā
+pergi | जाना | jānā
+datang | आना | ānā
+kantor | दफ़्तर | daftar | juga ऑफ़िस
+sekolah | स्कूल | skūl | juga विद्यालय (vidyālay)
+libur | छुट्टी | chhuṭṭī
 `,
   phrases: `
 s1 | आप कैसे हैं? | āp kaise haiṃ?
@@ -129,6 +169,18 @@ b1 | यह कितने का है? | yah kitne kā hai?
 b2 | यह बहुत महँगा है। | yah bahut mahaṃgā hai.
 b3 | मैं यह ख़रीदना चाहता हूँ। | maiṃ yah kharīdnā chāhtā hūṃ.
 b4 | क्या मैं कार्ड से भुगतान कर सकता हूँ? | kyā maiṃ kārḍ se bhugtān kar saktā hūṃ?
+t1 | यह बस कहाँ जाती है? | yah bas kahāṃ jātī hai?
+t2 | बांडुंग का एक टिकट दीजिए। | Bāṃḍuṃg kā ek ṭikaṭ dījiye.
+t3 | ट्रेन कितने बजे रवाना होगी? | ṭren kitne baje ravānā hogī?
+h1 | मैं बीमार हूँ। | maiṃ bīmār hūṃ.
+h2 | मेरे सिर में दर्द है। | mere sir meṃ dard hai.
+h3 | कृपया डॉक्टर को बुलाइए! | kṛpayā ḍôkṭar ko bulāiye!
+c1 | आज बहुत गर्मी है। | āj bahut garmī hai.
+c2 | कल बारिश होगी। | kal bārish hogī.
+c3 | मौसम अच्छा है। | mausam achchhā hai.
+g1 | मैं दफ़्तर में काम करता हूँ। | maiṃ daftar meṃ kām kartā hūṃ. | penutur perempuan: करती हूँ
+g2 | मैं हर दिन पढ़ाई करता हूँ। | maiṃ har din paṛhāī kartā hūṃ. | penutur perempuan: करती हूँ
+g3 | आपके शौक़ क्या हैं? | āpke shauq kyā haiṃ?
 `,
   alphabet: {
     title: "Aksara Dewanagari",

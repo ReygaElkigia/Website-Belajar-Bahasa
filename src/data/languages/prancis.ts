@@ -96,6 +96,46 @@ toko | le magasin
 ini | ceci | lisan: ça
 itu | cela
 membayar | payer
+mobil | la voiture
+bus | le bus
+kereta | le train
+pesawat | l'avion
+sepeda | le vélo
+tiket | le billet
+jalan | la route | | jalan di kota: la rue
+bandara | l'aéroport
+berangkat | partir
+tiba | arriver
+kepala | la tête
+mata | l'œil | | jamak: les yeux
+tangan | la main
+kaki | le pied | | tungkai: la jambe
+perut | le ventre
+sakit | malade
+dokter | le médecin
+obat | le médicament
+rumahsakit | l'hôpital
+demam | la fièvre
+cuaca | le temps | | prakiraan cuaca: la météo
+panas | chaud
+dingin | froid
+hujan | la pluie
+matahari | le soleil
+angin | le vent
+laut | la mer
+gunung | la montagne
+sungai | la rivière | | sungai besar ke laut: le fleuve
+musim | la saison
+bekerja | travailler
+belajar | étudier | | mempelajari keterampilan: apprendre
+membaca | lire
+menulis | écrire
+tidur | dormir
+pergi | aller
+datang | venir
+kantor | le bureau
+sekolah | l'école
+libur | les vacances
 `,
   phrases: `
 s1 | Comment ça va ?
@@ -129,6 +169,18 @@ b1 | Combien ça coûte ?
 b2 | C'est trop cher.
 b3 | Je voudrais acheter ça.
 b4 | Je peux payer par carte ?
+t1 | Où va ce bus ?
+t2 | Un billet pour Bandung, s'il vous plaît.
+t3 | À quelle heure part le train ?
+h1 | Je suis malade.
+h2 | J'ai mal à la tête.
+h3 | Appelez un médecin, s'il vous plaît !
+c1 | Il fait très chaud aujourd'hui.
+c2 | Il va pleuvoir demain.
+c3 | Il fait beau.
+g1 | Je travaille dans un bureau.
+g2 | J'étudie tous les jours.
+g3 | Quels sont tes loisirs ?
 `,
   alphabet: {
     title: "Aksen dan bunyi",

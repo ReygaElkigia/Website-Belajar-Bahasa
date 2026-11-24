@@ -96,6 +96,46 @@ toko | ร้าน | ran
 ini | นี่ | ni
 itu | นั่น | nan
 membayar | จ่าย | chai
+mobil | รถยนต์ | rot yon | sehari-hari: รถ (rot)
+bus | รถเมล์ | rot me | bus antarkota: รถบัส
+kereta | รถไฟ | rot fai
+pesawat | เครื่องบิน | khrueang bin
+sepeda | จักรยาน | chakkrayan
+tiket | ตั๋ว | tua
+jalan | ถนน | thanon
+bandara | สนามบิน | sanam bin
+berangkat | ออกเดินทาง | ok doen thang
+tiba | ถึง | thueng
+kepala | หัว | hua
+mata | ตา | ta
+tangan | มือ | mue
+kaki | เท้า | thao | tungkai: ขา (kha)
+perut | ท้อง | thong
+sakit | ป่วย | puai | rasa sakit: เจ็บ, ปวด
+dokter | หมอ | mo | formal: แพทย์
+obat | ยา | ya
+rumahsakit | โรงพยาบาล | rong phayaban
+demam | ไข้ | khai
+cuaca | อากาศ | akat
+panas | ร้อน | ron
+dingin | หนาว | nao | benda dingin: เย็น (yen)
+hujan | ฝน | fon
+matahari | ดวงอาทิตย์ | duang athit
+angin | ลม | lom
+laut | ทะเล | thale
+gunung | ภูเขา | phukhao
+sungai | แม่น้ำ | maenam
+musim | ฤดู | ruedu
+bekerja | ทำงาน | tham ngan
+belajar | เรียน | rian
+membaca | อ่าน | an
+menulis | เขียน | khian
+tidur | นอน | non
+pergi | ไป | pai
+datang | มา | ma
+kantor | สำนักงาน | samnakngan | sehari-hari: ออฟฟิศ
+sekolah | โรงเรียน | rong rian
+libur | วันหยุด | wan yut
 `,
   phrases: `
 s1 | สบายดีไหม | sabai di mai?
@@ -129,6 +169,18 @@ b1 | เท่าไหร่ | thao rai?
 b2 | แพงเกินไป | phaeng koen pai.
 b3 | ฉันอยากซื้ออันนี้ | chan yak sue an ni.
 b4 | จ่ายด้วยบัตรได้ไหม | chai duai bat dai mai?
+t1 | รถเมล์คันนี้ไปไหน | rot me khan ni pai nai?
+t2 | ขอตั๋วไปบันดุงหนึ่งใบ | kho tua pai Bandung nueng bai.
+t3 | รถไฟออกกี่โมง | rot fai ok ki mong?
+h1 | ฉันไม่สบาย | chan mai sabai.
+h2 | ฉันปวดหัว | chan puat hua.
+h3 | ช่วยเรียกหมอให้หน่อย | chuai riak mo hai noi!
+c1 | วันนี้ร้อนมาก | wan ni ron mak.
+c2 | พรุ่งนี้ฝนจะตก | phrung ni fon cha tok.
+c3 | อากาศดี | akat di.
+g1 | ฉันทำงานที่ออฟฟิศ | chan tham ngan thi offit.
+g2 | ฉันเรียนทุกวัน | chan rian thuk wan.
+g3 | งานอดิเรกของคุณคืออะไร | ngan adirek khong khun khue arai?
 `,
   alphabet: {
     title: "Aksara Thai",

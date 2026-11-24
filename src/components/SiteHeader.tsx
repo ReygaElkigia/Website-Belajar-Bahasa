@@ -2,13 +2,14 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { BookOpen, ChartColumn, Clapperboard, Languages, Layers } from "lucide-react";
+import { BookOpen, ChartColumn, Clapperboard, GraduationCap, Languages, Layers } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
 
 const links = [
   { href: "/bahasa/", label: "Bahasa", icon: Languages },
   { href: "/kamus/", label: "Kamus", icon: BookOpen },
   { href: "/latihan/", label: "Latihan", icon: Layers },
+  { href: "/ujian/", label: "Ujian", icon: GraduationCap },
   { href: "/video/", label: "Video", icon: Clapperboard },
   { href: "/progres/", label: "Progres", icon: ChartColumn },
 ];

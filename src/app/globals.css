@@ -410,7 +410,7 @@ mark,
   inset: auto 0 0 0;
   z-index: 20;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   background: var(--sheet);
   border-top: 1px solid var(--rule);
   padding-bottom: env(safe-area-inset-bottom);
@@ -423,7 +423,7 @@ mark,
   padding: 8px 0 6px;
   color: var(--ink-2);
   text-decoration: none;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
 }
 
@@ -1927,5 +1927,352 @@ body {
   *::after {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+/* ---------- Ujian ---------- */
+
+.exam-card-grid {
+  display: grid;
+  gap: var(--s-4);
+}
+
+@media (min-width: 760px) {
+  .exam-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.exam-card {
+  display: grid;
+  gap: var(--s-2);
+  align-content: start;
+  padding: var(--s-5);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-2);
+  background: var(--sheet);
+  color: inherit;
+  text-decoration: none;
+}
+
+.exam-card:hover {
+  border-color: var(--pen);
+  color: inherit;
+}
+
+.exam-card h3 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 22px;
+}
+
+.format-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--t-small);
+}
+
+.format-table th,
+.format-table td {
+  padding: var(--s-3) var(--s-3) var(--s-3) 0;
+  border-bottom: 1px solid var(--rule);
+  text-align: left;
+  vertical-align: top;
+}
+
+.format-table thead th {
+  color: var(--ink-2);
+  font-weight: 600;
+  border-bottom: 2px solid var(--ink);
+}
+
+.format-table tbody th {
+  font-weight: 700;
+  min-width: 140px;
+}
+
+.part-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--rule);
+}
+
+.part-list li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--s-3);
+  align-items: center;
+  padding: var(--s-4) 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.exam-q {
+  display: grid;
+  gap: var(--s-4);
+  max-width: 760px;
+}
+
+.exam-audio {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-2) var(--s-3);
+  padding: var(--s-3) var(--s-4);
+  border-radius: var(--r-2);
+  background: var(--sheet-2);
+}
+
+.exam-audio .btn[data-playing="true"] {
+  border-color: var(--pen);
+  color: var(--pen);
+}
+
+.exam-passage {
+  padding: var(--s-5);
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--margin);
+  border-radius: var(--r-1);
+  background: var(--sheet);
+  white-space: pre-line;
+  line-height: 1.75;
+  max-height: 420px;
+  overflow-y: auto;
+}
+
+.exam-prompt {
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.exam-frame {
+  font-size: 20px;
+  padding: var(--s-3) var(--s-4);
+  background: var(--sheet);
+  border: 1px dashed var(--rule-strong);
+  border-radius: var(--r-1);
+}
+
+.exam-answer {
+  display: grid;
+  gap: 4px;
+  padding: var(--s-3) var(--s-4);
+  border-radius: var(--r-1);
+  background: var(--sheet-2);
+}
+
+.exam-input {
+  width: 100%;
+  min-height: 48px;
+  padding: var(--s-3) var(--s-4);
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--r-1);
+  background: var(--sheet);
+  color: var(--ink);
+  font: inherit;
+  font-size: 18px;
+  resize: vertical;
+}
+
+.exam-input:focus {
+  outline: none;
+  border-color: var(--pen);
+  box-shadow: 0 0 0 3px var(--pen-wash);
+}
+
+.exam-input.essay {
+  min-height: 260px;
+  line-height: 1.7;
+}
+
+.exam-table {
+  max-width: 520px;
+}
+
+.options.one-col {
+  grid-template-columns: 1fr;
+}
+
+.option[data-state="picked"] {
+  border-color: var(--pen);
+  background: var(--pen-wash);
+}
+
+.option .checkbox {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border: 1.5px solid var(--rule-strong);
+  border-radius: 4px;
+  background: var(--sheet);
+  color: var(--pen);
+}
+
+.opt-icon {
+  margin-left: auto;
+  flex: none;
+}
+
+.opt-icon.ok {
+  color: var(--ok);
+}
+
+.opt-icon.bad {
+  color: var(--margin);
+}
+
+.order-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--s-2);
+}
+
+.order-item {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr) auto;
+  gap: var(--s-3);
+  align-items: center;
+  padding: var(--s-3);
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--r-1);
+  background: var(--sheet);
+}
+
+.order-item[data-state="right"] {
+  border-color: var(--ok);
+  background: var(--ok-wash);
+}
+
+.order-item[data-state="wrong"] {
+  border-color: var(--margin);
+  background: var(--bad-wash);
+}
+
+.order-num {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  color: var(--ink-2);
+  text-align: center;
+}
+
+.order-text {
+  font-size: 18px;
+}
+
+.order-moves {
+  display: flex;
+  gap: 2px;
+}
+
+.order-moves .icon-btn:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.exam-gaptext {
+  font-size: 18px;
+  line-height: 2.4;
+}
+
+.gap-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-inline: 4px;
+}
+
+.gap-select {
+  min-height: 38px;
+  font-size: 16px;
+}
+
+.gap-wrap[data-state="right"] .gap-select {
+  border-color: var(--ok);
+  background-color: var(--ok-wash);
+}
+
+.gap-wrap[data-state="wrong"] .gap-select {
+  border-color: var(--margin);
+  background-color: var(--bad-wash);
+}
+
+.gap-fix {
+  font-size: var(--t-small);
+  font-weight: 700;
+  color: var(--ok);
+}
+
+.timer {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: var(--r-pill);
+  background: var(--sheet-2);
+  font-size: var(--t-small);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.timer[data-low="true"] {
+  background: var(--bad-wash);
+  color: var(--margin);
+}
+
+.checklist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--s-2);
+}
+
+.checklist label {
+  display: flex;
+  gap: var(--s-3);
+  align-items: flex-start;
+  cursor: pointer;
+}
+
+.checklist input {
+  width: 20px;
+  height: 20px;
+  margin-top: 3px;
+  accent-color: var(--pen);
+  flex: none;
+}
+
+.exam-table thead th:not(:first-child) {
+  text-align: right;
+}
+
+/* Tabel format menjadi kartu bertumpuk di layar sempit. */
+@media (max-width: 640px) {
+  .format-table thead {
+    display: none;
+  }
+  .format-table tbody tr {
+    display: grid;
+    gap: 4px;
+    padding: var(--s-4) 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .format-table tbody th,
+  .format-table tbody td {
+    padding: 0;
+    border: 0;
+  }
+  .format-table tbody th {
+    font-size: 17px;
+    margin-bottom: 4px;
+  }
+  .format-table tbody td::before {
+    content: attr(data-label) ": ";
+    color: var(--ink-2);
   }
 }

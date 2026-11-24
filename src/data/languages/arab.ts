@@ -96,6 +96,46 @@ toko | متجر | matjar | toko kecil: دكان (dukkān)
 ini | هذا | hādhā | untuk benda feminin: هذه (hādhihi)
 itu | ذلك | dhālika | untuk benda feminin: تلك (tilka)
 membayar | يدفع | yadfaʿu | kata dasar: دفع (dafaʿa)
+mobil | سيارة | sayyāra
+bus | حافلة | ḥāfila | lisan: باص (bāṣ)
+kereta | قطار | qiṭār
+pesawat | طائرة | ṭāʾira
+sepeda | دراجة | darrāja
+tiket | تذكرة | tadhkira
+jalan | طريق | ṭarīq | jalan di kota: شارع (shāriʿ)
+bandara | مطار | maṭār
+berangkat | يغادر | yughādiru | kata dasar: غادر (ghādara)
+tiba | يصل | yaṣilu | kata dasar: وصل (waṣala)
+kepala | رأس | raʾs
+mata | عين | ʿayn
+tangan | يد | yad
+kaki | قدم | qadam | tungkai: رجل (rijl)
+perut | بطن | baṭn
+sakit | مريض | marīḍ | perempuan: مريضة (marīḍa)
+dokter | طبيب | ṭabīb
+obat | دواء | dawāʾ
+rumahsakit | مستشفى | mustashfā
+demam | حمى | ḥummā
+cuaca | طقس | ṭaqs
+panas | حار | ḥārr
+dingin | بارد | bārid
+hujan | مطر | maṭar
+matahari | شمس | shams
+angin | ريح | rīḥ
+laut | بحر | baḥr
+gunung | جبل | jabal
+sungai | نهر | nahr
+musim | فصل | faṣl | juga موسم (mawsim)
+bekerja | يعمل | yaʿmalu | kata dasar: عمل (ʿamila)
+belajar | يدرس | yadrusu | kata dasar: درس (darasa)
+membaca | يقرأ | yaqraʾu | kata dasar: قرأ (qaraʾa)
+menulis | يكتب | yaktubu | kata dasar: كتب (kataba)
+tidur | ينام | yanāmu | kata dasar: نام (nāma)
+pergi | يذهب | yadhhabu | kata dasar: ذهب (dhahaba)
+datang | يأتي | yaʾtī | kata dasar: أتى (atā)
+kantor | مكتب | maktab
+sekolah | مدرسة | madrasa
+libur | عطلة | ʿuṭla
 `,
   phrases: `
 s1 | كيف حالك؟ | kayfa ḥāluk?
@@ -129,6 +169,18 @@ b1 | بكم هذا؟ | bikam hādhā?
 b2 | هذا غالٍ جدا. | hādhā ghālin jiddan.
 b3 | أريد أن أشتري هذا. | urīdu an ashtariya hādhā.
 b4 | هل يمكنني الدفع بالبطاقة؟ | hal yumkinunī ad-dafʿ bil-biṭāqa?
+t1 | إلى أين تذهب هذه الحافلة؟ | ilā ayna tadhhabu hādhihi al-ḥāfila?
+t2 | تذكرة واحدة إلى باندونغ من فضلك. | tadhkira wāḥida ilā Bāndūng min faḍlik.
+t3 | متى يغادر القطار؟ | matā yughādiru al-qiṭār?
+h1 | أنا مريض. | anā marīḍ. | penutur perempuan: مريضة
+h2 | عندي صداع. | ʿindī ṣudāʿ.
+h3 | اطلب طبيبا من فضلك! | uṭlub ṭabīban min faḍlik!
+c1 | الجو حار جدا اليوم. | al-jaww ḥārr jiddan al-yawm.
+c2 | ستمطر غدا. | sa-tumṭir ghadan.
+c3 | الطقس جميل. | aṭ-ṭaqs jamīl.
+g1 | أعمل في مكتب. | aʿmalu fī maktab.
+g2 | أدرس كل يوم. | adrusu kulla yawm.
+g3 | ما هواياتك؟ | mā hiwāyātuk?
 `,
   alphabet: {
     title: "Huruf hijaiyah",

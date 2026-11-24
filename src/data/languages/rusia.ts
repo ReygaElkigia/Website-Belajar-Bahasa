@@ -96,6 +96,46 @@ toko | магазин | magazin
 ini | это | eto
 itu | то | to
 membayar | платить | platit'
+mobil | машина | mashina | formal: автомобиль
+bus | автобус | avtobus
+kereta | поезд | poyezd
+pesawat | самолёт | samolyot
+sepeda | велосипед | velosiped
+tiket | билет | bilet
+jalan | дорога | doroga | jalan di kota: улица (ulitsa)
+bandara | аэропорт | aeroport
+berangkat | отправляться | otpravlyat'sya
+tiba | приезжать | priyezzhat'
+kepala | голова | golova
+mata | глаз | glaz
+tangan | рука | ruka | juga berarti lengan
+kaki | нога | noga | juga berarti tungkai
+perut | живот | zhivot
+sakit | больной | bol'noy
+dokter | врач | vrach
+obat | лекарство | lekarstvo
+rumahsakit | больница | bol'nitsa
+demam | температура | temperatura | arti harfiah: suhu tubuh tinggi
+cuaca | погода | pogoda
+panas | жарко | zharko
+dingin | холодно | kholodno
+hujan | дождь | dozhd'
+matahari | солнце | solntse | huruf л tidak dibaca
+angin | ветер | veter
+laut | море | more
+gunung | гора | gora
+sungai | река | reka
+musim | время года | vremya goda
+bekerja | работать | rabotat'
+belajar | учиться | uchit'sya | mempelajari sesuatu: изучать
+membaca | читать | chitat'
+menulis | писать | pisat'
+tidur | спать | spat'
+pergi | идти | idti | dengan kendaraan: ехать
+datang | приходить | prikhodit'
+kantor | офис | ofis
+sekolah | школа | shkola
+libur | отпуск | otpusk | libur sekolah: каникулы
 `,
   phrases: `
 s1 | Как дела? | kak dela?
@@ -129,6 +169,18 @@ b1 | Сколько это стоит? | skol'ko eto stoit?
 b2 | Это слишком дорого. | eto slishkom dorogo.
 b3 | Я хочу купить это. | ya khochu kupit' eto.
 b4 | Можно заплатить картой? | mozhno zaplatit' kartoy?
+t1 | Куда идёт этот автобус? | kuda idyot etot avtobus?
+t2 | Один билет до Бандунга, пожалуйста. | odin bilet do Bandunga, pozhaluysta.
+t3 | Во сколько отправляется поезд? | vo skol'ko otpravlyayetsya poyezd?
+h1 | Я болен. | ya bolen. | penutur perempuan: больна
+h2 | У меня болит голова. | u menya bolit golova.
+h3 | Вызовите врача, пожалуйста! | vyzovite vracha, pozhaluysta!
+c1 | Сегодня очень жарко. | segodnya ochen' zharko.
+c2 | Завтра будет дождь. | zavtra budet dozhd'.
+c3 | Хорошая погода. | khoroshaya pogoda.
+g1 | Я работаю в офисе. | ya rabotayu v ofise.
+g2 | Я учусь каждый день. | ya uchus' kazhdyy den'.
+g3 | Какое у тебя хобби? | kakoye u tebya khobbi?
 `,
   alphabet: {
     title: "Alfabet Kiril",

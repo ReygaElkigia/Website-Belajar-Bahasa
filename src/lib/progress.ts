@@ -18,10 +18,11 @@ export interface ProgressState {
   cards: Record<string, Record<string, Card>>; // lang -> concept -> kartu
   days: string[]; // tanggal aktif, YYYY-MM-DD
   saved: Record<string, string[]>; // lang -> kata yang ditandai dari kamus
+  exams: Record<string, Record<string, number>>; // ujian -> bagian -> skor terbaik (0..100)
 }
 
 const KEY = "tutur:progress:v1";
-const EMPTY: ProgressState = { done: {}, cards: {}, days: [], saved: {} };
+const EMPTY: ProgressState = { done: {}, cards: {}, days: [], saved: {}, exams: {} };
 
 /** Jarak ulang per kotak, dalam hari. */
 export const BOX_DAYS = [0, 0, 1, 3, 7, 16];
@@ -107,6 +108,17 @@ export function completeUnit(lang: string, unit: string, score: number) {
     withToday({
       ...state,
       done: { ...state.done, [lang]: { ...state.done[lang], [unit]: Math.max(prev, score) } },
+    }),
+  );
+}
+
+export function saveExamPart(exam: string, part: string, score: number) {
+  ensureLoaded();
+  const prev = state.exams[exam]?.[part] ?? 0;
+  commit(
+    withToday({
+      ...state,
+      exams: { ...state.exams, [exam]: { ...state.exams[exam], [part]: Math.max(prev, score) } },
     }),
   );
 }

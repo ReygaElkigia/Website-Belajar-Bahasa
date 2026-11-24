@@ -28,7 +28,15 @@ const filters = [
 
 type FilterId = (typeof filters)[number]["id"];
 
-export function LanguageIndex({ items, withFilter = false }: { items: LangSummary[]; withFilter?: boolean }) {
+export function LanguageIndex({
+  items,
+  totalUnits,
+  withFilter = false,
+}: {
+  items: LangSummary[];
+  totalUnits: number;
+  withFilter?: boolean;
+}) {
   const [filter, setFilter] = useState<FilterId>("all");
   const progress = useProgress();
 
@@ -69,7 +77,7 @@ export function LanguageIndex({ items, withFilter = false }: { items: LangSummar
                   <span className="lang-meta">
                     <span>{l.script}</span>
                     <span>{formatSpeakers(l.speakers)} penutur</span>
-                    {done > 0 && <span style={{ color: "var(--ok)" }}>{done} dari 8 unit selesai</span>}
+                    {done > 0 && <span style={{ color: "var(--ok)" }}>{done} dari {totalUnits} unit selesai</span>}
                   </span>
                 </span>
                 <span className="lang-side">

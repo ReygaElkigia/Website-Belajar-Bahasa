@@ -96,6 +96,46 @@ toko | 店 | mise | みせ
 ini | これ | kore
 itu | それ | sore
 membayar | 払う | harau | はらう
+mobil | 車 | kuruma | くるま
+bus | バス | basu
+kereta | 電車 | densha | でんしゃ
+pesawat | 飛行機 | hikōki | ひこうき
+sepeda | 自転車 | jitensha | じてんしゃ
+tiket | 切符 | kippu | きっぷ; juga チケット
+jalan | 道 | michi | みち
+bandara | 空港 | kūkō | くうこう
+berangkat | 出発する | shuppatsu suru | しゅっぱつする
+tiba | 着く | tsuku | つく
+kepala | 頭 | atama | あたま
+mata | 目 | me | め
+tangan | 手 | te | て
+kaki | 足 | ashi | あし
+perut | お腹 | onaka | おなか
+sakit | 病気 | byōki | びょうき; rasa sakit: 痛い (itai)
+dokter | 医者 | isha | いしゃ
+obat | 薬 | kusuri | くすり
+rumahsakit | 病院 | byōin | びょういん
+demam | 熱 | netsu | ねつ
+cuaca | 天気 | tenki | てんき
+panas | 暑い | atsui | あつい; benda panas: 熱い
+dingin | 寒い | samui | さむい; benda dingin: 冷たい (tsumetai)
+hujan | 雨 | ame | あめ
+matahari | 太陽 | taiyō | たいよう
+angin | 風 | kaze | かぜ
+laut | 海 | umi | うみ
+gunung | 山 | yama | やま
+sungai | 川 | kawa | かわ
+musim | 季節 | kisetsu | きせつ
+bekerja | 働く | hataraku | はたらく
+belajar | 勉強する | benkyō suru | べんきょうする
+membaca | 読む | yomu | よむ
+menulis | 書く | kaku | かく
+tidur | 寝る | neru | ねる
+pergi | 行く | iku | いく
+datang | 来る | kuru | くる
+kantor | 会社 | kaisha | かいしゃ; arti harfiah: perusahaan
+sekolah | 学校 | gakkō | がっこう
+libur | 休み | yasumi | やすみ
 `,
   phrases: `
 s1 | お元気ですか？ | o-genki desu ka?
@@ -129,6 +169,18 @@ b1 | いくらですか？ | ikura desu ka?
 b2 | 高すぎます。 | takasugimasu.
 b3 | これを買いたいです。 | kore o kaitai desu.
 b4 | カードで払えますか？ | kādo de haraemasu ka?
+t1 | このバスはどこに行きますか？ | kono basu wa doko ni ikimasu ka?
+t2 | バンドンまでの切符を一枚ください。 | Bandon made no kippu o ichi-mai kudasai.
+t3 | 電車は何時に出発しますか？ | densha wa nan-ji ni shuppatsu shimasu ka?
+h1 | 具合が悪いです。 | guai ga warui desu.
+h2 | 頭が痛いです。 | atama ga itai desu.
+h3 | 医者を呼んでください！ | isha o yonde kudasai!
+c1 | 今日はとても暑いです。 | kyō wa totemo atsui desu.
+c2 | 明日は雨が降ります。 | ashita wa ame ga furimasu.
+c3 | いい天気ですね。 | ii tenki desu ne.
+g1 | 会社で働いています。 | kaisha de hataraite imasu.
+g2 | 毎日勉強します。 | mainichi benkyō shimasu.
+g3 | 趣味は何ですか？ | shumi wa nan desu ka?
 `,
   alphabet: {
     title: "Hiragana dan katakana",
