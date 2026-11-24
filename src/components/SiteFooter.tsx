@@ -1,0 +1,51 @@
+import Link from "next/link";
+import { languages } from "@/data";
+
+export function SiteFooter() {
+  return (
+    <footer className="site-footer">
+      <div className="wrap footer-grid">
+        <div className="stack">
+          <Link href="/" className="brand">
+            Tutur
+            <span className="brand-dot" aria-hidden />
+          </Link>
+          <p>
+            Tempat belajar bahasa dunia dari bahasa Indonesia. Progres Anda disimpan di perangkat ini saja, tanpa akun.
+          </p>
+          <p className="tiny">
+            Suara dibacakan oleh mesin suara bawaan perangkat Anda. Video milik kreatornya masing-masing dan diputar
+            dari YouTube.
+          </p>
+        </div>
+        <div>
+          <h2>Bahasa</h2>
+          <ul style={{ gridTemplateColumns: "1fr 1fr", columnGap: 16 }}>
+            {languages.map((l) => (
+              <li key={l.slug}>
+                <Link href={`/bahasa/${l.slug}/`}>{l.name}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h2>Belajar</h2>
+          <ul>
+            <li>
+              <Link href="/kamus/">Kamus multibahasa</Link>
+            </li>
+            <li>
+              <Link href="/latihan/">Kartu hafalan dan kuis</Link>
+            </li>
+            <li>
+              <Link href="/video/">Video pilihan</Link>
+            </li>
+            <li>
+              <Link href="/progres/">Progres saya</Link>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  );
+}

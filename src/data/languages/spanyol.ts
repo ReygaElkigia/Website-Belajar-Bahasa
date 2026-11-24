@@ -1,0 +1,181 @@
+import { defineLanguage } from "../define";
+
+export default defineLanguage({
+  slug: "spanyol",
+  name: "Spanyol",
+  native: "Español",
+  tts: "es-ES",
+  code: "es",
+  dir: "ltr",
+  script: "Latin",
+  glyph: "Ññ",
+  speakers: 560,
+  challenge: 1,
+  challengeNote: "Dibaca seperti ditulis dan vokalnya sama dengan bahasa Indonesia. Salah satu bahasa termudah untuk dimulai.",
+  regions: "Spanyol, Meksiko, dan hampir seluruh Amerika Latin",
+  about:
+    "Bahasa kedua terbesar di dunia menurut jumlah penutur asli. Bagi penutur Indonesia, pelafalannya terasa sangat alami: a, i, u, e, o dibaca jelas dan ejaannya hampir selalu konsisten.",
+  vocab: `
+halo | Hola
+pagi | Buenos días
+malam | Buenas noches | sore menjelang malam: Buenas tardes
+terimakasih | Gracias
+samasama | De nada
+maaf | Lo siento
+permisi | Perdón | lewat di keramaian: Con permiso
+ya | Sí
+tidak | No
+dadah | Adiós
+saya | yo
+kamu | tú | formal: usted
+nama | el nombre
+teman | el amigo | perempuan: la amiga
+guru | el profesor | perempuan: la profesora
+pelajar | el estudiante
+negara | el país
+bahasa | el idioma | juga la lengua
+indonesia | Indonesia
+berbicara | hablar
+satu | uno
+dua | dos
+tiga | tres
+empat | cuatro
+lima | cinco
+enam | seis
+tujuh | siete
+delapan | ocho
+sembilan | nueve
+sepuluh | diez
+keluarga | la familia
+ayah | el padre | akrab: papá
+ibu | la madre | akrab: mamá
+anak | el niño | anak (dari orang tua): el hijo
+saudaralk | el hermano
+saudarapr | la hermana
+suami | el esposo
+istri | la esposa
+kakek | el abuelo
+nenek | la abuela
+makan | comer
+minum | beber
+air | el agua
+nasi | el arroz
+roti | el pan
+kopi | el café
+teh | el té
+ikan | el pescado | ikan hidup: el pez
+ayam | el pollo
+enak | delicioso
+hariini | hoy
+besok | mañana
+kemarin | ayer
+sekarang | ahora
+jam | la hora
+hari | el día
+minggu | la semana
+bulan | el mes
+tahun | el año
+pagihari | la mañana
+dimana | dónde
+kiri | a la izquierda
+kanan | a la derecha
+lurus | todo recto
+dekat | cerca
+jauh | lejos
+stasiun | la estación
+rumah | la casa
+toilet | el baño
+hotel | el hotel
+berapa | cuánto
+harga | el precio
+mahal | caro
+murah | barato
+uang | el dinero
+membeli | comprar
+toko | la tienda
+ini | esto
+itu | eso
+membayar | pagar
+`,
+  phrases: `
+s1 | ¿Cómo estás?
+s2 | Estoy bien, gracias.
+s3 | Mucho gusto.
+s4 | ¡Hasta luego!
+k1 | Me llamo Rina.
+k2 | ¿Cómo te llamas?
+k3 | Soy de Indonesia.
+k4 | No entiendo.
+k5 | Más despacio, por favor.
+a1 | ¿Cuántos años tienes?
+a2 | Tengo veinte años.
+a3 | Otro, por favor.
+f1 | Esta es mi madre.
+f2 | ¿Tienes hermanos?
+f3 | Mi familia vive en Yakarta.
+m1 | Tengo hambre.
+m2 | Un vaso de agua, por favor.
+m3 | ¡Está delicioso!
+m4 | La cuenta, por favor.
+w1 | ¿Qué hora es?
+w2 | ¿Qué día es hoy?
+w3 | ¡Hasta mañana!
+w4 | Hoy estoy ocupado.
+d1 | ¿Dónde está el baño?
+d2 | Gire a la izquierda.
+d3 | ¿Está lejos de aquí?
+d4 | Estoy perdido.
+b1 | ¿Cuánto cuesta?
+b2 | Es demasiado caro.
+b3 | Quiero comprar esto.
+b4 | ¿Puedo pagar con tarjeta?
+`,
+  alphabet: {
+    title: "Alfabet dan bunyi",
+    intro:
+      "Bahasa Spanyol dibaca hampir persis seperti ditulis. Cukup kenali beberapa huruf dan pasangan huruf yang bunyinya berbeda dari bahasa Indonesia.",
+    sections: [
+      {
+        title: "Huruf dan pola bunyi",
+        cols: 3,
+        items:
+          "ñ=ny|eñe|España;ll=y|doble ele|llamar;j=kh, h kuat|jota|jamón;h=tidak dibaca|hache|hola;rr=r bergetar panjang|perro|perro;c + e, i / z=s, atau th di Spanyol|cena, zapato|cena;g + e, i=kh|gente|gente;qu=k|queso|queso;v=b|vino|vino;¿ ¡=tanda tanya dan seru di awal kalimat|¿Qué?|¿Qué?",
+      },
+    ],
+  },
+  grammar: [
+    {
+      title: "Dua gender: el dan la",
+      body: "Kata benda maskulin memakai el, feminin memakai la. Biasanya yang berakhiran -o maskulin dan yang berakhiran -a feminin.",
+      examples: `
+el libro | buku
+la casa | rumah`,
+    },
+    {
+      title: "Subjek boleh dihilangkan",
+      body: "Akhiran kata kerja sudah menunjukkan pelakunya, jadi yo, tú, dan lainnya sering tidak diucapkan.",
+      examples: `
+(Yo) hablo español. | Saya berbicara bahasa Spanyol.
+¿Hablas inglés? | Kamu bisa bahasa Inggris?`,
+    },
+    {
+      title: "Dua kata 'adalah': ser dan estar",
+      body: "Ser untuk identitas dan sifat yang tetap. Estar untuk keadaan sementara dan lokasi.",
+      examples: `
+Soy estudiante. | Saya pelajar.
+Estoy cansado. | Saya (sedang) lelah.
+Estoy en Madrid. | Saya (sedang) di Madrid.`,
+    },
+    {
+      title: "Konjugasi kata kerja",
+      body: "Akhiran kata kerja berubah sesuai subjek. Polanya teratur untuk sebagian besar kata kerja.",
+      examples: `
+hablo, hablas, habla | saya, kamu, dia berbicara
+hablamos, hablan | kami, mereka berbicara`,
+    },
+  ],
+  videos: [
+    { id: "e-gZXuBqP5w", title: "Spanish Conversations for Beginners", kind: "Percakapan", about: "Percakapan spontan dengan orang di jalan untuk pemula." },
+    { id: "Wyd7stmL2pM", title: "1 Hour of Slow Spanish Conversations: 5 Topics for Beginners", kind: "Percakapan", about: "Lima topik sehari-hari dengan tempo pelan." },
+  ],
+});

@@ -1,0 +1,193 @@
+import { defineLanguage } from "../define";
+
+export default defineLanguage({
+  slug: "jerman",
+  name: "Jerman",
+  native: "Deutsch",
+  tts: "de-DE",
+  code: "de",
+  dir: "ltr",
+  script: "Latin",
+  glyph: "Ää",
+  speakers: 135,
+  challenge: 2,
+  challengeNote: "Ejaannya konsisten dan mudah dibaca, tetapi tiga gender dan perubahan kasus butuh hafalan.",
+  regions: "Jerman, Austria, Swiss, Liechtenstein, Luksemburg",
+  about:
+    "Bahasa dengan penutur asli terbanyak di Uni Eropa dan pintu ke beasiswa serta kerja di Jerman. Begitu aturan bunyinya dikuasai, hampir semua kata bisa dibaca dengan benar. Hafalkan setiap kata benda bersama artikelnya.",
+  vocab: `
+halo | Hallo
+pagi | Guten Morgen
+malam | Guten Abend | sebelum tidur: Gute Nacht
+terimakasih | Danke
+samasama | Bitte
+maaf | Es tut mir leid
+permisi | Entschuldigung
+ya | Ja
+tidak | Nein
+dadah | Auf Wiedersehen | akrab: Tschüss
+saya | ich
+kamu | du | formal: Sie
+nama | der Name
+teman | der Freund | perempuan: die Freundin
+guru | der Lehrer | perempuan: die Lehrerin
+pelajar | der Schüler | mahasiswa: der Student
+negara | das Land
+bahasa | die Sprache
+indonesia | Indonesien
+berbicara | sprechen
+satu | eins
+dua | zwei
+tiga | drei
+empat | vier
+lima | fünf
+enam | sechs
+tujuh | sieben
+delapan | acht
+sembilan | neun
+sepuluh | zehn
+keluarga | die Familie
+ayah | der Vater | akrab: Papa
+ibu | die Mutter | akrab: Mama
+anak | das Kind
+saudaralk | der Bruder
+saudarapr | die Schwester
+suami | der Ehemann | sehari-hari: mein Mann
+istri | die Ehefrau | sehari-hari: meine Frau
+kakek | der Großvater | akrab: Opa
+nenek | die Großmutter | akrab: Oma
+makan | essen
+minum | trinken
+air | das Wasser
+nasi | der Reis
+roti | das Brot
+kopi | der Kaffee
+teh | der Tee
+ikan | der Fisch
+ayam | das Hähnchen
+enak | lecker
+hariini | heute
+besok | morgen
+kemarin | gestern
+sekarang | jetzt
+jam | die Stunde | pukul: Uhr
+hari | der Tag
+minggu | die Woche
+bulan | der Monat
+tahun | das Jahr
+pagihari | der Morgen
+dimana | wo
+kiri | links
+kanan | rechts
+lurus | geradeaus
+dekat | nah
+jauh | weit
+stasiun | der Bahnhof
+rumah | das Haus
+toilet | die Toilette
+hotel | das Hotel
+berapa | wie viel
+harga | der Preis
+mahal | teuer
+murah | billig
+uang | das Geld
+membeli | kaufen
+toko | der Laden
+ini | das hier
+itu | das da
+membayar | bezahlen
+`,
+  phrases: `
+s1 | Wie geht's?
+s2 | Mir geht's gut.
+s3 | Freut mich, dich kennenzulernen.
+s4 | Bis später!
+k1 | Ich heiße Rina.
+k2 | Wie heißt du?
+k3 | Ich komme aus Indonesien.
+k4 | Ich verstehe das nicht.
+k5 | Bitte sprechen Sie langsam.
+a1 | Wie alt bist du?
+a2 | Ich bin zwanzig Jahre alt.
+a3 | Noch eins, bitte.
+f1 | Das ist meine Mutter.
+f2 | Hast du Geschwister?
+f3 | Meine Familie wohnt in Jakarta.
+m1 | Ich habe Hunger.
+m2 | Ein Glas Wasser, bitte.
+m3 | Das ist sehr lecker!
+m4 | Die Rechnung, bitte.
+w1 | Wie spät ist es?
+w2 | Welcher Tag ist heute?
+w3 | Bis morgen!
+w4 | Ich bin heute beschäftigt.
+d1 | Wo ist die Toilette?
+d2 | Biegen Sie links ab.
+d3 | Ist es weit von hier?
+d4 | Ich habe mich verlaufen.
+b1 | Wie viel kostet das?
+b2 | Das ist zu teuer.
+b3 | Ich möchte das kaufen.
+b4 | Kann ich mit Karte zahlen?
+`,
+  alphabet: {
+    title: "Alfabet dan aturan bunyi",
+    intro:
+      "Bahasa Jerman memakai 26 huruf Latin ditambah empat huruf khusus. Aturan bunyinya konsisten: pelajari pola di bawah ini dan Anda bisa membaca kata yang belum pernah dilihat.",
+    sections: [
+      {
+        title: "Huruf khusus",
+        cols: 4,
+        items:
+          "Ä=e terbuka|seperti e pada 'enak'|Äpfel;Ö=bibir bulat, ucap e|schön|schön;Ü=bibir bulat, ucap i|über|über;ß=ss|Straße|Straße",
+      },
+      {
+        title: "Pola bunyi penting",
+        cols: 3,
+        items:
+          "w=v|Wasser dibaca 'vaser'|Wasser;v=f|Vater dibaca 'fater'|Vater;z=ts|zehn dibaca 'tsen'|zehn;j=y|ja dibaca 'ya'|ja;ei=ai|eins dibaca 'ains'|eins;ie=i panjang|vier dibaca 'fir'|vier;eu / äu=oi|heute dibaca 'hoite'|heute;sch=sy|Schule|Schule;ch=kh lembut|ich, Buch|ich;s + vokal=z|Sonne|Sonne;st / sp di awal=syt / syp|Straße, Sprache|Sprache;-er di akhir=a lemah|Lehrer|Lehrer",
+      },
+    ],
+  },
+  grammar: [
+    {
+      title: "Tiga gender kata benda",
+      body: "Setiap kata benda punya artikel: der (maskulin), die (feminin), das (netral). Gendernya sering tidak bisa ditebak, jadi hafalkan artikel bersama katanya.",
+      examples: `
+der Tisch | meja
+die Lampe | lampu
+das Buch | buku`,
+    },
+    {
+      title: "Kata benda selalu berhuruf kapital",
+      body: "Semua kata benda ditulis dengan huruf awal kapital, di mana pun letaknya dalam kalimat. Ini membantu Anda mengenali kata benda saat membaca.",
+      examples: `
+Ich trinke Kaffee im Haus. | Saya minum kopi di rumah.`,
+    },
+    {
+      title: "Kata kerja di posisi kedua",
+      body: "Dalam kalimat pernyataan, kata kerja selalu menjadi unsur kedua. Jika kalimat diawali keterangan, subjek pindah ke belakang kata kerja.",
+      examples: `
+Ich lerne heute Deutsch. | Saya belajar bahasa Jerman hari ini.
+Heute lerne ich Deutsch. | Hari ini saya belajar bahasa Jerman.`,
+    },
+    {
+      title: "Konjugasi menurut subjek",
+      body: "Akhiran kata kerja berubah sesuai pelakunya.",
+      examples: `
+ich lerne, du lernst | saya belajar, kamu belajar
+er lernt, wir lernen | dia belajar, kami belajar`,
+    },
+    {
+      title: "du dan Sie",
+      body: "Pakai du untuk teman, keluarga, dan anak-anak. Pakai Sie (selalu kapital) untuk orang asing, atasan, dan situasi resmi.",
+      examples: `
+Wie heißt du? | Siapa namamu? (akrab)
+Wie heißen Sie? | Siapa nama Anda? (formal)`,
+    },
+  ],
+  videos: [
+    { id: "I9kmYRRG6sM", title: "Germans Answer 7 Personal Questions", kind: "Percakapan", about: "Easy German: orang di jalan melengkapi kalimat sederhana, tingkat A1." },
+    { id: "RlGAbms-rqk", title: "Getting to know people in the streets", kind: "Percakapan", about: "Perkenalan diri dengan warga Münster, dengan subtitle Jerman dan Inggris." },
+  ],
+});
