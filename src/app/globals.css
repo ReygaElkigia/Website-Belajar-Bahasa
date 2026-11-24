@@ -145,7 +145,6 @@ body {
 :lang(ar) { font-family: var(--font-ar); }
 :lang(th) { font-family: var(--font-th); }
 :lang(hi) { font-family: var(--font-hi); }
-:lang(id), :lang(en), :lang(de), :lang(fr), :lang(es), :lang(it), :lang(ru) { font-family: inherit; }
 
 h1, h2, h3, h4 {
   margin: 0;
@@ -645,8 +644,14 @@ body {
   display: flex;
   align-items: flex-end;
   gap: var(--s-4);
-  min-height: calc(var(--line) * 5);
+  min-height: calc(var(--line) * 3);
   margin-top: var(--s-2);
+}
+
+@media (min-width: 760px) {
+  .hero-word {
+    min-height: calc(var(--line) * 5);
+  }
 }
 
 .hero-word button.hero-say {
@@ -993,6 +998,12 @@ body {
   overflow-wrap: anywhere;
 }
 
+/* Kata Arab tetap ditulis kanan-ke-kiri, tetapi diratakan sejajar dengan kolom lain. */
+.term-word[dir="rtl"],
+.card-face .big[dir="rtl"] {
+  text-align: left;
+}
+
 .term-roman {
   font-size: var(--t-small);
   color: var(--ink-2);
@@ -1016,15 +1027,23 @@ body {
 .vocab-row {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "term speak"
+    "meaning speak";
   gap: var(--s-2) var(--s-4);
   align-items: center;
   padding: var(--s-4) 0;
   border-bottom: 1px solid var(--rule);
 }
 
+.vocab-row > .term { grid-area: term; }
+.vocab-row > .vocab-meaning { grid-area: meaning; }
+.vocab-row > .speak { grid-area: speak; }
+
 @media (min-width: 760px) {
   .vocab-row {
     grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) auto;
+    grid-template-areas: "term meaning speak";
   }
 }
 

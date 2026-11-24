@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Check, RotateCcw, Volume2, X } from "lucide-react";
 import { speak, useVoiceStatus } from "@/lib/speech";
 import { completeUnit } from "@/lib/progress";
@@ -43,12 +43,8 @@ function shuffle<T>(arr: T[], rand: () => number): T[] {
   return a;
 }
 
-function build(items: QuizItem[], pool: QuizItem[], count: number, canListen: boolean, seed: number): Question[] {
-  let s = seed;
-  const rand = () => {
-    s = (s * 9301 + 49297) % 233280;
-    return s / 233280;
-  };
+function build(items: QuizItem[], pool: QuizItem[], count: number, canListen: boolean): Question[] {
+  const rand = Math.random;
   const kinds: Kind[] = canListen ? ["meaning", "word", "listen"] : ["meaning", "word"];
   return shuffle(items, rand)
     .slice(0, count)
@@ -64,18 +60,23 @@ function build(items: QuizItem[], pool: QuizItem[], count: number, canListen: bo
 export function Quiz({ items, pool, langSlug, langName, tts, dir, unitId, nextHref, nextLabel, count = 10 }: Props) {
   const voice = useVoiceStatus(tts);
   const canListen = voice === "ok";
-  const [seed, setSeed] = useState(1);
-  const questions = useMemo(
-    () => build(items, pool, Math.min(count, items.length), canListen, seed),
-    [items, pool, count, canListen, seed],
-  );
+  // Soal disusun saat kuis dimulai (bukan saat render), jadi urutan acak tidak mengganggu hidrasi.
+  const [questions, setQuestions] = useState<Question[]>([]);
   const [n, setN] = useState(0);
   const [picked, setPicked] = useState<string | null>(null);
   const [right, setRight] = useState(0);
   const [started, setStarted] = useState(false);
 
+  const start = () => {
+    setQuestions(build(items, pool, Math.min(count, items.length), canListen));
+    setN(0);
+    setRight(0);
+    setPicked(null);
+    setStarted(true);
+  };
+
   const q = questions[n];
-  const finished = n >= questions.length;
+  const finished = started && n >= questions.length;
   const score = questions.length ? Math.round((right / questions.length) * 100) : 0;
 
   const choose = useCallback(
@@ -117,14 +118,6 @@ export function Quiz({ items, pool, langSlug, langName, tts, dir, unitId, nextHr
     return () => window.removeEventListener("keydown", onKey);
   }, [started, finished, picked, q, choose, next]);
 
-  const restart = () => {
-    setSeed((x) => x + 1);
-    setN(0);
-    setRight(0);
-    setPicked(null);
-    setStarted(true);
-  };
-
   if (!started) {
     return (
       <div className="quiz panel">
@@ -134,7 +127,7 @@ export function Quiz({ items, pool, langSlug, langName, tts, dir, unitId, nextHr
           Gunakan tombol angka 1 sampai 4 di papan ketik.
         </p>
         <div className="btn-row mt-4">
-          <button type="button" className="btn btn-primary" onClick={() => setStarted(true)}>
+          <button type="button" className="btn btn-primary" onClick={start}>
             Mulai kuis
           </button>
         </div>
@@ -162,7 +155,7 @@ export function Quiz({ items, pool, langSlug, langName, tts, dir, unitId, nextHr
               {nextLabel ?? "Lanjut"}
             </Link>
           )}
-          <button type="button" className={passed && nextHref ? "btn" : "btn btn-primary"} onClick={restart}>
+          <button type="button" className={passed && nextHref ? "btn" : "btn btn-primary"} onClick={start}>
             <RotateCcw size={18} strokeWidth={1.75} aria-hidden />
             Ulangi kuis
           </button>

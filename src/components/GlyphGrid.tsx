@@ -10,7 +10,12 @@ export function GlyphGrid({ section, tts, dir }: { section: GlyphSection; tts: s
   // Daftar pola bunyi (3 kolom) tampil sebagai kartu rata kiri; tabel huruf tetap berupa kisi.
   const wide = cols <= 3;
   // Tabel kana 5 kolom harus tetap 5 kolom agar barisnya sejajar.
-  const style = { "--cols": cols, "--cols-sm": cols === 5 ? 5 : Math.min(cols, 4) } as React.CSSProperties;
+  const style = {
+    "--cols": cols,
+    "--cols-sm": cols === 5 ? 5 : Math.min(cols, 4),
+    // Kisi huruf tidak perlu melebar penuh; sel sekitar 150px paling mudah dipindai.
+    maxWidth: cols * 150,
+  } as React.CSSProperties;
 
   return (
     <div className={wide ? "glyph-grid wide" : "glyph-grid"} style={wide ? undefined : style}>

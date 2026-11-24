@@ -14,8 +14,8 @@ export default function PracticePage() {
         <div className="wrap stack">
           <h1>Kartu hafalan</h1>
           <p className="lead">
-            Dua belas kartu per sesi. Kata yang belum hafal muncul lagi besok, kata yang sudah hafal muncul lagi setelah jeda
-            yang makin panjang.
+            Dua belas kartu per sesi. Kata yang belum hafal muncul lagi di sesi berikutnya, kata yang sudah hafal muncul lagi
+            setelah jeda yang makin panjang.
           </p>
         </div>
       </header>
