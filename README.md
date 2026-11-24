@@ -37,3 +37,12 @@ Hasil `out/` adalah HTML statis yang bisa diunggah ke GitHub Pages, Netlify, Ver
 1. Salin salah satu berkas di `src/data/languages/`, isi semua kunci kosakata dan frasa.
 2. Daftarkan di `src/data/index.ts`.
 3. Jalankan `npm run dev`; konsol memperingatkan bila ada kunci yang belum diterjemahkan.
+
+## Deploy ke GitHub Pages
+
+Workflow `.github/workflows/deploy.yml` membangun dan menerbitkan situs setiap ada push ke `main`.
+
+1. Di GitHub, buka **Settings → Pages**, lalu pada **Build and deployment → Source** pilih **GitHub Actions**.
+2. Gabungkan perubahan ke `main`. Situs akan tersedia di `https://<pengguna>.github.io/<nama-repo>/`.
+
+Untuk Vercel atau Netlify, cukup impor repo; tidak perlu mengisi `NEXT_PUBLIC_BASE_PATH`.
