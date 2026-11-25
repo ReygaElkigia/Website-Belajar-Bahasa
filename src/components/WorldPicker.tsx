@@ -28,6 +28,7 @@ const INTERVAL = 3200;
 export function WorldPicker({ items, units, lessons }: { items: WorldItem[]; units: number; lessons: number }) {
   const [{ i, prev }, setPos] = useState({ i: 0, prev: 0 });
   const [auto, setAuto] = useState(false);
+  const [chosen, setChosen] = useState(false);
   const rail = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -49,9 +50,14 @@ export function WorldPicker({ items, units, lessons }: { items: WorldItem[]; uni
     }
   }, [i]);
 
-  const pick = (n: number) => {
+  /** Memilih hanya menampilkan pratinjau; masuk ke jalur lewat tombol Mulai. */
+  const pick = (n: number, byTap = false) => {
     setAuto(false);
     if (n !== i) setPos({ i: n, prev: i });
+    if (byTap) {
+      setChosen(true);
+      speak(items[n].native, items[n].tts);
+    }
   };
 
   const it = items[i];
@@ -92,7 +98,7 @@ export function WorldPicker({ items, units, lessons }: { items: WorldItem[]; uni
           </ul>
         </div>
 
-        <div className="world-preview" key={it.slug} aria-live="polite">
+        <div className="world-preview" key={it.slug} aria-live="polite" data-chosen={chosen || undefined}>
           <Flag slug={it.slug} size={64} />
           <div className="world-preview-text">
             <button type="button" className="world-preview-native" lang={it.tts} onClick={() => speak(it.native, it.tts)} title="Dengarkan">
@@ -104,24 +110,26 @@ export function WorldPicker({ items, units, lessons }: { items: WorldItem[]; uni
             </span>
           </div>
           <Link className="btn btn-primary world-preview-go" href={`/bahasa/${it.slug}/jalur/`}>
-            Mulai <ArrowRight size={18} aria-hidden />
+            {chosen ? `Mulai belajar ${it.name}` : "Mulai"} <ArrowRight size={18} aria-hidden />
           </Link>
         </div>
 
-        <div className="world-rail" ref={rail} role="list" onPointerEnter={() => setAuto(false)}>
+        <p className="world-hint">{chosen ? "Bahasa dipilih. Tekan Mulai untuk masuk ke jalur belajarnya." : "Ketuk bendera untuk melihat dunianya."}</p>
+        <div className="world-rail" ref={rail} role="radiogroup" aria-label="Pilih bahasa" onPointerEnter={() => setAuto(false)}>
           {items.map((l, n) => (
-            <div key={l.slug} role="listitem" data-i={n}>
-              <Link
-                href={`/bahasa/${l.slug}/jalur/`}
+            <div key={l.slug} data-i={n}>
+              <button
+                type="button"
+                role="radio"
                 className="world-flag"
+                aria-checked={n === i}
                 aria-current={n === i ? "true" : undefined}
-                onMouseEnter={() => pick(n)}
-                onFocus={() => pick(n)}
-                aria-label={`Belajar bahasa ${l.name}`}
+                onClick={() => pick(n, true)}
+                aria-label={`Pilih bahasa ${l.name}`}
               >
                 <Flag slug={l.slug} size={52} />
                 <span>{l.name}</span>
-              </Link>
+              </button>
             </div>
           ))}
         </div>

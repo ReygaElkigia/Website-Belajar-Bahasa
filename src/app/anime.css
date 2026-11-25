@@ -5534,3 +5534,38 @@ body[data-lesson] .tabbar {
     animation: none;
   }
 }
+
+/* Bendera kini tombol pilih: tanpa gaya bawaan tombol */
+button.world-flag {
+  width: 100%;
+  background: transparent;
+  font-family: var(--font-sans);
+  cursor: pointer;
+}
+
+button.world-flag[aria-current="true"] {
+  background: var(--pen);
+}
+
+.world-hint {
+  margin: -6px 0 -10px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  text-shadow: 0 1px 3px rgb(0 0 0 / 0.65);
+}
+
+.world-preview[data-chosen] {
+  outline: 4px solid color-mix(in srgb, var(--pen) 45%, transparent);
+  outline-offset: 3px;
+}
+
+.world-preview[data-chosen] .world-preview-go {
+  animation: start-glow 1.6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .world-preview[data-chosen] .world-preview-go {
+    animation: none;
+  }
+}
