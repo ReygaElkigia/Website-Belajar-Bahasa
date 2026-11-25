@@ -8,6 +8,7 @@ import { themeFor, themeVars } from "@/data/themes";
 import { Scene } from "./anime/Scene";
 import { Particles } from "./anime/Particles";
 import { Parallax } from "./anime/Parallax";
+import { Mascot } from "./mascot/Mascot";
 
 export interface Greeting {
   slug: string;
@@ -76,6 +77,8 @@ export function HeroGreeting({ items, title, lead }: { items: Greeting[]; title:
 
       <div className="wrap home-hero-inner">
         <div>
+          <div className="hero-speaker">
+          <Mascot mood={speaking ? "cheer" : "happy"} size={120} className="hero-mascot" title="Tuu, maskot Tutur, sedang menyapa" />
           <div className="bubble">
             <button
               key={g.slug}
@@ -91,6 +94,7 @@ export function HeroGreeting({ items, title, lead }: { items: Greeting[]; title:
             <button type="button" className="speak speak-lg" data-playing={speaking} onClick={() => say(i)} aria-label={`Dengarkan ${g.word}`}>
               <Volume2 size={24} strokeWidth={2} aria-hidden />
             </button>
+          </div>
           </div>
           <div className="hero-meta" style={{ marginTop: 34 }} aria-live="polite">
             <span className="hero-chip">Halo dalam bahasa {g.name}</span>

@@ -4,6 +4,9 @@ import { notFound } from "next/navigation";
 import { conceptById, concepts, languages, unitById, units } from "@/data";
 import { SpeakButton } from "@/components/Speak";
 import { TermView } from "@/components/Term";
+import { NativeBadge } from "@/components/NativeBadge";
+import { LiveNativeBadge, NativePrefetch } from "@/components/NativeLive";
+import { creditFor } from "@/data/audioCredits";
 import { PageHero } from "@/components/anime/Themed";
 
 export const dynamicParams = false;
@@ -67,7 +70,17 @@ export default async function EntryPage({ params }: { params: Promise<{ id: stri
                     <span className="lang-label">
                       <Link href={`/bahasa/${l.slug}/${c.unit}/`}>{l.name}</Link>
                     </span>
-                    <TermView term={t} lang={l} />
+                    <span style={{ display: "grid", gap: 4 }}>
+                      <TermView term={t} lang={l} />
+                      {creditFor(l.slug, c.id) ? (
+                        <NativeBadge credit={creditFor(l.slug, c.id)!} />
+                      ) : (
+                        <>
+                          <NativePrefetch tts={l.tts} items={[{ word: t.word, note: t.note }]} />
+                          <LiveNativeBadge tts={l.tts} word={t.word} />
+                        </>
+                      )}
+                    </span>
                     <SpeakButton text={t.word.split(" / ")[0]} lang={l.tts} />
                   </li>
                 );

@@ -6,6 +6,7 @@ import "./globals.css";
 import "./anime.css";
 import { SiteHeader, TabBar } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { GameLayer } from "@/components/mascot/GameLayer";
 
 export const metadata: Metadata = {
   title: {
@@ -39,6 +40,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main id="isi">{children}</main>
         <SiteFooter />
         <TabBar />
+        <GameLayer />
       </body>
     </html>
   );

@@ -1161,3 +1161,458 @@ h3 {
 .hero-card .lang-hero {
   align-items: start;
 }
+
+/* Penanda rekaman penutur asli */
+.native-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  width: fit-content;
+  padding: 1px 8px;
+  border: 1.5px solid var(--stroke);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--pop) 30%, var(--sheet));
+  color: var(--ink);
+  font-size: 11px;
+  font-weight: 800;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.native-badge:hover {
+  color: var(--ink);
+  background: color-mix(in srgb, var(--pop) 55%, var(--sheet));
+}
+
+/* =========================================================
+   Gamifikasi dan maskot
+   ========================================================= */
+
+.mascot {
+  overflow: visible;
+  flex: none;
+}
+
+.mascot .mascot-body {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: mascot-bob 3.2s ease-in-out infinite;
+}
+
+.mascot .mascot-eyes {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: mascot-blink 4.6s infinite;
+}
+
+.mascot-cheer .mascot-body {
+  animation: mascot-jump 0.9s var(--ease) infinite;
+}
+
+.mascot-sad .mascot-body {
+  animation: mascot-droop 2.4s ease-in-out infinite;
+}
+
+.mascot-sparkles {
+  animation: twinkle 1.2s ease-in-out infinite;
+}
+
+@keyframes mascot-bob {
+  0%,
+  100% {
+    transform: translateY(0) scale(1, 1);
+  }
+  50% {
+    transform: translateY(-3px) scale(1.01, 0.99);
+  }
+}
+
+@keyframes mascot-jump {
+  0%,
+  100% {
+    transform: translateY(0) scale(1.04, 0.94);
+  }
+  40% {
+    transform: translateY(-12px) scale(0.96, 1.05);
+  }
+  70% {
+    transform: translateY(0) scale(1.03, 0.96);
+  }
+}
+
+@keyframes mascot-droop {
+  0%,
+  100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg) translateY(2px);
+  }
+}
+
+@keyframes mascot-blink {
+  0%,
+  92%,
+  100% {
+    transform: scaleY(1);
+  }
+  95% {
+    transform: scaleY(0.1);
+  }
+}
+
+.mascot-says {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-basis: 100%;
+}
+
+.mascot-line {
+  position: relative;
+  padding: 8px 14px;
+  border: 2px solid var(--stroke);
+  border-radius: 16px;
+  background: var(--sheet);
+  box-shadow: 2px 2px 0 var(--stroke);
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.mascot-says .mascot-line::before {
+  content: "";
+  position: absolute;
+  left: -9px;
+  top: 50%;
+  width: 14px;
+  height: 14px;
+  background: var(--sheet);
+  border-left: 2px solid var(--stroke);
+  border-bottom: 2px solid var(--stroke);
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.xp-chip {
+  display: inline-block;
+  margin-left: 4px;
+  padding: 0 8px;
+  border: 1.5px solid var(--stroke);
+  border-radius: 999px;
+  background: var(--pop);
+  color: #1b1f3b;
+  font-size: 12px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.feedback {
+  flex-wrap: wrap;
+}
+
+/* HUD di header */
+.hud {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 2px 10px 2px 2px;
+  border: 2px solid var(--stroke);
+  border-radius: 999px;
+  background: var(--sheet);
+  box-shadow: 2px 2px 0 var(--stroke);
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 800;
+  transition: transform 160ms var(--ease);
+}
+
+.hud:hover {
+  color: var(--ink);
+  transform: translateY(-1px);
+}
+
+.hud-ring {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+}
+
+.hud-ring svg {
+  position: absolute;
+  inset: 0;
+}
+
+.hud-ring circle:last-child {
+  transition: stroke-dasharray 600ms var(--ease);
+}
+
+.hud-ring b {
+  position: relative;
+  font-family: var(--font-display);
+  font-size: 15px;
+}
+
+.hud-ring[data-done="true"] b {
+  color: var(--pen);
+}
+
+.hud-streak {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 15px;
+  color: var(--ink-2);
+}
+
+.hud-streak[data-on="true"] {
+  color: #e8590c;
+}
+
+/* Lapisan notifikasi */
+.game-layer {
+  position: fixed;
+  right: 16px;
+  bottom: calc(80px + env(safe-area-inset-bottom));
+  z-index: 60;
+  display: grid;
+  gap: 10px;
+  justify-items: end;
+  pointer-events: none;
+  max-width: min(380px, calc(100vw - 32px));
+}
+
+@media (min-width: 860px) {
+  .game-layer {
+    bottom: 24px;
+  }
+}
+
+.xp-floats {
+  position: relative;
+  height: 0;
+}
+
+.xp-float {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 4px 12px;
+  border: 2px solid var(--stroke);
+  border-radius: 999px;
+  background: var(--pop);
+  color: #1b1f3b;
+  font-weight: 800;
+  box-shadow: 2px 2px 0 var(--stroke);
+  white-space: nowrap;
+  animation: xp-float 1.6s var(--ease) forwards;
+}
+
+@keyframes xp-float {
+  0% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.8);
+  }
+  15% {
+    opacity: 1;
+    transform: translateY(0) scale(1.08);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(-36px) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-56px) scale(0.95);
+  }
+}
+
+.celebrate {
+  pointer-events: auto;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 12px 12px 10px;
+  border: 2px solid var(--stroke);
+  border-radius: 20px;
+  background: var(--sheet);
+  box-shadow: var(--hard);
+  animation: celebrate-in 520ms var(--ease);
+}
+
+.celebrate strong {
+  font-family: var(--font-display);
+  font-size: 17px;
+}
+
+.celebrate p {
+  margin: 2px 0 4px;
+}
+
+@keyframes celebrate-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.9) rotate(-2deg);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.toast-badge {
+  animation: badge-spin 900ms var(--ease);
+}
+
+@keyframes badge-spin {
+  from {
+    transform: rotateY(180deg) scale(0.6);
+  }
+  to {
+    transform: none;
+  }
+}
+
+/* Halaman progres: kartu level */
+.level-card {
+  display: grid;
+  gap: 24px;
+  align-items: center;
+  padding: 24px;
+  border: 2px solid var(--stroke);
+  border-radius: 24px;
+  background: var(--sheet);
+  box-shadow: var(--hard-lg);
+}
+
+@media (min-width: 860px) {
+  .level-card {
+    grid-template-columns: auto minmax(0, 1fr) 260px;
+  }
+}
+
+.level-card h2 {
+  font-size: 32px;
+}
+
+.goal-box {
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.goal-ring {
+  --pct: 0;
+  display: grid;
+  place-items: center;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 2px solid var(--stroke);
+  background:
+    radial-gradient(circle, var(--sheet) 0 58%, transparent 59%),
+    conic-gradient(var(--pen) calc(var(--pct) * 1%), var(--sheet-2) 0);
+  box-shadow: var(--hard-sm);
+}
+
+.goal-ring span {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.goal-ring small {
+  font-size: 14px;
+  color: var(--ink-2);
+}
+
+.goal-box .chips {
+  justify-content: center;
+}
+
+.badge-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+}
+
+.badge-item {
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  padding: 16px 12px;
+  border: 2px solid var(--stroke);
+  border-radius: 18px;
+  background: var(--sheet);
+  box-shadow: var(--hard-sm);
+  text-align: center;
+}
+
+.badge-item[data-got="false"] {
+  border-style: dashed;
+  box-shadow: none;
+  opacity: 0.75;
+}
+
+.badge-item[data-got="true"] .badge-ico {
+  animation: badge-shine 3s ease-in-out infinite;
+}
+
+@keyframes badge-shine {
+  0%,
+  100% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(4deg) translateY(-2px);
+  }
+}
+
+/* Maskot di hero dan panggung kartu */
+.hero-speaker {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.hero-mascot {
+  margin-bottom: -8px;
+  filter: drop-shadow(3px 3px 0 var(--stroke));
+}
+
+@media (max-width: 640px) {
+  .hero-speaker {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  .hero-mascot {
+    width: 84px;
+    height: 84px;
+  }
+}
+
+.stage-mascot {
+  position: absolute;
+  right: 10px;
+  bottom: 6px;
+  z-index: 4;
+  filter: drop-shadow(2px 2px 0 var(--stroke));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mascot .mascot-body,
+  .mascot .mascot-eyes,
+  .mascot-sparkles,
+  .badge-item .badge-ico,
+  .xp-float,
+  .celebrate,
+  .toast-badge {
+    animation: none !important;
+  }
+}

@@ -245,6 +245,6 @@ g3 | 趣味は何ですか？ | shumi wa nan desu ka?
   ],
   videos: [
     { id: "6p9Il_j0zjc", title: "Learn ALL Hiragana in 1 Hour - How to Write and Read Japanese", kind: "Huruf", about: "Seluruh hiragana, cara menulis dan membaca, dalam satu jam." },
-    { id: "g0ElTlkn9Z0", title: "How to Introduce Yourself in Japanese - Jikoshokai", kind: "Percakapan", about: "Jikoshōkai: memperkenalkan nama, umur, dan tempat tinggal." },
+    { id: "Sq0aF_CYXps", title: "How to introduce yourself in Japanese: 6 Tips for Self Introduction", kind: "Percakapan", about: "Jikoshōkai: enam kiat memperkenalkan diri dengan ungkapan yang alami." },
   ],
 });

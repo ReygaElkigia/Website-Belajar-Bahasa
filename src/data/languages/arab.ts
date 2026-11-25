@@ -240,6 +240,6 @@ g3 | ما هواياتك؟ | mā hiwāyātuk?
   ],
   videos: [
     { id: "C4gb2GnVoPQ", title: "Beginners Arabic - Lesson 01 - Arabic Alphabet", kind: "Huruf", about: "Cara membaca dan mengucapkan huruf-huruf Arab." },
-    { id: "NIQ2KX7Dhrs", title: "Learn 40 Arabic Greetings in 5 Minutes", kind: "Frasa", about: "Empat puluh salam dan ungkapan sopan untuk pemula." },
+    { id: "xbR2D6PmtF4", title: "Arabic Greetings for Beginners: Hello, Welcome & Goodbye in Arabic", kind: "Frasa", about: "Salam, ucapan selamat datang, dan perpisahan dengan pelafalannya." },
   ],
 });

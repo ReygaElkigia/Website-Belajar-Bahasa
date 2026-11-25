@@ -227,6 +227,6 @@ Come sta? | Apa kabar Anda? (formal)`,
   ],
   videos: [
     { id: "DtkPriOj59U", title: "An Everyday Conversation in Slow Italian | Super Easy Italian 63", kind: "Percakapan", about: "Easy Italian: percakapan sehari-hari dengan bahasa Italia yang diperlambat." },
-    { id: "8dKqZX4YYOE", title: "Easy Italian Dialogues for Beginners", kind: "Percakapan", about: "Dialog pendek untuk situasi sehari-hari." },
+    { id: "SbX_RudjP14", title: "10 Real-life Italian Conversations for Beginners (A1-A2)", kind: "Percakapan", about: "Sepuluh dialog sehari-hari tingkat A1 sampai A2, cocok untuk perjalanan." },
   ],
 });

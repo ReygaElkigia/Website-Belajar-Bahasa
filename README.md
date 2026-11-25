@@ -13,7 +13,19 @@ Situs belajar bahasa dunia dari bahasa Indonesia: huruf, kosakata bersuara, fras
 - **Latihan ujian resmi**: 14 ujian (IELTS, PTE, TOEFL iBT 2026, JLPT N5, TOPIK I, HSK 1, TOAFL, Goethe A1, DELF A1, DELE A1, ТРКИ, CILS A1, CU-TFL, Hindi A1). Info format bersumber dari situs penyelenggara resmi (tautan di tiap halaman); soal latihan ditulis sendiri meniru jenis tugas aslinya (True/False/Not Given, Re-order Paragraphs, Write from Dictation, soal ★ JLPT, i'rab TOAFL, dan lainnya). Data ada di `src/data/exams/`.
 - **Kartu hafalan**: sistem Leitner 5 kotak; progres, runtunan hari, dan skor tersimpan di `localStorage`, tanpa akun.
 
-Suara memakai Web Speech API bawaan peramban, jadi kualitas dan ketersediaannya bergantung pada perangkat. Situs memberi tahu bila suara untuk suatu bahasa tidak terpasang.
+## Suara
+
+Tombol dengar mencoba tiga sumber berurutan:
+
+1. **Indeks rekaman bawaan** (`src/data/audio-index.json`): rekaman penutur asli dari [Lingua Libre](https://lingualibre.org) di Wikimedia Commons, dikumpulkan saat build dengan `scripts/fetch_native_audio.py` lalu `scripts/build_audio_index.py`. Saat ini berisi 108 kata bahasa Inggris.
+2. **Pencarian dari peramban** (`src/lib/nativeAudio.ts`): untuk kata yang belum ada di indeks, peramban pengunjung mencari perekam Lingua Libre teratas dan nama file persisnya lewat API Commons, lalu menyimpan hasilnya di `localStorage`.
+3. **Suara perangkat** (Web Speech API) bila rekaman tidak ada atau gagal dimuat.
+
+Kata yang diputar dari rekaman asli diberi penanda "Penutur asli" yang menautkan ke berkas dan perekamnya. Atribusi lengkap ada di halaman `/kredit/` (lisensi CC BY-SA 4.0 atau CC BY 4.0 sesuai berkas).
+
+## Gamifikasi
+
+XP, level, target harian, runtunan hari, dan 12 lencana (`src/data/gamify.ts`), disimpan di `localStorage`. Maskot **Tuu** (`src/components/mascot/`) adalah karakter orisinal yang bereaksi di kuis, latihan ujian, kartu hafalan, dan beranda.
 
 ## Menjalankan
 

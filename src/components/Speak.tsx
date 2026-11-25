@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Volume2 } from "lucide-react";
-import { speak } from "@/lib/speech";
+import { preloadNativeAudio, speak } from "@/lib/speech";
 
 interface Props {
   text: string;
@@ -14,6 +14,7 @@ interface Props {
 
 export function SpeakButton({ text, lang, label, size = "md", slow }: Props) {
   const [playing, setPlaying] = useState(false);
+  useEffect(preloadNativeAudio, []);
   return (
     <button
       type="button"

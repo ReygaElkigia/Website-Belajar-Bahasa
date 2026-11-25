@@ -249,7 +249,7 @@ g3 | 취미가 뭐예요? | chwimiga mwoyeyo?
   ],
   videos: [
     { id: "85qJXvyFrIc", title: "Learn Hangeul 한글 (Korean Alphabet) in 30 minutes", kind: "Huruf", about: "Konsonan, vokal, dan cara membaca kata dalam 30 menit." },
-    { id: "NNUtndjjWj0", title: "Learn 20 Essential Korean Phrases For Beginners", kind: "Frasa", about: "Dua puluh frasa yang paling sering dipakai sehari-hari." },
+    { id: "JrACvLMZIXs", title: "30 Daily Korean Phrases for Beginners", kind: "Frasa", about: "Talk To Me In Korean: tiga puluh frasa sehari-hari untuk pemula." },
     { id: "6HFzeknPi2A", title: "Slow & Basic Korean Conversation Practice", kind: "Percakapan", about: "Percakapan dasar dengan tempo pelan untuk latihan menyimak." },
   ],
 });

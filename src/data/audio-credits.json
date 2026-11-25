@@ -1,0 +1,868 @@
+{
+ "inggris": {
+  "tidur": {
+   "word": "sleep",
+   "file": "LL-Q1860 (eng)-Vealhurl-sleep.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Vealhurl-sleep.wav",
+   "artist": "Vealhurl",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "guru": {
+   "word": "teacher",
+   "file": "LL-Q1860 (eng)-Vealhurl-teacher.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Vealhurl-teacher.wav",
+   "artist": "Vealhurl",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "pelajar": {
+   "word": "student",
+   "file": "LL-Q1860 (eng)-Vealhurl-student.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Vealhurl-student.wav",
+   "artist": "Vealhurl",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "permisi": {
+   "word": "excuse me",
+   "file": "LL-Q1860 (eng)-Vealhurl-excuse me.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Vealhurl-excuse_me.wav",
+   "artist": "Vealhurl",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "kaki": {
+   "word": "foot",
+   "file": "LL-Q1860 (eng)-Vealhurl-foot.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Vealhurl-foot.wav",
+   "artist": "Vealhurl",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "itu": {
+   "word": "that",
+   "file": "LL-Q1860 (eng)-Vealhurl-that.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Vealhurl-that.wav",
+   "artist": "Vealhurl",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "bekerja": {
+   "word": "work",
+   "file": "LL-Q1860 (eng)-Vealhurl-work.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Vealhurl-work.wav",
+   "artist": "Vealhurl",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "dokter": {
+   "word": "doctor",
+   "file": "LL-Q1860 (eng)-Vealhurl-doctor.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Vealhurl-doctor.wav",
+   "artist": "Vealhurl",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "saya": {
+   "word": "I",
+   "file": "LL-Q1860 (eng)-Flame, not lame-I.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Flame,_not_lame-I.wav",
+   "artist": "Flame, not lame",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "toilet": {
+   "word": "restroom",
+   "file": "LL-Q1860 (eng)-Flame, not lame-restroom.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Flame,_not_lame-restroom.wav",
+   "artist": "Flame, not lame",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "membayar": {
+   "word": "pay",
+   "file": "LL-Q1860 (eng)-Wodencafe-pay.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-pay.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "membaca": {
+   "word": "read",
+   "file": "LL-Q1860 (eng)-Wodencafe-read.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-read.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "enam": {
+   "word": "six",
+   "file": "LL-Q1860 (eng)-Wodencafe-six.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-six.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "sembilan": {
+   "word": "nine",
+   "file": "LL-Q1860 (eng)-Wodencafe-nine.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-nine.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "bahasa": {
+   "word": "language",
+   "file": "LL-Q1860 (eng)-Wodencafe-language.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-language.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "ikan": {
+   "word": "fish",
+   "file": "LL-Q1860 (eng)-Wodencafe-fish.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-fish.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "perut": {
+   "word": "stomach",
+   "file": "LL-Q1860 (eng)-Wodencafe-stomach.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-stomach.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "lima": {
+   "word": "five",
+   "file": "LL-Q1860 (eng)-Wodencafe-five.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-five.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "istri": {
+   "word": "wife",
+   "file": "LL-Q1860 (eng)-Wodencafe-wife.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-wife.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "rumah": {
+   "word": "house",
+   "file": "LL-Q1860 (eng)-Wodencafe-house.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-house.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "jalan": {
+   "word": "road",
+   "file": "LL-Q1860 (eng)-Wodencafe-road.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-road.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "kepala": {
+   "word": "head",
+   "file": "LL-Q1860 (eng)-Wodencafe-head.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-head.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "keluarga": {
+   "word": "family",
+   "file": "LL-Q1860 (eng)-Wodencafe-family.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-family.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "makan": {
+   "word": "eat",
+   "file": "LL-Q1860 (eng)-Wodencafe-eat.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-eat.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "empat": {
+   "word": "four",
+   "file": "LL-Q1860 (eng)-Wodencafe-four.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-four.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "teman": {
+   "word": "friend",
+   "file": "LL-Q1860 (eng)-Wodencafe-friend.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-friend.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "sekarang": {
+   "word": "now",
+   "file": "LL-Q1860 (eng)-Wodencafe-now.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-now.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "pagihari": {
+   "word": "morning",
+   "file": "LL-Q1860 (eng)-Wodencafe-morning.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-morning.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "membeli": {
+   "word": "buy",
+   "file": "LL-Q1860 (eng)-Wodencafe-buy.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-buy.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "mahal": {
+   "word": "expensive",
+   "file": "LL-Q1860 (eng)-Wodencafe-expensive.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-expensive.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "hariini": {
+   "word": "today",
+   "file": "LL-Q1860 (eng)-Wodencafe-today.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-today.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "musim": {
+   "word": "season",
+   "file": "LL-Q1860 (eng)-Wodencafe-season.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-season.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "kiri": {
+   "word": "left",
+   "file": "LL-Q1860 (eng)-Wodencafe-left.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-left.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "obat": {
+   "word": "medicine",
+   "file": "LL-Q1860 (eng)-Wodencafe-medicine.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-medicine.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "rumahsakit": {
+   "word": "hospital",
+   "file": "LL-Q1860 (eng)-Wodencafe-hospital.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-hospital.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "bulan": {
+   "word": "month",
+   "file": "LL-Q1860 (eng)-Wodencafe-month.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-month.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "bandara": {
+   "word": "airport",
+   "file": "LL-Q1860 (eng)-Wodencafe-airport.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-airport.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "kereta": {
+   "word": "train",
+   "file": "LL-Q1860 (eng)-Wodencafe-train.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-train.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "mata": {
+   "word": "eye",
+   "file": "LL-Q1860 (eng)-Wodencafe-eye.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-eye.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "hotel": {
+   "word": "hotel",
+   "file": "LL-Q1860 (eng)-Wodencafe-hotel.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-hotel.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "harga": {
+   "word": "price",
+   "file": "LL-Q1860 (eng)-Wodencafe-price.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-price.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "kemarin": {
+   "word": "yesterday",
+   "file": "LL-Q1860 (eng)-Wodencafe-yesterday.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-yesterday.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "kakek": {
+   "word": "grandfather",
+   "file": "LL-Q1860 (eng)-Wodencafe-grandfather.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-grandfather.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "angin": {
+   "word": "wind",
+   "file": "LL-Q1860 (eng)-Wodencafe-wind.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-wind.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "jam": {
+   "word": "hour",
+   "file": "LL-Q1860 (eng)-Wodencafe-hour.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-hour.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "tiga": {
+   "word": "three",
+   "file": "LL-Q1860 (eng)-Wodencafe-three.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-three.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "negara": {
+   "word": "country",
+   "file": "LL-Q1860 (eng)-Wodencafe-country.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-country.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "kopi": {
+   "word": "coffee",
+   "file": "LL-Q1860 (eng)-Wodencafe-coffee.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-coffee.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "panas": {
+   "word": "hot",
+   "file": "LL-Q1860 (eng)-Wodencafe-hot.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-hot.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "gunung": {
+   "word": "mountain",
+   "file": "LL-Q1860 (eng)-Wodencafe-mountain.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-mountain.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "anak": {
+   "word": "child",
+   "file": "LL-Q1860 (eng)-Wodencafe-child.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-child.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "halo": {
+   "word": "hello",
+   "file": "LL-Q1860 (eng)-Wodencafe-hello.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-hello.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "saudaralk": {
+   "word": "brother",
+   "file": "LL-Q1860 (eng)-Wodencafe-brother.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-brother.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "sakit": {
+   "word": "sick",
+   "file": "LL-Q1860 (eng)-Wodencafe-sick.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-sick.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "kamu": {
+   "word": "you",
+   "file": "LL-Q1860 (eng)-Wodencafe-you.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-you.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "dua": {
+   "word": "two",
+   "file": "LL-Q1860 (eng)-Wodencafe-two.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-two.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "pergi": {
+   "word": "go",
+   "file": "LL-Q1860 (eng)-Wodencafe-go.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-go.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "air": {
+   "word": "water",
+   "file": "LL-Q1860 (eng)-Wodencafe-water.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-water.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "kantor": {
+   "word": "office",
+   "file": "LL-Q1860 (eng)-Wodencafe-office.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-office.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "suami": {
+   "word": "husband",
+   "file": "LL-Q1860 (eng)-Wodencafe-husband.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-husband.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "saudarapr": {
+   "word": "sister",
+   "file": "LL-Q1860 (eng)-Wodencafe-sister.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-sister.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "bus": {
+   "word": "bus",
+   "file": "LL-Q1860 (eng)-Wodencafe-bus.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-bus.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "belajar": {
+   "word": "study",
+   "file": "LL-Q1860 (eng)-Wodencafe-study.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-study.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "teh": {
+   "word": "tea",
+   "file": "LL-Q1860 (eng)-Wodencafe-tea.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-tea.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "nama": {
+   "word": "name",
+   "file": "LL-Q1860 (eng)-Wodencafe-name.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-name.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "minggu": {
+   "word": "week",
+   "file": "LL-Q1860 (eng)-Wodencafe-week.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-week.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "tahun": {
+   "word": "year",
+   "file": "LL-Q1860 (eng)-Wodencafe-year.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-year.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "uang": {
+   "word": "money",
+   "file": "LL-Q1860 (eng)-Wodencafe-money.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-money.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "ibu": {
+   "word": "mother",
+   "file": "LL-Q1860 (eng)-Wodencafe-mother.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-mother.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "kanan": {
+   "word": "right",
+   "file": "LL-Q1860 (eng)-Wodencafe-right.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-right.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "sepuluh": {
+   "word": "ten",
+   "file": "LL-Q1860 (eng)-Wodencafe-ten.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-ten.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "delapan": {
+   "word": "eight",
+   "file": "LL-Q1860 (eng)-Wodencafe-eight.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-eight.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "datang": {
+   "word": "come",
+   "file": "LL-Q1860 (eng)-Wodencafe-come.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-come.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "besok": {
+   "word": "tomorrow",
+   "file": "LL-Q1860 (eng)-Wodencafe-tomorrow.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-tomorrow.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "dadah": {
+   "word": "goodbye",
+   "file": "LL-Q1860 (eng)-Wodencafe-goodbye.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-goodbye.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "matahari": {
+   "word": "sun",
+   "file": "LL-Q1860 (eng)-Wodencafe-sun.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-sun.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "roti": {
+   "word": "bread",
+   "file": "LL-Q1860 (eng)-Wodencafe-bread.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-bread.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "maaf": {
+   "word": "sorry",
+   "file": "LL-Q1860 (eng)-Wodencafe-sorry.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-sorry.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "sekolah": {
+   "word": "school",
+   "file": "LL-Q1860 (eng)-Wodencafe-school.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-school.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "minum": {
+   "word": "to drink",
+   "file": "LL-Q1860 (eng)-Wodencafe-to drink.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-to_drink.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "indonesia": {
+   "word": "Indonesia",
+   "file": "LL-Q1860 (eng)-Wodencafe-Indonesia.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-Indonesia.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "hari": {
+   "word": "day",
+   "file": "LL-Q1860 (eng)-Wodencafe-day.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-day.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "ayam": {
+   "word": "chicken",
+   "file": "LL-Q1860 (eng)-Wodencafe-chicken.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-chicken.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "menulis": {
+   "word": "write",
+   "file": "LL-Q1860 (eng)-Wodencafe-write.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-write.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "murah": {
+   "word": "cheap",
+   "file": "LL-Q1860 (eng)-Wodencafe-cheap.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-cheap.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "stasiun": {
+   "word": "station",
+   "file": "LL-Q1860 (eng)-Wodencafe-station.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-station.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "tidak": {
+   "word": "no",
+   "file": "LL-Q1860 (eng)-Wodencafe-no.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-no.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "cuaca": {
+   "word": "weather",
+   "file": "LL-Q1860 (eng)-Wodencafe-weather.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-weather.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "tangan": {
+   "word": "hand",
+   "file": "LL-Q1860 (eng)-Wodencafe-hand.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-hand.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "laut": {
+   "word": "sea",
+   "file": "LL-Q1860 (eng)-Wodencafe-sea.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-sea.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "ya": {
+   "word": "yes",
+   "file": "LL-Q1860 (eng)-Wodencafe-yes.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-yes.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "ini": {
+   "word": "this",
+   "file": "LL-Q1860 (eng)-Wodencafe-this.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-this.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "ayah": {
+   "word": "father",
+   "file": "LL-Q1860 (eng)-Wodencafe-father.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-father.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "toko": {
+   "word": "shop",
+   "file": "LL-Q1860 (eng)-Wodencafe-shop.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-shop.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "berbicara": {
+   "word": "speak",
+   "file": "LL-Q1860 (eng)-Wodencafe-speak.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-speak.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "berangkat": {
+   "word": "leave",
+   "file": "LL-Q1860 (eng)-Wodencafe-leave.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-leave.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "jauh": {
+   "word": "far",
+   "file": "LL-Q1860 (eng)-Wodencafe-far.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-far.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "tiket": {
+   "word": "ticket",
+   "file": "LL-Q1860 (eng)-Wodencafe-ticket.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-ticket.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "hujan": {
+   "word": "rain",
+   "file": "LL-Q1860 (eng)-Wodencafe-rain.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-rain.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "dingin": {
+   "word": "cold",
+   "file": "LL-Q1860 (eng)-Wodencafe-cold.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-cold.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "tujuh": {
+   "word": "seven",
+   "file": "LL-Q1860 (eng)-Wodencafe-seven.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-seven.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "satu": {
+   "word": "one",
+   "file": "LL-Q1860 (eng)-Wodencafe-one.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-one.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "dekat": {
+   "word": "near",
+   "file": "LL-Q1860 (eng)-Wodencafe-near.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-near.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "dimana": {
+   "word": "where",
+   "file": "LL-Q1860 (eng)-Wodencafe-where.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-where.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "sungai": {
+   "word": "river",
+   "file": "LL-Q1860 (eng)-Wodencafe-river.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-river.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "mobil": {
+   "word": "car",
+   "file": "LL-Q1860 (eng)-Wodencafe-car.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-car.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "lurus": {
+   "word": "straight",
+   "file": "LL-Q1860 (eng)-Wodencafe-straight.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Wodencafe-straight.wav",
+   "artist": "Wodencafe",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "nasi": {
+   "word": "rice",
+   "file": "LL-Q1860 (eng)-Naomi Persephone Amethyst (NaomiAmethyst)-rice.wav",
+   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1860_(eng)-Naomi_Persephone_Amethyst_(NaomiAmethyst)-rice.wav",
+   "artist": "Naomi Persephone Amethyst",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  }
+ }
+}

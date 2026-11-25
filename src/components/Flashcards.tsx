@@ -10,6 +10,8 @@ import { speak } from "@/lib/speech";
 import { themeFor, themeVars } from "@/data/themes";
 import { Scene } from "./anime/Scene";
 import { Particles } from "./anime/Particles";
+import { Mascot, type MascotMood } from "./mascot/Mascot";
+import { NativePrefetch } from "./NativeLive";
 
 const SESSION = 12;
 
@@ -28,6 +30,7 @@ export function Flashcards() {
   const [i, setI] = useState(0);
   const [flipped, setFlipped] = useState(false);
   const [tally, setTally] = useState({ knew: 0, again: 0 });
+  const [mood, setMood] = useState<MascotMood>("idle");
 
   // Susun sesi: kartu yang jatuh tempo dulu, lalu kartu baru, lalu sisanya.
   // Deck dibekukan per putaran supaya urutan tidak berubah saat kartu dinilai.
@@ -72,6 +75,7 @@ export function Flashcards() {
       if (!card) return;
       reviewCard(lang.slug, card.id, knew);
       setTally((t) => (knew ? { ...t, knew: t.knew + 1 } : { ...t, again: t.again + 1 }));
+      setMood(knew ? "happy" : "think");
       setFlipped(false);
       setI((x) => x + 1);
     },
@@ -106,11 +110,13 @@ export function Flashcards() {
     <>
       <Scene key={theme.id} theme={theme} className="scene" compact id={`flash-${theme.id}`} />
       <Particles key={`p-${theme.id}`} kind={theme.particle} seed={7} density={0.6} />
+      <Mascot mood={mood} size={74} className="stage-mascot" title={`Tuu, maskot Tutur, sedang ${mood === "happy" ? "senang" : mood === "think" ? "berpikir" : "menunggu"}`} />
     </>
   );
 
   return (
     <div className="two-col themed" style={themeVars(theme)}>
+      {deck && <NativePrefetch tts={lang.tts} items={deck.map((c) => ({ word: lang.vocab[c.id].word, note: lang.vocab[c.id].note }))} />}
       <div>
         {deck === null ? (
           <div className="flash-stage" aria-busy="true">

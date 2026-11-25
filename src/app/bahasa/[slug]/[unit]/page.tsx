@@ -6,6 +6,9 @@ import { Quiz, type QuizItem } from "@/components/Quiz";
 import { SpeakButton } from "@/components/Speak";
 import { TermView } from "@/components/Term";
 import { VoiceNotice } from "@/components/VoiceNotice";
+import { NativeBadge } from "@/components/NativeBadge";
+import { LiveNativeBadge, NativePrefetch } from "@/components/NativeLive";
+import { creditFor } from "@/data/audioCredits";
 import { PageHero, Themed } from "@/components/anime/Themed";
 
 export const dynamicParams = false;
@@ -74,6 +77,10 @@ export default async function UnitPage({ params }: { params: Params }) {
               Ucapkan setiap kata dengan keras setelah mendengarnya. Mengulang dengan suara membantu ingatan lebih dari
               membaca dalam hati.
             </p>
+            <NativePrefetch
+              tts={l.tts}
+              items={vocab.filter((v) => !creditFor(l.slug, v.id)).map((v) => ({ word: v.term.word, note: v.term.note }))}
+            />
             <ul className="vocab">
               {vocab.map((v) => (
                 <li key={v.id} className="vocab-row">
@@ -84,6 +91,11 @@ export default async function UnitPage({ params }: { params: Params }) {
                     </Link>
                     <span className="pos">{v.pos}</span>
                     {v.term.note && <span className="term-note">{v.term.note}</span>}
+                    {creditFor(l.slug, v.id) ? (
+                      <NativeBadge credit={creditFor(l.slug, v.id)!} />
+                    ) : (
+                      <LiveNativeBadge tts={l.tts} word={v.term.word} />
+                    )}
                   </span>
                   <SpeakButton text={v.term.word.split(" / ")[0]} lang={l.tts} />
                 </li>

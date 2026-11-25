@@ -46,6 +46,9 @@ export function SiteFooter() {
             <li>
               <Link href="/progres/">Progres saya</Link>
             </li>
+            <li>
+              <Link href="/kredit/">Kredit dan lisensi</Link>
+            </li>
           </ul>
         </div>
       </div>

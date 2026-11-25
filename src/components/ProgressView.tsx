@@ -3,7 +3,10 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { concepts, languages, units } from "@/data";
-import { PASS, learnedCount, resetProgress, streak, today, useProgress } from "@/lib/progress";
+import { PASS, learnedCount, resetProgress, setGoal, streak, today, useProgress } from "@/lib/progress";
+import { BADGES, GOALS, levelInfo } from "@/data/gamify";
+import { Mascot } from "./mascot/Mascot";
+import { BadgeIcon } from "./mascot/BadgeIcon";
 
 const DAYS = 28;
 
@@ -31,8 +34,70 @@ export function ProgressView() {
     return { key, on: set.has(key), label: d.toLocaleDateString("id-ID", { day: "numeric", month: "long" }) };
   });
 
+  const lv = levelInfo(p.xp);
+  const todayXp = p.xpDays[today()] ?? 0;
+  const goalPct = Math.min(100, Math.round((todayXp / p.goal) * 100));
+
   return (
     <div className="stack" style={{ display: "grid", gap: 64 }}>
+      <section className="level-card">
+        <Mascot mood={goalPct >= 100 ? "cheer" : todayXp > 0 ? "happy" : "idle"} size={132} />
+        <div className="level-main">
+          <p className="small muted">Level {lv.level}</p>
+          <h2>{lv.title}</h2>
+          <div className="bar mt-3" aria-hidden>
+            <i style={{ width: `${lv.pct}%` }} />
+          </div>
+          <p className="small muted mt-2">
+            {p.xp} XP total. {lv.next - p.xp} XP lagi menuju level {lv.level + 1}.
+          </p>
+          <p className="mascot-line mt-4">
+            {todayXp === 0
+              ? "Ayo mulai hari ini! Satu unit atau satu sesi kartu hafalan sudah cukup untuk menjaga runtunan."
+              : goalPct >= 100
+                ? `Target hari ini tercapai (${todayXp} XP). Hebat, sampai jumpa besok!`
+                : `Hari ini ${todayXp} dari ${p.goal} XP. Tinggal ${p.goal - todayXp} XP lagi!`}
+          </p>
+        </div>
+        <div className="goal-box">
+          <p className="small" style={{ fontWeight: 800 }}>
+            Target harian
+          </p>
+          <div className="goal-ring" style={{ "--pct": goalPct } as React.CSSProperties}>
+            <span>
+              {todayXp}
+              <small>/{p.goal}</small>
+            </span>
+          </div>
+          <div className="chips" role="group" aria-label="Pilih target harian">
+            {GOALS.map((g) => (
+              <button key={g.xp} type="button" className="chip" aria-pressed={p.goal === g.xp} onClick={() => setGoal(g.xp)} title={g.note}>
+                {g.label} {g.xp}
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 style={{ fontSize: 22, marginBottom: 6 }}>Lencana</h2>
+        <p className="small muted" style={{ marginBottom: 18 }}>
+          {p.badges.length} dari {BADGES.length} lencana terkumpul.
+        </p>
+        <ul className="badge-grid">
+          {BADGES.map((b) => {
+            const got = p.badges.includes(b.id);
+            return (
+              <li key={b.id} className="badge-item" data-got={got}>
+                <BadgeIcon icon={b.icon} size={64} locked={!got} />
+                <strong>{b.name}</strong>
+                <span className="tiny muted">{b.how}</span>
+              </li>
+            );
+          })}
+        </ul>
+      </section>
+
       <dl className="stats">
         <div>
           <dt>Runtunan hari belajar</dt>

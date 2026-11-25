@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { BookOpen, ChartColumn, Clapperboard, GraduationCap, Languages, Layers } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
+import { GameHud } from "./mascot/GameHud";
 
 const links = [
   { href: "/bahasa/", label: "Bahasa", icon: Languages },
@@ -36,6 +37,7 @@ export function SiteHeader() {
           ))}
         </nav>
         <div className="header-end">
+          <GameHud />
           <ThemeToggle />
         </div>
       </div>

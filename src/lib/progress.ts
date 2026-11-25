@@ -1,6 +1,8 @@
 "use client";
 
 import { useSyncExternalStore } from "react";
+import { BADGES, XP, levelInfo, type BadgeFacts } from "@/data/gamify";
+import { units } from "@/data/curriculum";
 
 /**
  * Progres belajar disimpan di perangkat pengguna (localStorage).
@@ -19,10 +21,47 @@ export interface ProgressState {
   days: string[]; // tanggal aktif, YYYY-MM-DD
   saved: Record<string, string[]>; // lang -> kata yang ditandai dari kamus
   exams: Record<string, Record<string, number>>; // ujian -> bagian -> skor terbaik (0..100)
+  xp: number; // total XP
+  xpDays: Record<string, number>; // tanggal -> XP hari itu
+  badges: string[]; // lencana yang sudah didapat
+  goal: number; // target XP harian
+  reviews: number; // jumlah kartu hafalan yang pernah diulang
 }
 
 const KEY = "tutur:progress:v1";
-const EMPTY: ProgressState = { done: {}, cards: {}, days: [], saved: {}, exams: {} };
+const EMPTY: ProgressState = {
+  done: {},
+  cards: {},
+  days: [],
+  saved: {},
+  exams: {},
+  xp: 0,
+  xpDays: {},
+  badges: [],
+  goal: 50,
+  reviews: 0,
+};
+
+/* ---------- Peristiwa permainan (untuk maskot dan notifikasi) ---------- */
+
+export type GameEvent =
+  | { type: "xp"; amount: number; reason: string; lang?: string }
+  | { type: "level"; level: number; title: string }
+  | { type: "badge"; id: string }
+  | { type: "goal"; goal: number };
+
+const gameListeners = new Set<(e: GameEvent) => void>();
+
+export function onGameEvent(cb: (e: GameEvent) => void) {
+  gameListeners.add(cb);
+  return () => {
+    gameListeners.delete(cb);
+  };
+}
+
+function emit(events: GameEvent[]) {
+  events.forEach((e) => gameListeners.forEach((l) => l(e)));
+}
 
 /** Jarak ulang per kotak, dalam hari. */
 export const BOX_DAYS = [0, 0, 1, 3, 7, 16];
@@ -101,25 +140,81 @@ function withToday(s: ProgressState): ProgressState {
   return s.days.includes(t) ? s : { ...s, days: [...s.days, t].slice(-400) };
 }
 
+export function badgeFacts(s: ProgressState): BadgeFacts {
+  const langs = Object.keys(s.done);
+  const passed = langs.map((l) => Object.values(s.done[l]).filter((x) => x >= PASS).length);
+  return {
+    unitsPassed: passed.reduce((a, b) => a + b, 0),
+    languagesWithUnit: passed.filter((n) => n > 0).length,
+    fullLanguage: passed.some((n) => n >= units.length),
+    perfectUnit: langs.some((l) => Object.values(s.done[l]).some((x) => x >= 100)),
+    wordsLearned: Object.keys(s.cards).reduce((n, l) => n + learnedCount(s, l), 0),
+    cardsReviewed: s.reviews,
+    examParts: Object.values(s.exams).reduce((n, e) => n + Object.keys(e).length, 0),
+    streak: streak(s.days),
+    goalDays: Object.values(s.xpDays).filter((x) => x >= s.goal).length,
+    level: levelInfo(s.xp).level,
+  };
+}
+
+/** Terapkan perubahan progres plus XP, lalu kirim peristiwa naik level, target, dan lencana. */
+function commitWithXp(next: ProgressState, amount: number, reason: string, lang?: string) {
+  const t = today();
+  const before = state;
+  let s = withToday(next);
+  const events: GameEvent[] = [];
+  if (amount > 0) {
+    s = { ...s, xp: s.xp + amount, xpDays: { ...s.xpDays, [t]: (s.xpDays[t] ?? 0) + amount } };
+    events.push({ type: "xp", amount, reason, lang });
+    const l0 = levelInfo(before.xp);
+    const l1 = levelInfo(s.xp);
+    if (l1.level > l0.level) events.push({ type: "level", level: l1.level, title: l1.title });
+    if ((before.xpDays[t] ?? 0) < s.goal && s.xpDays[t] >= s.goal) events.push({ type: "goal", goal: s.goal });
+  }
+  const facts = badgeFacts(s);
+  const fresh = BADGES.filter((b) => !s.badges.includes(b.id) && b.test(facts)).map((b) => b.id);
+  if (fresh.length) {
+    s = { ...s, badges: [...s.badges, ...fresh] };
+    fresh.forEach((id) => events.push({ type: "badge", id }));
+  }
+  commit(s);
+  emit(events);
+}
+
+/** XP untuk aksi kecil, mis. jawaban benar. */
+export function gainXp(amount: number, reason: string, lang?: string) {
+  ensureLoaded();
+  commitWithXp(state, amount, reason, lang);
+}
+
+export function setGoal(goal: number) {
+  ensureLoaded();
+  commit({ ...state, goal });
+}
+
 export function completeUnit(lang: string, unit: string, score: number) {
   ensureLoaded();
   const prev = state.done[lang]?.[unit] ?? 0;
-  commit(
-    withToday({
-      ...state,
-      done: { ...state.done, [lang]: { ...state.done[lang], [unit]: Math.max(prev, score) } },
-    }),
+  let bonus = 0;
+  if (score >= PASS && prev < PASS) bonus += XP.unitPass;
+  if (score >= 100 && prev < 100) bonus += XP.perfect;
+  commitWithXp(
+    { ...state, done: { ...state.done, [lang]: { ...state.done[lang], [unit]: Math.max(prev, score) } } },
+    bonus,
+    score >= 100 ? "Unit sempurna" : "Unit lulus",
+    lang,
   );
 }
 
-export function saveExamPart(exam: string, part: string, score: number) {
+export function saveExamPart(exam: string, part: string, score: number, lang?: string) {
   ensureLoaded();
+  const first = state.exams[exam]?.[part] === undefined;
   const prev = state.exams[exam]?.[part] ?? 0;
-  commit(
-    withToday({
-      ...state,
-      exams: { ...state.exams, [exam]: { ...state.exams[exam], [part]: Math.max(prev, score) } },
-    }),
+  commitWithXp(
+    { ...state, exams: { ...state.exams, [exam]: { ...state.exams[exam], [part]: Math.max(prev, score) } } },
+    first ? XP.examPart : 0,
+    "Bagian ujian selesai",
+    lang,
   );
 }
 
@@ -129,7 +224,12 @@ export function reviewCard(lang: string, id: string, knew: boolean) {
   const prev = deck[id] ?? { box: 1, due: 0 };
   const box = knew ? Math.min(prev.box + 1, 5) : 1;
   const due = Date.now() + BOX_DAYS[box] * 86_400_000;
-  commit(withToday({ ...state, cards: { ...state.cards, [lang]: { ...deck, [id]: { box, due } } } }));
+  commitWithXp(
+    { ...state, reviews: state.reviews + 1, cards: { ...state.cards, [lang]: { ...deck, [id]: { box, due } } } },
+    knew ? XP.cardKnew : XP.cardAgain,
+    "Kartu hafalan",
+    lang,
+  );
 }
 
 export function toggleSaved(lang: string, id: string) {
