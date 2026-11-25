@@ -186,7 +186,7 @@ export function ProgressView() {
                         {learnedCount(p, l.slug)} / {concepts.length}
                       </td>
                       <td style={{ textAlign: "right" }}>
-                        <Link href={`/bahasa/${l.slug}/`}>Buka</Link>
+                        <Link href={`/bahasa/${l.slug}/jalur/`}>Lanjutkan</Link>
                       </td>
                     </tr>
                   );

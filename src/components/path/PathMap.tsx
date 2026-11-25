@@ -64,9 +64,9 @@ export function PathMap({ lang, units, stories }: Props) {
     return "locked";
   };
 
-  // Gulir ke pelajaran berikutnya
+  // Setelah menyelesaikan pelajaran, gulir ke pelajaran berikutnya di jalur.
   useEffect(() => {
-    if (!mounted) return;
+    if (!mounted || !just) return;
     const t = window.setTimeout(() => currentRef.current?.scrollIntoView({ block: "center", behavior: just ? "smooth" : "auto" }), just ? 900 : 200);
     return () => window.clearTimeout(t);
   }, [mounted, just]);

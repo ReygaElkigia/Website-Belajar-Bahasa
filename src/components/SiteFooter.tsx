@@ -23,7 +23,7 @@ export function SiteFooter() {
           <ul style={{ gridTemplateColumns: "1fr 1fr", columnGap: 16 }}>
             {languages.map((l) => (
               <li key={l.slug}>
-                <Link href={`/bahasa/${l.slug}/`}>{l.name}</Link>
+                <Link href={`/bahasa/${l.slug}/jalur/`}>{l.name}</Link>
               </li>
             ))}
           </ul>

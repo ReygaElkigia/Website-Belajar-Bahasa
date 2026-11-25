@@ -65,7 +65,7 @@ export function LanguageIndex({
           const t = themeFor(l.slug);
           return (
             <li key={l.slug} className="themed" style={themeVars(t)}>
-              <Link href={`/bahasa/${l.slug}/`} className="lang-card">
+              <Link href={`/bahasa/${l.slug}/jalur/`} className="lang-card">
                 <span className="lang-card-scene">
                   <Scene theme={t} className="scene" compact id={`card-${l.slug}`} />
                   <span className="lang-card-theme">{t.name}</span>

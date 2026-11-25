@@ -222,8 +222,8 @@ export function Flashcards() {
                 <RotateCcw size={18} strokeWidth={1.75} aria-hidden />
                 Sesi baru
               </button>
-              <Link className="btn" href={`/bahasa/${lang.slug}/`}>
-                Kembali ke pelajaran {lang.name}
+              <Link className="btn" href={`/bahasa/${lang.slug}/jalur/`}>
+                Kembali ke jalur {lang.name}
               </Link>
             </div>
           </div>

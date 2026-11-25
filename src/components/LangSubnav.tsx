@@ -23,8 +23,8 @@ export function LangSubnav({ lang, accent, pop }: { lang: LangMeta; accent: stri
   const scroller = useRef<HTMLDivElement>(null);
 
   const items = [
-    { href: base, label: "Ringkasan", icon: Compass, on: rest === "" },
     { href: `${base}jalur/`, label: "Jalur", icon: Route, on: rest === "jalur" || rest === "pelajaran" },
+    { href: base, label: "Tentang", icon: Compass, on: rest === "" },
     { href: `${base}huruf/`, label: "Huruf", icon: Type, on: rest === "huruf" },
     { href: `${base}${units[0].id}/`, label: "Unit", icon: ListOrdered, on: unitIdx >= 0 },
     { href: `${base}bacaan/`, label: "Bacaan", icon: BookOpenText, on: rest === "bacaan" },

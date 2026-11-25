@@ -132,7 +132,7 @@ export function HeroGreeting({ items, title, lead }: { items: Greeting[]; title:
           <h1>{title}</h1>
           <p className="lead">{lead}</p>
           <div className="btn-row mt-4">
-            <Link className="btn btn-primary" href={`/bahasa/${g.slug}/`}>
+            <Link className="btn btn-primary" href={`/bahasa/${g.slug}/jalur/`}>
               Belajar bahasa {g.name}
             </Link>
             <Link className="btn" href="/bahasa/">

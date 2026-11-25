@@ -5003,3 +5003,84 @@ body[data-lesson] .tabbar {
     animation: none;
   }
 }
+
+/* Pembuka jalur: tujuan utama bahasa */
+.path-hero-kicker {
+  justify-self: start;
+  padding: 3px 12px;
+  border: 2px solid var(--stroke);
+  border-radius: 999px;
+  background: var(--pop);
+  color: #1b1f3b;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}
+
+.path-start {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  min-height: 64px;
+}
+
+.path-start-go {
+  min-height: 64px;
+  padding: 8px 26px 8px 20px;
+  gap: 12px;
+  text-align: start;
+}
+
+.path-start-go > span {
+  display: grid;
+  line-height: 1.2;
+}
+
+.path-start-label {
+  font-size: 18px;
+}
+
+.path-start-sub {
+  font-size: 13px;
+  font-weight: 700;
+  opacity: 0.9;
+}
+
+.path-start-progress {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 220px;
+  flex: 1;
+  max-width: 320px;
+}
+
+.path-start-go.btn-primary {
+  animation: start-glow 2.4s ease-in-out infinite;
+}
+
+@keyframes start-glow {
+  50% {
+    box-shadow: 4px 4px 0 var(--stroke), 0 0 0 8px color-mix(in srgb, var(--pen) 22%, transparent);
+  }
+}
+
+@media (max-width: 640px) {
+  .path-start-go {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .path-start-go.btn-primary {
+    animation: none;
+  }
+}
+
+@media (max-width: 640px) {
+  /* Di HP tombol Mulai harus langsung terlihat tanpa tertutup balon Tuu */
+  .path-hero-lead {
+    display: none;
+  }
+}

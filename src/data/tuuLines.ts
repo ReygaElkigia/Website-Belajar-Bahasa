@@ -166,8 +166,8 @@ export const ROUTE = {
   huruf: ["Ketuk setiap huruf untuk mendengar bunyinya. Tirukan dengan keras, ya!", "Huruf dulu, kata kemudian. Pelan-pelan saja."],
   bacaan: ["Aku suka cerita! Coba tebak artinya dulu sebelum membuka terjemahan.", "Waktunya membaca. Dengarkan sekali, lalu baca sendiri dengan suaramu."],
   jalur: [
-    "Ini jalur bahasa {name}-mu! Ketuk lingkaran yang bergoyang untuk pelajaran berikutnya.",
-    "Satu pelajaran cuma lima menit. Kumpulkan tiga bintang di setiap lingkaran, ya!",
+    "{hello} Selamat datang di dunia {theme}! Tekan tombol Mulai, atau ketuk lingkaran yang bergoyang.",
+    "{hello} Ini jalur bahasa {name}-mu. Satu pelajaran cuma lima menit, kumpulkan tiga bintang ya!",
   ],
   tonton: ["Waktunya menonton! Coba mode bayangan supaya lidahmu ikut terlatih.", "Nonton sambil belajar. Nyalakan subtitle bahasa aslinya kalau bisa."],
   ujianIndex: ["Latihan ujian resmi? Aku siapkan semangat ekstra!"],

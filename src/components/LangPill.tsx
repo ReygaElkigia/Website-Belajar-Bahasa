@@ -126,7 +126,7 @@ export function LangPill({ langs }: { langs: LangMeta[] }) {
               return (
                 <li key={l.slug}>
                   <Link
-                    href={`/bahasa/${l.slug}/`}
+                    href={`/bahasa/${l.slug}/jalur/`}
                     className="lang-menu-item"
                     aria-current={l.slug === slug ? "true" : undefined}
                     style={{ "--lp": lt.accent } as React.CSSProperties}
