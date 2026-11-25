@@ -8,6 +8,7 @@ import { SpeakButton } from "@/components/Speak";
 import { VideoCard } from "@/components/VideoCard";
 import { VoiceNotice } from "@/components/VoiceNotice";
 import { examsForLang } from "@/data/exams";
+import { OfflineSave } from "@/components/pwa/OfflineSave";
 import { PageHero, Themed } from "@/components/anime/Themed";
 
 export const dynamicParams = false;
@@ -110,6 +111,7 @@ export default async function LanguagePage({ params }: { params: Promise<{ slug:
                 </ul>
               </div>
             )}
+            <OfflineSave slug={l.slug} name={l.name} />
             <div className="panel">
               <h3>Sebelum mulai</h3>
               <p className="small muted">{l.alphabet.intro}</p>

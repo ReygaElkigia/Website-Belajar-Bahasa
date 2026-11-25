@@ -1616,3 +1616,64 @@ h3 {
     animation: none !important;
   }
 }
+
+/* PWA */
+.offline-pill {
+  position: fixed;
+  left: 50%;
+  top: 70px;
+  z-index: 55;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border: 2px solid var(--stroke);
+  border-radius: 999px;
+  background: var(--pop);
+  color: #1b1f3b;
+  font-size: 13px;
+  font-weight: 800;
+  box-shadow: var(--hard-sm);
+  max-width: calc(100vw - 32px);
+}
+
+.nudge {
+  position: fixed;
+  left: 16px;
+  bottom: calc(80px + env(safe-area-inset-bottom));
+  z-index: 58;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 10px;
+  align-items: center;
+  max-width: min(380px, calc(100vw - 32px));
+  padding: 12px;
+  border: 2px solid var(--stroke);
+  border-radius: 20px;
+  background: var(--sheet);
+  box-shadow: var(--hard);
+  animation: celebrate-in 520ms var(--ease);
+}
+
+@media (min-width: 860px) {
+  .nudge {
+    bottom: 24px;
+  }
+}
+
+.nudge p {
+  margin: 2px 0 0;
+}
+
+.app-grid {
+  display: grid;
+  gap: 20px;
+  margin-top: 12px;
+}
+
+@media (min-width: 760px) {
+  .app-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

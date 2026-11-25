@@ -7,6 +7,7 @@ import { PASS, learnedCount, resetProgress, setGoal, streak, today, useProgress 
 import { BADGES, GOALS, levelInfo } from "@/data/gamify";
 import { Mascot } from "./mascot/Mascot";
 import { BadgeIcon } from "./mascot/BadgeIcon";
+import { AppPanel } from "./pwa/AppPanel";
 
 const DAYS = 28;
 
@@ -185,6 +186,8 @@ export function ProgressView() {
           </div>
         )}
       </section>
+
+      <AppPanel />
 
       <section className="panel">
         <h3>Data Anda</h3>

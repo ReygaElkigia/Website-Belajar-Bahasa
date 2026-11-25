@@ -23,6 +23,13 @@ Tombol dengar mencoba tiga sumber berurutan:
 
 Kata yang diputar dari rekaman asli diberi penanda "Penutur asli" yang menautkan ke berkas dan perekamnya. Atribusi lengkap ada di halaman `/kredit/` (lisensi CC BY-SA 4.0 atau CC BY 4.0 sesuai berkas).
 
+## Aplikasi (PWA) dan offline
+
+- `public/manifest.webmanifest` dan ikon di `public/icons/` (maskot Tuu) membuat Tutur bisa dipasang di layar utama.
+- `public/sw.js`: kerangka aplikasi disimpan saat dipasang; halaman memakai jaringan dulu lalu cache; aset `_next` dan rekaman Wikimedia memakai cache dulu.
+- `scripts/postbuild.mjs` (dijalankan oleh `npm run build`) memberi versi pada service worker dan menulis `out/offline-manifest.json`, daftar berkas per bahasa untuk tombol **Simpan untuk offline** di halaman bahasa.
+- Pengingat: Tuu mengingatkan di dalam aplikasi bila ada kartu jatuh tempo; notifikasi harian otomatis memakai Periodic Background Sync (Chrome Android, aplikasi terpasang).
+
 ## Gamifikasi
 
 XP, level, target harian, runtunan hari, dan 12 lencana (`src/data/gamify.ts`), disimpan di `localStorage`. Maskot **Tuu** (`src/components/mascot/`) adalah karakter orisinal yang bereaksi di kuis, latihan ujian, kartu hafalan, dan beranda.

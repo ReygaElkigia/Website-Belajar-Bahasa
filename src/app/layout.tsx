@@ -7,6 +7,7 @@ import "./anime.css";
 import { SiteHeader, TabBar } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { GameLayer } from "@/components/mascot/GameLayer";
+import { PwaBoot } from "@/components/pwa/PwaBoot";
 
 export const metadata: Metadata = {
   title: {
@@ -15,6 +16,12 @@ export const metadata: Metadata = {
   },
   description:
     "Belajar 12 bahasa dunia dari bahasa Indonesia: huruf, kosakata dengan suara, frasa sehari-hari, kamus multibahasa, video, dan latihan. Gratis, tanpa daftar.",
+  manifest: `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/manifest.webmanifest`,
+  icons: {
+    icon: `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/icons/favicon-32.png`,
+    apple: `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/icons/apple-touch-icon.png`,
+  },
+  appleWebApp: { capable: true, title: "Tutur", statusBarStyle: "default" },
 };
 
 export const viewport: Viewport = {
@@ -41,6 +48,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SiteFooter />
         <TabBar />
         <GameLayer />
+        <PwaBoot />
       </body>
     </html>
   );
