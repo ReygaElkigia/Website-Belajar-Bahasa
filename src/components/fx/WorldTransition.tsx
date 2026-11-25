@@ -6,6 +6,7 @@ import { slugFromPath, type LangMeta } from "@/lib/currentLang";
 import { themeFor } from "@/data/themes";
 import { Scene } from "../anime/Scene";
 import { Particles } from "../anime/Particles";
+import { Flag } from "@/components/Flag";
 
 const BASE = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
@@ -107,8 +108,8 @@ export function WorldTransition({ langs }: { langs: LangMeta[] }) {
         <i />
       </div>
       <div className="world-warp-content">
-        <span className="world-warp-glyph" lang={target.tts} aria-hidden>
-          {target.glyph}
+        <span className="world-warp-glyph" aria-hidden>
+          <Flag slug={target.slug} size={88} />
         </span>
         <span className="world-warp-native" lang={target.tts}>
           {target.native}

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { CircleCheck } from "lucide-react";
 import { PASS, useProgress } from "@/lib/progress";
+import { UnitIcon } from "@/components/UnitIcon";
 
 export interface UnitSummary {
   id: string;
@@ -26,6 +27,9 @@ export function UnitList({ slug, items }: { slug: string; items: UnitSummary[] }
               <span className="unit-num">{done ? <CircleCheck size={22} strokeWidth={1.75} aria-label="Selesai" /> : n + 1}</span>
               <span>
                 <span className="row" style={{ gap: 8 }}>
+                  <span className="unit-badge">
+                    <UnitIcon id={u.id} size={16} />
+                  </span>
                   <span className="unit-title">{u.title}</span>
                   <span className="level">{u.level}</span>
                 </span>

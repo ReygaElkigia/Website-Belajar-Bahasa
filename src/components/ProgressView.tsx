@@ -10,6 +10,7 @@ import { BadgeIcon } from "./mascot/BadgeIcon";
 import { AppPanel } from "./pwa/AppPanel";
 import { CountUp } from "./fx/CountUp";
 import { TuuSettingsPanel } from "./companion/TuuSettingsPanel";
+import { Flag } from "@/components/Flag";
 
 const DAYS = 28;
 
@@ -170,7 +171,9 @@ export function ProgressView() {
                   return (
                     <tr key={l.slug}>
                       <th scope="row" style={{ color: "var(--ink)" }}>
-                        {l.name}
+                        <span className="flag-label">
+                          <Flag slug={l.slug} size={22} /> {l.name}
+                        </span>
                       </th>
                       <td>
                         <div className="row" style={{ flexWrap: "nowrap" }}>

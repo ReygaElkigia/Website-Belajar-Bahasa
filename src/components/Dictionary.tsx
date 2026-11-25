@@ -7,6 +7,7 @@ import { ChevronRight, ExternalLink, Globe, Search } from "lucide-react";
 import { tuu } from "@/lib/companion";
 import { concepts, languages, onlineLanguages, phraseConcepts, unitById } from "@/data";
 import { SpeakButton } from "./Speak";
+import { Flag } from "@/components/Flag";
 
 /** Huruf kecil tanpa diakritik, agar "arigato" cocok dengan "arigatō". */
 export function fold(s: string) {
@@ -158,7 +159,9 @@ export function Dictionary() {
                               if (!t) return null;
                               return (
                                 <span key={l.slug}>
-                                  <span className="tiny">{l.name}</span>{" "}
+                                  <span className="tiny flag-label">
+                                    <Flag slug={l.slug} size={14} /> {l.name}
+                                  </span>{" "}
                                   <span lang={l.tts} dir={l.dir} style={{ color: "var(--ink)", fontWeight: 600 }}>
                                     {l.slug === h.matchedIn ? <mark>{t.word}</mark> : t.word}
                                   </span>

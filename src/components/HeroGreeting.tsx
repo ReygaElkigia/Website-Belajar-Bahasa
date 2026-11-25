@@ -9,6 +9,7 @@ import { Scene } from "./anime/Scene";
 import { Particles } from "./anime/Particles";
 import { Parallax } from "./anime/Parallax";
 import { Mascot } from "./mascot/Mascot";
+import { Flag } from "@/components/Flag";
 
 export interface Greeting {
   slug: string;
@@ -122,6 +123,7 @@ export function HeroGreeting({ items, title, lead }: { items: Greeting[]; title:
           {items.map((it, idx) => (
             <li key={it.slug}>
               <button type="button" lang={it.tts} aria-pressed={idx === i} onClick={() => say(idx)}>
+                <Flag slug={it.slug} size={18} />
                 {it.native}
               </button>
             </li>

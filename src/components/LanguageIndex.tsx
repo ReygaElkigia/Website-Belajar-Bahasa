@@ -6,6 +6,7 @@ import { unitsDone, useProgress } from "@/lib/progress";
 import { themeFor, themeVars } from "@/data/themes";
 import { ChallengeMeter, formatSpeakers } from "./LangMeta";
 import { Scene } from "./anime/Scene";
+import { Flag } from "@/components/Flag";
 
 export interface LangSummary {
   slug: string;
@@ -69,8 +70,8 @@ export function LanguageIndex({
                 <span className="lang-card-scene">
                   <Scene theme={t} className="scene" compact id={`card-${l.slug}`} />
                   <span className="lang-card-theme">{t.name}</span>
-                  <span className="lang-card-glyph" lang={l.tts} aria-hidden>
-                    {l.glyph}
+                  <span className="lang-card-flag">
+                    <Flag slug={l.slug} size={46} />
                   </span>
                 </span>
                 <span className="lang-card-body">

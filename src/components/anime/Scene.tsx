@@ -89,16 +89,31 @@ function palm(x: number, base: number, h: number, fill: string, lean = 1, key?: 
   );
 }
 
-function onion(cx: number, base: number, w: number, h: number, fill: string, key?: string) {
+/**
+ * Kubah bawang. Ujungnya `cross` untuk gereja Ortodoks (Rusia), atau `spire`:
+ * menara runcing dengan bola dan bulan sabit, seperti puncak kubah Taj Mahal.
+ */
+function onion(cx: number, base: number, w: number, h: number, fill: string, key?: string, finial: "cross" | "spire" = "cross") {
   const hw = w / 2;
+  const top = base - h;
   return (
     <g key={key}>
       <path
-        d={`M${cx - hw} ${base} C${cx - hw * 1.25} ${base - h * 0.45}, ${cx - hw * 0.15} ${base - h * 0.62}, ${cx} ${base - h} C${cx + hw * 0.15} ${base - h * 0.62}, ${cx + hw * 1.25} ${base - h * 0.45}, ${cx + hw} ${base} Z`}
+        d={`M${cx - hw} ${base} C${cx - hw * 1.25} ${base - h * 0.45}, ${cx - hw * 0.15} ${base - h * 0.62}, ${cx} ${top} C${cx + hw * 0.15} ${base - h * 0.62}, ${cx + hw * 1.25} ${base - h * 0.45}, ${cx + hw} ${base} Z`}
         fill={fill}
       />
-      <rect x={cx - 1.5} y={base - h - 22} width={3} height={24} fill={fill} />
-      <rect x={cx - 8} y={base - h - 16} width={16} height={3} fill={fill} />
+      {finial === "cross" ? (
+        <>
+          <rect x={cx - 1.5} y={top - 22} width={3} height={24} fill={fill} />
+          <rect x={cx - 8} y={top - 16} width={16} height={3} fill={fill} />
+        </>
+      ) : (
+        <>
+          <path d={`M${cx - 2.5} ${top + 2} L${cx} ${top - 20} L${cx + 2.5} ${top + 2} Z`} fill={fill} />
+          <circle cx={cx} cy={top - 7} r={3.2} fill={fill} />
+          <path d={`M${cx - 5} ${top - 26} A5.5 5.5 0 0 0 ${cx + 5} ${top - 26} A4 4 0 0 1 ${cx - 5} ${top - 26} Z`} fill={fill} />
+        </>
+      )}
     </g>
   );
 }
@@ -508,13 +523,13 @@ function sceneLayers(t: AnimeTheme): Layers {
           <g>
             <rect x={560} y={420} width={320} height={180} fill="#FFF3F8" />
             <path d="M690 600 L690 500 A30 34 0 0 1 750 500 L750 600 Z" fill={mid} opacity={0.5} />
-            {onion(720, 420, 150, 170, "#FFF3F8")}
-            {onion(610, 420, 56, 64, "#FFF3F8")}
-            {onion(830, 420, 56, 64, "#FFF3F8")}
+            {onion(720, 420, 150, 170, "#FFF3F8", undefined, "spire")}
+            {onion(610, 420, 56, 64, "#FFF3F8", undefined, "spire")}
+            {onion(830, 420, 56, 64, "#FFF3F8", undefined, "spire")}
             {[500, 940].map((x) => (
               <g key={x}>
                 <rect x={x - 11} y={300} width={22} height={300} fill="#FFF3F8" />
-                {onion(x, 302, 30, 38, "#FFF3F8")}
+                {onion(x, 302, 30, 38, "#FFF3F8", undefined, "spire")}
               </g>
             ))}
           </g>

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { languages } from "@/data";
 import { exams, questionCount } from "@/data/exams";
 import { PageHero } from "@/components/anime/Themed";
+import { Flag } from "@/components/Flag";
 
 export const metadata: Metadata = {
   title: "Latihan ujian bahasa",
@@ -28,7 +29,9 @@ export default function ExamsPage() {
             .filter((l) => exams.some((e) => e.lang === l.slug))
             .map((l) => (
               <section key={l.slug}>
-                <h2 style={{ fontSize: 24, marginBottom: 16 }}>Bahasa {l.name}</h2>
+                <h2 className="flag-label" style={{ fontSize: 24, marginBottom: 16 }}>
+                  <Flag slug={l.slug} size={30} /> Bahasa {l.name}
+                </h2>
                 <div className="exam-card-grid">
                   {exams
                     .filter((e) => e.lang === l.slug)

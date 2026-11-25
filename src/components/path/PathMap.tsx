@@ -8,6 +8,8 @@ import { heartsNow, MAX_HEARTS, PASS, setRelaxed, streak, today, useProgress } f
 import { lessonDefs, type LessonDef } from "@/lib/lessons";
 import { sfxOn, setSfx } from "@/lib/sfx";
 import { TuuSprite } from "../companion/TuuSprite";
+import { Flag } from "@/components/Flag";
+import { UnitIcon } from "@/components/UnitIcon";
 
 interface UnitInfo {
   id: string;
@@ -130,7 +132,10 @@ export function PathMap({ lang, units, stories }: Props) {
           return (
             <section key={u.id} className="path-unit" aria-labelledby={`pu-${u.id}`} style={defs.some((d) => d.key === openKey) ? { zIndex: 30 } : undefined}>
               <header className="path-banner" data-done={unitDone || undefined}>
-                <div>
+                <span className="path-banner-icon">
+                  <UnitIcon id={u.id} size={26} />
+                </span>
+                <div className="path-banner-text">
                   <span className="path-banner-kicker">
                     Unit {ui + 1} · {u.level}
                   </span>
@@ -227,8 +232,8 @@ export function PathMap({ lang, units, stories }: Props) {
           <span className="path-stat" data-tone="heart" title={p.relaxed ? "Mode santai" : `${hearts.n} dari ${MAX_HEARTS} hati`}>
             <Heart size={20} fill="currentColor" aria-hidden /> {p.relaxed ? <InfinityIcon size={18} aria-label="tak terbatas" /> : hearts.n}
           </span>
-          <span className="path-stat" data-tone="glyph" title={`Bahasa ${lang.name}`} lang={lang.tts}>
-            {lang.glyph}
+          <span className="path-stat" data-tone="glyph" title={`Bahasa ${lang.name}`}>
+            <Flag slug={lang.slug} size={22} /> {lang.name}
           </span>
         </div>
 

@@ -8,6 +8,8 @@ import { setCurrentLang, slugFromPath, useCurrentLang, type LangMeta } from "@/l
 import { PASS, useProgress } from "@/lib/progress";
 import { units } from "@/data/curriculum";
 import { themeFor } from "@/data/themes";
+import { Flag } from "@/components/Flag";
+import { UnitIcon } from "@/components/UnitIcon";
 
 /**
  * Penanda bahasa yang sedang dipelajari di header, lengkap dengan progres
@@ -71,8 +73,8 @@ export function LangPill({ langs }: { langs: LangMeta[] }) {
       >
         {lang ? (
           <>
-            <span className="lang-pill-glyph" lang={lang.tts} aria-hidden>
-              {lang.glyph}
+            <span className="lang-pill-glyph" aria-hidden>
+              <Flag slug={lang.slug} size={28} />
               <svg viewBox="0 0 36 36" className="lang-pill-ring" aria-hidden>
                 <circle cx={18} cy={18} r={16} pathLength={100} />
                 <circle cx={18} cy={18} r={16} pathLength={100} style={{ strokeDasharray: `${pct} 100` }} />
@@ -103,7 +105,10 @@ export function LangPill({ langs }: { langs: LangMeta[] }) {
             <div className="lang-menu-head" style={{ "--lp": t!.accent } as React.CSSProperties}>
               <div>
                 <span className="tiny muted">Lanjutkan bahasa {lang.name}</span>
-                <strong>
+                <strong className="lang-menu-unit">
+                  <span className="unit-badge">
+                    <UnitIcon id={nextUnit(lang.slug).id} size={16} />
+                  </span>
                   Unit {units.indexOf(nextUnit(lang.slug)) + 1}: {nextUnit(lang.slug).title}
                 </strong>
                 <span className="lang-menu-bar" aria-hidden>
@@ -131,9 +136,7 @@ export function LangPill({ langs }: { langs: LangMeta[] }) {
                     aria-current={l.slug === slug ? "true" : undefined}
                     style={{ "--lp": lt.accent } as React.CSSProperties}
                   >
-                    <span className="lang-menu-glyph" lang={l.tts} aria-hidden>
-                      {l.glyph}
-                    </span>
+                    <Flag slug={l.slug} size={30} />
                     <span className="lang-menu-name">
                       {l.name}
                       <span className="tiny muted">{d ? `${d}/${units.length} unit` : lt.name}</span>

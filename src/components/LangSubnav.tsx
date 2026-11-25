@@ -8,6 +8,7 @@ import { units } from "@/data/curriculum";
 import { PASS, useProgress } from "@/lib/progress";
 import { speak } from "@/lib/speech";
 import type { LangMeta } from "@/lib/currentLang";
+import { Flag } from "@/components/Flag";
 
 /**
  * Bilah navigasi di dalam satu bahasa: selalu menunjukkan bahasa yang sedang
@@ -41,9 +42,7 @@ export function LangSubnav({ lang, accent, pop }: { lang: LangMeta; accent: stri
     <nav className="lang-subnav" aria-label={`Bagian bahasa ${lang.name}`} style={{ "--lp": accent, "--lp-pop": pop } as React.CSSProperties}>
       <div className="wrap lang-subnav-inner">
         <button type="button" className="lang-subnav-id" onClick={() => speak(lang.native, lang.tts)} title={`Dengarkan: ${lang.native}`}>
-          <span className="lang-subnav-glyph" lang={lang.tts} aria-hidden>
-            {lang.glyph}
-          </span>
+          <Flag slug={lang.slug} size={32} />
           <span className="lang-subnav-name">
             <span className="tiny">Bahasa</span>
             <strong>{lang.name}</strong>
