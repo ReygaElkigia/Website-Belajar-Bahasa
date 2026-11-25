@@ -7,6 +7,9 @@ import { RotateCcw, Volume2 } from "lucide-react";
 import { concepts, languages, units, getLanguage } from "@/data";
 import { BOX_DAYS, getProgress, reviewCard, useProgress } from "@/lib/progress";
 import { speak } from "@/lib/speech";
+import { themeFor, themeVars } from "@/data/themes";
+import { Scene } from "./anime/Scene";
+import { Particles } from "./anime/Particles";
 
 const SESSION = 12;
 
@@ -98,13 +101,24 @@ export function Flashcards() {
 
   const box = card ? (progress.cards[lang.slug]?.[card.id]?.box ?? 0) : 0;
 
+  const theme = themeFor(lang.slug);
+  const stage = (
+    <>
+      <Scene key={theme.id} theme={theme} className="scene" compact id={`flash-${theme.id}`} />
+      <Particles key={`p-${theme.id}`} kind={theme.particle} seed={7} density={0.6} />
+    </>
+  );
+
   return (
-    <div className="two-col">
+    <div className="two-col themed" style={themeVars(theme)}>
       <div>
         {deck === null ? (
-          <div className="card-stage" aria-busy="true">
-            <div className="flashcard">
-              <div className="card-face ruled with-margin" />
+          <div className="flash-stage" aria-busy="true">
+            {stage}
+            <div className="card-stage">
+              <div className="flashcard">
+                <div className="card-face ruled with-margin" />
+              </div>
             </div>
           </div>
         ) : !done && card && term ? (
@@ -112,6 +126,8 @@ export function Flashcards() {
             <p className="muted small" style={{ marginBottom: 16 }}>
               Kartu {i + 1} dari {deck?.length}. Ketuk kartu atau tekan spasi untuk membalik.
             </p>
+            <div className="flash-stage">
+            {stage}
             <div className="card-stage">
               <div
                 className="flashcard"
@@ -166,7 +182,8 @@ export function Flashcards() {
                 </div>
               </div>
             </div>
-            <div className="btn-row mt-5" style={{ maxWidth: 560 }}>
+            </div>
+            <div className="btn-row mt-5" style={{ maxWidth: 640 }}>
               {flipped ? (
                 <>
                   <button type="button" className="btn" style={{ flex: 1 }} onClick={() => grade(false)}>

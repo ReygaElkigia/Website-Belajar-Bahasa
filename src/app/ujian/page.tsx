@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { languages } from "@/data";
 import { exams, questionCount } from "@/data/exams";
+import { PageHero } from "@/components/anime/Themed";
 
 export const metadata: Metadata = {
   title: "Latihan ujian bahasa",
@@ -12,15 +13,15 @@ export const metadata: Metadata = {
 export default function ExamsPage() {
   return (
     <>
-      <header className="page-head">
-        <div className="wrap stack">
+      <PageHero height={300} overlap={90}>
+        <div className="stack">
           <h1>Latihan ujian</h1>
           <p className="lead">
             {exams.length} ujian kemahiran bahasa dengan jenis soal yang meniru format aslinya, dari IELTS dan PTE sampai JLPT
             dan HSK. Info format diambil dari situs penyelenggara resmi; soal latihannya ditulis tim Tutur.
           </p>
         </div>
-      </header>
+      </PageHero>
       <section className="section" style={{ paddingTop: 40 }}>
         <div className="wrap stack" style={{ display: "grid", gap: 48 }}>
           {languages

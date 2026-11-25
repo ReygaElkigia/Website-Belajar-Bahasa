@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { conceptById, concepts, languages, unitById, units } from "@/data";
 import { SpeakButton } from "@/components/Speak";
 import { TermView } from "@/components/Term";
+import { PageHero } from "@/components/anime/Themed";
 
 export const dynamicParams = false;
 
@@ -35,8 +36,8 @@ export default async function EntryPage({ params }: { params: Promise<{ id: stri
 
   return (
     <>
-      <header className="page-head">
-        <div className="wrap stack">
+      <PageHero height={300} overlap={90}>
+        <div className="stack">
           <nav className="crumbs" aria-label="Lokasi">
             <Link href="/kamus/">Kamus</Link>
             <span aria-hidden>/</span>
@@ -52,7 +53,7 @@ export default async function EntryPage({ params }: { params: Promise<{ id: stri
             Dari unit {unitIndex}, {u.title.toLowerCase()}.
           </p>
         </div>
-      </header>
+      </PageHero>
 
       <section className="section" style={{ paddingTop: 40 }}>
         <div className="wrap two-col">

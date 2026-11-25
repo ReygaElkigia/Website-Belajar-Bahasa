@@ -1,7 +1,9 @@
 import type { Metadata, Viewport } from "next";
-import "@fontsource-variable/literata/opsz.css";
-import "@fontsource-variable/atkinson-hyperlegible-next";
+import "@fontsource-variable/nunito";
+import "@fontsource/m-plus-rounded-1c/700.css";
+import "@fontsource/m-plus-rounded-1c/800.css";
 import "./globals.css";
+import "./anime.css";
 import { SiteHeader, TabBar } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 

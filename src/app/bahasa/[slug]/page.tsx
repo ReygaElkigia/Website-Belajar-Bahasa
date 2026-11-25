@@ -8,6 +8,7 @@ import { SpeakButton } from "@/components/Speak";
 import { VideoCard } from "@/components/VideoCard";
 import { VoiceNotice } from "@/components/VoiceNotice";
 import { examsForLang } from "@/data/exams";
+import { PageHero, Themed } from "@/components/anime/Themed";
 
 export const dynamicParams = false;
 
@@ -33,9 +34,9 @@ export default async function LanguagePage({ params }: { params: Promise<{ slug:
   const unitItems = units.map((u) => ({ ...u, count: unitVocab(l, u.id).length }));
 
   return (
-    <>
-      <header className="page-head">
-        <div className="wrap">
+    <Themed slug={l.slug}>
+      <PageHero slug={l.slug} height={460} overlap={130}>
+        <div>
           <nav className="crumbs" aria-label="Lokasi">
             <Link href="/bahasa/">Bahasa</Link>
             <span aria-hidden>/</span>
@@ -79,7 +80,7 @@ export default async function LanguagePage({ params }: { params: Promise<{ slug:
           </div>
           <VoiceNotice tts={l.tts} name={l.name} />
         </div>
-      </header>
+      </PageHero>
 
       <section className="section">
         <div className="wrap two-col">
@@ -166,6 +167,6 @@ export default async function LanguagePage({ params }: { params: Promise<{ slug:
           </div>
         </section>
       )}
-    </>
+    </Themed>
   );
 }

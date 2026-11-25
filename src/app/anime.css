@@ -1,0 +1,1163 @@
+/* =========================================================
+   Tutur: lapisan tema anime.
+   Dimuat setelah globals.css dan menimpa token dasarnya.
+   ========================================================= */
+
+:root {
+  --font-display: "M PLUS Rounded 1c", "Nunito Variable", system-ui, sans-serif;
+  --font-serif: var(--font-display);
+  --font-sans: "Nunito Variable", "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --paper: #f3f6ff;
+  --sheet: #ffffff;
+  --sheet-2: #eef2fd;
+  --ink: #1b1f3b;
+  --ink-2: #4e5578;
+  --rule: #d6ddf3;
+  --rule-strong: #b9c3e6;
+  --stroke: #1b1f3b;
+  --tone: rgba(27, 31, 59, 0.055);
+
+  --accent: #2f6be8;
+  --accent-dark: #8db4ff;
+  --pop: #ffb547;
+  --pen: var(--accent);
+  --pen-strong: color-mix(in srgb, var(--accent) 80%, #000);
+  --pen-wash: color-mix(in srgb, var(--accent) 12%, #fff);
+  --highlight: color-mix(in srgb, var(--pop) 55%, #fff);
+
+  --r-1: 12px;
+  --r-2: 20px;
+  --r-card: 16px;
+  --hard: 4px 4px 0 var(--stroke);
+  --hard-sm: 3px 3px 0 var(--stroke);
+  --hard-lg: 6px 6px 0 var(--stroke);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0e1124;
+    --sheet: #171b36;
+    --sheet-2: #1e2344;
+    --ink: #eef1ff;
+    --ink-2: #aab2d8;
+    --rule: #2b315a;
+    --rule-strong: #3b4374;
+    --stroke: #05060f;
+    --tone: rgba(255, 255, 255, 0.035);
+    --pen: var(--accent-dark);
+    --pen-strong: color-mix(in srgb, var(--accent-dark) 80%, #fff);
+    --pen-wash: color-mix(in srgb, var(--accent-dark) 18%, #171b36);
+    --highlight: color-mix(in srgb, var(--pop) 45%, #171b36);
+    --on-pen: #0e1124;
+  }
+}
+
+:root[data-theme="dark"] {
+  --paper: #0e1124;
+  --sheet: #171b36;
+  --sheet-2: #1e2344;
+  --ink: #eef1ff;
+  --ink-2: #aab2d8;
+  --rule: #2b315a;
+  --rule-strong: #3b4374;
+  --stroke: #05060f;
+  --tone: rgba(255, 255, 255, 0.035);
+  --pen: var(--accent-dark);
+  --pen-strong: color-mix(in srgb, var(--accent-dark) 80%, #fff);
+  --pen-wash: color-mix(in srgb, var(--accent-dark) 18%, #171b36);
+  --highlight: color-mix(in srgb, var(--pop) 45%, #171b36);
+  --on-pen: #0e1124;
+}
+
+/* Wadah bertema: variabel aksen diset ulang di elemen ini agar --pen ikut berubah. */
+.themed {
+  --pen: var(--accent);
+  --pen-strong: color-mix(in srgb, var(--accent) 80%, #000);
+  --pen-wash: color-mix(in srgb, var(--accent) 12%, #fff);
+  --highlight: color-mix(in srgb, var(--pop) 55%, #fff);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .themed {
+    --pen: var(--accent-dark);
+    --pen-strong: color-mix(in srgb, var(--accent-dark) 80%, #fff);
+    --pen-wash: color-mix(in srgb, var(--accent-dark) 18%, #171b36);
+    --highlight: color-mix(in srgb, var(--pop) 45%, #171b36);
+  }
+}
+
+:root[data-theme="dark"] .themed {
+  --pen: var(--accent-dark);
+  --pen-strong: color-mix(in srgb, var(--accent-dark) 80%, #fff);
+  --pen-wash: color-mix(in srgb, var(--accent-dark) 18%, #171b36);
+  --highlight: color-mix(in srgb, var(--pop) 45%, #171b36);
+}
+
+/* ---------- Dasar ---------- */
+
+body {
+  background-color: var(--paper);
+  background-image: radial-gradient(circle at 1px 1px, var(--tone) 1.1px, transparent 1.4px);
+  background-size: 14px 14px;
+  font-family: var(--font-sans);
+  font-feature-settings: "kern";
+}
+
+h1,
+h2,
+h3,
+.brand,
+.score,
+.stats dd,
+.lang-name strong,
+.unit-num,
+.step-num {
+  font-family: var(--font-display);
+}
+
+h1 {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-weight: 800;
+  letter-spacing: -0.015em;
+}
+
+h3 {
+  font-weight: 800;
+}
+
+.brand {
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.brand-dot {
+  background: var(--pop);
+  box-shadow: 0 0 0 2px var(--stroke);
+}
+
+::selection {
+  background: var(--pop);
+  color: #1b1f3b;
+}
+
+/* ---------- Komponen bergaya komik ---------- */
+
+.panel,
+.entry,
+.exam-card,
+.empty,
+.card-face,
+.exam-passage,
+.lang-card,
+.flash-panel {
+  border: 2px solid var(--stroke);
+  border-radius: var(--r-2);
+  box-shadow: var(--hard);
+  background: var(--sheet);
+}
+
+.empty {
+  border-style: dashed;
+  box-shadow: none;
+}
+
+.exam-card,
+.lang-card {
+  transition: transform 260ms var(--ease), box-shadow 260ms var(--ease);
+}
+
+.exam-card:hover,
+.lang-card:hover {
+  transform: translate(-3px, -3px) rotate(-0.4deg);
+  box-shadow: 8px 8px 0 var(--stroke);
+}
+
+.btn {
+  border: 2px solid var(--stroke);
+  border-radius: 999px;
+  box-shadow: var(--hard-sm);
+  font-weight: 800;
+  transition: transform 160ms var(--ease), box-shadow 160ms var(--ease), background-color 160ms ease;
+}
+
+.btn:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 var(--stroke);
+}
+
+.btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--stroke);
+}
+
+.btn-primary {
+  --btn-bd: var(--stroke);
+}
+
+.btn-quiet {
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.btn-quiet:hover,
+.btn-quiet:active {
+  box-shadow: none;
+  transform: none;
+}
+
+.chip {
+  border: 2px solid var(--stroke);
+  font-weight: 800;
+  transition: transform 160ms var(--ease), background-color 160ms ease;
+}
+
+.chip:hover {
+  transform: translateY(-2px);
+  border-color: var(--stroke);
+}
+
+.chip[aria-pressed="true"],
+.chip[aria-current="page"] {
+  background: var(--pen);
+  color: var(--on-pen);
+  border-color: var(--stroke);
+}
+
+.level {
+  border: 1.5px solid var(--stroke);
+  color: var(--ink);
+  background: var(--sheet);
+}
+
+.speak {
+  border: 2px solid var(--stroke);
+  box-shadow: 2px 2px 0 var(--stroke);
+  transition: transform 160ms var(--ease), box-shadow 160ms var(--ease), background-color 160ms ease;
+}
+
+.speak:hover {
+  transform: translate(-1px, -1px) scale(1.06);
+}
+
+.speak[data-playing="true"] {
+  animation: pulse-ring 1s var(--ease) infinite;
+}
+
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--pen) 55%, transparent);
+  }
+  100% {
+    box-shadow: 0 0 0 14px transparent;
+  }
+}
+
+.option {
+  border: 2px solid var(--stroke);
+  border-radius: 16px;
+  box-shadow: var(--hard-sm);
+  transition: transform 160ms var(--ease), box-shadow 160ms var(--ease), background-color 160ms ease;
+}
+
+.option:hover:not(:disabled) {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 var(--stroke);
+}
+
+.option[data-state="right"] {
+  animation: pop-in 380ms var(--ease);
+}
+
+.option[data-state="wrong"] {
+  animation: shake 360ms ease;
+}
+
+@keyframes pop-in {
+  0% {
+    transform: scale(0.96);
+  }
+  60% {
+    transform: scale(1.03);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes shake {
+  20%,
+  60% {
+    transform: translateX(-5px);
+  }
+  40%,
+  80% {
+    transform: translateX(5px);
+  }
+}
+
+.feedback {
+  border: 2px solid var(--stroke);
+  border-radius: 18px;
+  box-shadow: var(--hard-sm);
+  animation: rise-in 360ms var(--ease);
+}
+
+.search input,
+.select,
+.exam-input {
+  border: 2px solid var(--stroke);
+  border-radius: 16px;
+}
+
+.search input:focus,
+.exam-input:focus {
+  box-shadow: 4px 4px 0 var(--pen);
+}
+
+.quiz-progress,
+.bar {
+  height: 10px;
+  border-radius: 999px;
+  border: 2px solid var(--stroke);
+  background: var(--sheet);
+}
+
+.quiz-progress > i,
+.bar > i {
+  background: repeating-linear-gradient(-45deg, var(--pen) 0 10px, color-mix(in srgb, var(--pen) 75%, #fff) 10px 20px);
+  border-radius: 999px;
+}
+
+.glyph {
+  border: 2px solid var(--stroke);
+  border-radius: 16px;
+  box-shadow: 2px 2px 0 var(--stroke);
+  transition: transform 180ms var(--ease), box-shadow 180ms var(--ease), background-color 180ms ease;
+}
+
+.glyph:hover {
+  transform: translate(-2px, -3px) rotate(-1deg);
+  box-shadow: 5px 5px 0 var(--stroke);
+}
+
+.glyph-empty {
+  border-radius: 16px;
+}
+
+.order-item {
+  border: 2px solid var(--stroke);
+  border-radius: 14px;
+  box-shadow: 2px 2px 0 var(--stroke);
+}
+
+.video-frame {
+  border: 2px solid var(--stroke);
+  border-radius: var(--r-2);
+  box-shadow: var(--hard);
+}
+
+.vocab {
+  border-top: 3px solid var(--stroke);
+}
+
+.vocab-row {
+  transition: background-color 200ms ease, padding 200ms var(--ease);
+  border-radius: 14px;
+  padding-inline: 8px;
+}
+
+.vocab-row:hover {
+  background: var(--pen-wash);
+}
+
+.site-header {
+  border-bottom: 2px solid var(--stroke);
+}
+
+.nav a {
+  border-radius: 999px;
+  font-weight: 800;
+}
+
+.nav a[aria-current="page"] {
+  background: var(--pen);
+  color: var(--on-pen);
+}
+
+.tabbar {
+  border-top: 2px solid var(--stroke);
+}
+
+.site-footer {
+  border-top: 2px solid var(--stroke);
+}
+
+/* ---------- Pemandangan ---------- */
+
+.scene {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.scene .layer {
+  transition: transform 900ms var(--ease);
+  will-change: transform;
+}
+
+.scene .layer-sun {
+  transform: translate(calc(var(--mx, 0) * -4px), calc(var(--my, 0) * -3px + var(--sy, 0) * 0.15px));
+}
+
+.scene .layer-clouds {
+  transform: translate(calc(var(--mx, 0) * -10px), calc(var(--sy, 0) * 0.1px));
+}
+
+.scene .layer-far {
+  transform: translate(calc(var(--mx, 0) * -14px), calc(var(--my, 0) * -4px + var(--sy, 0) * 0.08px));
+}
+
+.scene .layer-mid {
+  transform: translate(calc(var(--mx, 0) * -24px), calc(var(--my, 0) * -6px + var(--sy, 0) * 0.04px));
+}
+
+.scene .layer-near {
+  transform: translate(calc(var(--mx, 0) * -40px), calc(var(--my, 0) * -8px));
+}
+
+.scene .drift {
+  animation: drift 70s ease-in-out infinite alternate;
+}
+
+@keyframes drift {
+  from {
+    transform: translateX(-60px);
+  }
+  to {
+    transform: translateX(80px);
+  }
+}
+
+.scene .spin {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: spin 10s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.scene .twinkle {
+  animation: twinkle 3.4s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Hero bertema di atas halaman */
+.anime-hero {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  border-bottom: 2px solid var(--stroke);
+  height: var(--hero-h, 340px);
+}
+
+.anime-hero::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 40%;
+  background: linear-gradient(to bottom, transparent, color-mix(in srgb, var(--scene-near, #000) 55%, transparent));
+  pointer-events: none;
+  z-index: 2;
+}
+
+.anime-hero .particles {
+  z-index: 3;
+}
+
+.anime-hero .theme-tag {
+  position: absolute;
+  right: var(--gutter);
+  top: 16px;
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border: 2px solid var(--stroke);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--sheet) 88%, transparent);
+  box-shadow: var(--hard-sm);
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--ink);
+  backdrop-filter: blur(6px);
+}
+
+.theme-tag i {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--pen);
+  box-shadow: 0 0 0 2px var(--stroke);
+}
+
+/* Kartu judul yang menumpang di atas pemandangan */
+.hero-card {
+  position: relative;
+  z-index: 5;
+  margin-top: calc(var(--overlap, 120px) * -1);
+  padding: var(--s-6);
+  border: 2px solid var(--stroke);
+  border-radius: 24px;
+  background: var(--sheet);
+  box-shadow: var(--hard-lg);
+}
+
+@media (max-width: 640px) {
+  .hero-card {
+    padding: var(--s-5);
+    border-radius: 20px;
+  }
+}
+
+.page-anime-head {
+  padding-bottom: var(--s-7);
+}
+
+.page-anime-head .lead {
+  margin-top: var(--s-3);
+}
+
+/* ---------- Beranda: hero ---------- */
+
+.home-hero {
+  --hero-h: min(78vh, 720px);
+  min-height: 560px;
+}
+
+.home-hero .scene-stack {
+  position: absolute;
+  inset: 0;
+}
+
+.home-hero .scene-stack > div {
+  position: absolute;
+  inset: 0;
+  transition: opacity 1100ms ease;
+}
+
+.home-hero-inner {
+  position: relative;
+  z-index: 5;
+  height: 100%;
+  display: grid;
+  align-content: center;
+  gap: var(--s-5);
+}
+
+.bubble {
+  position: relative;
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-4);
+  max-width: 100%;
+  padding: 18px 28px 22px;
+  border: 3px solid var(--stroke);
+  border-radius: 38px;
+  background: var(--sheet);
+  box-shadow: var(--hard-lg);
+  color: var(--ink);
+}
+
+.bubble::after {
+  content: "";
+  position: absolute;
+  left: 46px;
+  bottom: -26px;
+  width: 34px;
+  height: 30px;
+  background: var(--sheet);
+  border-right: 3px solid var(--stroke);
+  border-bottom: 3px solid var(--stroke);
+  clip-path: polygon(0 0, 100% 0, 100% 100%);
+  transform: skewX(-20deg);
+}
+
+.bubble .hero-say {
+  font-family: var(--font-display) !important;
+  font-weight: 800 !important;
+  font-size: clamp(44px, 9vw, 104px) !important;
+  letter-spacing: -0.03em;
+}
+
+.bubble .hero-say:lang(ja),
+.bubble .hero-say:lang(ko),
+.bubble .hero-say:lang(zh),
+.bubble .hero-say:lang(th),
+.bubble .hero-say:lang(hi),
+.bubble .hero-say:lang(ar) {
+  letter-spacing: 0;
+}
+
+.bubble .hero-say:lang(ko) { font-family: var(--font-ko) !important; }
+.bubble .hero-say:lang(zh) { font-family: var(--font-zh) !important; }
+.bubble .hero-say:lang(th) { font-family: var(--font-th) !important; }
+.bubble .hero-say:lang(hi) { font-family: var(--font-hi) !important; }
+.bubble .hero-say:lang(ar) { font-family: var(--font-ar) !important; }
+
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.hero-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border: 2px solid var(--stroke);
+  border-radius: 999px;
+  background: var(--sheet);
+  box-shadow: var(--hard-sm);
+  font-weight: 800;
+  font-size: 14px;
+  color: var(--ink);
+}
+
+.hero-tabs.anime {
+  gap: 8px;
+  margin-top: 0;
+}
+
+.hero-tabs.anime button {
+  border: 2px solid var(--stroke);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--sheet) 90%, transparent);
+  box-shadow: 2px 2px 0 var(--stroke);
+  color: var(--ink);
+  font-weight: 800;
+  line-height: 1.6;
+  padding: 4px 12px;
+  backdrop-filter: blur(4px);
+  transition: transform 160ms var(--ease), background-color 160ms ease;
+}
+
+.hero-tabs.anime button:hover {
+  transform: translateY(-2px);
+}
+
+.hero-tabs.anime button[aria-pressed="true"] {
+  background: var(--pen);
+  color: var(--on-pen);
+}
+
+.home-hero-copy {
+  max-width: 620px;
+  padding: var(--s-5) var(--s-6);
+  border: 2px solid var(--stroke);
+  border-radius: 24px;
+  background: color-mix(in srgb, var(--sheet) 92%, transparent);
+  box-shadow: var(--hard-lg);
+  backdrop-filter: blur(8px);
+}
+
+.home-hero-copy h1 {
+  font-size: clamp(26px, 3.6vw, 38px);
+  line-height: 1.15;
+}
+
+.home-hero-copy .lead {
+  margin-top: 10px;
+  font-size: 17px;
+}
+
+/* ---------- Kartu bahasa ---------- */
+
+.lang-grid {
+  display: grid;
+  gap: var(--s-5);
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.lang-card {
+  display: grid;
+  overflow: hidden;
+  color: inherit;
+  text-decoration: none;
+  height: 100%;
+}
+
+.lang-card:hover {
+  color: inherit;
+}
+
+.lang-card-scene {
+  position: relative;
+  height: 150px;
+  overflow: hidden;
+  border-bottom: 2px solid var(--stroke);
+}
+
+.lang-card-scene .scene .layer {
+  transition: transform 700ms var(--ease);
+}
+
+.lang-card:hover .lang-card-scene .layer-mid {
+  transform: translate(-12px, -4px) scale(1.02);
+}
+
+.lang-card:hover .lang-card-scene .layer-near {
+  transform: translate(-22px, -2px);
+}
+
+.lang-card-glyph {
+  position: absolute;
+  left: 14px;
+  bottom: -18px;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  border: 2px solid var(--stroke);
+  border-radius: 18px;
+  background: var(--sheet);
+  box-shadow: var(--hard-sm);
+  font-size: 30px;
+  font-weight: 800;
+  color: var(--pen);
+}
+
+.lang-card-body {
+  display: grid;
+  gap: 6px;
+  padding: 28px 18px 18px;
+}
+
+.lang-card-body .lang-name strong {
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.lang-card-theme {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  z-index: 2;
+  padding: 3px 10px;
+  border: 1.5px solid var(--stroke);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--sheet) 85%, transparent);
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.lang-card-foot {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+  font-size: var(--t-small);
+  color: var(--ink-2);
+}
+
+/* ---------- Partikel ---------- */
+
+.particles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.particles i {
+  position: absolute;
+  left: var(--x);
+  top: -8%;
+  display: block;
+  animation: fall var(--d) linear var(--delay) infinite;
+  scale: var(--s);
+}
+
+@keyframes fall {
+  0% {
+    top: -8%;
+    transform: translateX(0) rotate(0deg);
+  }
+  50% {
+    transform: translateX(var(--sway)) rotate(180deg);
+  }
+  100% {
+    top: 108%;
+    transform: translateX(calc(var(--sway) * -0.4)) rotate(360deg);
+  }
+}
+
+@keyframes rise {
+  0% {
+    top: 108%;
+    transform: translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(var(--sway));
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    top: -12%;
+    transform: translateX(calc(var(--sway) * -0.5));
+    opacity: 0;
+  }
+}
+
+@keyframes hover-float {
+  0%,
+  100% {
+    transform: translate(0, 0);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translate(var(--sway), -30px);
+    opacity: 1;
+  }
+}
+
+@keyframes rain {
+  from {
+    top: -10%;
+  }
+  to {
+    top: 110%;
+  }
+}
+
+.p-petal i,
+.p-lotus i {
+  width: 13px;
+  height: 10px;
+  background: linear-gradient(135deg, #ffd1e1, #ff8db8);
+  border-radius: 100% 0 100% 0;
+  opacity: 0.9;
+}
+
+.p-lotus i {
+  width: 16px;
+  height: 12px;
+  background: linear-gradient(135deg, #ffe0ef, #f25f9a);
+}
+
+.p-leaf i {
+  width: 14px;
+  height: 9px;
+  background: linear-gradient(135deg, #a8e06a, #2e9e5b);
+  border-radius: 100% 0 100% 0;
+}
+
+.p-snow i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.9);
+}
+
+.p-rain i {
+  width: 1.5px;
+  height: 28px;
+  background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.7));
+  animation-name: rain;
+  rotate: 10deg;
+}
+
+.p-confetti i {
+  width: 8px;
+  height: 13px;
+  background: var(--c);
+  border-radius: 2px;
+}
+
+.p-firefly i,
+.p-star i,
+.p-sparkle i {
+  top: var(--y);
+  animation-name: hover-float;
+  animation-timing-function: ease-in-out;
+}
+
+.p-firefly i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #fff6a8;
+  box-shadow: 0 0 10px 3px rgba(255, 236, 120, 0.8);
+}
+
+.p-star i {
+  top: calc(var(--y) * 0.6);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 8px 2px rgba(255, 255, 255, 0.8);
+}
+
+.p-sparkle i {
+  width: 14px;
+  height: 14px;
+  background: #fff;
+  clip-path: polygon(50% 0, 60% 40%, 100% 50%, 60% 60%, 50% 100%, 40% 60%, 0 50%, 40% 40%);
+}
+
+.p-lantern i,
+.p-bubble i {
+  animation-name: rise;
+}
+
+.p-lantern i {
+  width: 16px;
+  height: 22px;
+  border-radius: 8px 8px 6px 6px;
+  background: radial-gradient(circle at 50% 60%, #ffe28a, #ff8a3d 70%);
+  box-shadow: 0 0 16px 6px rgba(255, 160, 70, 0.55);
+}
+
+.p-bubble i {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.85);
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.9) 0 3px, rgba(255, 255, 255, 0.12) 4px);
+}
+
+.p-powder i {
+  top: var(--y);
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: var(--c);
+  filter: blur(18px);
+  opacity: 0.35;
+  animation-name: hover-float;
+  animation-timing-function: ease-in-out;
+}
+
+/* ---------- Transisi halaman dan kemunculan ---------- */
+
+.page-enter {
+  animation: page-in 520ms var(--ease) both;
+}
+
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+    filter: blur(2px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@supports (animation-timeline: view()) {
+  .section > .wrap > *,
+  .lang-grid > li,
+  .exam-card-grid > *,
+  .video-grid > *,
+  .steps > li {
+    animation: reveal linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 60%;
+  }
+
+  @keyframes reveal {
+    from {
+      opacity: 0;
+      transform: translateY(28px) scale(0.98);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+
+/* ---------- Kartu hafalan ---------- */
+
+.card-face {
+  --line-color: color-mix(in srgb, var(--pen) 22%, transparent);
+  background-image: linear-gradient(to bottom, transparent calc(var(--line) - 1px), var(--line-color) calc(var(--line) - 1px));
+  background-size: 100% var(--line);
+}
+
+.ruled.with-margin::before {
+  background: var(--pen);
+  opacity: 0.5;
+}
+
+/* ---------- Gerak minimal ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .particles {
+    display: none;
+  }
+  .scene .drift,
+  .scene .spin,
+  .scene .twinkle {
+    animation: none;
+  }
+  .scene .layer {
+    transition: none;
+    transform: none !important;
+  }
+  .page-enter {
+    animation: none;
+  }
+}
+
+.scene-fade {
+  animation: scene-fade 1100ms ease both;
+}
+
+@keyframes scene-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scene-fade {
+    animation: none;
+  }
+}
+
+/* Perbaikan hero beranda */
+.home-hero {
+  height: auto;
+  min-height: 640px;
+}
+
+.home-hero-inner {
+  padding-block: 56px 72px;
+}
+
+.bubble .hero-say {
+  all: unset;
+  cursor: pointer;
+  color: var(--ink);
+  line-height: 1.1;
+  border-radius: 12px;
+  overflow-wrap: anywhere;
+}
+
+.bubble .hero-say:focus-visible {
+  outline: 3px solid var(--pen);
+  outline-offset: 6px;
+}
+
+/* Panggung kartu hafalan: kartu melayang di atas pemandangan bahasa */
+.flash-stage {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  max-width: 640px;
+  padding: 44px 28px;
+  border: 2px solid var(--stroke);
+  border-radius: 26px;
+  box-shadow: var(--hard);
+}
+
+.flash-stage .card-stage {
+  position: relative;
+  z-index: 3;
+  margin-inline: auto;
+}
+
+.flash-stage .particles {
+  z-index: 2;
+}
+
+.flash-stage .flashcard {
+  animation: card-bob 5s ease-in-out infinite;
+}
+
+.flash-stage .flashcard[data-flipped="true"] {
+  animation: none;
+}
+
+@keyframes card-bob {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -6px;
+  }
+}
+
+@media (max-width: 520px) {
+  .flash-stage {
+    padding: 28px 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flash-stage .flashcard {
+    animation: none;
+  }
+}
+
+.hero-card .lang-hero {
+  align-items: start;
+}

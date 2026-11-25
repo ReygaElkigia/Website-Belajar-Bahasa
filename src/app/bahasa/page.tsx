@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { LanguageIndex } from "@/components/LanguageIndex";
 import { languages, onlineLanguages, units } from "@/data";
 import { languageSummaries } from "@/lib/summaries";
+import { PageHero } from "@/components/anime/Themed";
 
 export const metadata: Metadata = {
   title: "Semua bahasa",
@@ -11,15 +12,15 @@ export const metadata: Metadata = {
 export default function LanguagesPage() {
   return (
     <>
-      <header className="page-head">
-        <div className="wrap stack">
+      <PageHero height={300} overlap={90}>
+        <div className="stack">
           <h1>Semua bahasa</h1>
           <p className="lead">
             {languages.length} bahasa dengan kurikulum lengkap. Setiap bahasa punya pengenalan huruf, {units.length} unit kosakata dan
             frasa, catatan tata bahasa, serta video.
           </p>
         </div>
-      </header>
+      </PageHero>
       <section className="section">
         <div className="wrap">
           <LanguageIndex items={languageSummaries()} totalUnits={units.length} withFilter />

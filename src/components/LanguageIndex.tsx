@@ -2,9 +2,10 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { ChevronRight } from "lucide-react";
 import { unitsDone, useProgress } from "@/lib/progress";
+import { themeFor, themeVars } from "@/data/themes";
 import { ChallengeMeter, formatSpeakers } from "./LangMeta";
+import { Scene } from "./anime/Scene";
 
 export interface LangSummary {
   slug: string;
@@ -50,7 +51,7 @@ export function LanguageIndex({
   return (
     <div>
       {withFilter && (
-        <div className="chips" role="group" aria-label="Saring bahasa" style={{ marginBottom: 24 }}>
+        <div className="chips" role="group" aria-label="Saring bahasa" style={{ marginBottom: 28 }}>
           {filters.map((f) => (
             <button key={f.id} type="button" className="chip" aria-pressed={filter === f.id} onClick={() => setFilter(f.id)}>
               {f.label}
@@ -58,16 +59,21 @@ export function LanguageIndex({
           ))}
         </div>
       )}
-      <ul className="lang-index">
+      <ul className="lang-grid">
         {shown.map((l) => {
           const done = unitsDone(progress, l.slug).length;
+          const t = themeFor(l.slug);
           return (
-            <li key={l.slug} className="lang-row">
-              <Link href={`/bahasa/${l.slug}/`}>
-                <span className="lang-glyph" lang={l.tts} aria-hidden>
-                  {l.glyph}
+            <li key={l.slug} className="themed" style={themeVars(t)}>
+              <Link href={`/bahasa/${l.slug}/`} className="lang-card">
+                <span className="lang-card-scene">
+                  <Scene theme={t} className="scene" compact id={`card-${l.slug}`} />
+                  <span className="lang-card-theme">{t.name}</span>
+                  <span className="lang-card-glyph" lang={l.tts} aria-hidden>
+                    {l.glyph}
+                  </span>
                 </span>
-                <span>
+                <span className="lang-card-body">
                   <span className="lang-name">
                     <strong>{l.name}</strong>
                     <span className="lang-native" lang={l.tts}>
@@ -77,13 +83,16 @@ export function LanguageIndex({
                   <span className="lang-meta">
                     <span>{l.script}</span>
                     <span>{formatSpeakers(l.speakers)} penutur</span>
-                    {done > 0 && <span style={{ color: "var(--ok)" }}>{done} dari {totalUnits} unit selesai</span>}
+                  </span>
+                  <span className="lang-card-foot">
+                    <ChallengeMeter level={l.challenge} label={l.challengeLabel} />
+                    {done > 0 && (
+                      <span style={{ color: "var(--ok)", fontWeight: 800 }}>
+                        {done}/{totalUnits} unit
+                      </span>
+                    )}
                   </span>
                 </span>
-                <span className="lang-side">
-                  <ChallengeMeter level={l.challenge} label={l.challengeLabel} />
-                </span>
-                <ChevronRight className="lang-arrow" size={20} strokeWidth={1.75} aria-hidden />
               </Link>
             </li>
           );

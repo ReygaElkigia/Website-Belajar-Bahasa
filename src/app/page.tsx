@@ -30,26 +30,11 @@ export default function Home() {
 
   return (
     <>
-      <section className="hero ruled with-margin">
-        <div className="hero-inner">
-          <HeroGreeting items={greetings} />
-          <div className="hero-copy">
-            <h1>Belajar bahasa dunia, langsung dari bahasa Indonesia.</h1>
-            <p className="lead">
-              {languages.length} bahasa, masing-masing dengan huruf, {concepts.length} kosakata inti bersuara,{" "}
-              {phraseConcepts.length} frasa sehari-hari, kamus, video, dan kuis. Gratis dan tanpa daftar.
-            </p>
-            <div className="btn-row">
-              <Link className="btn btn-primary" href="/bahasa/">
-                Pilih bahasa
-              </Link>
-              <Link className="btn" href="/kamus/">
-                Buka kamus
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HeroGreeting
+        items={greetings}
+        title="Belajar bahasa dunia, langsung dari bahasa Indonesia."
+        lead={`${languages.length} bahasa, masing-masing dengan dunianya sendiri: huruf, ${concepts.length} kosakata bersuara, ${phraseConcepts.length} frasa, kamus, video, kuis, dan latihan ujian resmi. Gratis dan tanpa daftar.`}
+      />
 
       <section className="section">
         <div className="wrap">

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ProgressView } from "@/components/ProgressView";
+import { PageHero } from "@/components/anime/Themed";
 
 export const metadata: Metadata = {
   title: "Progres saya",
@@ -9,12 +10,12 @@ export const metadata: Metadata = {
 export default function ProgressPage() {
   return (
     <>
-      <header className="page-head">
-        <div className="wrap stack">
+      <PageHero height={300} overlap={90}>
+        <div className="stack">
           <h1>Progres saya</h1>
           <p className="lead">Ringkasan belajar Anda di perangkat ini.</p>
         </div>
-      </header>
+      </PageHero>
       <section className="section" style={{ paddingTop: 40 }}>
         <div className="wrap">
           <ProgressView />

@@ -6,6 +6,7 @@ import { Quiz, type QuizItem } from "@/components/Quiz";
 import { SpeakButton } from "@/components/Speak";
 import { TermView } from "@/components/Term";
 import { VoiceNotice } from "@/components/VoiceNotice";
+import { PageHero, Themed } from "@/components/anime/Themed";
 
 export const dynamicParams = false;
 
@@ -45,9 +46,9 @@ export default async function UnitPage({ params }: { params: Params }) {
     .map((c) => ({ id: c.id, word: l.vocab[c.id].word, roman: l.vocab[c.id].roman, meaning: c.word }));
 
   return (
-    <>
-      <header className="page-head">
-        <div className="wrap stack">
+    <Themed slug={l.slug}>
+      <PageHero slug={l.slug} height={360} overlap={96}>
+        <div className="stack">
           <nav className="crumbs" aria-label="Lokasi">
             <Link href="/bahasa/">Bahasa</Link>
             <span aria-hidden>/</span>
@@ -63,7 +64,7 @@ export default async function UnitPage({ params }: { params: Params }) {
           <p className="lead">{u.summary}</p>
           <VoiceNotice tts={l.tts} name={l.name} />
         </div>
-      </header>
+      </PageHero>
 
       <section className="section">
         <div className="wrap two-col">
@@ -165,6 +166,6 @@ export default async function UnitPage({ params }: { params: Params }) {
           </aside>
         </div>
       </section>
-    </>
+    </Themed>
   );
 }
