@@ -410,27 +410,30 @@ h3 {
 
 .scene .layer {
   transition: transform 900ms var(--ease);
-  will-change: transform;
 }
 
-.scene .layer-sun {
-  transform: translate(calc(var(--mx, 0) * -4px), calc(var(--my, 0) * -3px + var(--sy, 0) * 0.15px));
-}
+/* Parallax hanya mengikuti kursor di perangkat dengan mouse. Parallax saat
+   scroll dihapus: memaksa pemandangan SVG digambar ulang di setiap frame. */
+@media (hover: hover) and (pointer: fine) {
+  .scene .layer-sun {
+    transform: translate(calc(var(--mx, 0) * -4px), calc(var(--my, 0) * -3px));
+  }
 
-.scene .layer-clouds {
-  transform: translate(calc(var(--mx, 0) * -10px), calc(var(--sy, 0) * 0.1px));
-}
+  .scene .layer-clouds {
+    transform: translateX(calc(var(--mx, 0) * -10px));
+  }
 
-.scene .layer-far {
-  transform: translate(calc(var(--mx, 0) * -14px), calc(var(--my, 0) * -4px + var(--sy, 0) * 0.08px));
-}
+  .scene .layer-far {
+    transform: translate(calc(var(--mx, 0) * -14px), calc(var(--my, 0) * -4px));
+  }
 
-.scene .layer-mid {
-  transform: translate(calc(var(--mx, 0) * -24px), calc(var(--my, 0) * -6px + var(--sy, 0) * 0.04px));
-}
+  .scene .layer-mid {
+    transform: translate(calc(var(--mx, 0) * -24px), calc(var(--my, 0) * -6px));
+  }
 
-.scene .layer-near {
-  transform: translate(calc(var(--mx, 0) * -40px), calc(var(--my, 0) * -8px));
+  .scene .layer-near {
+    transform: translate(calc(var(--mx, 0) * -40px), calc(var(--my, 0) * -8px));
+  }
 }
 
 .scene .drift {
@@ -511,7 +514,6 @@ h3 {
   font-size: 13px;
   font-weight: 800;
   color: var(--ink);
-  backdrop-filter: blur(6px);
 }
 
 .theme-tag i {
@@ -663,7 +665,6 @@ h3 {
   font-weight: 800;
   line-height: 1.6;
   padding: 4px 12px;
-  backdrop-filter: blur(4px);
   transition: transform 160ms var(--ease), background-color 160ms ease;
 }
 
@@ -683,7 +684,6 @@ h3 {
   border-radius: 24px;
   background: color-mix(in srgb, var(--sheet) 92%, transparent);
   box-shadow: var(--hard-lg);
-  backdrop-filter: blur(8px);
 }
 
 .home-hero-copy h1 {
@@ -970,9 +970,8 @@ h3 {
   width: 90px;
   height: 90px;
   border-radius: 50%;
-  background: var(--c);
-  filter: blur(18px);
-  opacity: 0.35;
+  background: radial-gradient(circle, var(--c) 0%, transparent 68%);
+  opacity: 0.45;
   animation-name: hover-float;
   animation-timing-function: ease-in-out;
 }
@@ -987,12 +986,10 @@ h3 {
   from {
     opacity: 0;
     transform: translateY(14px);
-    filter: blur(2px);
   }
   to {
     opacity: 1;
     transform: none;
-    filter: none;
   }
 }
 
@@ -1582,7 +1579,6 @@ h3 {
 
 .hero-mascot {
   margin-bottom: -8px;
-  filter: drop-shadow(3px 3px 0 var(--stroke));
 }
 
 @media (max-width: 640px) {
@@ -1602,7 +1598,6 @@ h3 {
   right: 10px;
   bottom: 6px;
   z-index: 4;
-  filter: drop-shadow(2px 2px 0 var(--stroke));
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -2258,7 +2253,6 @@ h3 {
 .tuu-btn .tuu-sprite {
   width: var(--tuu-size);
   height: var(--tuu-size);
-  filter: drop-shadow(0 6px 10px rgb(27 31 59 / 0.18));
 }
 
 .tuu-more {
@@ -5568,4 +5562,48 @@ button.world-flag[aria-current="true"] {
   .world-preview[data-chosen] .world-preview-go {
     animation: none;
   }
+}
+
+
+/* ---------- Performa ---------- */
+
+/* Animasi pemandangan berhenti saat tidak terlihat di layar */
+[data-offscreen] *,
+[data-offscreen] {
+  animation-play-state: paused !important;
+}
+
+/* Kartu bahasa di luar layar tidak dirender sama sekali sampai mendekati layar */
+.lang-grid > li {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 360px;
+}
+
+@media (max-width: 640px) {
+  /* Partikel lebih sedikit di HP */
+  .particles > i:nth-child(n + 13) {
+    display: none;
+  }
+  /* Bintang tidak berkedip di HP */
+  .scene .twinkle {
+    animation: none;
+  }
+}
+
+/* Mode hemat data atau perangkat yang meminta transparansi dikurangi */
+@media (prefers-reduced-transparency: reduce) {
+  .particles {
+    display: none;
+  }
+}
+
+/* Video latar: memenuhi area seperti pemandangan SVG */
+.scene-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
 }

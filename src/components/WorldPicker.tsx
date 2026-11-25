@@ -5,10 +5,10 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowDown, ArrowRight, Volume2 } from "lucide-react";
 import { themeFor, themeVars } from "@/data/themes";
 import { speak } from "@/lib/speech";
-import { Scene } from "./anime/Scene";
 import { Particles } from "./anime/Particles";
 import { Parallax } from "./anime/Parallax";
 import { Flag } from "./Flag";
+import { SceneBackdrop } from "./anime/SceneBackdrop";
 
 export interface WorldItem {
   slug: string;
@@ -69,10 +69,10 @@ export function WorldPicker({ items, units, lessons }: { items: WorldItem[]; uni
       <Parallax>
         <div className="scene-stack">
           <div key={`p-${pt.id}`}>
-            <Scene theme={pt} className="scene" id={`wp-prev-${pt.id}`} />
+            <SceneBackdrop theme={pt} id={`wp-prev-${pt.id}`} />
           </div>
           <div key={`c-${t.id}`} className="scene-fade">
-            <Scene theme={t} className="scene" id={`wp-${t.id}`} />
+            <SceneBackdrop theme={t} id={`wp-${t.id}`} />
           </div>
         </div>
         <Particles key={t.id} kind={t.particle} seed={i + 3} />

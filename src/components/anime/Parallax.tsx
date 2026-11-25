@@ -11,18 +11,27 @@ export function Parallax({ children, className }: { children: ReactNode; classNa
 
   useEffect(() => {
     const el = ref.current;
-    if (!el || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    // Hanya di perangkat dengan mouse; di HP parallax tidak dipakai sama sekali.
+    if (!el || window.matchMedia("(prefers-reduced-motion: reduce)").matches || !window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
     let frame = 0;
     let mx = 0;
     let my = 0;
+    let visible = true;
+    // Jangan menghitung parallax saat pemandangan tidak terlihat.
+    const io =
+      typeof IntersectionObserver !== "undefined"
+        ? new IntersectionObserver(([en]) => {
+            visible = en.isIntersecting;
+          })
+        : null;
+    io?.observe(el);
     const apply = () => {
       frame = 0;
       el.style.setProperty("--mx", mx.toFixed(3));
       el.style.setProperty("--my", my.toFixed(3));
-      el.style.setProperty("--sy", String(Math.min(window.scrollY, 800)));
     };
     const queue = () => {
-      if (!frame) frame = requestAnimationFrame(apply);
+      if (visible && !frame) frame = requestAnimationFrame(apply);
     };
     const onMove = (e: PointerEvent) => {
       mx = (e.clientX / window.innerWidth) * 2 - 1;
@@ -30,11 +39,10 @@ export function Parallax({ children, className }: { children: ReactNode; classNa
       queue();
     };
     window.addEventListener("pointermove", onMove, { passive: true });
-    window.addEventListener("scroll", queue, { passive: true });
     return () => {
       window.removeEventListener("pointermove", onMove);
-      window.removeEventListener("scroll", queue);
       cancelAnimationFrame(frame);
+      io?.disconnect();
     };
   }, []);
 

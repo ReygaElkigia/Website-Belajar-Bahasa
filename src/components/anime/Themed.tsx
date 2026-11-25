@@ -1,8 +1,8 @@
 import type { ReactNode } from "react";
 import { themeFor, themeVars, type AnimeTheme } from "@/data/themes";
-import { Scene } from "./Scene";
 import { Particles } from "./Particles";
 import { Parallax } from "./Parallax";
+import { SceneBackdrop } from "./SceneBackdrop";
 
 /** Membungkus satu halaman dengan warna aksen tema bahasa. */
 export function Themed({ slug, theme, children }: { slug?: string; theme?: AnimeTheme; children: ReactNode }) {
@@ -36,7 +36,7 @@ export function PageHero({
     <div className="page-anime-head">
       <section className="anime-hero" style={{ "--hero-h": `${height}px` } as React.CSSProperties} aria-label={`Ilustrasi tema ${t.name}`}>
         <Parallax>
-          <Scene theme={t} className="scene" compact />
+          <SceneBackdrop theme={t} compact />
           <Particles kind={t.particle} seed={t.id.length + 3} density={0.8} />
         </Parallax>
         {showTag && (

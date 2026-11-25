@@ -5,11 +5,11 @@ import { useEffect, useRef, useState } from "react";
 import { Pause, Play, Volume2 } from "lucide-react";
 import { speak } from "@/lib/speech";
 import { themeFor, themeVars } from "@/data/themes";
-import { Scene } from "./anime/Scene";
 import { Particles } from "./anime/Particles";
 import { Parallax } from "./anime/Parallax";
 import { Mascot } from "./mascot/Mascot";
 import { Flag } from "@/components/Flag";
+import { SceneBackdrop } from "./anime/SceneBackdrop";
 
 export interface Greeting {
   slug: string;
@@ -67,10 +67,10 @@ export function HeroGreeting({ items, title, lead }: { items: Greeting[]; title:
       <Parallax>
         <div className="scene-stack">
           <div key={`p-${pt.id}`}>
-            <Scene theme={pt} className="scene" id={`home-prev-${pt.id}`} />
+            <SceneBackdrop theme={pt} id={`home-prev-${pt.id}`} />
           </div>
           <div key={`c-${t.id}`} className="scene-fade">
-            <Scene theme={t} className="scene" id={`home-${t.id}`} />
+            <SceneBackdrop theme={t} id={`home-${t.id}`} />
           </div>
         </div>
         <Particles key={t.id} kind={t.particle} seed={i + 5} />

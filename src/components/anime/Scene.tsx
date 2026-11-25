@@ -565,8 +565,9 @@ export function Scene({ theme, className, compact = false, id }: { theme: AnimeT
   const uid = id ?? theme.id;
   const r = rng(theme.id.length * 97 + 13);
   const stars = theme.night
-    ? Array.from({ length: 70 }, (_, i) => (
-        <circle key={i} cx={r() * W} cy={r() * H * 0.55} r={0.6 + r() * 1.6} fill="#FFFFFF" className="twinkle" style={{ animationDelay: `${(r() * 4).toFixed(2)}s` }} />
+    ? Array.from({ length: 36 }, (_, i) => (
+        // Hanya sebagian bintang yang berkedip: animasi SVG mahal di perangkat lemah.
+        <circle key={i} cx={r() * W} cy={r() * H * 0.55} r={0.6 + r() * 1.6} fill="#FFFFFF" className={i % 3 === 0 ? "twinkle" : undefined} style={i % 3 === 0 ? { animationDelay: `${(r() * 4).toFixed(2)}s` } : undefined} />
       ))
     : null;
   const L = sceneLayers(theme);

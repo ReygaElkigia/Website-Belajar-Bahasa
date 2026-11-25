@@ -176,6 +176,34 @@ export function FxLayer() {
     document.documentElement.style.setProperty("--scroll", "0");
   }, [path]);
 
+  /* Hentikan animasi pemandangan yang sedang tidak terlihat (hemat baterai dan CPU) */
+  useEffect(() => {
+    if (typeof IntersectionObserver === "undefined") return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const en of entries) {
+          const el = en.target as HTMLElement;
+          if (en.isIntersecting) delete el.dataset.offscreen;
+          else el.dataset.offscreen = "";
+        }
+      },
+      { rootMargin: "120px" },
+    );
+    const scan = () =>
+      document.querySelectorAll<HTMLElement>(".anime-hero, .lang-card-scene, .scene-card, .flash-stage").forEach((el) => {
+        if (!el.dataset.watched) {
+          el.dataset.watched = "";
+          io.observe(el);
+        }
+      });
+    scan();
+    const t = window.setTimeout(scan, 600);
+    return () => {
+      window.clearTimeout(t);
+      io.disconnect();
+    };
+  }, [path]);
+
   /* Kartu miring 3D */
   useEffect(() => {
     if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;

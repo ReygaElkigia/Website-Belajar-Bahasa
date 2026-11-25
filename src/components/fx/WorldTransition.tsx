@@ -4,9 +4,9 @@ import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { slugFromPath, type LangMeta } from "@/lib/currentLang";
 import { themeFor } from "@/data/themes";
-import { Scene } from "../anime/Scene";
 import { Particles } from "../anime/Particles";
 import { Flag } from "@/components/Flag";
+import { SceneBackdrop } from "../anime/SceneBackdrop";
 
 const BASE = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
@@ -99,7 +99,7 @@ export function WorldTransition({ langs }: { langs: LangMeta[] }) {
       aria-live="polite"
     >
       <div className="world-warp-scene" aria-hidden>
-        <Scene theme={t} id="warp" className="scene" />
+        <SceneBackdrop theme={t} id="warp" />
         <Particles kind={t.particle} seed={7} density={1.3} />
       </div>
       <div className="world-warp-rings" aria-hidden>
