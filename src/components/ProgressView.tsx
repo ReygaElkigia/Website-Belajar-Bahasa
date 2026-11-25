@@ -8,6 +8,7 @@ import { BADGES, GOALS, levelInfo } from "@/data/gamify";
 import { Mascot } from "./mascot/Mascot";
 import { BadgeIcon } from "./mascot/BadgeIcon";
 import { AppPanel } from "./pwa/AppPanel";
+import { TuuSettingsPanel } from "./companion/TuuSettingsPanel";
 
 const DAYS = 28;
 
@@ -188,6 +189,8 @@ export function ProgressView() {
       </section>
 
       <AppPanel />
+
+      <TuuSettingsPanel compact />
 
       <section className="panel">
         <h3>Data Anda</h3>

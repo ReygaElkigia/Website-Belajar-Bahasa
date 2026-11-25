@@ -8,6 +8,7 @@ import { SiteHeader, TabBar } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { GameLayer } from "@/components/mascot/GameLayer";
 import { PwaBoot } from "@/components/pwa/PwaBoot";
+import { Companion } from "@/components/companion/Companion";
 
 export const metadata: Metadata = {
   title: {
@@ -46,6 +47,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SiteFooter />
         <TabBar />
         <GameLayer />
+        <Companion />
         <PwaBoot />
       </body>
     </html>

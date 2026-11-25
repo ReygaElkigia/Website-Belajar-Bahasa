@@ -11,6 +11,7 @@ import {
   Volume2,
 } from "lucide-react";
 import { speak, stopSpeaking } from "@/lib/speech";
+import { tuu } from "@/lib/companion";
 import type { MediaScene } from "@/data/media";
 
 interface Props {
@@ -53,6 +54,7 @@ export function ScenePlayer({ scene, tts, dir }: Props) {
     stop();
     const id = run.current;
     setMode(m);
+    if (m === "shadow") tuu({ type: "shadow" });
     const step = (i: number) => {
       if (run.current !== id) return;
       if (i >= scene.lines.length) {

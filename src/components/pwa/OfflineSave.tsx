@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { CloudDownload, Check, Trash2 } from "lucide-react";
+import { tuu } from "@/lib/companion";
 import { offlineManifest, removeLanguageOffline, saveLanguageOffline, savedLanguages } from "@/lib/pwa";
 
 const mb = (b: number) => `${(b / 1_048_576).toLocaleString("id-ID", { maximumFractionDigits: 1 })} MB`;
@@ -29,6 +30,7 @@ export function OfflineSave({ slug, name }: { slug: string; name: string }) {
     try {
       await saveLanguageOffline(slug, (d, t) => setProgress([d, t]));
       setSaved(true);
+      tuu({ type: "saved-offline", name });
     } catch {
       setError("Gagal mengunduh. Periksa koneksi lalu coba lagi.");
     } finally {

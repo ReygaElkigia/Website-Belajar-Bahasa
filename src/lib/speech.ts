@@ -1,5 +1,6 @@
 "use client";
 
+import { tuu } from "@/lib/companion";
 import { useEffect, useState } from "react";
 import { cachedNative } from "./nativeAudio";
 
@@ -102,6 +103,7 @@ function stopAll() {
 export function speak(text: string, lang: string, opts: SpeakOpts = {}) {
   if (typeof window === "undefined") return false;
   stopAll();
+  tuu({ type: "listen" });
   if (opts.slow) return speakTts(text, lang, opts);
   const run = (idx: AudioIndex) => {
     // Urutan: indeks bawaan situs, lalu temuan peramban (Lingua Libre), lalu suara perangkat.

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Check, RotateCcw, Volume2, X } from "lucide-react";
 import { speak } from "@/lib/speech";
 import { gainXp } from "@/lib/progress";
+import { tuu } from "@/lib/companion";
 import { CHEER_RIGHT, CHEER_WRONG, XP } from "@/data/gamify";
 import type { MediaExpression } from "@/data/media";
 import { MascotSays } from "../mascot/Mascot";
@@ -101,6 +102,7 @@ export function ExpressionQuiz({
   const choose = (o: MediaExpression) => {
     if (picked) return;
     setPicked(o);
+    tuu({ type: "answer", correct: o === q.answer, source: "expr" });
     if (o === q.answer) {
       setRight((r) => r + 1);
       gainXp(XP.correct, "Kuis ungkapan", langSlug);
@@ -194,7 +196,11 @@ export function ExpressionQuiz({
           <button
             type="button"
             className="btn btn-primary btn-sm"
-            onClick={() => (setN(n + 1), setPicked(null))}
+            onClick={() => {
+              if (n + 1 >= qs.length) tuu({ type: "finish", source: "expr", score: Math.round((right / qs.length) * 100) });
+              setN(n + 1);
+              setPicked(null);
+            }}
             autoFocus
           >
             {n + 1 < qs.length ? "Lanjut" : "Lihat hasil"}

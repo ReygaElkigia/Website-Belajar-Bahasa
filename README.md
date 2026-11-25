@@ -37,6 +37,16 @@ Kata yang diputar dari rekaman asli diberi penanda "Penutur asli" yang menautkan
 
 XP, level, target harian, runtunan hari, dan 12 lencana (`src/data/gamify.ts`), disimpan di `localStorage`. Maskot **Tuu** (`src/components/mascot/`) adalah karakter orisinal yang bereaksi di kuis, latihan ujian, kartu hafalan, dan beranda.
 
+## Tuu, maskot pendamping
+
+Tuu duduk di pojok layar di setiap halaman (`src/components/companion/`). Fitur lain cukup memanggil `tuu({...})` dari `src/lib/companion.ts`; Companion yang memutuskan reaksinya.
+
+- **17 ekspresi** dengan gerakan sendiri: menyapa, senang, bersorak, terharu, bangga, malu, sedih, gugup, berpikir, fokus (ikat kepala saat ujian), kaget, mendengarkan, membaca, tertidur, pusing, dan lain-lain. Mata mengikuti kursor dan berkedip acak. Syalnya berganti warna mengikuti dunia bahasa.
+- **Bereaksi pada**: halaman yang dibuka, jawaban kuis/bacaan/ujian/kartu (combo 3, 5, 10, 20 dan semangat setelah 3 salah), skor akhir, suara yang diputar, mode bayangan, mengetik di kamus, ganti tema, simpan offline, salin teks, koneksi putus/tersambung, naik level, lencana, setengah dan penuh target harian.
+- **Waktu dan kebiasaan**: perkenalan saat kunjungan pertama, sapaan pagi sampai larut malam, sambutan setelah beberapa hari absen atau kembali ke tab, bosan setelah 45 detik diam lalu tertidur, pengingat istirahat setelah 25 menit, pengingat kartu jatuh tempo dan runtunan sore hari.
+- **Interaksi**: ketuk untuk tips atau fakta unik bahasa, ketuk cepat lima kali membuatnya pusing, seret ke kiri/kanan, menu untuk mode tenang dan menyembunyikan. Pengaturan juga ada di halaman Progres dan `/tuu/`.
+- Menghormati `prefers-reduced-motion`, punya `aria-live`, bisa dipakai dengan papan ketik.
+
 ## Menjalankan
 
 ```bash

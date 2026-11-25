@@ -5,6 +5,7 @@ import { ArrowDown, ArrowUp, Check, Mic, RotateCcw, Square, Timer, Turtle, Volum
 import type { PracticePart, Question } from "@/data/exams/types";
 import { speak } from "@/lib/speech";
 import { gainXp, saveExamPart } from "@/lib/progress";
+import { tuu } from "@/lib/companion";
 import { CHEER_WRONG, PRAISE, XP } from "@/data/gamify";
 import { Mascot, MascotSays } from "./mascot/Mascot";
 import { countWords, scoreMulti, scoreOrder, scoreTyped, scoreWords } from "@/lib/examScore";
@@ -46,6 +47,7 @@ export function ExamRunner({ examId, langSlug, part, tts, dir, onExit }: Props) 
   const record = useCallback((r: Result) => {
     const xp = r.auto ? Math.round(XP.correct * r.score) : XP.selfCheck;
     if (xp > 0) gainXp(xp, r.auto ? "Soal ujian" : "Penilaian diri", langSlug);
+    if (r.auto) tuu({ type: "answer", correct: r.score >= 0.5, source: "exam" });
     setResults((rs) => {
       const next = [...rs];
       next[i] = r;
@@ -64,6 +66,7 @@ export function ExamRunner({ examId, langSlug, part, tts, dir, onExit }: Props) 
     if (!all.length) return;
     const pct = Math.round((all.reduce((s, r) => s + r.score, 0) / all.length) * 100);
     saveExamPart(examId, part.id, pct, langSlug);
+    tuu({ type: "finish", source: "exam", score: pct });
   }, [done, results, examId, part.id, langSlug]);
 
   const restart = () => {

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { ChevronRight, ExternalLink, Globe, Search } from "lucide-react";
+import { tuu } from "@/lib/companion";
 import { concepts, languages, onlineLanguages, phraseConcepts, unitById } from "@/data";
 import { SpeakButton } from "./Speak";
 
@@ -110,7 +111,10 @@ export function Dictionary() {
               autoComplete="off"
               placeholder="Cari dalam bahasa apa pun: makan, arigatō, 谢谢, merci"
               value={q}
-              onChange={(e) => setQ(e.target.value)}
+              onChange={(e) => {
+                setQ(e.target.value);
+                tuu({ type: "typing" });
+              }}
               autoFocus
             />
           </div>

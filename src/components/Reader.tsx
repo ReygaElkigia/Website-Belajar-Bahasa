@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { speak, stopSpeaking } from "@/lib/speech";
 import { completeReading, PASS, useProgress } from "@/lib/progress";
+import { tuu } from "@/lib/companion";
 import { XP } from "@/data/gamify";
 import type { Reading } from "@/data/readings";
 import { MascotSays } from "./mascot/Mascot";
@@ -104,6 +105,7 @@ export function Reader({ reading, langSlug, tts, dir }: Props) {
     if (done && !reported) {
       setFirstPass(score >= PASS && (best ?? 0) < PASS);
       completeReading(langSlug, reading.id, score);
+      tuu({ type: "finish", source: "reading", score });
       setReported(true);
     }
   }, [done, reported, langSlug, reading.id, score, best]);
@@ -241,11 +243,12 @@ export function Reader({ reading, langSlug, tts, dir }: Props) {
                           className="option"
                           data-state={state}
                           disabled={picked !== null}
-                          onClick={() =>
+                          onClick={() => {
+                            tuu({ type: "answer", correct: oi === q.answer, source: "reading" });
                             setAnswers((a) =>
                               a.map((x, i) => (i === qi ? oi : x)),
-                            )
-                          }
+                            );
+                          }}
                         >
                           <kbd aria-hidden>{String.fromCharCode(65 + oi)}</kbd>
                           <span>{o}</span>

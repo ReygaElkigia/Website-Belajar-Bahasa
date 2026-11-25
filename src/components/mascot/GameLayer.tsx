@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { X } from "lucide-react";
 import { onGameEvent, type GameEvent } from "@/lib/progress";
 import { badgeById } from "@/data/gamify";
+import { getTuuSettings } from "@/lib/companion";
 import { Mascot } from "./Mascot";
 import { BadgeIcon } from "./BadgeIcon";
 
@@ -27,6 +28,8 @@ export function GameLayer() {
       onGameEvent((event) => {
         const id = ++seq.current;
         const kind: Toast["kind"] = event.type === "xp" ? "xp" : "big";
+        // Perayaan besar disampaikan Tuu pendamping bila ia sedang tampil.
+        if (kind === "big" && !getTuuSettings().hidden) return;
         setToasts((t) => [...t, { id, kind, event }].slice(-6));
         window.setTimeout(() => setToasts((t) => t.filter((x) => x.id !== id)), kind === "xp" ? 1600 : 5200);
       }),

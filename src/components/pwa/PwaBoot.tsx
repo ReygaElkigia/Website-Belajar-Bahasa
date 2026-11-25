@@ -5,6 +5,7 @@ import { useEffect, useMemo, useState } from "react";
 import { WifiOff, X } from "lucide-react";
 import { registerServiceWorker, writeReminderMeta } from "@/lib/pwa";
 import { today, useProgress } from "@/lib/progress";
+import { getTuuSettings } from "@/lib/companion";
 import { Mascot } from "../mascot/Mascot";
 
 const NUDGE_KEY = "tutur:nudge";
@@ -42,7 +43,8 @@ export function PwaBoot() {
   }, [due, studiedToday, p.days]);
 
   useEffect(() => {
-    if (due === 0 || studiedToday) return;
+    // Bila Tuu pendamping tampil, dialah yang mengingatkan.
+    if (due === 0 || studiedToday || !getTuuSettings().hidden) return;
     try {
       if (localStorage.getItem(NUDGE_KEY) === today()) return;
     } catch {

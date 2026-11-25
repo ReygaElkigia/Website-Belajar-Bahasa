@@ -2197,3 +2197,752 @@ h3 {
     transform: none;
   }
 }
+
+/* ---------- Tuu, maskot pendamping ---------- */
+
+.tuu-dock {
+  position: fixed;
+  right: 12px;
+  bottom: calc(70px + env(safe-area-inset-bottom));
+  z-index: 55;
+  display: grid;
+  justify-items: end;
+  gap: 6px;
+  pointer-events: none;
+  --tuu-size: 72px;
+}
+
+.tuu-dock[data-side="left"] {
+  right: auto;
+  left: 12px;
+  justify-items: start;
+}
+
+.tuu-dock[data-dragging] {
+  transition: none;
+  cursor: grabbing;
+}
+
+@media (min-width: 860px) {
+  .tuu-dock {
+    right: 20px;
+    bottom: 18px;
+    --tuu-size: 92px;
+  }
+  .tuu-dock[data-side="left"] {
+    left: 20px;
+  }
+}
+
+.tuu-stage {
+  position: relative;
+  pointer-events: auto;
+}
+
+.tuu-btn {
+  display: block;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: grab;
+  touch-action: none;
+  border-radius: 50%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.tuu-btn:focus-visible {
+  outline: 3px solid var(--pen);
+  outline-offset: 2px;
+}
+
+.tuu-btn .tuu-sprite {
+  width: var(--tuu-size);
+  height: var(--tuu-size);
+  filter: drop-shadow(0 6px 10px rgb(27 31 59 / 0.18));
+}
+
+.tuu-more {
+  position: absolute;
+  top: 2px;
+  right: -6px;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  border: 2px solid var(--stroke);
+  border-radius: 50%;
+  background: var(--sheet);
+  color: var(--ink);
+  box-shadow: 2px 2px 0 var(--stroke);
+  cursor: pointer;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 160ms ease, transform 160ms var(--ease);
+}
+
+.tuu-dock[data-side="left"] .tuu-more {
+  right: auto;
+  left: -6px;
+}
+
+.tuu-stage:hover .tuu-more,
+.tuu-more:focus-visible,
+.tuu-more[aria-expanded="true"] {
+  opacity: 1;
+  transform: none;
+}
+
+@media (hover: none) {
+  .tuu-more {
+    opacity: 1;
+    transform: scale(0.9);
+  }
+}
+
+/* Balon ucapan */
+.tuu-bubble {
+  position: relative;
+  pointer-events: auto;
+  width: max-content;
+  max-width: min(300px, calc(100vw - 32px));
+  min-width: 170px;
+  padding: 12px 30px 12px 14px;
+  border: 2px solid var(--stroke);
+  border-radius: 18px 18px 6px 18px;
+  background: var(--sheet);
+  color: var(--ink);
+  box-shadow: var(--hard);
+  animation: tuu-bubble-in 360ms var(--ease);
+  transform-origin: bottom right;
+}
+
+.tuu-dock[data-side="left"] .tuu-bubble {
+  border-radius: 18px 18px 18px 6px;
+  transform-origin: bottom left;
+}
+
+.tuu-bubble::after {
+  content: "";
+  position: absolute;
+  right: 34px;
+  bottom: -11px;
+  width: 16px;
+  height: 16px;
+  border-right: 2px solid var(--stroke);
+  border-bottom: 2px solid var(--stroke);
+  background: var(--sheet);
+  transform: rotate(45deg) skew(8deg, 8deg);
+}
+
+.tuu-dock[data-side="left"] .tuu-bubble::after {
+  right: auto;
+  left: 34px;
+}
+
+.tuu-bubble p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.tuu-bubble-x {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--ink-2);
+  cursor: pointer;
+}
+
+.tuu-bubble-x:hover {
+  background: var(--tone);
+}
+
+.tuu-caret {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  margin-left: 2px;
+  vertical-align: -2px;
+  background: var(--pen);
+  animation: tuu-caret 700ms steps(2) infinite;
+}
+
+.tuu-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+  animation: tuu-bubble-in 260ms var(--ease);
+}
+
+@keyframes tuu-bubble-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.92);
+  }
+}
+
+@keyframes tuu-caret {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Menu */
+.tuu-menu {
+  pointer-events: auto;
+  display: grid;
+  min-width: 220px;
+  padding: 6px;
+  border: 2px solid var(--stroke);
+  border-radius: 16px;
+  background: var(--sheet);
+  box-shadow: var(--hard);
+  animation: tuu-bubble-in 220ms var(--ease);
+}
+
+.tuu-menu button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 40px;
+  padding: 8px 10px;
+  border: 0;
+  border-radius: 10px;
+  background: none;
+  color: var(--ink);
+  font: 600 14px/1.2 var(--font-sans);
+  text-align: start;
+  cursor: pointer;
+}
+
+.tuu-menu button:hover,
+.tuu-menu button:focus-visible {
+  background: var(--pen-wash);
+}
+
+/* Tab kecil saat Tuu disembunyikan */
+.tuu-peek {
+  position: fixed;
+  right: 0;
+  bottom: calc(84px + env(safe-area-inset-bottom));
+  z-index: 55;
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 52px;
+  padding: 0 0 0 4px;
+  border: 2px solid var(--stroke);
+  border-right: 0;
+  border-radius: 16px 0 0 16px;
+  background: var(--sheet);
+  box-shadow: var(--hard-sm);
+  cursor: pointer;
+  transition: width 200ms var(--ease);
+}
+
+.tuu-peek[data-side="left"] {
+  right: auto;
+  left: 0;
+  padding: 0 4px 0 0;
+  border-right: 2px solid var(--stroke);
+  border-left: 0;
+  border-radius: 0 16px 16px 0;
+}
+
+.tuu-peek:hover {
+  width: 56px;
+}
+
+@media (min-width: 860px) {
+  .tuu-peek {
+    bottom: 28px;
+  }
+}
+
+/* Lapisan XP muncul di atas Tuu agar tidak bertumpuk */
+body[data-tuu="right"] .game-layer {
+  bottom: calc(160px + env(safe-area-inset-bottom));
+}
+
+@media (min-width: 860px) {
+  body[data-tuu="right"] .game-layer {
+    bottom: 128px;
+  }
+}
+
+/* ---------- Animasi sprite ---------- */
+
+/* Hanya elemen yang dianimasikan lewat CSS memakai kotak isinya sebagai acuan;
+   elemen lain memakai atribut transform SVG apa adanya. */
+.tuu-body,
+.tuu-antenna,
+.tuu-antenna-star,
+.tuu-scarf-tail,
+.tuu-shadow,
+.tuu-blink,
+.tuu-arm-wave,
+.tuu-spiral,
+.tuu-fx path,
+.tuu-fx text,
+.tuu-fx circle,
+.tuu-fx g.fx-rise {
+  transform-box: fill-box;
+}
+
+.tuu-body {
+  transform-origin: 50% 100%;
+  animation: tuu-breathe 3.2s ease-in-out infinite;
+}
+
+.tuu-look {
+  transform: translate(var(--ex, 0px), var(--ey, 0px));
+  transition: transform 140ms ease-out;
+}
+
+.tuu-blink {
+  transform-origin: center;
+  transition: transform 70ms ease-in;
+}
+
+[data-blink] .tuu-blink {
+  transform: scaleY(0.08);
+}
+
+.tuu-antenna {
+  transform-origin: 0% 100%;
+  animation: tuu-sway 2.8s ease-in-out infinite;
+}
+
+.tuu-antenna-star {
+  transform-origin: center;
+}
+
+.tuu-scarf-tail {
+  transform-origin: 0% 0%;
+  animation: tuu-flutter 1.6s ease-in-out infinite;
+}
+
+.tuu-shadow {
+  transform-origin: center;
+  animation: tuu-shadow 3.2s ease-in-out infinite;
+}
+
+/* Suasana hati */
+.tuu-sprite[data-mood="happy"] .tuu-body,
+.tuu-sprite[data-mood="wink"] .tuu-body {
+  animation: tuu-hop 520ms var(--ease) 2;
+}
+
+.tuu-sprite[data-mood="cheer"] .tuu-body {
+  animation: tuu-jump 900ms var(--ease) 2;
+}
+
+.tuu-sprite[data-mood="cheer"] .tuu-shadow,
+.tuu-sprite[data-mood="happy"] .tuu-shadow {
+  animation: tuu-shadow-jump 900ms var(--ease) 2;
+}
+
+.tuu-sprite[data-mood="proud"] .tuu-body {
+  animation: tuu-proud 1.4s ease-in-out infinite;
+}
+
+.tuu-sprite[data-mood="love"] .tuu-body,
+.tuu-sprite[data-mood="shy"] .tuu-body {
+  animation: tuu-wiggle 1.2s ease-in-out infinite;
+}
+
+.tuu-sprite[data-mood="sad"] .tuu-body {
+  animation: tuu-droop 1.6s ease-in-out infinite;
+}
+
+.tuu-sprite[data-mood="nervous"] .tuu-body {
+  animation: tuu-shiver 260ms linear infinite;
+}
+
+.tuu-sprite[data-mood="surprised"] .tuu-body {
+  animation: tuu-pop 420ms var(--ease);
+}
+
+.tuu-sprite[data-mood="sleep"] .tuu-body {
+  animation: tuu-sleep 4s ease-in-out infinite;
+}
+
+.tuu-sprite[data-mood="dizzy"] .tuu-body {
+  animation: tuu-wobble 900ms ease-in-out infinite;
+}
+
+.tuu-sprite[data-mood="listen"] .tuu-body {
+  animation: tuu-groove 900ms ease-in-out infinite;
+}
+
+.tuu-sprite[data-mood="think"] .tuu-body {
+  animation: tuu-tilt 2.4s ease-in-out infinite;
+}
+
+.tuu-sprite[data-mood="focus"] .tuu-body {
+  animation: tuu-breathe 2s ease-in-out infinite;
+}
+
+.tuu-sprite[data-mood="cheer"] .tuu-antenna-star,
+.tuu-sprite[data-mood="proud"] .tuu-antenna-star {
+  animation: tuu-spin 1.2s linear infinite;
+}
+
+.tuu-arm-wave {
+  transform-origin: 30% 90%;
+  animation: tuu-wave 600ms ease-in-out infinite alternate;
+}
+
+.tuu-spiral {
+  transform-origin: center;
+  animation: tuu-spin 1s linear infinite;
+}
+
+/* Efek */
+.tuu-fx path,
+.tuu-fx text,
+.tuu-fx circle,
+.tuu-fx g.fx-rise {
+  transform-origin: center;
+}
+
+.fx-twinkle {
+  animation: fx-twinkle 1.1s ease-in-out infinite;
+}
+
+.fx-rise {
+  animation: fx-rise 1.8s ease-out infinite;
+}
+
+.fx-z {
+  animation: fx-z 2.6s ease-in-out infinite;
+}
+
+.fx-pop {
+  animation: fx-pop 1.4s var(--ease) infinite;
+}
+
+.fx-drip {
+  animation: fx-drip 1.6s ease-in infinite;
+}
+
+.fx-orbit {
+  transform-origin: 70px 6px;
+  transform-box: view-box;
+  animation: tuu-spin 1.4s linear infinite;
+}
+
+.fx-d1 {
+  animation-delay: 0.3s;
+}
+
+.fx-d2 {
+  animation-delay: 0.6s;
+}
+
+.fx-d3 {
+  animation-delay: 0.9s;
+}
+
+@keyframes tuu-breathe {
+  50% {
+    transform: scale(1.015, 0.985);
+  }
+}
+
+@keyframes tuu-sway {
+  50% {
+    transform: rotate(-8deg);
+  }
+}
+
+@keyframes tuu-flutter {
+  50% {
+    transform: rotate(9deg);
+  }
+}
+
+@keyframes tuu-shadow {
+  50% {
+    transform: scaleX(0.94);
+  }
+}
+
+@keyframes tuu-hop {
+  40% {
+    transform: translateY(-10px) scale(0.98, 1.03);
+  }
+  70% {
+    transform: translateY(0) scale(1.04, 0.96);
+  }
+}
+
+@keyframes tuu-jump {
+  30% {
+    transform: translateY(-22px) rotate(-6deg);
+  }
+  55% {
+    transform: translateY(-26px) rotate(6deg);
+  }
+  80% {
+    transform: translateY(0) scale(1.06, 0.92);
+  }
+}
+
+@keyframes tuu-shadow-jump {
+  40% {
+    transform: scale(0.6);
+    opacity: 0.08;
+  }
+}
+
+@keyframes tuu-proud {
+  50% {
+    transform: translateY(-3px) scale(1.03);
+  }
+}
+
+@keyframes tuu-wiggle {
+  25% {
+    transform: rotate(-4deg);
+  }
+  75% {
+    transform: rotate(4deg);
+  }
+}
+
+@keyframes tuu-droop {
+  50% {
+    transform: translateY(3px) scale(1.02, 0.97);
+  }
+}
+
+@keyframes tuu-shiver {
+  25% {
+    transform: translateX(-1px);
+  }
+  75% {
+    transform: translateX(1px);
+  }
+}
+
+@keyframes tuu-pop {
+  40% {
+    transform: scale(1.12) translateY(-6px);
+  }
+}
+
+@keyframes tuu-sleep {
+  50% {
+    transform: translateY(2px) scale(1.03, 0.96) rotate(-3deg);
+  }
+}
+
+@keyframes tuu-wobble {
+  25% {
+    transform: rotate(-10deg) translateX(-3px);
+  }
+  75% {
+    transform: rotate(10deg) translateX(3px);
+  }
+}
+
+@keyframes tuu-groove {
+  25% {
+    transform: rotate(-5deg) translateY(-2px);
+  }
+  75% {
+    transform: rotate(5deg) translateY(-2px);
+  }
+}
+
+@keyframes tuu-tilt {
+  50% {
+    transform: rotate(-5deg);
+  }
+}
+
+@keyframes tuu-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes tuu-wave {
+  from {
+    transform: rotate(-12deg);
+  }
+  to {
+    transform: rotate(18deg);
+  }
+}
+
+@keyframes fx-twinkle {
+  50% {
+    transform: scale(0.5) rotate(45deg);
+    opacity: 0.4;
+  }
+}
+
+@keyframes fx-rise {
+  0% {
+    transform: translateY(6px) scale(0.6);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-18px) scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes fx-z {
+  0% {
+    transform: translate(0, 4px);
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(6px, -8px);
+    opacity: 0;
+  }
+}
+
+@keyframes fx-pop {
+  0% {
+    transform: scale(0);
+  }
+  30%,
+  80% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+}
+
+@keyframes fx-drip {
+  0% {
+    transform: translateY(-4px);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(8px);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tuu-sprite *,
+  .tuu-bubble,
+  .tuu-actions,
+  .tuu-menu {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Halaman Kenalan dengan Tuu */
+.tuu-hero {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  align-items: center;
+}
+
+.tuu-hero .tuu-sprite {
+  filter: drop-shadow(0 10px 16px rgb(27 31 59 / 0.18));
+}
+
+@media (max-width: 640px) {
+  .tuu-hero {
+    grid-template-columns: 1fr;
+    justify-items: start;
+  }
+  .tuu-hero .tuu-sprite {
+    width: 110px;
+    height: 110px;
+    order: -1;
+  }
+}
+
+.mood-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mood-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px;
+  align-items: center;
+  padding: 12px 16px 12px 8px;
+  border: 2px solid var(--stroke);
+  border-radius: var(--r-card);
+  background: var(--sheet);
+  box-shadow: var(--hard-sm);
+}
+
+.mood-card h3 {
+  margin: 0 0 4px;
+  font-size: 18px;
+}
+
+.tuu-list {
+  display: grid;
+  gap: 12px;
+  margin: 12px 0 0;
+  padding-left: 20px;
+}
+
+.tuu-settings {
+  display: grid;
+  gap: 12px;
+}
+
+.tuu-switch {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 4px 12px;
+  align-items: center;
+  cursor: pointer;
+}
+
+.tuu-switch > span {
+  display: grid;
+  gap: 2px;
+}
+
+.tuu-switch input {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--pen);
+}
+
+.tuu-switch[role="radiogroup"] {
+  grid-template-columns: 1fr auto;
+  cursor: default;
+}

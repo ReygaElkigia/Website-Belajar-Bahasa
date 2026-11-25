@@ -142,6 +142,8 @@ export function ClipStudio({ clip, langCode, tts, dir, expressions }: Props) {
             onReady: () => setReady(true),
             onStateChange: (e) => {
               setPlaying(e.data === PLAYING);
+              // Beri tahu Tuu bahwa video sedang ditonton, agar tidak dianggap diam.
+              window.dispatchEvent(new CustomEvent("tutur:watching", { detail: e.data === PLAYING }));
               if (e.data === PLAYING) {
                 setTurn(false);
                 // Dilanjutkan dari tombol YouTube sendiri: mulai segmen baru.

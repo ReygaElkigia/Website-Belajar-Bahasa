@@ -7,6 +7,7 @@ import { RotateCcw, Volume2 } from "lucide-react";
 import { concepts, languages, units, getLanguage } from "@/data";
 import { BOX_DAYS, getProgress, reviewCard, useProgress } from "@/lib/progress";
 import { speak } from "@/lib/speech";
+import { tuu } from "@/lib/companion";
 import { themeFor, themeVars } from "@/data/themes";
 import { Scene } from "./anime/Scene";
 import { Particles } from "./anime/Particles";
@@ -74,6 +75,7 @@ export function Flashcards() {
     (knew: boolean) => {
       if (!card) return;
       reviewCard(lang.slug, card.id, knew);
+      tuu({ type: "answer", correct: knew, source: "card" });
       setTally((t) => (knew ? { ...t, knew: t.knew + 1 } : { ...t, again: t.again + 1 }));
       setMood(knew ? "happy" : "think");
       setFlipped(false);
@@ -83,6 +85,7 @@ export function Flashcards() {
   );
 
   const flip = useCallback(() => {
+    tuu({ type: "flip" });
     setFlipped((f) => {
       if (!f && term && dir === "id") speak(term.word, lang.tts);
       return !f;

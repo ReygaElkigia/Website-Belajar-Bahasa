@@ -5,6 +5,7 @@ import { useCallback, useEffect, useState } from "react";
 import { Check, RotateCcw, Volume2, X } from "lucide-react";
 import { speak, useVoiceStatus } from "@/lib/speech";
 import { completeUnit, gainXp } from "@/lib/progress";
+import { tuu } from "@/lib/companion";
 import { CHEER_RIGHT, CHEER_WRONG, PRAISE, XP } from "@/data/gamify";
 import { Mascot, MascotSays } from "./mascot/Mascot";
 import { NativePrefetch } from "./NativeLive";
@@ -86,6 +87,7 @@ export function Quiz({ items, pool, langSlug, langName, tts, dir, unitId, nextHr
     (id: string) => {
       if (picked || !q) return;
       setPicked(id);
+      tuu({ type: "answer", correct: id === q.answer.id, source: "quiz" });
       if (id === q.answer.id) {
         setRight((r) => r + 1);
         gainXp(XP.correct, "Jawaban benar", langSlug);
@@ -102,6 +104,7 @@ export function Quiz({ items, pool, langSlug, langName, tts, dir, unitId, nextHr
   }, []);
 
   useEffect(() => {
+    if (finished && questions.length) tuu({ type: "finish", source: "quiz", score });
     if (finished && unitId && questions.length) completeUnit(langSlug, unitId, score);
   }, [finished, unitId, langSlug, score, questions.length]);
 
