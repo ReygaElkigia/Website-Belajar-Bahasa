@@ -15,4 +15,21 @@ export interface HeroVideo {
   license: string;
 }
 
-export const heroVideos: Record<string, HeroVideo> = {};
+export const heroVideos: Record<string, HeroVideo> = {
+  default: {
+    src: "/video/default.mp4",
+    poster: "/video/default.jpg",
+    author: "Stepleton",
+    source: "Lenticular cloud over Longs Peak, Colorado (time lapse)",
+    url: "https://commons.wikimedia.org/wiki/File:Lenticular_cloud_over_Longs_Peak,_Colorado_(time_lapse).ogv",
+    license: "CC0",
+  },
+  inggris: {
+    src: "/video/inggris.mp4",
+    poster: "/video/inggris.jpg",
+    author: "nabs",
+    source: "Timelapse from Waterloo Bridge, London",
+    url: "https://commons.wikimedia.org/wiki/File:Timelapse_from_Waterloo_Bridge,_London.webm",
+    license: "CC BY 3.0",
+  },
+};

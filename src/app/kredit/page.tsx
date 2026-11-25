@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { conceptById, languages } from "@/data";
 import { creditsFor, recordingCount } from "@/data/audioCredits";
 import { PageHero } from "@/components/anime/Themed";
+import { heroVideos } from "@/data/heroVideos";
+import { themes } from "@/data/themes";
 
 export const metadata: Metadata = {
   title: "Kredit dan lisensi",
@@ -77,6 +79,42 @@ export default function CreditsPage() {
               );
             })}
           </section>
+
+          {Object.keys(heroVideos).length > 0 && (
+            <section>
+              <h2 style={{ marginBottom: 8 }}>Video latar</h2>
+              <p className="muted" style={{ marginBottom: 20 }}>
+                Latar bergerak setiap dunia bahasa adalah potongan video dari Wikimedia Commons yang kami pendekkan, kecilkan, dan buat
+                berulang. Hasil olahan karya berlisensi CC BY-SA dibagikan dengan lisensi yang sama.
+              </p>
+              <div style={{ overflowX: "auto" }}>
+                <table className="progress-table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Dunia</th>
+                      <th scope="col">Video</th>
+                      <th scope="col">Pembuat</th>
+                      <th scope="col">Lisensi</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {Object.entries(heroVideos).map(([id, v]) => (
+                      <tr key={id}>
+                        <td>{themes[id]?.name ?? id}</td>
+                        <td>
+                          <a href={v.url} target="_blank" rel="noreferrer">
+                            {v.source}
+                          </a>
+                        </td>
+                        <td>{v.author}</td>
+                        <td>{v.license}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          )}
 
           <section>
             <h2 style={{ marginBottom: 8 }}>Video</h2>

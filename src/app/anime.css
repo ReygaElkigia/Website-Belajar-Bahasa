@@ -5607,3 +5607,10 @@ button.world-flag[aria-current="true"] {
   display: block;
   pointer-events: none;
 }
+
+/* Dunia dengan video asli tidak memakai partikel kartun di atasnya */
+.anime-hero:has(.scene-fade .scene-video) .particles,
+.page-anime-head .anime-hero:has(.scene-video) .particles,
+.world-warp:has(.scene-video) .particles {
+  display: none;
+}
