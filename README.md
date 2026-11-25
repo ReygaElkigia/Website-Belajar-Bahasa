@@ -8,6 +8,7 @@ Situs belajar bahasa dunia dari bahasa Indonesia: huruf, kosakata bersuara, fras
 - **Huruf**: tabel hiragana/katakana, hangul, pinyin dan nada, hijaiyah, Kiril, aksara Thai, Dewanagari, dan pola bunyi untuk bahasa berhuruf Latin. Setiap huruf bisa diketuk untuk didengar.
 - **16 unit per bahasa, A1 sampai B1**: 160 kosakata inti dan 59 frasa, dengan romanisasi, catatan pemakaian, suara, dan kuis penutup (pilih arti, pilih kata, tebak dari suara). Empat unit terakhir (Hobi, Perjalanan, Perasaan, Cerita) memakai kalimat yang lebih panjang: bentuk lampau, pengalaman, rencana, dan perbandingan.
 - **Bacaan bertingkat** (`/bahasa/<slug>/bacaan/`): cerita A2 dan B1 yang sama di semua bahasa, ditulis ulang dalam tiap bahasa, dengan suara per kalimat, putar semua, terjemahan yang bisa dibuka per kalimat, dan soal pemahaman yang menunjuk kalimat jawabannya.
+- **Belajar dari tontonan** (`/bahasa/<slug>/tonton/`): anime untuk Jepang, drakor untuk Korea, donghua untuk Mandarin, anime dubbing Spacetoon untuk Arab, multfilm untuk Rusia, lakorn untuk Thai, Bollywood untuk Hindi, dan kartun atau animasi untuk bahasa lain. Isinya adegan dialog orisinal bersuara dengan mode bayangan (shadowing), ungkapan khas beserta kuisnya, dan klip dari kanal YouTube resmi (dicek embeddable lewat oEmbed). Klip diputar dengan alat belajar: kecepatan 0,5×/0,75×, mundur 5 detik, ulangi bagian, dan jeda otomatis.
 - **Tata bahasa lanjutan A2–B1**: bentuk lampau, masa depan, perbandingan, dan pengalaman untuk 12 bahasa.
 - **Tata bahasa**: 4–5 catatan per bahasa tentang hal yang paling berbeda dari bahasa Indonesia.
 - **Kamus**: cari dalam bahasa apa pun (aksara asli atau romanisasi); setiap entri menampilkan 12 bahasa sekaligus. Kata di luar kamus diterjemahkan online (MyMemory) ke 40 bahasa.
@@ -52,6 +53,7 @@ Hasil `out/` adalah HTML statis yang bisa diunggah ke GitHub Pages, Netlify, Ver
 - `src/data/curriculum.ts`: unit, konsep kosakata, dan frasa (dipakai bersama semua bahasa).
 - `src/data/readings.ts` dan `readingTexts.ts`: cerita bertingkat (kalimat Indonesia dan soal di file pertama, teks tiap bahasa di file kedua).
 - `src/data/grammarB1.ts`: catatan tata bahasa A2–B1.
+- `src/data/media.ts`: adegan, ungkapan, dan klip resmi untuk halaman Tonton.
 - `src/data/languages/*.ts`: satu berkas per bahasa, dalam format baris `kunci | kata | romanisasi | catatan` agar mudah diperiksa penutur asli.
 - `src/app/`: halaman (Next.js App Router, ekspor statis).
 - `src/components/`: komponen antarmuka; `src/lib/`: suara dan penyimpanan progres.

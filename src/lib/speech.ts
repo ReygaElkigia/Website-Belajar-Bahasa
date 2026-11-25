@@ -75,6 +75,13 @@ function playPath(path: string, text: string, lang: string, opts: { slow?: boole
   audio.play().catch(fallback);
 }
 
+export interface SpeakOpts {
+  slow?: boolean;
+  /** Nada suara perangkat (0..2), untuk membedakan tokoh dalam dialog. */
+  pitch?: number;
+  onEnd?: () => void;
+}
+
 /** Hentikan rekaman atau suara perangkat yang sedang diputar. */
 export function stopSpeaking() {
   if (typeof window !== "undefined") stopAll();
@@ -92,7 +99,7 @@ function stopAll() {
  * Putar rekaman asli bila ada (Lingua Libre via Wikimedia Commons),
  * jika tidak ada atau gagal, bacakan dengan suara perangkat.
  */
-export function speak(text: string, lang: string, opts: { slow?: boolean; onEnd?: () => void } = {}) {
+export function speak(text: string, lang: string, opts: SpeakOpts = {}) {
   if (typeof window === "undefined") return false;
   stopAll();
   if (opts.slow) return speakTts(text, lang, opts);
@@ -108,7 +115,7 @@ export function speak(text: string, lang: string, opts: { slow?: boolean; onEnd?
   return true;
 }
 
-function speakTts(text: string, lang: string, opts: { slow?: boolean; onEnd?: () => void } = {}) {
+function speakTts(text: string, lang: string, opts: SpeakOpts = {}) {
   if (!canSpeak()) {
     opts.onEnd?.();
     return false;
@@ -120,6 +127,7 @@ function speakTts(text: string, lang: string, opts: { slow?: boolean; onEnd?: ()
   const voice = pickVoice(lang);
   if (voice) u.voice = voice;
   u.rate = opts.slow ? 0.6 : 0.9;
+  if (opts.pitch) u.pitch = opts.pitch;
   if (opts.onEnd) {
     u.onend = opts.onEnd;
     u.onerror = opts.onEnd;

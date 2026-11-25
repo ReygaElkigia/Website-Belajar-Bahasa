@@ -1,7 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { challengeLabel, getLanguage, languages, unitVocab, units } from "@/data";
+import {
+  challengeLabel,
+  getLanguage,
+  languages,
+  unitVocab,
+  units,
+} from "@/data";
 import { ContinueButton, UnitList } from "@/components/UnitList";
 import { ChallengeMeter, formatSpeakers } from "@/components/LangMeta";
 import { SpeakButton } from "@/components/Speak";
@@ -12,6 +18,7 @@ import { OfflineSave } from "@/components/pwa/OfflineSave";
 import { PageHero, Themed } from "@/components/anime/Themed";
 import { readingsFor } from "@/data/readings";
 import { grammarB1For } from "@/data/grammarB1";
+import { mediaFor } from "@/data/media";
 import type { Grammar, Language } from "@/data/types";
 
 export const dynamicParams = false;
@@ -20,7 +27,11 @@ export function generateStaticParams() {
   return languages.map((l) => ({ slug: l.slug }));
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
   const { slug } = await params;
   const l = getLanguage(slug);
   if (!l) return {};
@@ -30,14 +41,22 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
-export default async function LanguagePage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function LanguagePage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   const { slug } = await params;
   const l = getLanguage(slug);
   if (!l) notFound();
 
-  const unitItems = units.map((u) => ({ ...u, count: unitVocab(l, u.id).length }));
+  const unitItems = units.map((u) => ({
+    ...u,
+    count: unitVocab(l, u.id).length,
+  }));
   const readings = readingsFor(l.slug, l.name);
   const grammarB1 = grammarB1For(l.slug);
+  const media = mediaFor(l.slug);
 
   return (
     <Themed slug={l.slug}>
@@ -59,14 +78,26 @@ export default async function LanguagePage({ params }: { params: Promise<{ slug:
               </div>
               <p className="lead">{l.about}</p>
               <div className="btn-row">
-                <ContinueButton slug={l.slug} firstUnit={units[0].id} units={units.map((u) => u.id)} />
+                <ContinueButton
+                  slug={l.slug}
+                  firstUnit={units[0].id}
+                  units={units.map((u) => u.id)}
+                />
                 <Link className="btn" href={`/bahasa/${l.slug}/huruf/`}>
                   {l.alphabet.title}
                 </Link>
+                {media && (
+                  <Link className="btn" href={`/bahasa/${l.slug}/tonton/`}>
+                    {media.label}
+                  </Link>
+                )}
                 <Link className="btn" href={`/bahasa/${l.slug}/bacaan/`}>
                   Bacaan A2–B1
                 </Link>
-                <Link className="btn btn-quiet" href={`/latihan/?bahasa=${l.slug}`}>
+                <Link
+                  className="btn btn-quiet"
+                  href={`/latihan/?bahasa=${l.slug}`}
+                >
                   Kartu hafalan
                 </Link>
               </div>
@@ -80,8 +111,14 @@ export default async function LanguagePage({ params }: { params: Promise<{ slug:
               <dd style={{ fontWeight: 400 }}>{l.regions}</dd>
               <dt>Tantangan</dt>
               <dd>
-                <ChallengeMeter level={l.challenge} label={challengeLabel[l.challenge]} />
-                <span className="small muted" style={{ display: "block", fontWeight: 400, marginTop: 4 }}>
+                <ChallengeMeter
+                  level={l.challenge}
+                  label={challengeLabel[l.challenge]}
+                />
+                <span
+                  className="small muted"
+                  style={{ display: "block", fontWeight: 400, marginTop: 4 }}
+                >
                   {l.challengeNote}
                 </span>
               </dd>
@@ -96,7 +133,10 @@ export default async function LanguagePage({ params }: { params: Promise<{ slug:
           <div>
             <div className="section-head">
               <h2>{units.length} unit</h2>
-              <p className="muted">Kerjakan berurutan. Setiap unit berisi sepuluh kata, beberapa frasa, dan kuis penutup.</p>
+              <p className="muted">
+                Kerjakan berurutan. Setiap unit berisi sepuluh kata, beberapa
+                frasa, dan kuis penutup.
+              </p>
             </div>
             <UnitList slug={l.slug} items={unitItems} />
           </div>
@@ -104,11 +144,24 @@ export default async function LanguagePage({ params }: { params: Promise<{ slug:
             {examsForLang(l.slug).length > 0 && (
               <div className="panel">
                 <h3>Persiapan ujian resmi</h3>
-                <p className="small muted">Latihan dengan format seperti ujian aslinya.</p>
-                <ul style={{ listStyle: "none", margin: "12px 0 0", padding: 0, display: "grid", gap: 8 }}>
+                <p className="small muted">
+                  Latihan dengan format seperti ujian aslinya.
+                </p>
+                <ul
+                  style={{
+                    listStyle: "none",
+                    margin: "12px 0 0",
+                    padding: 0,
+                    display: "grid",
+                    gap: 8,
+                  }}
+                >
                   {examsForLang(l.slug).map((e) => (
                     <li key={e.id}>
-                      <Link href={`/ujian/${e.id}/`} style={{ fontWeight: 600 }}>
+                      <Link
+                        href={`/ujian/${e.id}/`}
+                        style={{ fontWeight: 600 }}
+                      >
                         {e.name}
                       </Link>
                       <span className="tiny muted" style={{ display: "block" }}>
@@ -119,14 +172,44 @@ export default async function LanguagePage({ params }: { params: Promise<{ slug:
                 </ul>
               </div>
             )}
+            {media && (
+              <div className="panel">
+                <h3>{media.label}</h3>
+                <p className="small muted">
+                  {media.scenes.length} adegan bersuara,{" "}
+                  {media.expressions.length} ungkapan khas, dan{" "}
+                  {media.clips.length} klip resmi dengan alat shadowing.
+                </p>
+                <Link
+                  className="btn btn-sm mt-4"
+                  href={`/bahasa/${l.slug}/tonton/`}
+                >
+                  Mulai menonton
+                </Link>
+              </div>
+            )}
             {readings.length > 0 && (
               <div className="panel">
                 <h3>Bacaan bertingkat</h3>
-                <p className="small muted">Cerita pendek bersuara dengan terjemahan per kalimat dan soal pemahaman.</p>
-                <ul style={{ listStyle: "none", margin: "12px 0 0", padding: 0, display: "grid", gap: 8 }}>
+                <p className="small muted">
+                  Cerita pendek bersuara dengan terjemahan per kalimat dan soal
+                  pemahaman.
+                </p>
+                <ul
+                  style={{
+                    listStyle: "none",
+                    margin: "12px 0 0",
+                    padding: 0,
+                    display: "grid",
+                    gap: 8,
+                  }}
+                >
                   {readings.map((r) => (
                     <li key={r.id}>
-                      <Link href={`/bahasa/${l.slug}/bacaan/#${r.id}`} style={{ fontWeight: 600 }}>
+                      <Link
+                        href={`/bahasa/${l.slug}/bacaan/#${r.id}`}
+                        style={{ fontWeight: 600 }}
+                      >
                         <span className="level-chip">{r.level}</span> {r.title}
                       </Link>
                     </li>
@@ -138,7 +221,10 @@ export default async function LanguagePage({ params }: { params: Promise<{ slug:
             <div className="panel">
               <h3>Sebelum mulai</h3>
               <p className="small muted">{l.alphabet.intro}</p>
-              <Link className="btn btn-sm mt-4" href={`/bahasa/${l.slug}/huruf/`}>
+              <Link
+                className="btn btn-sm mt-4"
+                href={`/bahasa/${l.slug}/huruf/`}
+              >
                 Pelajari {l.alphabet.title.toLowerCase()}
               </Link>
             </div>
@@ -150,7 +236,10 @@ export default async function LanguagePage({ params }: { params: Promise<{ slug:
         <div className="wrap">
           <div className="section-head">
             <h2>Catatan tata bahasa</h2>
-            <p className="muted">Hal-hal yang paling berbeda dari bahasa Indonesia, dijelaskan dengan contoh.</p>
+            <p className="muted">
+              Hal-hal yang paling berbeda dari bahasa Indonesia, dijelaskan
+              dengan contoh.
+            </p>
           </div>
           <GrammarGrid items={l.grammar} lang={l} />
         </div>
@@ -163,8 +252,12 @@ export default async function LanguagePage({ params }: { params: Promise<{ slug:
               <span className="level-chip">A2–B1</span>
               <h2>Tata bahasa lanjutan</h2>
               <p className="muted">
-                Pola untuk bercerita tentang masa lalu, membuat rencana, dan membandingkan. Dipakai di unit Hobi sampai Cerita dan di{" "}
-                <Link href={`/bahasa/${l.slug}/bacaan/`}>bacaan bertingkat</Link>.
+                Pola untuk bercerita tentang masa lalu, membuat rencana, dan
+                membandingkan. Dipakai di unit Hobi sampai Cerita dan di{" "}
+                <Link href={`/bahasa/${l.slug}/bacaan/`}>
+                  bacaan bertingkat
+                </Link>
+                .
               </p>
             </div>
             <GrammarGrid items={grammarB1} lang={l} />
@@ -177,7 +270,10 @@ export default async function LanguagePage({ params }: { params: Promise<{ slug:
           <div className="wrap">
             <div className="section-head">
               <h2>Video bahasa {l.name}</h2>
-              <p className="muted">Tonton setelah unit pertama atau kapan saja sebagai latihan mendengar.</p>
+              <p className="muted">
+                Tonton setelah unit pertama atau kapan saja sebagai latihan
+                mendengar.
+              </p>
             </div>
             <div className="video-grid">
               {l.videos.map((v) => (
@@ -208,7 +304,10 @@ function GrammarGrid({ items, lang: l }: { items: Grammar[]; lang: Language }) {
                   {e.roman && <span className="term-roman">{e.roman}</span>}
                   <span className="small">{e.meaning}</span>
                 </span>
-                <SpeakButton text={e.text.split("→").pop()!.split("/")[0].trim()} lang={l.tts} />
+                <SpeakButton
+                  text={e.text.split("→").pop()!.split("/")[0].trim()}
+                  lang={l.tts}
+                />
               </li>
             ))}
           </ul>
