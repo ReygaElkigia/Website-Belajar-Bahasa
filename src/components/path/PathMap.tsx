@@ -128,7 +128,7 @@ export function PathMap({ lang, units, stories }: Props) {
           const story = stories.find((s) => s.after === ui);
           const unitDone = (p.done[lang.slug]?.[u.id] ?? 0) >= PASS;
           return (
-            <section key={u.id} className="path-unit" aria-labelledby={`pu-${u.id}`}>
+            <section key={u.id} className="path-unit" aria-labelledby={`pu-${u.id}`} style={defs.some((d) => d.key === openKey) ? { zIndex: 30 } : undefined}>
               <header className="path-banner" data-done={unitDone || undefined}>
                 <div>
                   <span className="path-banner-kicker">
@@ -148,7 +148,7 @@ export function PathMap({ lang, units, stories }: Props) {
                   const r = results[d.key];
                   const open = openKey === d.key;
                   return (
-                    <li key={d.key} className="path-node-row" style={{ "--off": `${off}px` } as React.CSSProperties}>
+                    <li key={d.key} className="path-node-row" style={{ "--off": `${off}px`, zIndex: open ? 30 : undefined } as React.CSSProperties}>
                       <div className="path-node-wrap" ref={st === "current" ? currentRef : undefined}>
                         {st === "current" && (
                           <span className="path-tuu" aria-hidden>

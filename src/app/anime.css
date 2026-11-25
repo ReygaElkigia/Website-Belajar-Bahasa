@@ -3187,15 +3187,42 @@ body[data-tuu="right"] .game-layer {
   }
 }
 
-@media (max-width: 420px) {
-  .lang-pill-name {
-    max-width: 70px;
-    overflow: hidden;
-    text-overflow: ellipsis;
+@media (max-width: 460px) {
+  /* Layar sempit: runtunan disembunyikan dari header (tetap ada di halaman jalur
+     dan progres) agar nama bahasa yang sedang dipelajari tampil utuh. */
+  .site-header .hud-streak {
+    display: none;
+  }
+  .site-header .hud {
+    padding-right: 2px;
+  }
+  .site-header .wrap {
+    gap: 10px;
+  }
+  .header-end {
+    gap: 6px;
+  }
+  .lang-pill {
+    padding-right: 12px;
   }
   .lang-menu-list {
     grid-template-columns: 1fr;
   }
+}
+
+@media (max-width: 350px) {
+  .lang-pill-name {
+    max-width: 64px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+/* Header padat agar isi halaman tidak terlihat tembus di belakangnya */
+.site-header {
+  background: var(--paper);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 /* Bilah progres scroll di bawah header */
@@ -3868,7 +3895,23 @@ body:has(.lang-subnav) [id] {
 }
 
 .path-node-row {
+  position: relative;
+  z-index: 1;
   transform: translateX(var(--off, 0));
+}
+
+/* Baris dengan popover terbuka (dan unitnya) naik ke atas node lain */
+.path-node-row:has(.path-pop) {
+  z-index: 30;
+}
+
+.path-unit {
+  position: relative;
+  z-index: 1;
+}
+
+.path-unit:has(.path-pop) {
+  z-index: 30;
 }
 
 .path-node-wrap {
