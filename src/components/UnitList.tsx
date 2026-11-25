@@ -21,7 +21,7 @@ export function UnitList({ slug, items }: { slug: string; items: UnitSummary[] }
         const score = scores[u.id];
         const done = score !== undefined && score >= PASS;
         return (
-          <li key={u.id} className="unit-row" data-done={done}>
+          <li key={u.id} className="unit-row" data-done={done} style={{ "--i": n } as React.CSSProperties}>
             <Link href={`/bahasa/${slug}/${u.id}/`}>
               <span className="unit-num">{done ? <CircleCheck size={22} strokeWidth={1.75} aria-label="Selesai" /> : n + 1}</span>
               <span>

@@ -9,6 +9,9 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { GameLayer } from "@/components/mascot/GameLayer";
 import { PwaBoot } from "@/components/pwa/PwaBoot";
 import { Companion } from "@/components/companion/Companion";
+import { FxLayer } from "@/components/fx/FxLayer";
+import { WorldTransition } from "@/components/fx/WorldTransition";
+import { languages } from "@/data";
 
 export const metadata: Metadata = {
   title: {
@@ -42,12 +45,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <a className="skip" href="#isi">
           Langsung ke isi
         </a>
-        <SiteHeader />
+        <SiteHeader langs={languages.map((l) => ({ slug: l.slug, name: l.name, native: l.native, glyph: l.glyph, tts: l.tts }))} />
         <main id="isi">{children}</main>
         <SiteFooter />
         <TabBar />
         <GameLayer />
         <Companion />
+        <FxLayer />
+        <WorldTransition langs={languages.map((l) => ({ slug: l.slug, name: l.name, native: l.native, glyph: l.glyph, tts: l.tts }))} />
         <PwaBoot />
       </body>
     </html>

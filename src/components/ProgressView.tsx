@@ -8,6 +8,7 @@ import { BADGES, GOALS, levelInfo } from "@/data/gamify";
 import { Mascot } from "./mascot/Mascot";
 import { BadgeIcon } from "./mascot/BadgeIcon";
 import { AppPanel } from "./pwa/AppPanel";
+import { CountUp } from "./fx/CountUp";
 import { TuuSettingsPanel } from "./companion/TuuSettingsPanel";
 
 const DAYS = 28;
@@ -51,7 +52,7 @@ export function ProgressView() {
             <i style={{ width: `${lv.pct}%` }} />
           </div>
           <p className="small muted mt-2">
-            {p.xp} XP total. {lv.next - p.xp} XP lagi menuju level {lv.level + 1}.
+            <CountUp value={p.xp} /> XP total. {lv.next - p.xp} XP lagi menuju level {lv.level + 1}.
           </p>
           <p className="mascot-line mt-4">
             {todayXp === 0
@@ -103,19 +104,27 @@ export function ProgressView() {
       <dl className="stats">
         <div>
           <dt>Runtunan hari belajar</dt>
-          <dd>{run}</dd>
+          <dd>
+            <CountUp value={run} />
+          </dd>
         </div>
         <div>
           <dt>Unit selesai</dt>
-          <dd>{unitsDone}</dd>
+          <dd>
+            <CountUp value={unitsDone} />
+          </dd>
         </div>
         <div>
           <dt>Kata yang sudah melekat</dt>
-          <dd>{words}</dd>
+          <dd>
+            <CountUp value={words} />
+          </dd>
         </div>
         <div>
           <dt>Bahasa yang dipelajari</dt>
-          <dd>{active.length}</dd>
+          <dd>
+            <CountUp value={active.length} />
+          </dd>
         </div>
       </dl>
 

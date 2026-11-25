@@ -37,6 +37,13 @@ Kata yang diputar dari rekaman asli diberi penanda "Penutur asli" yang menautkan
 
 XP, level, target harian, runtunan hari, dan 12 lencana (`src/data/gamify.ts`), disimpan di `localStorage`. Maskot **Tuu** (`src/components/mascot/`) adalah karakter orisinal yang bereaksi di kuis, latihan ujian, kartu hafalan, dan beranda.
 
+## Navigasi bahasa dan efek interaktif
+
+- **Penanda bahasa aktif** di header: aksara, nama bahasa, dan cincin progres unit. Menunya berisi tombol lanjut ke unit berikutnya dan daftar 12 bahasa untuk berpindah. Di setiap halaman bahasa ada subnav yang menempel (Ringkasan, Huruf, Unit, Bacaan, Tonton) dengan nomor unit dan titik progres.
+- **Transisi masuk dunia**: berpindah ke bahasa lain membuka lingkaran bertema dari titik klik, berisi pemandangan, partikel, aksara, dan nama bahasanya (`src/components/fx/WorldTransition.tsx`).
+- **Lapisan efek** (`src/components/fx/FxLayer.tsx`): bilah progres scroll, kartu yang miring 3D dengan kilap, percikan saat tombol ditekan, ledakan bintang saat jawaban benar, jejak partikel bertema di atas pemandangan, konfeti untuk combo, skor bagus, naik level, lencana, dan target harian, serta angka statistik yang menghitung naik.
+- Semua efek mati bila perangkat memakai pengaturan gerak minimal.
+
 ## Tuu, maskot pendamping
 
 Tuu duduk di pojok layar di setiap halaman (`src/components/companion/`). Fitur lain cukup memanggil `tuu({...})` dari `src/lib/companion.ts`; Companion yang memutuskan reaksinya.
