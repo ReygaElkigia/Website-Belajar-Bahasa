@@ -37,6 +37,13 @@ Kata yang diputar dari rekaman asli diberi penanda "Penutur asli" yang menautkan
 
 XP, level, target harian, runtunan hari, dan 12 lencana (`src/data/gamify.ts`), disimpan di `localStorage`. Maskot **Tuu** (`src/components/mascot/`) adalah karakter orisinal yang bereaksi di kuis, latihan ujian, kartu hafalan, dan beranda.
 
+## Jalur belajar (pelajaran singkat bergamifikasi)
+
+- **Peta jalur** (`/bahasa/<slug>/jalur/`): setiap unit dipecah menjadi empat pelajaran (Kata baru I, Kata baru II, Frasa, Tantangan unit) yang terbuka berurutan di jalur berkelok. Node aktif bergoyang dan ditemani Tuu, node selesai diberi 1–3 bintang sesuai akurasi, dan cerita bacaan disisipkan setelah unit 12 dan 16.
+- **Layar pelajaran** (`/bahasa/<slug>/pelajaran/?u=<unit>&l=<n>`): layar penuh dengan bilah progres, combo, dan hati. Ada tujuh jenis latihan: kata baru, pilih arti, pilih kata, dengar lalu pilih (dengan tombol pelan), pasangkan, ketik artinya (toleran salah ketik kecil), susun kalimat dari ubin dua arah (Intl.Segmenter untuk Jepang, Mandarin, Thai), dan ucapkan (pengenalan suara peramban, bisa dilewati). Soal yang salah diulang di akhir. Lembar umpan balik hijau/merah memutar jawaban benar.
+- **Hati**: lima hati, berkurang saat salah, terisi satu per 30 menit atau lewat *Latihan isi hati*. Ada *Mode santai* tanpa batas hati.
+- **Hadiah**: XP per pelajaran (bonus sempurna dan combo), bintang, efek suara sintetis (Web Audio, bisa dimatikan), konfeti, dan layar selesai berisi XP, akurasi, waktu, dan combo terbaik. Tantangan unit dengan akurasi minimal 70% menamatkan unit.
+
 ## Navigasi bahasa dan efek interaktif
 
 - **Penanda bahasa aktif** di header: aksara, nama bahasa, dan cincin progres unit. Menunya berisi tombol lanjut ke unit berikutnya dan daftar 12 bahasa untuk berpindah. Di setiap halaman bahasa ada subnav yang menempel (Ringkasan, Huruf, Unit, Bacaan, Tonton) dengan nomor unit dan titik progres.

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef } from "react";
-import { BookOpenText, Clapperboard, Compass, ListOrdered, Type } from "lucide-react";
+import { BookOpenText, Clapperboard, Compass, ListOrdered, Route, Type } from "lucide-react";
 import { units } from "@/data/curriculum";
 import { PASS, useProgress } from "@/lib/progress";
 import { speak } from "@/lib/speech";
@@ -24,6 +24,7 @@ export function LangSubnav({ lang, accent, pop }: { lang: LangMeta; accent: stri
 
   const items = [
     { href: base, label: "Ringkasan", icon: Compass, on: rest === "" },
+    { href: `${base}jalur/`, label: "Jalur", icon: Route, on: rest === "jalur" || rest === "pelajaran" },
     { href: `${base}huruf/`, label: "Huruf", icon: Type, on: rest === "huruf" },
     { href: `${base}${units[0].id}/`, label: "Unit", icon: ListOrdered, on: unitIdx >= 0 },
     { href: `${base}bacaan/`, label: "Bacaan", icon: BookOpenText, on: rest === "bacaan" },

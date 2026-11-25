@@ -108,6 +108,8 @@ function contextFor(path: string, level: number, run: number): Ctx {
     if (c === "huruf") return { key: `huruf:${b}`, lines: L.ROUTE.huruf, vars, base: "idle", slug: b };
     if (c === "bacaan") return { key: `bacaan:${b}`, lines: L.ROUTE.bacaan, vars, base: "read", slug: b };
     if (c === "tonton") return { key: `tonton:${b}`, lines: L.ROUTE.tonton, vars, base: "idle", slug: b };
+    if (c === "jalur") return { key: `jalur:${b}`, lines: L.ROUTE.jalur, vars, base: "idle", slug: b };
+    if (c === "pelajaran") return { key: `pelajaran:${b}`, lines: [], vars, base: "focus", slug: b, quiet: true };
     if (c === "ujian") return { key: `ujianlang:${b}`, lines: L.ROUTE.ujianIndex, vars, base: "idle", slug: b };
     const unit = unitById[c];
     return { key: `unit:${b}:${c}`, lines: L.ROUTE.unit, vars: { ...vars, unit: unit?.title.toLowerCase() ?? c }, base: "idle", slug: b };

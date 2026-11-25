@@ -78,7 +78,11 @@ export default async function LanguagePage({
               </div>
               <p className="lead">{l.about}</p>
               <div className="btn-row">
+                <Link className="btn btn-primary" href={`/bahasa/${l.slug}/jalur/`}>
+                  Mulai jalur belajar
+                </Link>
                 <ContinueButton
+                  secondary
                   slug={l.slug}
                   firstUnit={units[0].id}
                   units={units.map((u) => u.id)}

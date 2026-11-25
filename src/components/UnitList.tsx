@@ -44,15 +44,15 @@ export function UnitList({ slug, items }: { slug: string; items: UnitSummary[] }
   );
 }
 
-export function ContinueButton({ slug, firstUnit, units }: { slug: string; firstUnit: string; units: string[] }) {
+export function ContinueButton({ slug, firstUnit, units, secondary }: { slug: string; firstUnit: string; units: string[]; secondary?: boolean }) {
   const progress = useProgress();
   const scores = progress.done[slug] ?? {};
   const next = units.find((u) => !(scores[u] >= PASS));
   const started = Object.keys(scores).length > 0;
   const target = next ?? firstUnit;
   return (
-    <Link className="btn btn-primary" href={`/bahasa/${slug}/${target}/`}>
-      {!started ? "Mulai unit pertama" : next ? "Lanjutkan belajar" : "Ulangi dari awal"}
+    <Link className={secondary ? "btn" : "btn btn-primary"} href={`/bahasa/${slug}/${target}/`}>
+      {secondary ? (started ? "Lanjutkan unit" : "Lihat unit pertama") : !started ? "Mulai unit pertama" : next ? "Lanjutkan belajar" : "Ulangi dari awal"}
     </Link>
   );
 }

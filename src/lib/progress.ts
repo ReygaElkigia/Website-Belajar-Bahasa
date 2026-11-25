@@ -27,7 +27,19 @@ export interface ProgressState {
   goal: number; // target XP harian
   reviews: number; // jumlah kartu hafalan yang pernah diulang
   reads: Record<string, Record<string, number>>; // lang -> bacaan -> skor terbaik (0..100)
+  path: Record<string, Record<string, PathNode>>; // lang -> "unit:n" -> hasil pelajaran jalur
+  hearts: { n: number; at: number }; // nyawa jalur belajar dan waktu terakhir terisi
+  relaxed: boolean; // mode santai: tanpa batas hati
 }
+
+export interface PathNode {
+  stars: number; // 1..3
+  best: number; // akurasi terbaik 0..100
+  times: number;
+}
+
+export const MAX_HEARTS = 5;
+export const HEART_MS = 30 * 60_000;
 
 const KEY = "tutur:progress:v1";
 const EMPTY: ProgressState = {
@@ -42,6 +54,9 @@ const EMPTY: ProgressState = {
   goal: 50,
   reviews: 0,
   reads: {},
+  path: {},
+  hearts: { n: MAX_HEARTS, at: 0 },
+  relaxed: false,
 };
 
 /* ---------- Peristiwa permainan (untuk maskot dan notifikasi) ---------- */
@@ -283,4 +298,54 @@ export function unitsDone(s: ProgressState, lang: string) {
 
 export function learnedCount(s: ProgressState, lang: string) {
   return Object.values(s.cards[lang] ?? {}).filter((c) => c.box >= 3).length;
+}
+
+/* ---------- Jalur belajar: hati dan pelajaran ---------- */
+
+/** Hati saat ini setelah diisi ulang otomatis satu per 30 menit. */
+export function heartsNow(s: ProgressState, now = Date.now()) {
+  const h = s.hearts ?? { n: MAX_HEARTS, at: 0 };
+  if (h.n >= MAX_HEARTS) return { n: MAX_HEARTS, next: 0 };
+  const gained = Math.floor((now - h.at) / HEART_MS);
+  const n = Math.min(MAX_HEARTS, h.n + Math.max(0, gained));
+  const next = n >= MAX_HEARTS ? 0 : h.at + (gained + 1) * HEART_MS;
+  return { n, next };
+}
+
+export function loseHeart() {
+  ensureLoaded();
+  if (state.relaxed) return;
+  const now = Date.now();
+  const cur = heartsNow(state, now);
+  const n = Math.max(0, cur.n - 1);
+  // Penghitung isi ulang dimulai dari hati pertama yang hilang.
+  const at = cur.n >= MAX_HEARTS ? now : cur.next - HEART_MS;
+  commit({ ...state, hearts: { n, at } });
+}
+
+export function gainHeart(k = 1) {
+  ensureLoaded();
+  const cur = heartsNow(state);
+  const n = Math.min(MAX_HEARTS, cur.n + k);
+  commit({ ...state, hearts: { n, at: n >= MAX_HEARTS ? 0 : state.hearts.at || Date.now() } });
+}
+
+export function setRelaxed(relaxed: boolean) {
+  ensureLoaded();
+  commit({ ...state, relaxed });
+}
+
+/** Simpan hasil satu pelajaran jalur, beri XP, dan tandai unit selesai bila ini tantangan akhir. */
+export function completeLesson(lang: string, key: string, accuracy: number, xp: number, unitScore?: { unit: string; score: number }) {
+  ensureLoaded();
+  const prev = state.path[lang]?.[key];
+  const stars = accuracy >= 95 ? 3 : accuracy >= 80 ? 2 : 1;
+  const node: PathNode = { stars: Math.max(prev?.stars ?? 0, stars), best: Math.max(prev?.best ?? 0, accuracy), times: (prev?.times ?? 0) + 1 };
+  let next: ProgressState = { ...state, path: { ...state.path, [lang]: { ...state.path[lang], [key]: node } } };
+  if (unitScore) {
+    const p = next.done[lang]?.[unitScore.unit] ?? 0;
+    next = { ...next, done: { ...next.done, [lang]: { ...next.done[lang], [unitScore.unit]: Math.max(p, unitScore.score) } } };
+  }
+  commitWithXp(next, xp, "Pelajaran selesai", lang);
+  return node;
 }

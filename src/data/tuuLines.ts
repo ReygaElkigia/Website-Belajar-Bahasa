@@ -165,6 +165,10 @@ export const ROUTE = {
   unit: ["Unit {unit}. Dengarkan setiap kata, ucapkan keras-keras, lalu tutup dengan kuis.", "Unit {unit}! Coba tebak arti kata sebelum melihat terjemahannya."],
   huruf: ["Ketuk setiap huruf untuk mendengar bunyinya. Tirukan dengan keras, ya!", "Huruf dulu, kata kemudian. Pelan-pelan saja."],
   bacaan: ["Aku suka cerita! Coba tebak artinya dulu sebelum membuka terjemahan.", "Waktunya membaca. Dengarkan sekali, lalu baca sendiri dengan suaramu."],
+  jalur: [
+    "Ini jalur bahasa {name}-mu! Ketuk lingkaran yang bergoyang untuk pelajaran berikutnya.",
+    "Satu pelajaran cuma lima menit. Kumpulkan tiga bintang di setiap lingkaran, ya!",
+  ],
   tonton: ["Waktunya menonton! Coba mode bayangan supaya lidahmu ikut terlatih.", "Nonton sambil belajar. Nyalakan subtitle bahasa aslinya kalau bisa."],
   ujianIndex: ["Latihan ujian resmi? Aku siapkan semangat ekstra!"],
   ujian: ["Fokus, ya. Aku akan menyemangati diam-diam dari sini."],
@@ -194,7 +198,7 @@ export const WRONG = [
 export const FINISH = {
   perfect: ["Nilai sempurna! {praise}", "Seratus! Aku sampai berkaca-kaca."],
   pass: ["Lulus! {score} poin. Kerja bagus!", "Skor {score}. Kemajuan yang mantap!"],
-  low: ["Skor {score}. Ulangi sekali lagi, pasti naik.", "Belum lulus, tapi kamu sudah lebih tahu dari sebelumnya."],
+  low: ["Skor {score}. Ulangi sekali lagi, pasti naik.", "Kamu sudah lebih tahu dari sebelumnya. Coba sekali lagi?"],
 };
 
 export const CARD_MILESTONE = ["{n} kartu diulang! Ingatanmu makin kuat.", "Sudah {n} kartu. Istirahat sebentar juga boleh."];
