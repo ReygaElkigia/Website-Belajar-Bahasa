@@ -33,7 +33,7 @@ export default function Home() {
       <HeroGreeting
         items={greetings}
         title="Belajar bahasa dunia, langsung dari bahasa Indonesia."
-        lead={`${languages.length} bahasa, masing-masing dengan dunianya sendiri: huruf, ${concepts.length} kosakata bersuara, ${phraseConcepts.length} frasa, kamus, video, kuis, dan latihan ujian resmi. Gratis dan tanpa daftar.`}
+        lead={`${languages.length} bahasa, masing-masing dengan dunianya sendiri: huruf, ${concepts.length} kosakata bersuara, ${phraseConcepts.length} frasa, bacaan bertingkat A2–B1, kamus, video, kuis, dan latihan ujian resmi. Gratis dan tanpa daftar.`}
       />
 
       <section className="section">

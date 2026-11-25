@@ -45,7 +45,7 @@ export function OfflineSave({ slug, name }: { slug: string; name: string }) {
     <div className="panel">
       <h3>Belajar tanpa internet</h3>
       <p className="small muted">
-        Simpan semua unit, huruf, dan latihan ujian bahasa {name} di perangkat ini{size ? ` (sekitar ${mb(size)})` : ""}.
+        Simpan semua unit, huruf, bacaan, dan latihan ujian bahasa {name} di perangkat ini{size ? ` (sekitar ${mb(size)})` : ""}.
       </p>
       {progress ? (
         <div className="mt-4" aria-live="polite">

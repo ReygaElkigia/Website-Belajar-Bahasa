@@ -136,6 +136,46 @@ datang | приходить | prikhodit'
 kantor | офис | ofis
 sekolah | школа | shkola
 libur | отпуск | otpusk | libur sekolah: каникулы
+musik | музыка | muzyka
+film | фильм | fil'm
+olahraga | спорт | sport
+berenang | плавать | plavat'
+memasak | готовить | gotovit'
+bernyanyi | петь | pet'
+menonton | смотреть | smotret'
+bermain | играть | igrat'
+akhirpekan | выходные | vykhodnyye
+suka | нравиться | nravit'sya | Мне нравится … = Saya suka …
+paspor | паспорт | pasport
+koper | чемодан | chemodan
+pantai | пляж | plyazh
+peta | карта | karta
+pemesanan | бронирование | bronirovaniye
+turis | турист | turist
+oleholeh | сувенир | suvenir
+pemandangan | вид | vid
+pengalaman | опыт | opyt
+mengunjungi | посещать | poseshchat'
+senang | рад | rad | bahagia: счастливый
+sedih | грустный | grustnyy
+marah | сердитый | serdityy
+takut | бояться | boyat'sya | Я боюсь. = Saya takut.
+lelah | усталый | ustalyy | Я устал. = Saya lelah.
+khawatir | волноваться | volnovat'sya | Я волнуюсь. = Saya khawatir.
+menarik | интересный | interesnyy
+membosankan | скучный | skuchnyy
+setuju | соглашаться | soglashat'sya | Я согласен. = Saya setuju.
+pendapat | мнение | mneniye
+dulu | раньше | ran'she
+nanti | потом | potom | juga: позже
+rencana | план | plan
+mimpi | мечта | mechta | mimpi saat tidur: сон
+masadepan | будущее | budushcheye
+pernah | когда-нибудь | kogda-nibud' | Ты когда-нибудь …? = Pernahkah kamu …?
+sudah | уже | uzhe
+belum | ещё не | yeshchyo ne
+mulai | начинать | nachinat'
+selesai | заканчивать | zakanchivat'
 `,
   phrases: `
 s1 | Как дела? | kak dela?
@@ -181,6 +221,22 @@ c3 | Хорошая погода. | khoroshaya pogoda.
 g1 | Я работаю в офисе. | ya rabotayu v ofise.
 g2 | Я учусь каждый день. | ya uchus' kazhdyy den'.
 g3 | Какое у тебя хобби? | kakoye u tebya khobbi?
+o1 | Я люблю слушать музыку. | ya lyublyu slushat' muzyku.
+o2 | Что ты делаешь на выходных? | chto ty delayesh' na vykhodnykh?
+o3 | Я играю в футбол два раза в неделю. | ya igrayu v futbol dva raza v nedelyu.
+o4 | Давай вместе посмотрим фильм? | davay vmeste posmotrim fil'm?
+j1 | Я забронировал номер на две ночи. | ya zabroniroval nomer na dve nochi. | penutur perempuan: забронировала
+j2 | В прошлом году я ездил на Бали с семьёй. | v proshlom godu ya yezdil na Bali s sem'yoy. | penutur perempuan: ездила
+j3 | Не могли бы вы посоветовать интересное место? | ne mogli by vy posovetovat' interesnoye mesto?
+j4 | Вид красивее, чем я представлял. | vid krasiveye, chem ya predstavlyal. | penutur perempuan: представляла
+e1 | По-моему, эта идея очень хорошая. | po-moyemu, eta ideya ochen' khoroshaya.
+e2 | Я не согласен с тобой. | ya ne soglasen s toboy. | penutur perempuan: согласна
+e3 | Я волнуюсь, потому что завтра у меня экзамен. | ya volnuyus', potomu chto zavtra u menya ekzamen.
+e4 | Фильм интереснее, чем книга. | fil'm interesneye, chem kniga.
+r1 | В детстве я жил в деревне. | v detstve ya zhil v derevne. | penutur perempuan: жила
+r2 | Я никогда не летал на самолёте. | ya nikogda ne letal na samolyote. | penutur perempuan: летала
+r3 | В следующем году я буду учиться за границей. | v sleduyushchem godu ya budu uchit'sya za granitsey.
+r4 | Если будет время, я хочу выучить ещё один язык. | yesli budet vremya, ya khochu vyuchit' yeshchyo odin yazyk.
 `,
   alphabet: {
     title: "Alfabet Kiril",

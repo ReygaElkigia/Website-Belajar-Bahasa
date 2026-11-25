@@ -75,6 +75,11 @@ function playPath(path: string, text: string, lang: string, opts: { slow?: boole
   audio.play().catch(fallback);
 }
 
+/** Hentikan rekaman atau suara perangkat yang sedang diputar. */
+export function stopSpeaking() {
+  if (typeof window !== "undefined") stopAll();
+}
+
 function stopAll() {
   if (current) {
     current.pause();

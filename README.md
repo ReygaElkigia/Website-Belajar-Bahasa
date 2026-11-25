@@ -6,7 +6,9 @@ Situs belajar bahasa dunia dari bahasa Indonesia: huruf, kosakata bersuara, fras
 
 - **12 bahasa**: Inggris, Jepang, Korea, Mandarin, Arab, Jerman, Prancis, Spanyol, Rusia, Italia, Thai, Hindi.
 - **Huruf**: tabel hiragana/katakana, hangul, pinyin dan nada, hijaiyah, Kiril, aksara Thai, Dewanagari, dan pola bunyi untuk bahasa berhuruf Latin. Setiap huruf bisa diketuk untuk didengar.
-- **12 unit per bahasa**: 120 kosakata inti dan 43 frasa, dengan romanisasi, catatan pemakaian, suara, dan kuis penutup (pilih arti, pilih kata, tebak dari suara).
+- **16 unit per bahasa, A1 sampai B1**: 160 kosakata inti dan 59 frasa, dengan romanisasi, catatan pemakaian, suara, dan kuis penutup (pilih arti, pilih kata, tebak dari suara). Empat unit terakhir (Hobi, Perjalanan, Perasaan, Cerita) memakai kalimat yang lebih panjang: bentuk lampau, pengalaman, rencana, dan perbandingan.
+- **Bacaan bertingkat** (`/bahasa/<slug>/bacaan/`): cerita A2 dan B1 yang sama di semua bahasa, ditulis ulang dalam tiap bahasa, dengan suara per kalimat, putar semua, terjemahan yang bisa dibuka per kalimat, dan soal pemahaman yang menunjuk kalimat jawabannya.
+- **Tata bahasa lanjutan A2–B1**: bentuk lampau, masa depan, perbandingan, dan pengalaman untuk 12 bahasa.
 - **Tata bahasa**: 4–5 catatan per bahasa tentang hal yang paling berbeda dari bahasa Indonesia.
 - **Kamus**: cari dalam bahasa apa pun (aksara asli atau romanisasi); setiap entri menampilkan 12 bahasa sekaligus. Kata di luar kamus diterjemahkan online (MyMemory) ke 40 bahasa.
 - **Video**: video YouTube pilihan per bahasa, dimuat hanya saat diputar.
@@ -48,6 +50,8 @@ Hasil `out/` adalah HTML statis yang bisa diunggah ke GitHub Pages, Netlify, Ver
 
 - `DESIGN.md`: arah desain, token warna, tipografi, dan aturan komponen.
 - `src/data/curriculum.ts`: unit, konsep kosakata, dan frasa (dipakai bersama semua bahasa).
+- `src/data/readings.ts` dan `readingTexts.ts`: cerita bertingkat (kalimat Indonesia dan soal di file pertama, teks tiap bahasa di file kedua).
+- `src/data/grammarB1.ts`: catatan tata bahasa A2–B1.
 - `src/data/languages/*.ts`: satu berkas per bahasa, dalam format baris `kunci | kata | romanisasi | catatan` agar mudah diperiksa penutur asli.
 - `src/app/`: halaman (Next.js App Router, ekspor statis).
 - `src/components/`: komponen antarmuka; `src/lib/`: suara dan penyimpanan progres.

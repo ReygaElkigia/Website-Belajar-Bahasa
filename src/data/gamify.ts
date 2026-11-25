@@ -11,6 +11,7 @@ export const XP = {
   cardAgain: 2, // kartu hafalan: belum hafal (tetap dihargai karena sudah berlatih)
   examPart: 20, // menyelesaikan satu bagian latihan ujian
   selfCheck: 5, // menilai sendiri tugas berbicara/menulis
+  reading: 30, // pertama kali lulus soal pemahaman bacaan
 } as const;
 
 export const GOALS = [
@@ -59,6 +60,8 @@ export interface BadgeFacts {
   wordsLearned: number;
   cardsReviewed: number;
   examParts: number;
+  readingsPassed: number;
+  readingsB1: number;
   streak: number;
   goalDays: number;
   level: number;
@@ -82,6 +85,8 @@ export const BADGES: Badge[] = [
   { id: "perfect", name: "Nilai Sempurna", how: "Dapatkan skor 100 di kuis unit.", icon: "star", test: (f) => f.perfectUnit },
   { id: "words-50", name: "Kolektor Kata", how: "Buat 50 kata melekat di kartu hafalan.", icon: "book", test: (f) => f.wordsLearned >= 50 },
   { id: "exam-1", name: "Siap Ujian", how: "Selesaikan satu bagian latihan ujian.", icon: "scroll", test: (f) => f.examParts >= 1 },
+  { id: "reader-1", name: "Kutu Buku", how: "Lulus soal pemahaman satu bacaan bertingkat.", icon: "book", test: (f) => f.readingsPassed >= 1 },
+  { id: "reader-b1", name: "Pembaca B1", how: "Lulus bacaan tingkat B1 di 2 bahasa.", icon: "scroll", test: (f) => f.readingsB1 >= 2 },
   { id: "polyglot-3", name: "Poliglot Muda", how: "Lulus unit di 3 bahasa berbeda.", icon: "globe", test: (f) => f.languagesWithUnit >= 3 },
   { id: "full-language", name: "Tamat Satu Bahasa", how: "Lulus semua unit dalam satu bahasa.", icon: "crown", test: (f) => f.fullLanguage },
   { id: "level-5", name: "Ksatria Kosakata", how: "Capai level 5.", icon: "medal", test: (f) => f.level >= 5 },

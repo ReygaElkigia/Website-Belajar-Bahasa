@@ -17,7 +17,7 @@ export default function LanguagesPage() {
           <h1>Semua bahasa</h1>
           <p className="lead">
             {languages.length} bahasa dengan kurikulum lengkap. Setiap bahasa punya pengenalan huruf, {units.length} unit kosakata dan
-            frasa, catatan tata bahasa, serta video.
+            frasa dari A1 sampai B1, bacaan bertingkat, catatan tata bahasa, serta video.
           </p>
         </div>
       </PageHero>

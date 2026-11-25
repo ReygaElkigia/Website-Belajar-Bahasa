@@ -136,6 +136,46 @@ datang | มา | ma
 kantor | สำนักงาน | samnakngan | sehari-hari: ออฟฟิศ
 sekolah | โรงเรียน | rong rian
 libur | วันหยุด | wan yut
+musik | ดนตรี | dontri | lagu: เพลง (phleng)
+film | ภาพยนตร์ | phapphayon | sehari-hari: หนัง (nang)
+olahraga | กีฬา | kila
+berenang | ว่ายน้ำ | wai nam
+memasak | ทำอาหาร | tham ahan
+bernyanyi | ร้องเพลง | rong phleng
+menonton | ดู | du
+bermain | เล่น | len
+akhirpekan | สุดสัปดาห์ | sut sapda | sehari-hari: เสาร์อาทิตย์
+suka | ชอบ | chop
+paspor | หนังสือเดินทาง | nangsue doen thang | sehari-hari: พาสปอร์ต
+koper | กระเป๋าเดินทาง | krapao doen thang
+pantai | ชายหาด | chai hat
+peta | แผนที่ | phaen thi
+pemesanan | การจอง | kan chong
+turis | นักท่องเที่ยว | nak thong thiao
+oleholeh | ของฝาก | khong fak
+pemandangan | วิว | wiu | formal: ทิวทัศน์
+pengalaman | ประสบการณ์ | prasopkan
+mengunjungi | ไปเที่ยว | pai thiao | mengunjungi orang: ไปเยี่ยม
+senang | ดีใจ | di chai | bahagia: มีความสุข
+sedih | เศร้า | sao
+marah | โกรธ | krot
+takut | กลัว | klua
+lelah | เหนื่อย | nueai
+khawatir | กังวล | kangwon | mencemaskan orang lain: เป็นห่วง
+menarik | น่าสนใจ | na son chai
+membosankan | น่าเบื่อ | na buea
+setuju | เห็นด้วย | hen duai
+pendapat | ความคิดเห็น | khwam khit hen
+dulu | เมื่อก่อน | muea kon
+nanti | ทีหลัง | thi lang
+rencana | แผน | phaen
+mimpi | ความฝัน | khwam fan
+masadepan | อนาคต | anakhot
+pernah | เคย | khoei
+sudah | แล้ว | laeo | di akhir kalimat
+belum | ยัง | yang | ยังไม่… = belum…
+mulai | เริ่ม | roem
+selesai | เสร็จ | set
 `,
   phrases: `
 s1 | สบายดีไหม | sabai di mai?
@@ -181,6 +221,22 @@ c3 | อากาศดี | akat di.
 g1 | ฉันทำงานที่ออฟฟิศ | chan tham ngan thi offit.
 g2 | ฉันเรียนทุกวัน | chan rian thuk wan.
 g3 | งานอดิเรกของคุณคืออะไร | ngan adirek khong khun khue arai?
+o1 | ฉันชอบฟังเพลง | chan chop fang phleng.
+o2 | สุดสัปดาห์คุณทำอะไร | sut sapda khun tham arai?
+o3 | ฉันเล่นฟุตบอลสัปดาห์ละสองครั้ง | chan len futbon sapda la song khrang.
+o4 | ไปดูหนังด้วยกันไหม | pai du nang duai kan mai?
+j1 | ฉันจองห้องไว้สองคืน | chan chong hong wai song khuen.
+j2 | ปีที่แล้วฉันไปเที่ยวบาหลีกับครอบครัว | pi thi laeo chan pai thiao Bali kap khrop khrua.
+j3 | ช่วยแนะนำสถานที่น่าสนใจได้ไหม | chuai naenam sathanthi na son chai dai mai?
+j4 | วิวสวยกว่าที่ฉันคิดไว้ | wiu suai kwa thi chan khit wai.
+e1 | ฉันคิดว่าไอเดียนี้ดีมาก | chan khit wa aidia ni di mak.
+e2 | ฉันไม่เห็นด้วยกับคุณ | chan mai hen duai kap khun.
+e3 | ฉันกังวลเพราะพรุ่งนี้มีสอบ | chan kangwon phro phrung ni mi sop.
+e4 | หนังเรื่องนี้น่าสนใจกว่าหนังสือ | nang rueang ni na son chai kwa nangsue.
+r1 | ตอนเด็กๆ ฉันอยู่ที่หมู่บ้าน | ton dek dek chan yu thi mu ban.
+r2 | ฉันไม่เคยนั่งเครื่องบิน | chan mai khoei nang khrueang bin.
+r3 | ปีหน้าฉันจะไปเรียนต่อต่างประเทศ | pi na chan cha pai rian to tang prathet.
+r4 | ถ้ามีเวลา ฉันอยากเรียนภาษาอื่นอีก | tha mi wela, chan yak rian phasa uen ik.
 `,
   alphabet: {
     title: "Aksara Thai",

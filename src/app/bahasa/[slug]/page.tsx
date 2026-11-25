@@ -10,6 +10,9 @@ import { VoiceNotice } from "@/components/VoiceNotice";
 import { examsForLang } from "@/data/exams";
 import { OfflineSave } from "@/components/pwa/OfflineSave";
 import { PageHero, Themed } from "@/components/anime/Themed";
+import { readingsFor } from "@/data/readings";
+import { grammarB1For } from "@/data/grammarB1";
+import type { Grammar, Language } from "@/data/types";
 
 export const dynamicParams = false;
 
@@ -33,6 +36,8 @@ export default async function LanguagePage({ params }: { params: Promise<{ slug:
   if (!l) notFound();
 
   const unitItems = units.map((u) => ({ ...u, count: unitVocab(l, u.id).length }));
+  const readings = readingsFor(l.slug, l.name);
+  const grammarB1 = grammarB1For(l.slug);
 
   return (
     <Themed slug={l.slug}>
@@ -57,6 +62,9 @@ export default async function LanguagePage({ params }: { params: Promise<{ slug:
                 <ContinueButton slug={l.slug} firstUnit={units[0].id} units={units.map((u) => u.id)} />
                 <Link className="btn" href={`/bahasa/${l.slug}/huruf/`}>
                   {l.alphabet.title}
+                </Link>
+                <Link className="btn" href={`/bahasa/${l.slug}/bacaan/`}>
+                  Bacaan A2–B1
                 </Link>
                 <Link className="btn btn-quiet" href={`/latihan/?bahasa=${l.slug}`}>
                   Kartu hafalan
@@ -111,6 +119,21 @@ export default async function LanguagePage({ params }: { params: Promise<{ slug:
                 </ul>
               </div>
             )}
+            {readings.length > 0 && (
+              <div className="panel">
+                <h3>Bacaan bertingkat</h3>
+                <p className="small muted">Cerita pendek bersuara dengan terjemahan per kalimat dan soal pemahaman.</p>
+                <ul style={{ listStyle: "none", margin: "12px 0 0", padding: 0, display: "grid", gap: 8 }}>
+                  {readings.map((r) => (
+                    <li key={r.id}>
+                      <Link href={`/bahasa/${l.slug}/bacaan/#${r.id}`} style={{ fontWeight: 600 }}>
+                        <span className="level-chip">{r.level}</span> {r.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
             <OfflineSave slug={l.slug} name={l.name} />
             <div className="panel">
               <h3>Sebelum mulai</h3>
@@ -129,30 +152,25 @@ export default async function LanguagePage({ params }: { params: Promise<{ slug:
             <h2>Catatan tata bahasa</h2>
             <p className="muted">Hal-hal yang paling berbeda dari bahasa Indonesia, dijelaskan dengan contoh.</p>
           </div>
-          <div className="grammar grid-2" style={{ alignItems: "start" }}>
-            {l.grammar.map((g) => (
-              <article key={g.title} className="grammar-item">
-                <h3>{g.title}</h3>
-                <p className="muted">{g.body}</p>
-                <ul className="example-list">
-                  {g.examples.map((e) => (
-                    <li key={e.text} className="example">
-                      <span className="term">
-                        <span className="term-word" lang={l.tts} dir={l.dir}>
-                          {e.text}
-                        </span>
-                        {e.roman && <span className="term-roman">{e.roman}</span>}
-                        <span className="small">{e.meaning}</span>
-                      </span>
-                      <SpeakButton text={e.text.split("→").pop()!.split("/")[0].trim()} lang={l.tts} />
-                    </li>
-                  ))}
-                </ul>
-              </article>
-            ))}
-          </div>
+          <GrammarGrid items={l.grammar} lang={l} />
         </div>
       </section>
+
+      {grammarB1.length > 0 && (
+        <section className="section" id="tata-bahasa-lanjut">
+          <div className="wrap">
+            <div className="section-head">
+              <span className="level-chip">A2–B1</span>
+              <h2>Tata bahasa lanjutan</h2>
+              <p className="muted">
+                Pola untuk bercerita tentang masa lalu, membuat rencana, dan membandingkan. Dipakai di unit Hobi sampai Cerita dan di{" "}
+                <Link href={`/bahasa/${l.slug}/bacaan/`}>bacaan bertingkat</Link>.
+              </p>
+            </div>
+            <GrammarGrid items={grammarB1} lang={l} />
+          </div>
+        </section>
+      )}
 
       {l.videos.length > 0 && (
         <section className="section" id="video">
@@ -170,5 +188,32 @@ export default async function LanguagePage({ params }: { params: Promise<{ slug:
         </section>
       )}
     </Themed>
+  );
+}
+
+function GrammarGrid({ items, lang: l }: { items: Grammar[]; lang: Language }) {
+  return (
+    <div className="grammar grid-2" style={{ alignItems: "start" }}>
+      {items.map((g) => (
+        <article key={g.title} className="grammar-item">
+          <h3>{g.title}</h3>
+          <p className="muted">{g.body}</p>
+          <ul className="example-list">
+            {g.examples.map((e) => (
+              <li key={e.text} className="example">
+                <span className="term">
+                  <span className="term-word" lang={l.tts} dir={l.dir}>
+                    {e.text}
+                  </span>
+                  {e.roman && <span className="term-roman">{e.roman}</span>}
+                  <span className="small">{e.meaning}</span>
+                </span>
+                <SpeakButton text={e.text.split("→").pop()!.split("/")[0].trim()} lang={l.tts} />
+              </li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </div>
   );
 }

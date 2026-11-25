@@ -136,6 +136,46 @@ datang | venir
 kantor | le bureau
 sekolah | l'école
 libur | les vacances
+musik | la musique
+film | le film
+olahraga | le sport
+berenang | nager
+memasak | cuisiner | | juga: faire la cuisine
+bernyanyi | chanter
+menonton | regarder
+bermain | jouer
+akhirpekan | le week-end
+suka | aimer
+paspor | le passeport
+koper | la valise
+pantai | la plage
+peta | la carte | | peta kota: le plan
+pemesanan | la réservation
+turis | le touriste
+oleholeh | le souvenir
+pemandangan | la vue | | juga: le paysage
+pengalaman | l'expérience
+mengunjungi | visiter | | mengunjungi orang: rendre visite à
+senang | content | | bahagia: heureux
+sedih | triste
+marah | en colère
+takut | avoir peur | | J'ai peur. = Saya takut.
+lelah | fatigué
+khawatir | inquiet
+menarik | intéressant
+membosankan | ennuyeux
+setuju | être d'accord
+pendapat | l'avis | | juga: l'opinion
+dulu | autrefois | | kebiasaan lampau memakai imparfait
+nanti | plus tard
+rencana | le projet
+mimpi | le rêve
+masadepan | l'avenir
+pernah | déjà | | As-tu déjà … ? = Pernahkah kamu … ?
+sudah | déjà
+belum | pas encore
+mulai | commencer
+selesai | finir | | juga: terminer
 `,
   phrases: `
 s1 | Comment ça va ?
@@ -181,6 +221,22 @@ c3 | Il fait beau.
 g1 | Je travaille dans un bureau.
 g2 | J'étudie tous les jours.
 g3 | Quels sont tes loisirs ?
+o1 | J'aime écouter de la musique.
+o2 | Qu'est-ce que tu fais le week-end ?
+o3 | Je joue au foot deux fois par semaine.
+o4 | On va voir un film ensemble ?
+j1 | J'ai réservé une chambre pour deux nuits.
+j2 | L'année dernière, j'ai visité Bali avec ma famille.
+j3 | Pourriez-vous me recommander un endroit intéressant ?
+j4 | La vue est plus belle que je ne l'imaginais.
+e1 | À mon avis, cette idée est très bonne.
+e2 | Je ne suis pas d'accord avec toi.
+e3 | Je suis inquiet parce que j'ai un examen demain. | | penutur perempuan: inquiète
+e4 | Ce film est plus intéressant que le livre.
+r1 | Quand j'étais petit, j'habitais dans un village. | | penutur perempuan: petite
+r2 | Je n'ai jamais pris l'avion.
+r3 | L'année prochaine, j'étudierai à l'étranger.
+r4 | Si j'ai le temps, je voudrais apprendre une autre langue.
 `,
   alphabet: {
     title: "Aksen dan bunyi",

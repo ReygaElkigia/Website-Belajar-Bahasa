@@ -136,6 +136,46 @@ datang | يأتي | yaʾtī | kata dasar: أتى (atā)
 kantor | مكتب | maktab
 sekolah | مدرسة | madrasa
 libur | عطلة | ʿuṭla
+musik | موسيقى | mūsīqā
+film | فيلم | fīlm
+olahraga | رياضة | riyāḍa
+berenang | يسبح | yasbaḥu | kata dasar: سبح (sabaḥa)
+memasak | يطبخ | yaṭbukhu | kata dasar: طبخ (ṭabakha)
+bernyanyi | يغني | yughannī
+menonton | يشاهد | yushāhidu
+bermain | يلعب | yalʿabu
+akhirpekan | عطلة نهاية الأسبوع | ʿuṭlat nihāyat al-usbūʿ
+suka | يحب | yuḥibbu | kata dasar: أحب (aḥabba)
+paspor | جواز سفر | jawāz safar
+koper | حقيبة سفر | ḥaqībat safar
+pantai | شاطئ | shāṭiʾ
+peta | خريطة | kharīṭa
+pemesanan | حجز | ḥajz
+turis | سائح | sāʾiḥ
+oleholeh | هدية تذكارية | hadiyya tidhkāriyya
+pemandangan | منظر | manẓar
+pengalaman | تجربة | tajriba | pengalaman kerja: خبرة (khibra)
+mengunjungi | يزور | yazūru | kata dasar: زار (zāra)
+senang | سعيد | saʿīd
+sedih | حزين | ḥazīn
+marah | غاضب | ghāḍib
+takut | خائف | khāʾif
+lelah | متعب | mutʿab
+khawatir | قلق | qaliq
+menarik | ممتع | mumtiʿ
+membosankan | ممل | mumill
+setuju | يوافق | yuwāfiqu | kata dasar: وافق (wāfaqa)
+pendapat | رأي | raʾy
+dulu | في الماضي | fī al-māḍī
+nanti | لاحقا | lāḥiqan
+rencana | خطة | khuṭṭa
+mimpi | حلم | ḥulm
+masadepan | المستقبل | al-mustaqbal
+pernah | سبق أن | sabaqa an | pola: سبق أن زرت = saya pernah mengunjungi
+sudah | قد | qad | di depan kata kerja lampau: قد ذهب = dia sudah pergi
+belum | لم ... بعد | lam ... baʿdu | لم أذهب بعد = saya belum pergi
+mulai | يبدأ | yabdaʾu | kata dasar: بدأ (badaʾa)
+selesai | ينتهي | yantahī | kata dasar: انتهى (intahā)
 `,
   phrases: `
 s1 | كيف حالك؟ | kayfa ḥāluk?
@@ -181,6 +221,22 @@ c3 | الطقس جميل. | aṭ-ṭaqs jamīl.
 g1 | أعمل في مكتب. | aʿmalu fī maktab.
 g2 | أدرس كل يوم. | adrusu kulla yawm.
 g3 | ما هواياتك؟ | mā hiwāyātuk?
+o1 | أحب الاستماع إلى الموسيقى. | uḥibbu al-istimāʿ ilā al-mūsīqā.
+o2 | ماذا تفعل في عطلة نهاية الأسبوع؟ | mādhā tafʿalu fī ʿuṭlat nihāyat al-usbūʿ?
+o3 | ألعب كرة القدم مرتين في الأسبوع. | alʿabu kurat al-qadam marratayn fī al-usbūʿ.
+o4 | هل تريد أن نشاهد فيلما معا؟ | hal turīdu an nushāhida fīlman maʿan?
+j1 | حجزت غرفة لليلتين. | ḥajaztu ghurfa li-laylatayn.
+j2 | في السنة الماضية زرت بالي مع عائلتي. | fī as-sana al-māḍiya zurtu Bālī maʿa ʿāʾilatī.
+j3 | هل يمكنك أن تقترح مكانا ممتعا؟ | hal yumkinuka an taqtariḥa makānan mumtiʿan?
+j4 | المنظر أجمل مما تخيلت. | al-manẓar ajmal mimmā takhayyaltu.
+e1 | في رأيي، هذه الفكرة جيدة جدا. | fī raʾyī, hādhihi al-fikra jayyida jiddan.
+e2 | لا أوافق على رأيك. | lā uwāfiqu ʿalā raʾyik.
+e3 | أنا قلق لأن عندي امتحانا غدا. | anā qaliq li-anna ʿindī imtiḥānan ghadan. | penutur perempuan: قلقة
+e4 | هذا الفيلم أمتع من الكتاب. | hādhā al-fīlm amtaʿ min al-kitāb.
+r1 | عندما كنت صغيرا، كنت أسكن في قرية. | ʿindamā kuntu ṣaghīran, kuntu askunu fī qarya. | penutur perempuan: صغيرة
+r2 | لم يسبق لي أن ركبت طائرة. | lam yasbiq lī an rakibtu ṭāʾira.
+r3 | في السنة القادمة سأدرس في الخارج. | fī as-sana al-qādima sa-adrusu fī al-khārij.
+r4 | إذا كان عندي وقت، أريد أن أتعلم لغة أخرى. | idhā kāna ʿindī waqt, urīdu an ataʿallama lugha ukhrā.
 `,
   alphabet: {
     title: "Huruf hijaiyah",

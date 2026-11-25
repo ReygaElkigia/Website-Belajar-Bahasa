@@ -26,6 +26,7 @@ export interface ProgressState {
   badges: string[]; // lencana yang sudah didapat
   goal: number; // target XP harian
   reviews: number; // jumlah kartu hafalan yang pernah diulang
+  reads: Record<string, Record<string, number>>; // lang -> bacaan -> skor terbaik (0..100)
 }
 
 const KEY = "tutur:progress:v1";
@@ -40,6 +41,7 @@ const EMPTY: ProgressState = {
   badges: [],
   goal: 50,
   reviews: 0,
+  reads: {},
 };
 
 /* ---------- Peristiwa permainan (untuk maskot dan notifikasi) ---------- */
@@ -151,6 +153,8 @@ export function badgeFacts(s: ProgressState): BadgeFacts {
     wordsLearned: Object.keys(s.cards).reduce((n, l) => n + learnedCount(s, l), 0),
     cardsReviewed: s.reviews,
     examParts: Object.values(s.exams).reduce((n, e) => n + Object.keys(e).length, 0),
+    readingsB1: Object.values(s.reads).filter((r) => (r.rina ?? 0) >= PASS).length,
+    readingsPassed: Object.values(s.reads).reduce((n, r) => n + Object.values(r).filter((x) => x >= PASS).length, 0),
     streak: streak(s.days),
     goalDays: Object.values(s.xpDays).filter((x) => x >= s.goal).length,
     level: levelInfo(s.xp).level,
@@ -214,6 +218,18 @@ export function saveExamPart(exam: string, part: string, score: number, lang?: s
     { ...state, exams: { ...state.exams, [exam]: { ...state.exams[exam], [part]: Math.max(prev, score) } } },
     first ? XP.examPart : 0,
     "Bagian ujian selesai",
+    lang,
+  );
+}
+
+/** Menyelesaikan soal pemahaman bacaan bertingkat. Bonus hanya saat pertama kali lulus. */
+export function completeReading(lang: string, id: string, score: number) {
+  ensureLoaded();
+  const prev = state.reads[lang]?.[id] ?? 0;
+  commitWithXp(
+    { ...state, reads: { ...state.reads, [lang]: { ...state.reads[lang], [id]: Math.max(prev, score) } } },
+    score >= PASS && prev < PASS ? XP.reading : 0,
+    "Bacaan selesai",
     lang,
   );
 }
