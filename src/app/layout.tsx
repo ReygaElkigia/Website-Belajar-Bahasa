@@ -25,17 +25,15 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f5f7fb" },
-    { media: "(prefers-color-scheme: dark)", color: "#10141c" },
-  ],
+  themeColor: "#f5f7fb",
 };
 
-const themeScript = `try{var t=localStorage.getItem("tutur:theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}`;
+// Tema terang adalah bawaan; tema gelap hanya bila pengguna memilihnya lewat tombol.
+const themeScript = `try{if(localStorage.getItem("tutur:theme")==="dark")document.documentElement.dataset.theme="dark"}catch(e){}`;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="id" suppressHydrationWarning>
+    <html lang="id" data-theme="light" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>

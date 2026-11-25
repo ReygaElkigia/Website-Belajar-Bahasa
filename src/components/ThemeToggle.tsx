@@ -7,14 +7,14 @@ export function ThemeToggle() {
   const [dark, setDark] = useState<boolean | null>(null);
 
   useEffect(() => {
-    const set = document.documentElement.dataset.theme;
-    setDark(set ? set === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches);
+    setDark(document.documentElement.dataset.theme === "dark");
   }, []);
 
   const toggle = () => {
     const next = !dark;
     setDark(next);
     document.documentElement.dataset.theme = next ? "dark" : "light";
+    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", next ? "#10141c" : "#f5f7fb");
     try {
       localStorage.setItem("tutur:theme", next ? "dark" : "light");
     } catch {
