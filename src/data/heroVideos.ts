@@ -99,6 +99,15 @@ export const heroVideos: Record<string, HeroVideo> = {
     url: "https://commons.wikimedia.org/wiki/File:Patio_de_los_Leones.webm",
     license: "CC BY-SA 4.0",
   },
+  rusia: {
+    src: "/video/rusia.mp4",
+    poster: "/video/rusia.jpg",
+    focus: "50% 50%",
+    author: "Incola",
+    source: "Snow timelapse 2014",
+    url: "https://commons.wikimedia.org/wiki/File:Snow_timelapse_2014.webm",
+    license: "CC BY-SA 4.0",
+  },
   italia: {
     src: "/video/italia.mp4",
     poster: "/video/italia.jpg",
