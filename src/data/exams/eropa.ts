@@ -142,7 +142,7 @@ export const delf: Exam = {
   name: "DELF A1",
   fullName: "Diplôme d'études en langue française, niveau A1",
   org: "France Éducation international, untuk Kementerian Pendidikan Prancis",
-  level: "DELF A1 sampai B2, DALF C1 sampai C2",
+  level: "A1 (CEFR)",
   about:
     "Diploma bahasa Prancis resmi yang berlaku seumur hidup. Di Indonesia diselenggarakan oleh Institut français d'Indonésie (IFI). Dipakai untuk studi ke Prancis dan bukti kemampuan bahasa.",
   format: [
@@ -222,7 +222,7 @@ export const dele: Exam = {
   name: "DELE A1",
   fullName: "Diploma de Español como Lengua Extranjera, nivel A1",
   org: "Instituto Cervantes",
-  level: "A1 sampai C2",
+  level: "A1 (CEFR)",
   about:
     "Diploma resmi bahasa Spanyol dari pemerintah Spanyol, berlaku tanpa batas waktu dan diakui di seluruh dunia berbahasa Spanyol.",
   note: "Format DELE A1 diperbarui sejak 2020. Waktu bagian ekspresi tidak tercantum di sumber yang kami baca; cek Guía del examen DELE A1 v2020.",
@@ -298,7 +298,7 @@ export const torfl: Exam = {
   name: "ТРКИ Elementer (TORFL)",
   fullName: "Тест по русскому языку как иностранному, элементарный уровень (ТЭУ)",
   org: "Sistem Ujian Negara Federasi Rusia (pusat uji di universitas Rusia)",
-  level: "ТЭУ (A1), ТБУ (A2), ТРКИ-1 sampai ТРКИ-4",
+  level: "ТЭУ (A1)",
   about: "Ujian resmi bahasa Rusia untuk penutur asing, dipakai untuk kuliah di Rusia dan beasiswa pemerintah Rusia.",
   format: [
     { name: "Лексика. Грамматика", time: "sekitar 50 menit", items: "soal pilihan ganda", tasks: "Bentuk kasus, kata kerja, kosakata" },
@@ -374,7 +374,7 @@ export const cils: Exam = {
   name: "CILS A1",
   fullName: "Certificazione di Italiano come Lingua Straniera, livello A1",
   org: "Università per Stranieri di Siena",
-  level: "A1 sampai C2",
+  level: "A1 (CEFR)",
   about: "Sertifikasi bahasa Italia resmi yang diakui pemerintah Italia, dipakai untuk kuliah dan izin tinggal. Bisa diambil di Istituto Italiano di Cultura Jakarta.",
   format: [
     { name: "Ascolto Menyimak", time: "lihat petunjuk resmi", items: "beberapa tugas", tasks: "Dialog dan pengumuman pendek" },

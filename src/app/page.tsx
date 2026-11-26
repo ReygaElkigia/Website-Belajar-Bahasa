@@ -6,7 +6,7 @@ import { SpeakButton } from "@/components/Speak";
 import { TermView } from "@/components/Term";
 import { VideoCard } from "@/components/VideoCard";
 import { languageSummaries } from "@/lib/summaries";
-import { exams } from "@/data/exams";
+import { baseExams, exams } from "@/data/exams";
 
 const SAMPLE_WORD = "terimakasih";
 
@@ -109,11 +109,14 @@ export default function Home() {
             </Link>
           </div>
           <div className="chips">
-            {exams.map((e) => (
+            {baseExams.map((e) => (
               <Link key={e.id} className="chip" href={`/ujian/${e.id}/`}>
                 {e.name}
               </Link>
             ))}
+            <Link className="chip" href="/ujian/">
+              +{exams.length - baseExams.length} level lanjutan
+            </Link>
           </div>
         </div>
       </section>
