@@ -8,7 +8,7 @@ const BASE = process.env.NEXT_PUBLIC_BASE_PATH || "";
  * Video latar tanpa suara yang berulang. Tidak diputar (hanya poster) bila
  * pengguna meminta gerak minimal atau hemat data, dan dijeda saat di luar layar.
  */
-export function BgVideo({ src, poster, className }: { src: string; poster: string; className?: string }) {
+export function BgVideo({ src, poster, focus, className }: { src: string; poster: string; focus?: string; className?: string }) {
   const ref = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -34,6 +34,7 @@ export function BgVideo({ src, poster, className }: { src: string; poster: strin
       className={`${className ?? ""} scene-video`}
       src={`${BASE}${src}`}
       poster={`${BASE}${poster}`}
+      style={focus ? { objectPosition: focus } : undefined}
       autoPlay
       muted
       loop
