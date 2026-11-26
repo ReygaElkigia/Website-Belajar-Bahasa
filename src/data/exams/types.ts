@@ -69,6 +69,8 @@ export interface WriteQuestion extends Base {
   type: "write";
   /** Tabel data opsional (baris pertama = judul kolom). */
   table?: string[][];
+  /** Satuan panjang: kata (bawaan) atau karakter, mis. 원고지 TOPIK dan 字 HSK. */
+  unit?: "kata" | "karakter";
   minWords?: number;
   maxWords?: number;
   minutes?: number;

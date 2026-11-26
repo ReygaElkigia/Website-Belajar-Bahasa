@@ -115,7 +115,7 @@ export const topik: Exam = {
   name: "TOPIK I",
   fullName: "한국어능력시험 (Test of Proficiency in Korean) I",
   org: "National Institute for International Education (NIIED), Korea",
-  level: "TOPIK I: level 1 dan 2. TOPIK II: level 3 sampai 6",
+  level: "TOPIK I: level 1 dan 2",
   about:
     "Ujian resmi bahasa Korea untuk kuliah, beasiswa GKS, dan kerja di Korea. TOPIK I menguji kemampuan dasar sehari-hari dan hanya terdiri dari menyimak dan membaca.",
   note: "Versi berbasis internet (TOPIK IBT) punya jumlah soal dan waktu yang berbeda; angka di bawah untuk versi kertas.",
@@ -182,7 +182,7 @@ export const hsk: Exam = {
   name: "HSK 1",
   fullName: "汉语水平考试 (Hanyu Shuiping Kaoshi) Level 1",
   org: "Chinese Testing International (CTI)",
-  level: "HSK 1 sampai 6 (dan 7 sampai 9 di standar HSK 3.0)",
+  level: "HSK 1 (paling dasar)",
   about:
     "Ujian bahasa Mandarin resmi dari Tiongkok untuk beasiswa dan kuliah. HSK 1 adalah level paling dasar: mengenali kata dan kalimat sederhana sehari-hari.",
   note: "Standar HSK 3.0 memperbanyak kosakata tiap level. Periksa daftar kata yang berlaku untuk jadwal ujian Anda di situs CTI.",

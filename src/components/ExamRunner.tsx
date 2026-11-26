@@ -647,7 +647,8 @@ function Write({ q, tts, dir, checked, onResult }: TypeProps<Extract<Question, {
   const [text, setText] = useState("");
   const [started, setStarted] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  const words = countWords(text);
+  const unit = q.unit ?? "kata";
+  const words = unit === "karakter" ? [...text.replace(/\n/g, "")].length : countWords(text);
   const under = q.minWords ? words < q.minWords : false;
   const over = q.maxWords ? words > q.maxWords : false;
 
@@ -678,8 +679,8 @@ function Write({ q, tts, dir, checked, onResult }: TypeProps<Extract<Question, {
       )}
       <div className="row between mt-4">
         <span className="small muted">
-          {q.minWords ? `Minimal ${q.minWords} kata` : ""}
-          {q.maxWords ? `${q.minWords ? ", maksimal" : "Maksimal"} ${q.maxWords} kata` : ""}
+          {q.minWords ? `Minimal ${q.minWords} ${unit}` : ""}
+          {q.maxWords ? `${q.minWords ? ", maksimal" : "Maksimal"} ${q.maxWords} ${unit}` : ""}
           {q.minutes ? `. Waktu ${q.minutes} menit.` : ""}
         </span>
         {started && q.minutes && !submitted ? <Countdown seconds={q.minutes * 60} label="Sisa" /> : null}
@@ -700,7 +701,7 @@ function Write({ q, tts, dir, checked, onResult }: TypeProps<Extract<Question, {
         placeholder="Mulai menulis di sini. Waktu berjalan sejak Anda mengetik."
       />
       <p className="small mt-2" style={{ color: under || over ? "var(--margin)" : "var(--ink-2)" }}>
-        {words} kata{under ? `, kurang ${q.minWords! - words}` : ""}
+        {words} {unit}{under ? `, kurang ${q.minWords! - words}` : ""}
         {over ? `, lebih ${words - q.maxWords!}` : ""}
       </p>
       {!submitted ? (

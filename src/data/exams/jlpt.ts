@@ -1,29 +1,11 @@
-import type { Exam, GapQuestion, McQuestion, Question } from "./types";
+import type { Exam } from "./types";
+import { gap, mc } from "./build";
 
 /**
  * JLPT N4 sampai N1. Waktu, bagian, jenis soal, dan batas lulus mengikuti
  * jlpt.jp (format sejak 2010, dengan perubahan waktu 2020). Soal latihan
  * ditulis sendiri meniru jenis tugas aslinya, bukan salinan soal resmi.
  */
-
-/** Taruh jawaban benar (opsi pertama) di posisi `at` agar letak jawaban bervariasi. */
-function place(opts: string[], at: number) {
-  const [right, ...rest] = opts;
-  const i = at % opts.length;
-  return { options: [...rest.slice(0, i), right, ...rest.slice(i)], answer: i };
-}
-
-let turn = 0;
-/** Pilihan ganda; opsi pertama adalah jawaban benar. */
-function mc(q: Omit<McQuestion, "type" | "options" | "answer"> & { opts: string[] }): Question {
-  const { opts, ...rest } = q;
-  return { type: "mc", ...rest, ...place(opts, (turn = (turn * 7 + 3) % 11)) };
-}
-
-function gap(q: Omit<GapQuestion, "type" | "gaps"> & { gaps: string[][] }): Question {
-  const { gaps, ...rest } = q;
-  return { type: "gap", ...rest, gaps: gaps.map((g, i) => place(g, (turn + i * 2 + 1) % g.length)) };
-}
 
 const OFFICIAL = { label: "jlpt.jp", url: "https://www.jlpt.jp/e/guideline/testsections.html" };
 const SOURCES = [

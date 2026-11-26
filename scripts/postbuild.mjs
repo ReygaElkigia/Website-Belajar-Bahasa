@@ -40,7 +40,7 @@ const core = ["", "bahasa", "kamus", "latihan", "progres", "ujian", "offline"].f
 
 // Ujian per bahasa dibaca dari data sumber.
 const examsByLang = {};
-for (const f of ["inggris", "asia", "eropa", "jlpt"]) {
+for (const f of ["inggris", "asia", "eropa", "jlpt", "hsk", "topik"]) {
   const src = readFileSync(join(root, "src/data/exams", `${f}.ts`), "utf8");
   for (const m of src.matchAll(/id: "([a-z0-9-]+)",\s*\n\s*lang: "([a-z]+)"/g)) (examsByLang[m[2]] ??= []).push(m[1]);
 }
