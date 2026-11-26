@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import { Dictionary } from "@/components/Dictionary";
 import { concepts, languages, phraseConcepts } from "@/data";
+import { PageHero } from "@/components/anime/Themed";
 
 export const metadata: Metadata = {
   title: "Kamus multibahasa",
@@ -11,15 +12,15 @@ export const metadata: Metadata = {
 export default function DictionaryPage() {
   return (
     <>
-      <header className="page-head">
-        <div className="wrap stack">
+      <PageHero height={300} overlap={90}>
+        <div className="stack">
           <h1>Kamus</h1>
           <p className="lead">
             {concepts.length} kata inti dan {phraseConcepts.length} frasa dalam {languages.length} bahasa. Ketik dalam bahasa
             Indonesia, dalam aksara asli, atau dalam romanisasi.
           </p>
         </div>
-      </header>
+      </PageHero>
       <section className="section" style={{ paddingTop: 40 }}>
         <div className="wrap">
           <Suspense fallback={<div style={{ minHeight: 400 }} />}>

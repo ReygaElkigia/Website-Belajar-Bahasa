@@ -136,6 +136,46 @@ datang | 오다 | oda
 kantor | 회사 | hoesa | arti harfiah: perusahaan; ruang kantor: 사무실
 sekolah | 학교 | hakgyo
 libur | 휴가 | hyuga | hari libur: 휴일
+musik | 음악 | eumak
+film | 영화 | yeonghwa
+olahraga | 운동 | undong | cabang olahraga: 스포츠
+berenang | 수영하다 | suyeonghada
+memasak | 요리하다 | yorihada
+bernyanyi | 노래하다 | noraehada
+menonton | 보다 | boda
+bermain | 놀다 | nolda | bermain olahraga: (운동)하다
+akhirpekan | 주말 | jumal
+suka | 좋아하다 | joahada
+paspor | 여권 | yeogwon
+koper | 여행 가방 | yeohaeng gabang | juga 캐리어
+pantai | 해변 | haebyeon
+peta | 지도 | jido
+pemesanan | 예약 | yeyak
+turis | 관광객 | gwangwanggaek
+oleholeh | 기념품 | ginyeompum
+pemandangan | 경치 | gyeongchi
+pengalaman | 경험 | gyeongheom
+mengunjungi | 방문하다 | bangmunhada
+senang | 기쁘다 | gippeuda | bahagia: 행복하다
+sedih | 슬프다 | seulpeuda
+marah | 화가 나다 | hwaga nada
+takut | 무섭다 | museopda
+lelah | 피곤하다 | pigonhada
+khawatir | 걱정하다 | geokjeonghada
+menarik | 재미있다 | jaemiitda
+membosankan | 지루하다 | jiruhada
+setuju | 동의하다 | donguihada
+pendapat | 의견 | uigyeon
+dulu | 예전에 | yejeone
+nanti | 나중에 | najunge
+rencana | 계획 | gyehoek
+mimpi | 꿈 | kkum
+masadepan | 미래 | mirae | juga 장래
+pernah | 〜(으)ㄴ 적이 있다 | -(eu)n jeogi itda | pola: 가 본 적이 있다 = pernah pergi
+sudah | 벌써 | beolsseo | juga 이미
+belum | 아직 | ajik | 아직 안 했어요 = belum melakukan
+mulai | 시작하다 | sijakhada
+selesai | 끝나다 | kkeunnada | menyelesaikan: 끝내다
 `,
   phrases: `
 s1 | 잘 지내세요? | jal jinaeseyo?
@@ -181,6 +221,22 @@ c3 | 날씨가 좋아요. | nalssiga joayo.
 g1 | 저는 회사에서 일해요. | jeoneun hoesa-eseo ilhaeyo.
 g2 | 저는 매일 공부해요. | jeoneun maeil gongbuhaeyo.
 g3 | 취미가 뭐예요? | chwimiga mwoyeyo?
+o1 | 음악 듣는 것을 좋아해요. | eumak deunneun geoseul joahaeyo.
+o2 | 주말에 뭐 해요? | jumare mwo haeyo?
+o3 | 일주일에 두 번 축구를 해요. | iljuire du beon chukgureul haeyo.
+o4 | 같이 영화 볼래요? | gachi yeonghwa bollaeyo?
+j1 | 이틀 밤 방을 예약했어요. | iteul bam bangeul yeyakhaesseoyo.
+j2 | 작년에 가족과 발리에 갔어요. | jangnyeone gajokgwa Ballie gasseoyo.
+j3 | 재미있는 곳을 추천해 주실 수 있어요? | jaemiinneun goseul chucheonhae jusil su isseoyo?
+j4 | 경치가 생각했던 것보다 더 아름다워요. | gyeongchiga saenggakhaetdeon geotboda deo areumdawoyo.
+e1 | 제 생각에는 그 아이디어가 아주 좋아요. | je saenggageneun geu aidieoga aju joayo.
+e2 | 그 의견에 동의하지 않아요. | geu uigyeone donguihaji anayo.
+e3 | 내일 시험이 있어서 걱정돼요. | naeil siheomi isseoseo geokjeongdwaeyo.
+e4 | 그 영화는 책보다 더 재미있어요. | geu yeonghwaneun chaekboda deo jaemiisseoyo.
+r1 | 어렸을 때 시골에서 살았어요. | eoryeosseul ttae sigoreseo sarasseoyo.
+r2 | 비행기를 타 본 적이 없어요. | bihaenggireul ta bon jeogi eopseoyo.
+r3 | 내년에 유학을 갈 거예요. | naenyeone yuhageul gal geoyeyo.
+r4 | 시간이 있으면 다른 언어도 배우고 싶어요. | sigani isseumyeon dareun eoneodo baeugo sipeoyo.
 `,
   alphabet: {
     title: "Hangul",
@@ -249,7 +305,7 @@ g3 | 취미가 뭐예요? | chwimiga mwoyeyo?
   ],
   videos: [
     { id: "85qJXvyFrIc", title: "Learn Hangeul 한글 (Korean Alphabet) in 30 minutes", kind: "Huruf", about: "Konsonan, vokal, dan cara membaca kata dalam 30 menit." },
-    { id: "NNUtndjjWj0", title: "Learn 20 Essential Korean Phrases For Beginners", kind: "Frasa", about: "Dua puluh frasa yang paling sering dipakai sehari-hari." },
+    { id: "JrACvLMZIXs", title: "30 Daily Korean Phrases for Beginners", kind: "Frasa", about: "Talk To Me In Korean: tiga puluh frasa sehari-hari untuk pemula." },
     { id: "6HFzeknPi2A", title: "Slow & Basic Korean Conversation Practice", kind: "Percakapan", about: "Percakapan dasar dengan tempo pelan untuk latihan menyimak." },
   ],
 });

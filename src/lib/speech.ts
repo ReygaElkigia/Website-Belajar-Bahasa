@@ -1,6 +1,8 @@
 "use client";
 
+import { tuu } from "@/lib/companion";
 import { useEffect, useState } from "react";
+import { cachedNative } from "./nativeAudio";
 
 let cachedVoices: SpeechSynthesisVoice[] = [];
 
@@ -30,8 +32,96 @@ export function hasVoiceFor(lang: string) {
   return !!pickVoice(lang);
 }
 
-export function speak(text: string, lang: string, opts: { slow?: boolean; onEnd?: () => void } = {}) {
-  if (!canSpeak()) return false;
+/* ---------- Rekaman penutur asli ---------- */
+
+const COMMONS = "https://upload.wikimedia.org/wikipedia/commons/";
+type AudioIndex = Record<string, Record<string, string>>;
+let indexPromise: Promise<AudioIndex> | null = null;
+let indexCache: AudioIndex | null = null;
+let current: HTMLAudioElement | null = null;
+
+/** Indeks rekaman dimuat sekali, terpisah dari bundel utama. */
+function loadIndex() {
+  indexPromise ??= import("@/data/audio-index.json")
+    .then((m) => (indexCache = m.default as AudioIndex))
+    .catch(() => (indexCache = {}));
+  return indexPromise;
+}
+
+/**
+ * Muat indeks lebih awal (dipanggil saat tombol dengar tampil), agar klik
+ * pertama bisa langsung memutar audio. Safari memblokir play() yang terjadi
+ * setelah jeda asinkron dari klik.
+ */
+export function preloadNativeAudio() {
+  if (typeof window !== "undefined") void loadIndex();
+}
+
+/** Ada rekaman asli untuk teks ini? (null bila indeks belum dimuat) */
+export function hasNativeAudio(text: string, lang: string) {
+  return indexCache ? !!indexCache[lang]?.[text] : null;
+}
+
+function playPath(path: string, text: string, lang: string, opts: { slow?: boolean; onEnd?: () => void }) {
+  const audio = new Audio(path.startsWith("http") ? path : COMMONS + path);
+  current = audio;
+  let fellBack = false;
+  const fallback = () => {
+    if (fellBack || current !== audio) return;
+    fellBack = true;
+    speakTts(text, lang, opts);
+  };
+  audio.onended = () => opts.onEnd?.();
+  audio.onerror = fallback;
+  audio.play().catch(fallback);
+}
+
+export interface SpeakOpts {
+  slow?: boolean;
+  /** Nada suara perangkat (0..2), untuk membedakan tokoh dalam dialog. */
+  pitch?: number;
+  onEnd?: () => void;
+}
+
+/** Hentikan rekaman atau suara perangkat yang sedang diputar. */
+export function stopSpeaking() {
+  if (typeof window !== "undefined") stopAll();
+}
+
+function stopAll() {
+  if (current) {
+    current.pause();
+    current = null;
+  }
+  if (canSpeak()) window.speechSynthesis.cancel();
+}
+
+/**
+ * Putar rekaman asli bila ada (Lingua Libre via Wikimedia Commons),
+ * jika tidak ada atau gagal, bacakan dengan suara perangkat.
+ */
+export function speak(text: string, lang: string, opts: SpeakOpts = {}) {
+  if (typeof window === "undefined") return false;
+  stopAll();
+  tuu({ type: "listen" });
+  if (opts.slow) return speakTts(text, lang, opts);
+  const run = (idx: AudioIndex) => {
+    // Urutan: indeks bawaan situs, lalu temuan peramban (Lingua Libre), lalu suara perangkat.
+    const path = idx[lang]?.[text] ?? cachedNative(lang, text)?.url;
+    if (path) playPath(path, text, lang, opts);
+    else speakTts(text, lang, opts);
+  };
+  // Jalur sinkron bila indeks sudah ada: tetap di dalam gestur klik pengguna.
+  if (indexCache) run(indexCache);
+  else loadIndex().then(run);
+  return true;
+}
+
+function speakTts(text: string, lang: string, opts: SpeakOpts = {}) {
+  if (!canSpeak()) {
+    opts.onEnd?.();
+    return false;
+  }
   const synth = window.speechSynthesis;
   synth.cancel();
   const u = new SpeechSynthesisUtterance(text);
@@ -39,6 +129,7 @@ export function speak(text: string, lang: string, opts: { slow?: boolean; onEnd?
   const voice = pickVoice(lang);
   if (voice) u.voice = voice;
   u.rate = opts.slow ? 0.6 : 0.9;
+  if (opts.pitch) u.pitch = opts.pitch;
   if (opts.onEnd) {
     u.onend = opts.onEnd;
     u.onerror = opts.onEnd;

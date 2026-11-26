@@ -13,6 +13,10 @@ export const units: Unit[] = [
   { id: "kesehatan", title: "Tubuh dan kesehatan", summary: "Menyebut bagian tubuh dan meminta pertolongan saat sakit.", level: "A2" },
   { id: "cuaca", title: "Cuaca dan alam", summary: "Membicarakan cuaca, musim, dan alam sekitar.", level: "A2" },
   { id: "kegiatan", title: "Pekerjaan dan kegiatan", summary: "Bercerita tentang pekerjaan, sekolah, dan kegiatan sehari-hari.", level: "A2" },
+  { id: "hobi", title: "Hobi dan waktu luang", summary: "Bercerita tentang kesukaan, olahraga, dan rencana akhir pekan.", level: "A2" },
+  { id: "perjalanan", title: "Perjalanan dan liburan", summary: "Memesan penginapan, meminta rekomendasi, dan menceritakan liburan.", level: "B1" },
+  { id: "perasaan", title: "Perasaan dan pendapat", summary: "Mengungkapkan perasaan, setuju atau tidak, dan membandingkan.", level: "B1" },
+  { id: "cerita", title: "Cerita masa lalu dan rencana", summary: "Menceritakan pengalaman, kebiasaan dulu, dan rencana ke depan.", level: "B1" },
 ];
 
 const c = (unit: Concept["unit"], pos: string, list: [string, string][]): Concept[] =>
@@ -196,6 +200,63 @@ export const concepts: Concept[] = [
     ["sekolah", "sekolah"],
     ["libur", "libur"],
   ]),
+  ...c("hobi", "nomina", [
+    ["musik", "musik"],
+    ["film", "film"],
+    ["olahraga", "olahraga"],
+    ["akhirpekan", "akhir pekan"],
+  ]),
+  ...c("hobi", "verba", [
+    ["berenang", "berenang"],
+    ["memasak", "memasak"],
+    ["bernyanyi", "bernyanyi"],
+    ["menonton", "menonton"],
+    ["bermain", "bermain"],
+    ["suka", "suka"],
+  ]),
+
+  ...c("perjalanan", "nomina", [
+    ["paspor", "paspor"],
+    ["koper", "koper"],
+    ["pantai", "pantai"],
+    ["peta", "peta"],
+    ["pemesanan", "pemesanan"],
+    ["turis", "turis"],
+    ["oleholeh", "oleh-oleh"],
+    ["pemandangan", "pemandangan"],
+    ["pengalaman", "pengalaman"],
+  ]),
+  ...c("perjalanan", "verba", [["mengunjungi", "mengunjungi"]]),
+
+  ...c("perasaan", "adjektiva", [
+    ["senang", "senang"],
+    ["sedih", "sedih"],
+    ["marah", "marah"],
+    ["takut", "takut"],
+    ["lelah", "lelah"],
+    ["khawatir", "khawatir"],
+    ["menarik", "menarik"],
+    ["membosankan", "membosankan"],
+  ]),
+  ...c("perasaan", "verba", [["setuju", "setuju"]]),
+  ...c("perasaan", "nomina", [["pendapat", "pendapat"]]),
+
+  ...c("cerita", "adverbia", [
+    ["dulu", "dulu"],
+    ["nanti", "nanti"],
+    ["pernah", "pernah"],
+    ["sudah", "sudah"],
+    ["belum", "belum"],
+  ]),
+  ...c("cerita", "nomina", [
+    ["rencana", "rencana"],
+    ["mimpi", "mimpi"],
+    ["masadepan", "masa depan"],
+  ]),
+  ...c("cerita", "verba", [
+    ["mulai", "mulai"],
+    ["selesai", "selesai"],
+  ]),
 ];
 
 const p = (unit: PhraseConcept["unit"], list: [string, string][]): PhraseConcept[] =>
@@ -268,6 +329,30 @@ export const phraseConcepts: PhraseConcept[] = [
     ["g1", "Saya bekerja di kantor."],
     ["g2", "Saya belajar setiap hari."],
     ["g3", "Apa hobimu?"],
+  ]),
+  ...p("hobi", [
+    ["o1", "Saya suka mendengarkan musik."],
+    ["o2", "Apa yang kamu lakukan di akhir pekan?"],
+    ["o3", "Saya bermain sepak bola dua kali seminggu."],
+    ["o4", "Mau menonton film bersama?"],
+  ]),
+  ...p("perjalanan", [
+    ["j1", "Saya sudah memesan kamar untuk dua malam."],
+    ["j2", "Tahun lalu saya mengunjungi Bali bersama keluarga."],
+    ["j3", "Bisakah Anda merekomendasikan tempat yang menarik?"],
+    ["j4", "Pemandangannya lebih indah daripada yang saya bayangkan."],
+  ]),
+  ...p("perasaan", [
+    ["e1", "Menurut saya, ide itu sangat bagus."],
+    ["e2", "Saya tidak setuju dengan pendapatmu."],
+    ["e3", "Saya khawatir karena besok ada ujian."],
+    ["e4", "Filmnya lebih menarik daripada bukunya."],
+  ]),
+  ...p("cerita", [
+    ["r1", "Waktu kecil, saya tinggal di desa."],
+    ["r2", "Saya belum pernah naik pesawat."],
+    ["r3", "Tahun depan saya akan kuliah di luar negeri."],
+    ["r4", "Kalau ada waktu, saya ingin belajar bahasa lain."],
   ]),
 ];
 

@@ -4,13 +4,15 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && node scripts/postbuild.mjs",
     "start": "npx serve out",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@fontsource-variable/atkinson-hyperlegible-next": "^5.3.0",
     "@fontsource-variable/literata": "^5.3.0",
+    "@fontsource-variable/nunito": "^5.3.0",
+    "@fontsource/m-plus-rounded-1c": "^5.3.0",
     "lucide-react": "^1.79.0",
     "next": "^16.4.6",
     "react": "^19.3.1",

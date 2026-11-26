@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { languages } from "@/data";
+import { Flag } from "@/components/Flag";
 
 export function SiteFooter() {
   return (
@@ -14,8 +15,8 @@ export function SiteFooter() {
             Tempat belajar bahasa dunia dari bahasa Indonesia. Progres Anda disimpan di perangkat ini saja, tanpa akun.
           </p>
           <p className="tiny">
-            Suara dibacakan oleh mesin suara bawaan perangkat Anda. Video milik kreatornya masing-masing dan diputar
-            dari YouTube.
+            Suara memakai rekaman penutur asli dari Lingua Libre bila tersedia, selain itu suara bawaan perangkat. Video
+            milik kreatornya masing-masing dan diputar dari YouTube. Tutur bisa dipasang sebagai aplikasi dan dipakai offline.
           </p>
         </div>
         <div>
@@ -23,7 +24,9 @@ export function SiteFooter() {
           <ul style={{ gridTemplateColumns: "1fr 1fr", columnGap: 16 }}>
             {languages.map((l) => (
               <li key={l.slug}>
-                <Link href={`/bahasa/${l.slug}/`}>{l.name}</Link>
+                <Link href={`/bahasa/${l.slug}/jalur/`} className="flag-label">
+                  <Flag slug={l.slug} size={18} /> {l.name}
+                </Link>
               </li>
             ))}
           </ul>
@@ -45,6 +48,12 @@ export function SiteFooter() {
             </li>
             <li>
               <Link href="/progres/">Progres saya</Link>
+            </li>
+            <li>
+              <Link href="/tuu/">Kenalan dengan Tuu</Link>
+            </li>
+            <li>
+              <Link href="/kredit/">Kredit dan lisensi</Link>
             </li>
           </ul>
         </div>

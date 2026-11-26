@@ -8,7 +8,7 @@ export const jlpt: Exam = {
   name: "JLPT N5",
   fullName: "日本語能力試験 (Japanese-Language Proficiency Test) N5",
   org: "Japan Foundation dan Japan Educational Exchanges and Services",
-  level: "N5 (dasar) sampai N1 (mahir)",
+  level: "N5 (paling dasar)",
   about:
     "Ujian bahasa Jepang paling dikenal di dunia, diadakan dua kali setahun (Juli dan Desember) di Indonesia. N5 menguji kemampuan memahami kalimat dasar dalam hiragana, katakana, dan kanji sederhana. N4 dan N3 sering diminta untuk program magang dan kerja di Jepang.",
   format: [
@@ -22,7 +22,7 @@ export const jlpt: Exam = {
     "Semua soal berupa pilihan ganda; tidak ada bagian menulis atau berbicara.",
   ],
   tips: [
-    "Kuasai hiragana dan katakana sepenuhnya; N5 sudah memakai sekitar 100 kanji.",
+    "Kuasai hiragana dan katakana sepenuhnya, lalu 79 kanji N5 di halaman Kanji Tutur.",
     "Soal ★ (文の組み立て) meminta urutan kata: cari partikel yang menempel ke kata sebelumnya.",
   ],
   official: { label: "jlpt.jp", url: "https://www.jlpt.jp/e/guideline/testsections.html" },
@@ -115,7 +115,7 @@ export const topik: Exam = {
   name: "TOPIK I",
   fullName: "한국어능력시험 (Test of Proficiency in Korean) I",
   org: "National Institute for International Education (NIIED), Korea",
-  level: "TOPIK I: level 1 dan 2. TOPIK II: level 3 sampai 6",
+  level: "TOPIK I: level 1 dan 2",
   about:
     "Ujian resmi bahasa Korea untuk kuliah, beasiswa GKS, dan kerja di Korea. TOPIK I menguji kemampuan dasar sehari-hari dan hanya terdiri dari menyimak dan membaca.",
   note: "Versi berbasis internet (TOPIK IBT) punya jumlah soal dan waktu yang berbeda; angka di bawah untuk versi kertas.",
@@ -182,7 +182,7 @@ export const hsk: Exam = {
   name: "HSK 1",
   fullName: "汉语水平考试 (Hanyu Shuiping Kaoshi) Level 1",
   org: "Chinese Testing International (CTI)",
-  level: "HSK 1 sampai 6 (dan 7 sampai 9 di standar HSK 3.0)",
+  level: "HSK 1 (paling dasar)",
   about:
     "Ujian bahasa Mandarin resmi dari Tiongkok untuk beasiswa dan kuliah. HSK 1 adalah level paling dasar: mengenali kata dan kalimat sederhana sehari-hari.",
   note: "Standar HSK 3.0 memperbanyak kosakata tiap level. Periksa daftar kata yang berlaku untuk jadwal ujian Anda di situs CTI.",

@@ -6,6 +6,12 @@ import { Quiz, type QuizItem } from "@/components/Quiz";
 import { SpeakButton } from "@/components/Speak";
 import { TermView } from "@/components/Term";
 import { VoiceNotice } from "@/components/VoiceNotice";
+import { NativeBadge } from "@/components/NativeBadge";
+import { LiveNativeBadge, NativePrefetch } from "@/components/NativeLive";
+import { creditFor } from "@/data/audioCredits";
+import { PageHero, Themed } from "@/components/anime/Themed";
+import { UnitIcon } from "@/components/UnitIcon";
+import { Flag } from "@/components/Flag";
 
 export const dynamicParams = false;
 
@@ -45,13 +51,15 @@ export default async function UnitPage({ params }: { params: Params }) {
     .map((c) => ({ id: c.id, word: l.vocab[c.id].word, roman: l.vocab[c.id].roman, meaning: c.word }));
 
   return (
-    <>
-      <header className="page-head">
-        <div className="wrap stack">
+    <Themed slug={l.slug}>
+      <PageHero slug={l.slug} height={360} overlap={96}>
+        <div className="stack">
           <nav className="crumbs" aria-label="Lokasi">
             <Link href="/bahasa/">Bahasa</Link>
             <span aria-hidden>/</span>
-            <Link href={`/bahasa/${l.slug}/`}>{l.name}</Link>
+            <Link href={`/bahasa/${l.slug}/jalur/`} className="flag-label">
+              <Flag slug={l.slug} size={16} /> {l.name}
+            </Link>
             <span aria-hidden>/</span>
             <span>Unit {idx + 1}</span>
           </nav>
@@ -59,11 +67,16 @@ export default async function UnitPage({ params }: { params: Params }) {
             <span className="level">Unit {idx + 1} dari {units.length}</span>
             <span className="level">{u.level}</span>
           </div>
-          <h1>{u.title}</h1>
+          <h1 className="unit-heading">
+            <span className="unit-badge unit-badge-lg">
+              <UnitIcon id={u.id} size={28} />
+            </span>
+            {u.title}
+          </h1>
           <p className="lead">{u.summary}</p>
           <VoiceNotice tts={l.tts} name={l.name} />
         </div>
-      </header>
+      </PageHero>
 
       <section className="section">
         <div className="wrap two-col">
@@ -73,6 +86,10 @@ export default async function UnitPage({ params }: { params: Params }) {
               Ucapkan setiap kata dengan keras setelah mendengarnya. Mengulang dengan suara membantu ingatan lebih dari
               membaca dalam hati.
             </p>
+            <NativePrefetch
+              tts={l.tts}
+              items={vocab.filter((v) => !creditFor(l.slug, v.id)).map((v) => ({ word: v.term.word, note: v.term.note }))}
+            />
             <ul className="vocab">
               {vocab.map((v) => (
                 <li key={v.id} className="vocab-row">
@@ -83,6 +100,11 @@ export default async function UnitPage({ params }: { params: Params }) {
                     </Link>
                     <span className="pos">{v.pos}</span>
                     {v.term.note && <span className="term-note">{v.term.note}</span>}
+                    {creditFor(l.slug, v.id) ? (
+                      <NativeBadge credit={creditFor(l.slug, v.id)!} />
+                    ) : (
+                      <LiveNativeBadge tts={l.tts} word={v.term.word} />
+                    )}
                   </span>
                   <SpeakButton text={v.term.word.split(" / ")[0]} lang={l.tts} />
                 </li>
@@ -165,6 +187,6 @@ export default async function UnitPage({ params }: { params: Params }) {
           </aside>
         </div>
       </section>
-    </>
+    </Themed>
   );
 }

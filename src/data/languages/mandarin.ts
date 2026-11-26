@@ -136,6 +136,46 @@ datang | 来 | lái
 kantor | 办公室 | bàngōngshì
 sekolah | 学校 | xuéxiào
 libur | 假期 | jiàqī | berlibur: 放假 (fàngjià)
+musik | 音乐 | yīnyuè
+film | 电影 | diànyǐng
+olahraga | 运动 | yùndòng
+berenang | 游泳 | yóuyǒng
+memasak | 做饭 | zuòfàn
+bernyanyi | 唱歌 | chànggē
+menonton | 看 | kàn
+bermain | 玩 | wán | olahraga: 打 / 踢, alat musik: 弹
+akhirpekan | 周末 | zhōumò
+suka | 喜欢 | xǐhuan
+paspor | 护照 | hùzhào
+koper | 行李箱 | xínglixiāng
+pantai | 海滩 | hǎitān
+peta | 地图 | dìtú
+pemesanan | 预订 | yùdìng
+turis | 游客 | yóukè
+oleholeh | 纪念品 | jìniànpǐn | oleh-oleh makanan khas: 特产 (tèchǎn)
+pemandangan | 风景 | fēngjǐng
+pengalaman | 经验 | jīngyàn | pengalaman yang dialami: 经历 (jīnglì)
+mengunjungi | 参观 | cānguān | mengunjungi orang: 拜访 (bàifǎng)
+senang | 高兴 | gāoxìng
+sedih | 难过 | nánguò | juga 伤心 (shāngxīn)
+marah | 生气 | shēngqì
+takut | 害怕 | hàipà
+lelah | 累 | lèi
+khawatir | 担心 | dānxīn
+menarik | 有意思 | yǒu yìsi | juga 有趣 (yǒuqù)
+membosankan | 无聊 | wúliáo
+setuju | 同意 | tóngyì
+pendapat | 看法 | kànfǎ | juga 意见 (yìjiàn)
+dulu | 以前 | yǐqián
+nanti | 以后 | yǐhòu | sebentar lagi: 等一下
+rencana | 计划 | jìhuà
+mimpi | 梦想 | mèngxiǎng | mimpi saat tidur: 梦 (mèng)
+masadepan | 未来 | wèilái | juga 将来 (jiānglái)
+pernah | 过 | guo | pola: 去过 = pernah pergi
+sudah | 已经 | yǐjīng
+belum | 还没 | hái méi
+mulai | 开始 | kāishǐ
+selesai | 结束 | jiéshù | selesai mengerjakan: 完 (wán)
 `,
   phrases: `
 s1 | 你好吗？ | nǐ hǎo ma?
@@ -181,6 +221,22 @@ c3 | 天气很好。 | tiānqì hěn hǎo.
 g1 | 我在办公室工作。 | wǒ zài bàngōngshì gōngzuò.
 g2 | 我每天学习。 | wǒ měitiān xuéxí.
 g3 | 你的爱好是什么？ | nǐ de àihào shì shénme?
+o1 | 我喜欢听音乐。 | wǒ xǐhuan tīng yīnyuè.
+o2 | 你周末做什么？ | nǐ zhōumò zuò shénme?
+o3 | 我每周踢两次足球。 | wǒ měi zhōu tī liǎng cì zúqiú.
+o4 | 要不要一起去看电影？ | yào bu yào yìqǐ qù kàn diànyǐng?
+j1 | 我已经预订了两个晚上的房间。 | wǒ yǐjīng yùdìng le liǎng ge wǎnshang de fángjiān.
+j2 | 去年我和家人去了巴厘岛。 | qùnián wǒ hé jiārén qù le Bālídǎo.
+j3 | 你能推荐一个有意思的地方吗？ | nǐ néng tuījiàn yí ge yǒu yìsi de dìfang ma?
+j4 | 这里的风景比我想象的还要美。 | zhèlǐ de fēngjǐng bǐ wǒ xiǎngxiàng de hái yào měi.
+e1 | 我觉得这个主意很好。 | wǒ juéde zhège zhǔyi hěn hǎo. | 我觉得 = menurut saya
+e2 | 我不同意你的看法。 | wǒ bù tóngyì nǐ de kànfǎ.
+e3 | 明天有考试，所以我很担心。 | míngtiān yǒu kǎoshì, suǒyǐ wǒ hěn dānxīn.
+e4 | 这部电影比原著更有意思。 | zhè bù diànyǐng bǐ yuánzhù gèng yǒu yìsi. | 原著 = buku aslinya
+r1 | 我小时候住在农村。 | wǒ xiǎoshíhou zhù zài nóngcūn.
+r2 | 我从来没坐过飞机。 | wǒ cónglái méi zuò guo fēijī.
+r3 | 明年我要去国外留学。 | míngnián wǒ yào qù guówài liúxué.
+r4 | 如果有时间，我想学另一种语言。 | rúguǒ yǒu shíjiān, wǒ xiǎng xué lìng yì zhǒng yǔyán.
 `,
   alphabet: {
     title: "Pinyin, nada, dan karakter",

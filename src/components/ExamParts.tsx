@@ -20,7 +20,7 @@ export function ExamParts({ exam, tts, dir }: { exam: Exam; tts: string; dir: "l
   return (
     <div ref={top} style={{ scrollMarginTop: 80 }}>
       {part ? (
-        <ExamRunner key={part.id} examId={exam.id} part={part} tts={tts} dir={dir} onExit={() => setActive(null)} />
+        <ExamRunner key={part.id} examId={exam.id} langSlug={exam.lang} part={part} tts={tts} dir={dir} onExit={() => setActive(null)} />
       ) : (
         <ul className="part-list">
           {exam.parts.map((p) => (

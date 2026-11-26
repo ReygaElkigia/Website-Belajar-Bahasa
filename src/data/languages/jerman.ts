@@ -136,6 +136,46 @@ datang | kommen
 kantor | das Büro
 sekolah | die Schule
 libur | der Urlaub | | libur sekolah: die Ferien
+musik | die Musik
+film | der Film
+olahraga | der Sport
+berenang | schwimmen
+memasak | kochen
+bernyanyi | singen
+menonton | anschauen | | menonton TV: fernsehen
+bermain | spielen
+akhirpekan | das Wochenende
+suka | mögen | | melakukan dengan senang: gern + kata kerja
+paspor | der Reisepass
+koper | der Koffer
+pantai | der Strand
+peta | die Karte | | peta kota: der Stadtplan
+pemesanan | die Reservierung | | juga: die Buchung
+turis | der Tourist | | perempuan: die Touristin
+oleholeh | das Souvenir | | juga: das Mitbringsel
+pemandangan | die Aussicht
+pengalaman | die Erfahrung | | pengalaman yang dialami: das Erlebnis
+mengunjungi | besuchen
+senang | froh | | bahagia: glücklich
+sedih | traurig
+marah | wütend | | lisan: sauer
+takut | ängstlich | | Ich habe Angst. = Saya takut.
+lelah | müde
+khawatir | besorgt | | Ich mache mir Sorgen. = Saya khawatir.
+menarik | interessant
+membosankan | langweilig
+setuju | zustimmen | | Ich bin einverstanden. = Saya setuju.
+pendapat | die Meinung
+dulu | früher
+nanti | später
+rencana | der Plan
+mimpi | der Traum
+masadepan | die Zukunft
+pernah | schon einmal | | Warst du schon einmal …? = Pernahkah kamu ke …?
+sudah | schon | | juga: bereits
+belum | noch nicht
+mulai | anfangen | | juga: beginnen
+selesai | fertig sein | | berakhir: enden
 `,
   phrases: `
 s1 | Wie geht's?
@@ -181,6 +221,22 @@ c3 | Das Wetter ist schön.
 g1 | Ich arbeite in einem Büro.
 g2 | Ich lerne jeden Tag.
 g3 | Was sind deine Hobbys?
+o1 | Ich höre gern Musik.
+o2 | Was machst du am Wochenende?
+o3 | Ich spiele zweimal pro Woche Fußball.
+o4 | Wollen wir zusammen einen Film anschauen?
+j1 | Ich habe ein Zimmer für zwei Nächte reserviert.
+j2 | Letztes Jahr habe ich mit meiner Familie Bali besucht.
+j3 | Können Sie mir einen interessanten Ort empfehlen?
+j4 | Die Aussicht ist schöner, als ich gedacht habe.
+e1 | Meiner Meinung nach ist die Idee sehr gut.
+e2 | Ich bin nicht deiner Meinung.
+e3 | Ich mache mir Sorgen, weil ich morgen eine Prüfung habe.
+e4 | Der Film ist interessanter als das Buch.
+r1 | Als Kind habe ich in einem Dorf gewohnt.
+r2 | Ich bin noch nie geflogen.
+r3 | Nächstes Jahr werde ich im Ausland studieren.
+r4 | Wenn ich Zeit habe, möchte ich noch eine Sprache lernen.
 `,
   alphabet: {
     title: "Alfabet dan aturan bunyi",

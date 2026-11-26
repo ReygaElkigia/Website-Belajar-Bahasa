@@ -10,13 +10,17 @@ export type UnitId =
   | "transportasi"
   | "kesehatan"
   | "cuaca"
-  | "kegiatan";
+  | "kegiatan"
+  | "hobi"
+  | "perjalanan"
+  | "perasaan"
+  | "cerita";
 
 export interface Unit {
   id: UnitId;
   title: string;
   summary: string;
-  level: "A1" | "A2";
+  level: "A1" | "A2" | "B1";
 }
 
 export interface Concept {

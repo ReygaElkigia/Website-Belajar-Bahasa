@@ -136,6 +136,46 @@ datang | 来る | kuru | くる
 kantor | 会社 | kaisha | かいしゃ; arti harfiah: perusahaan
 sekolah | 学校 | gakkō | がっこう
 libur | 休み | yasumi | やすみ
+musik | 音楽 | ongaku | おんがく
+film | 映画 | eiga | えいが
+olahraga | スポーツ | supōtsu
+berenang | 泳ぐ | oyogu | およぐ
+memasak | 料理する | ryōri suru | りょうりする
+bernyanyi | 歌う | utau | うたう
+menonton | 見る | miru | みる
+bermain | 遊ぶ | asobu | あそぶ; olahraga: する, alat musik: 弾く (hiku)
+akhirpekan | 週末 | shūmatsu | しゅうまつ
+suka | 好き | suki | すき; pola: 〜が好きです
+paspor | パスポート | pasupōto
+koper | スーツケース | sūtsukēsu
+pantai | 海岸 | kaigan | かいがん; sehari-hari: ビーチ
+peta | 地図 | chizu | ちず
+pemesanan | 予約 | yoyaku | よやく
+turis | 観光客 | kankōkyaku | かんこうきゃく
+oleholeh | お土産 | omiyage | おみやげ
+pemandangan | 景色 | keshiki | けしき
+pengalaman | 経験 | keiken | けいけん
+mengunjungi | 訪れる | otozureru | おとずれる; sehari-hari: 行く
+senang | うれしい | ureshii
+sedih | 悲しい | kanashii | かなしい
+marah | 怒る | okoru | おこる; kata kerja
+takut | 怖い | kowai | こわい
+lelah | 疲れた | tsukareta | つかれた
+khawatir | 心配 | shinpai | しんぱい; 心配する = khawatir
+menarik | 面白い | omoshiroi | おもしろい
+membosankan | つまらない | tsumaranai
+setuju | 賛成する | sansei suru | さんせいする
+pendapat | 意見 | iken | いけん
+dulu | 昔 | mukashi | むかし
+nanti | 後で | ato de | あとで
+rencana | 予定 | yotei | よてい; juga 計画 (keikaku)
+mimpi | 夢 | yume | ゆめ
+masadepan | 将来 | shōrai | しょうらい
+pernah | 〜たことがある | -ta koto ga aru | pola: 行ったことがある = pernah pergi
+sudah | もう | mō
+belum | まだ | mada | まだです = belum
+mulai | 始める | hajimeru | はじめる
+selesai | 終わる | owaru | おわる
 `,
   phrases: `
 s1 | お元気ですか？ | o-genki desu ka?
@@ -181,6 +221,22 @@ c3 | いい天気ですね。 | ii tenki desu ne.
 g1 | 会社で働いています。 | kaisha de hataraite imasu.
 g2 | 毎日勉強します。 | mainichi benkyō shimasu.
 g3 | 趣味は何ですか？ | shumi wa nan desu ka?
+o1 | 音楽を聞くのが好きです。 | ongaku o kiku no ga suki desu.
+o2 | 週末は何をしますか？ | shūmatsu wa nani o shimasu ka?
+o3 | 週に二回サッカーをします。 | shū ni nikai sakkā o shimasu.
+o4 | 一緒に映画を見ませんか？ | issho ni eiga o mimasen ka?
+j1 | 二泊で部屋を予約しました。 | nihaku de heya o yoyaku shimashita.
+j2 | 去年、家族とバリに行きました。 | kyonen, kazoku to Bari ni ikimashita.
+j3 | 面白い場所を教えていただけますか？ | omoshiroi basho o oshiete itadakemasu ka?
+j4 | 景色は想像していたよりもきれいです。 | keshiki wa sōzō shite ita yori mo kirei desu.
+e1 | そのアイデアはとてもいいと思います。 | sono aidea wa totemo ii to omoimasu. | と思います = menurut saya
+e2 | その意見には賛成できません。 | sono iken ni wa sansei dekimasen.
+e3 | 明日試験があるので、心配です。 | ashita shiken ga aru node, shinpai desu.
+e4 | その映画は本よりも面白いです。 | sono eiga wa hon yori mo omoshiroi desu.
+r1 | 子供のころ、村に住んでいました。 | kodomo no koro, mura ni sunde imashita.
+r2 | 飛行機に乗ったことがありません。 | hikōki ni notta koto ga arimasen.
+r3 | 来年、留学するつもりです。 | rainen, ryūgaku suru tsumori desu.
+r4 | 時間があれば、ほかの言語も勉強したいです。 | jikan ga areba, hoka no gengo mo benkyō shitai desu.
 `,
   alphabet: {
     title: "Hiragana dan katakana",
@@ -245,6 +301,6 @@ g3 | 趣味は何ですか？ | shumi wa nan desu ka?
   ],
   videos: [
     { id: "6p9Il_j0zjc", title: "Learn ALL Hiragana in 1 Hour - How to Write and Read Japanese", kind: "Huruf", about: "Seluruh hiragana, cara menulis dan membaca, dalam satu jam." },
-    { id: "g0ElTlkn9Z0", title: "How to Introduce Yourself in Japanese - Jikoshokai", kind: "Percakapan", about: "Jikoshōkai: memperkenalkan nama, umur, dan tempat tinggal." },
+    { id: "Sq0aF_CYXps", title: "How to introduce yourself in Japanese: 6 Tips for Self Introduction", kind: "Percakapan", about: "Jikoshōkai: enam kiat memperkenalkan diri dengan ungkapan yang alami." },
   ],
 });

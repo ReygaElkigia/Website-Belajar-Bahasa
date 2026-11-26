@@ -4,11 +4,15 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { ArrowDown, ArrowUp, Check, Mic, RotateCcw, Square, Timer, Turtle, Volume2, X } from "lucide-react";
 import type { PracticePart, Question } from "@/data/exams/types";
 import { speak } from "@/lib/speech";
-import { saveExamPart } from "@/lib/progress";
+import { gainXp, saveExamPart } from "@/lib/progress";
+import { tuu } from "@/lib/companion";
+import { CHEER_WRONG, PRAISE, XP } from "@/data/gamify";
+import { Mascot, MascotSays } from "./mascot/Mascot";
 import { countWords, scoreMulti, scoreOrder, scoreTyped, scoreWords } from "@/lib/examScore";
 
 interface Props {
   examId: string;
+  langSlug: string;
   part: PracticePart;
   tts: string;
   dir: "ltr" | "rtl";
@@ -34,19 +38,22 @@ function shuffle<T>(arr: T[]): T[] {
   return a;
 }
 
-export function ExamRunner({ examId, part, tts, dir, onExit }: Props) {
+export function ExamRunner({ examId, langSlug, part, tts, dir, onExit }: Props) {
   const [i, setI] = useState(0);
   const [results, setResults] = useState<Result[]>([]);
   const q = part.questions[i];
   const done = i >= part.questions.length;
 
   const record = useCallback((r: Result) => {
+    const xp = r.auto ? Math.round(XP.correct * r.score) : XP.selfCheck;
+    if (xp > 0) gainXp(xp, r.auto ? "Soal ujian" : "Penilaian diri", langSlug);
+    if (r.auto) tuu({ type: "answer", correct: r.score >= 0.5, source: "exam" });
     setResults((rs) => {
       const next = [...rs];
       next[i] = r;
       return next;
     });
-  }, [i]);
+  }, [i, langSlug]);
 
   const autoResults = results.filter((r) => r?.auto);
   const selfResults = results.filter((r) => r && !r.auto);
@@ -58,8 +65,9 @@ export function ExamRunner({ examId, part, tts, dir, onExit }: Props) {
     const all = results.filter(Boolean);
     if (!all.length) return;
     const pct = Math.round((all.reduce((s, r) => s + r.score, 0) / all.length) * 100);
-    saveExamPart(examId, part.id, pct);
-  }, [done, results, examId, part.id]);
+    saveExamPart(examId, part.id, pct, langSlug);
+    tuu({ type: "finish", source: "exam", score: pct });
+  }, [done, results, examId, part.id, langSlug]);
 
   const restart = () => {
     setI(0);
@@ -69,7 +77,10 @@ export function ExamRunner({ examId, part, tts, dir, onExit }: Props) {
   if (done) {
     return (
       <div className="panel" aria-live="polite">
-        <p className="muted small">Selesai: {part.title}</p>
+        <div className="row" style={{ gap: 14, flexWrap: "nowrap" }}>
+          <Mascot mood={(autoPct ?? selfPct ?? 0) >= 70 ? "cheer" : "think"} size={80} />
+          <p className="muted small">Selesai: {part.title}. Bonus +{XP.examPart} XP untuk bagian yang pertama kali selesai.</p>
+        </div>
         <dl className="stats mt-4" style={{ gridTemplateColumns: "repeat(2, minmax(0, 1fr))" }}>
           <div>
             <dt>Dinilai otomatis</dt>
@@ -117,6 +128,7 @@ export function ExamRunner({ examId, part, tts, dir, onExit }: Props) {
         tts={tts}
         dir={dir}
         result={results[i]}
+        langSlug={langSlug}
         onResult={record}
         onNext={() => setI((x) => x + 1)}
         last={i + 1 === part.questions.length}
@@ -127,6 +139,7 @@ export function ExamRunner({ examId, part, tts, dir, onExit }: Props) {
 
 interface QProps {
   q: Question;
+  langSlug: string;
   tts: string;
   dir: "ltr" | "rtl";
   result?: Result;
@@ -135,7 +148,7 @@ interface QProps {
   last: boolean;
 }
 
-function QuestionView({ q, tts, dir, result, onResult, onNext, last }: QProps) {
+function QuestionView({ q, tts, dir, result, onResult, onNext, last, langSlug }: QProps) {
   const checked = !!result;
   return (
     <div className="exam-q">
@@ -155,6 +168,13 @@ function QuestionView({ q, tts, dir, result, onResult, onNext, last }: QProps) {
 
       {checked && (
         <div className="feedback" data-ok={result.auto ? result.score >= 0.99 : true} aria-live="polite">
+          <MascotSays mood={!result.auto || result.score >= 0.99 ? "happy" : result.score > 0 ? "think" : "sad"} size={60}>
+            {!result.auto || result.score >= 0.99 ? (
+              <b lang={PRAISE[langSlug]?.tts}>{PRAISE[langSlug]?.text}</b>
+            ) : (
+              CHEER_WRONG[q.prompt.length % CHEER_WRONG.length]
+            )}
+          </MascotSays>
           <span>
             <strong>
               {result.auto
@@ -627,7 +647,8 @@ function Write({ q, tts, dir, checked, onResult }: TypeProps<Extract<Question, {
   const [text, setText] = useState("");
   const [started, setStarted] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  const words = countWords(text);
+  const unit = q.unit ?? "kata";
+  const words = unit === "karakter" ? [...text.replace(/\n/g, "")].length : countWords(text);
   const under = q.minWords ? words < q.minWords : false;
   const over = q.maxWords ? words > q.maxWords : false;
 
@@ -658,8 +679,8 @@ function Write({ q, tts, dir, checked, onResult }: TypeProps<Extract<Question, {
       )}
       <div className="row between mt-4">
         <span className="small muted">
-          {q.minWords ? `Minimal ${q.minWords} kata` : ""}
-          {q.maxWords ? `${q.minWords ? ", maksimal" : "Maksimal"} ${q.maxWords} kata` : ""}
+          {q.minWords ? `Minimal ${q.minWords} ${unit}` : ""}
+          {q.maxWords ? `${q.minWords ? ", maksimal" : "Maksimal"} ${q.maxWords} ${unit}` : ""}
           {q.minutes ? `. Waktu ${q.minutes} menit.` : ""}
         </span>
         {started && q.minutes && !submitted ? <Countdown seconds={q.minutes * 60} label="Sisa" /> : null}
@@ -680,7 +701,7 @@ function Write({ q, tts, dir, checked, onResult }: TypeProps<Extract<Question, {
         placeholder="Mulai menulis di sini. Waktu berjalan sejak Anda mengetik."
       />
       <p className="small mt-2" style={{ color: under || over ? "var(--margin)" : "var(--ink-2)" }}>
-        {words} kata{under ? `, kurang ${q.minWords! - words}` : ""}
+        {words} {unit}{under ? `, kurang ${q.minWords! - words}` : ""}
         {over ? `, lebih ${words - q.maxWords!}` : ""}
       </p>
       {!submitted ? (

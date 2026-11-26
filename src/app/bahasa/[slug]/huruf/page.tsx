@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { getLanguage, languages, units } from "@/data";
 import { GlyphGrid } from "@/components/GlyphGrid";
 import { VoiceNotice } from "@/components/VoiceNotice";
+import { PageHero, Themed } from "@/components/anime/Themed";
 
 export const dynamicParams = false;
 
@@ -24,9 +25,9 @@ export default async function AlphabetPage({ params }: { params: Promise<{ slug:
   if (!l) notFound();
 
   return (
-    <>
-      <header className="page-head">
-        <div className="wrap stack">
+    <Themed slug={l.slug}>
+      <PageHero slug={l.slug} height={360} overlap={96}>
+        <div className="stack">
           <nav className="crumbs" aria-label="Lokasi">
             <Link href="/bahasa/">Bahasa</Link>
             <span aria-hidden>/</span>
@@ -39,7 +40,7 @@ export default async function AlphabetPage({ params }: { params: Promise<{ slug:
           <p className="small muted">Ketuk setiap huruf untuk mendengar bunyinya.</p>
           <VoiceNotice tts={l.tts} name={l.name} />
         </div>
-      </header>
+      </PageHero>
 
       <section className="section">
         <div className="wrap">
@@ -60,8 +61,20 @@ export default async function AlphabetPage({ params }: { params: Promise<{ slug:
               Mulai unit 1
             </Link>
           </div>
+
+          {l.slug === "jepang" && (
+            <div className="panel mt-5 row between">
+              <div>
+                <h3 style={{ marginBottom: 4 }}>Setelah kana, kanji</h3>
+                <p className="small muted">2.211 kanji JLPT N5 sampai N1 dengan urutan goresan, cara baca, dan kuis. Mulai dari 79 kanji N5.</p>
+              </div>
+              <Link className="btn" href="/bahasa/jepang/kanji/">
+                Buka kanji
+              </Link>
+            </div>
+          )}
         </div>
       </section>
-    </>
+    </Themed>
   );
 }

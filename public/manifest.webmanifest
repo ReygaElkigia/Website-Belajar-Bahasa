@@ -1,0 +1,23 @@
+{
+  "name": "Tutur: belajar bahasa dunia",
+  "short_name": "Tutur",
+  "description": "Belajar 12 bahasa dunia dari bahasa Indonesia: huruf, kosakata bersuara, kamus, kuis, kartu hafalan, dan latihan ujian.",
+  "lang": "id",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#f3f6ff",
+  "theme_color": "#6a7fd8",
+  "categories": ["education"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Kartu hafalan", "url": "./latihan/", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Kamus", "url": "./kamus/", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Latihan ujian", "url": "./ujian/", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] }
+  ]
+}

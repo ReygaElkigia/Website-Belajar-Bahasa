@@ -6,7 +6,7 @@ import { SpeakButton } from "@/components/Speak";
 import { TermView } from "@/components/Term";
 import { VideoCard } from "@/components/VideoCard";
 import { languageSummaries } from "@/lib/summaries";
-import { exams } from "@/data/exams";
+import { baseExams, exams } from "@/data/exams";
 
 const SAMPLE_WORD = "terimakasih";
 
@@ -30,26 +30,11 @@ export default function Home() {
 
   return (
     <>
-      <section className="hero ruled with-margin">
-        <div className="hero-inner">
-          <HeroGreeting items={greetings} />
-          <div className="hero-copy">
-            <h1>Belajar bahasa dunia, langsung dari bahasa Indonesia.</h1>
-            <p className="lead">
-              {languages.length} bahasa, masing-masing dengan huruf, {concepts.length} kosakata inti bersuara,{" "}
-              {phraseConcepts.length} frasa sehari-hari, kamus, video, dan kuis. Gratis dan tanpa daftar.
-            </p>
-            <div className="btn-row">
-              <Link className="btn btn-primary" href="/bahasa/">
-                Pilih bahasa
-              </Link>
-              <Link className="btn" href="/kamus/">
-                Buka kamus
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HeroGreeting
+        items={greetings}
+        title="Belajar bahasa dunia, langsung dari bahasa Indonesia."
+        lead={`${languages.length} bahasa, masing-masing dengan dunianya sendiri: huruf, ${concepts.length} kosakata bersuara, ${phraseConcepts.length} frasa, bacaan bertingkat A2–B1, belajar dari anime dan drama, kamus, video, kuis, dan latihan ujian resmi. Gratis dan tanpa daftar.`}
+      />
 
       <section className="section">
         <div className="wrap">
@@ -124,11 +109,14 @@ export default function Home() {
             </Link>
           </div>
           <div className="chips">
-            {exams.map((e) => (
+            {baseExams.map((e) => (
               <Link key={e.id} className="chip" href={`/ujian/${e.id}/`}>
                 {e.name}
               </Link>
             ))}
+            <Link className="chip" href="/ujian/">
+              +{exams.length - baseExams.length} level lanjutan
+            </Link>
           </div>
         </div>
       </section>

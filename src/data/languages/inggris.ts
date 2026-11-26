@@ -136,6 +136,46 @@ datang | to come
 kantor | office
 sekolah | school
 libur | holiday | | Amerika: vacation
+musik | music
+film | movie | | juga: film
+olahraga | sport
+berenang | to swim
+memasak | to cook
+bernyanyi | to sing
+menonton | to watch
+bermain | to play
+akhirpekan | weekend
+suka | to like
+paspor | passport
+koper | suitcase
+pantai | beach
+peta | map
+pemesanan | reservation | | juga: booking
+turis | tourist
+oleholeh | souvenir
+pemandangan | view | | juga: scenery
+pengalaman | experience
+mengunjungi | to visit
+senang | happy
+sedih | sad
+marah | angry
+takut | afraid | | juga: scared
+lelah | tired
+khawatir | worried
+menarik | interesting
+membosankan | boring
+setuju | to agree
+pendapat | opinion
+dulu | in the past | | kebiasaan lampau: used to
+nanti | later
+rencana | plan
+mimpi | dream
+masadepan | future
+pernah | ever | | Have you ever…? = Pernahkah kamu…?
+sudah | already
+belum | not yet | | di akhir kalimat: yet
+mulai | to start | | juga: to begin
+selesai | to finish
 `,
   phrases: `
 s1 | How are you?
@@ -181,6 +221,22 @@ c3 | The weather is nice.
 g1 | I work in an office.
 g2 | I study every day.
 g3 | What are your hobbies?
+o1 | I like listening to music.
+o2 | What do you do on weekends?
+o3 | I play football twice a week. | | Amerika: soccer
+o4 | Do you want to watch a movie together?
+j1 | I've booked a room for two nights.
+j2 | Last year I visited Bali with my family.
+j3 | Could you recommend an interesting place?
+j4 | The view is more beautiful than I imagined.
+e1 | In my opinion, that idea is very good.
+e2 | I don't agree with your opinion.
+e3 | I'm worried because I have an exam tomorrow.
+e4 | The movie is more interesting than the book.
+r1 | When I was a child, I lived in a village.
+r2 | I have never been on a plane.
+r3 | Next year I will study abroad.
+r4 | If I have time, I want to learn another language.
 `,
   alphabet: {
     title: "Alfabet dan bunyi",

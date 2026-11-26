@@ -6,6 +6,7 @@ import { getLanguage } from "@/data";
 import { examById, exams, questionCount } from "@/data/exams";
 import { ExamParts } from "@/components/ExamParts";
 import { VoiceNotice } from "@/components/VoiceNotice";
+import { PageHero, Themed } from "@/components/anime/Themed";
 
 export const dynamicParams = false;
 
@@ -30,9 +31,9 @@ export default async function ExamPage({ params }: { params: Promise<{ id: strin
   const l = getLanguage(e.lang);
 
   return (
-    <>
-      <header className="page-head">
-        <div className="wrap stack">
+    <Themed slug={e.lang}>
+      <PageHero slug={e.lang} height={360} overlap={96}>
+        <div className="stack">
           <nav className="crumbs" aria-label="Lokasi">
             <Link href="/ujian/">Ujian</Link>
             <span aria-hidden>/</span>
@@ -52,7 +53,7 @@ export default async function ExamPage({ params }: { params: Promise<{ id: strin
             </p>
           )}
         </div>
-      </header>
+      </PageHero>
 
       <section className="section">
         <div className="wrap two-col">
@@ -138,6 +139,6 @@ export default async function ExamPage({ params }: { params: Promise<{ id: strin
           </aside>
         </div>
       </section>
-    </>
+    </Themed>
   );
 }

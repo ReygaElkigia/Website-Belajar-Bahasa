@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { Flashcards } from "@/components/Flashcards";
+import { PageHero } from "@/components/anime/Themed";
 
 export const metadata: Metadata = {
   title: "Kartu hafalan",
@@ -10,15 +11,15 @@ export const metadata: Metadata = {
 export default function PracticePage() {
   return (
     <>
-      <header className="page-head">
-        <div className="wrap stack">
+      <PageHero height={300} overlap={90}>
+        <div className="stack">
           <h1>Kartu hafalan</h1>
           <p className="lead">
             Dua belas kartu per sesi. Kata yang belum hafal muncul lagi di sesi berikutnya, kata yang sudah hafal muncul lagi
             setelah jeda yang makin panjang.
           </p>
         </div>
-      </header>
+      </PageHero>
       <section className="section" style={{ paddingTop: 40 }}>
         <div className="wrap">
           <Suspense fallback={<div style={{ minHeight: 400 }} />}>

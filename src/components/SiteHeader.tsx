@@ -4,6 +4,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { BookOpen, ChartColumn, Clapperboard, GraduationCap, Languages, Layers } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
+import { GameHud } from "./mascot/GameHud";
+import { LangPill } from "./LangPill";
+import type { LangMeta } from "@/lib/currentLang";
 
 const links = [
   { href: "/bahasa/", label: "Bahasa", icon: Languages },
@@ -19,10 +22,11 @@ function useActive() {
   return (href: string) => (path.startsWith(href) ? "page" : undefined);
 }
 
-export function SiteHeader() {
+export function SiteHeader({ langs }: { langs: LangMeta[] }) {
   const active = useActive();
   return (
     <header className="site-header">
+      <span className="scroll-progress" aria-hidden />
       <div className="wrap">
         <Link href="/" className="brand" aria-label="Tutur, ke beranda">
           Tutur
@@ -36,6 +40,8 @@ export function SiteHeader() {
           ))}
         </nav>
         <div className="header-end">
+          <LangPill langs={langs} />
+          <GameHud />
           <ThemeToggle />
         </div>
       </div>

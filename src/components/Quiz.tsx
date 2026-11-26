@@ -4,7 +4,11 @@ import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 import { Check, RotateCcw, Volume2, X } from "lucide-react";
 import { speak, useVoiceStatus } from "@/lib/speech";
-import { completeUnit } from "@/lib/progress";
+import { completeUnit, gainXp } from "@/lib/progress";
+import { tuu } from "@/lib/companion";
+import { CHEER_RIGHT, CHEER_WRONG, PRAISE, XP } from "@/data/gamify";
+import { Mascot, MascotSays } from "./mascot/Mascot";
+import { NativePrefetch } from "./NativeLive";
 
 export interface QuizItem {
   id: string;
@@ -83,7 +87,11 @@ export function Quiz({ items, pool, langSlug, langName, tts, dir, unitId, nextHr
     (id: string) => {
       if (picked || !q) return;
       setPicked(id);
-      if (id === q.answer.id) setRight((r) => r + 1);
+      tuu({ type: "answer", correct: id === q.answer.id, source: "quiz" });
+      if (id === q.answer.id) {
+        setRight((r) => r + 1);
+        gainXp(XP.correct, "Jawaban benar", langSlug);
+      }
       // Selalu perdengarkan jawaban benar agar telinga ikut belajar.
       speak(q.answer.word, tts);
     },
@@ -96,6 +104,7 @@ export function Quiz({ items, pool, langSlug, langName, tts, dir, unitId, nextHr
   }, []);
 
   useEffect(() => {
+    if (finished && questions.length) tuu({ type: "finish", source: "quiz", score });
     if (finished && unitId && questions.length) completeUnit(langSlug, unitId, score);
   }, [finished, unitId, langSlug, score, questions.length]);
 
@@ -121,6 +130,7 @@ export function Quiz({ items, pool, langSlug, langName, tts, dir, unitId, nextHr
   if (!started) {
     return (
       <div className="quiz panel">
+        <NativePrefetch tts={tts} items={items.map((it) => ({ word: it.word }))} />
         <h3>Uji diri: {Math.min(count, items.length)} soal</h3>
         <p className="muted small">
           Pilih arti kata, pilih kata yang tepat, {canListen ? "dan tebak kata dari suaranya" : "dalam tiga sampai empat pilihan"}.
@@ -139,8 +149,13 @@ export function Quiz({ items, pool, langSlug, langName, tts, dir, unitId, nextHr
     const passed = score >= 70;
     return (
       <div className="quiz panel" aria-live="polite">
-        <p className="muted small">Hasil kuis</p>
-        <p className="score mt-2">{score}</p>
+        <div className="row" style={{ gap: 16, alignItems: "center", flexWrap: "nowrap" }}>
+          <Mascot mood={score >= 100 ? "cheer" : passed ? "happy" : "think"} size={88} />
+          <div>
+            <p className="muted small">Hasil kuis</p>
+            <p className="score mt-2">{score}</p>
+          </div>
+        </div>
         <p className="mt-3">
           {right} dari {questions.length} jawaban benar.{" "}
           {passed
@@ -234,6 +249,15 @@ export function Quiz({ items, pool, langSlug, langName, tts, dir, unitId, nextHr
       </ul>
       {picked && (
         <div className="feedback" data-ok={isRight} aria-live="polite">
+          <MascotSays mood={isRight ? "happy" : "sad"} size={64}>
+            {isRight ? (
+              <>
+                <b lang={PRAISE[langSlug]?.tts}>{PRAISE[langSlug]?.text}</b> {CHEER_RIGHT[n % CHEER_RIGHT.length]} <span className="xp-chip">+{XP.correct} XP</span>
+              </>
+            ) : (
+              CHEER_WRONG[n % CHEER_WRONG.length]
+            )}
+          </MascotSays>
           <span>
             <strong>{isRight ? "Benar." : "Belum tepat."}</strong>{" "}
             <span lang={tts} dir={dir}>

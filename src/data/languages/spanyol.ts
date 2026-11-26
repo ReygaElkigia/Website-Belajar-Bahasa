@@ -136,6 +136,46 @@ datang | venir
 kantor | la oficina
 sekolah | la escuela
 libur | las vacaciones
+musik | la música
+film | la película
+olahraga | el deporte
+berenang | nadar
+memasak | cocinar
+bernyanyi | cantar
+menonton | ver | | juga: mirar
+bermain | jugar | | bermain alat musik: tocar
+akhirpekan | el fin de semana
+suka | gustar | | Me gusta … = Saya suka …
+paspor | el pasaporte
+koper | la maleta
+pantai | la playa
+peta | el mapa
+pemesanan | la reserva
+turis | el turista | | perempuan: la turista
+oleholeh | el recuerdo | | juga: el souvenir
+pemandangan | la vista | | juga: el paisaje
+pengalaman | la experiencia
+mengunjungi | visitar
+senang | feliz | | juga: contento
+sedih | triste
+marah | enfadado | | Amerika Latin: enojado
+takut | tener miedo | | Tengo miedo. = Saya takut.
+lelah | cansado
+khawatir | preocupado
+menarik | interesante
+membosankan | aburrido
+setuju | estar de acuerdo
+pendapat | la opinión
+dulu | antes | | kebiasaan lampau memakai pretérito imperfecto
+nanti | luego | | juga: más tarde
+rencana | el plan
+mimpi | el sueño
+masadepan | el futuro
+pernah | alguna vez | | ¿Has … alguna vez? = Pernahkah kamu … ?
+sudah | ya
+belum | todavía no
+mulai | empezar | | juga: comenzar
+selesai | terminar
 `,
   phrases: `
 s1 | ¿Cómo estás?
@@ -181,6 +221,22 @@ c3 | Hace buen tiempo.
 g1 | Trabajo en una oficina.
 g2 | Estudio todos los días.
 g3 | ¿Cuáles son tus pasatiempos?
+o1 | Me gusta escuchar música.
+o2 | ¿Qué haces los fines de semana?
+o3 | Juego al fútbol dos veces por semana.
+o4 | ¿Quieres ver una película juntos?
+j1 | He reservado una habitación para dos noches.
+j2 | El año pasado visité Bali con mi familia.
+j3 | ¿Podría recomendarme un lugar interesante?
+j4 | La vista es más bonita de lo que imaginaba.
+e1 | En mi opinión, esa idea es muy buena.
+e2 | No estoy de acuerdo contigo.
+e3 | Estoy preocupado porque mañana tengo un examen. | | penutur perempuan: preocupada
+e4 | La película es más interesante que el libro.
+r1 | Cuando era niño, vivía en un pueblo. | | penutur perempuan: niña
+r2 | Nunca he viajado en avión.
+r3 | El año que viene estudiaré en el extranjero.
+r4 | Si tengo tiempo, quiero aprender otro idioma.
 `,
   alphabet: {
     title: "Alfabet dan bunyi",

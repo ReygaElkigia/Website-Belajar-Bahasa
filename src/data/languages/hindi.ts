@@ -136,6 +136,46 @@ datang | आना | ānā
 kantor | दफ़्तर | daftar | juga ऑफ़िस
 sekolah | स्कूल | skūl | juga विद्यालय (vidyālay)
 libur | छुट्टी | chhuṭṭī
+musik | संगीत | saṅgīt
+film | फ़िल्म | film
+olahraga | खेल | khel
+berenang | तैरना | tairnā
+memasak | खाना बनाना | khānā banānā
+bernyanyi | गाना | gānā | juga berarti 'lagu'
+menonton | देखना | dekhnā
+bermain | खेलना | khelnā
+akhirpekan | सप्ताहांत | saptāhānt | sehari-hari: वीकेंड
+suka | पसंद करना | pasand karnā | मुझे … पसंद है = Saya suka …
+paspor | पासपोर्ट | pāsporṭ
+koper | सूटकेस | sūṭkes
+pantai | समुद्र तट | samudra taṭ | sehari-hari: बीच
+peta | नक़्शा | naqshā
+pemesanan | बुकिंग | buking | formal: आरक्षण (ārakṣaṇ)
+turis | पर्यटक | paryaṭak
+oleholeh | सुवेनियर | suveniyar
+pemandangan | नज़ारा | nazārā | juga दृश्य
+pengalaman | अनुभव | anubhav
+mengunjungi | घूमने जाना | ghūmne jānā | mengunjungi orang: मिलने जाना
+senang | ख़ुश | khush
+sedih | उदास | udās | juga दुखी
+marah | ग़ुस्सा | ghussā | मुझे ग़ुस्सा आया = Saya marah.
+takut | डर | ḍar | मुझे डर लगता है = Saya takut.
+lelah | थका हुआ | thakā huā | perempuan: थकी हुई
+khawatir | चिंतित | cintit | मुझे चिंता है = Saya khawatir.
+menarik | दिलचस्प | dilcasp
+membosankan | उबाऊ | ubāū
+setuju | सहमत होना | sahmat honā
+pendapat | राय | rāy
+dulu | पहले | pahle
+nanti | बाद में | bād meṃ
+rencana | योजना | yojnā | sehari-hari: प्लान
+mimpi | सपना | sapnā
+masadepan | भविष्य | bhaviṣya
+pernah | कभी | kabhī | क्या आप कभी … गए हैं? = Pernahkah Anda pergi …?
+sudah | पहले ही | pahle hī
+belum | अभी तक नहीं | abhī tak nahīṃ
+mulai | शुरू करना | shurū karnā
+selesai | ख़त्म करना | khatm karnā | juga पूरा करना
 `,
   phrases: `
 s1 | आप कैसे हैं? | āp kaise haiṃ?
@@ -181,6 +221,22 @@ c3 | मौसम अच्छा है। | mausam achchhā hai.
 g1 | मैं दफ़्तर में काम करता हूँ। | maiṃ daftar meṃ kām kartā hūṃ. | penutur perempuan: करती हूँ
 g2 | मैं हर दिन पढ़ाई करता हूँ। | maiṃ har din paṛhāī kartā hūṃ. | penutur perempuan: करती हूँ
 g3 | आपके शौक़ क्या हैं? | āpke shauq kyā haiṃ?
+o1 | मुझे संगीत सुनना पसंद है। | mujhe saṅgīt sunnā pasand hai.
+o2 | आप सप्ताहांत में क्या करते हैं? | āp saptāhānt meṃ kyā karte haiṃ?
+o3 | मैं हफ़्ते में दो बार फ़ुटबॉल खेलता हूँ। | maiṃ hafte meṃ do bār fuṭbôl kheltā hūṃ. | penutur perempuan: खेलती
+o4 | क्या हम साथ में फ़िल्म देखें? | kyā ham sāth meṃ film dekheṃ?
+j1 | मैंने दो रातों के लिए कमरा बुक किया है। | maiṃne do rātoṃ ke lie kamrā buk kiyā hai.
+j2 | पिछले साल मैं अपने परिवार के साथ बाली गया था। | pichhle sāl maiṃ apne parivār ke sāth Bālī gayā thā. | penutur perempuan: गई थी
+j3 | क्या आप कोई दिलचस्प जगह सुझा सकते हैं? | kyā āp koī dilcasp jagah sujhā sakte haiṃ?
+j4 | नज़ारा मेरी सोच से भी ज़्यादा सुंदर है। | nazārā merī soc se bhī zyādā sundar hai.
+e1 | मेरी राय में यह विचार बहुत अच्छा है। | merī rāy meṃ yah vicār bahut achchhā hai.
+e2 | मैं आपकी राय से सहमत नहीं हूँ। | maiṃ āpkī rāy se sahmat nahīṃ hūṃ.
+e3 | कल मेरी परीक्षा है, इसलिए मैं चिंतित हूँ। | kal merī parīkṣā hai, islie maiṃ cintit hūṃ.
+e4 | यह फ़िल्म किताब से ज़्यादा दिलचस्प है। | yah film kitāb se zyādā dilcasp hai.
+r1 | बचपन में मैं एक गाँव में रहता था। | bacpan meṃ maiṃ ek gāṃv meṃ rahtā thā. | penutur perempuan: रहती थी
+r2 | मैं कभी हवाई जहाज़ में नहीं बैठा। | maiṃ kabhī havāī jahāz meṃ nahīṃ baiṭhā. | penutur perempuan: बैठी
+r3 | अगले साल मैं विदेश में पढ़ाई करूँगा। | agle sāl maiṃ videsh meṃ paṛhāī karūṃgā. | penutur perempuan: करूँगी
+r4 | अगर समय मिला, तो मैं एक और भाषा सीखना चाहता हूँ। | agar samay milā, to maiṃ ek aur bhāṣā sīkhnā cāhtā hūṃ. | penutur perempuan: चाहती
 `,
   alphabet: {
     title: "Aksara Dewanagari",

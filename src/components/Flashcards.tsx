@@ -7,6 +7,12 @@ import { RotateCcw, Volume2 } from "lucide-react";
 import { concepts, languages, units, getLanguage } from "@/data";
 import { BOX_DAYS, getProgress, reviewCard, useProgress } from "@/lib/progress";
 import { speak } from "@/lib/speech";
+import { tuu } from "@/lib/companion";
+import { themeFor, themeVars } from "@/data/themes";
+import { Scene } from "./anime/Scene";
+import { Particles } from "./anime/Particles";
+import { Mascot, type MascotMood } from "./mascot/Mascot";
+import { NativePrefetch } from "./NativeLive";
 
 const SESSION = 12;
 
@@ -25,6 +31,7 @@ export function Flashcards() {
   const [i, setI] = useState(0);
   const [flipped, setFlipped] = useState(false);
   const [tally, setTally] = useState({ knew: 0, again: 0 });
+  const [mood, setMood] = useState<MascotMood>("idle");
 
   // Susun sesi: kartu yang jatuh tempo dulu, lalu kartu baru, lalu sisanya.
   // Deck dibekukan per putaran supaya urutan tidak berubah saat kartu dinilai.
@@ -68,7 +75,9 @@ export function Flashcards() {
     (knew: boolean) => {
       if (!card) return;
       reviewCard(lang.slug, card.id, knew);
+      tuu({ type: "answer", correct: knew, source: "card" });
       setTally((t) => (knew ? { ...t, knew: t.knew + 1 } : { ...t, again: t.again + 1 }));
+      setMood(knew ? "happy" : "think");
       setFlipped(false);
       setI((x) => x + 1);
     },
@@ -76,6 +85,7 @@ export function Flashcards() {
   );
 
   const flip = useCallback(() => {
+    tuu({ type: "flip" });
     setFlipped((f) => {
       if (!f && term && dir === "id") speak(term.word, lang.tts);
       return !f;
@@ -98,13 +108,26 @@ export function Flashcards() {
 
   const box = card ? (progress.cards[lang.slug]?.[card.id]?.box ?? 0) : 0;
 
+  const theme = themeFor(lang.slug);
+  const stage = (
+    <>
+      <Scene key={theme.id} theme={theme} className="scene" compact id={`flash-${theme.id}`} />
+      <Particles key={`p-${theme.id}`} kind={theme.particle} seed={7} density={0.6} />
+      <Mascot mood={mood} size={74} className="stage-mascot" title={`Tuu, maskot Tutur, sedang ${mood === "happy" ? "senang" : mood === "think" ? "berpikir" : "menunggu"}`} />
+    </>
+  );
+
   return (
-    <div className="two-col">
+    <div className="two-col themed" style={themeVars(theme)}>
+      {deck && <NativePrefetch tts={lang.tts} items={deck.map((c) => ({ word: lang.vocab[c.id].word, note: lang.vocab[c.id].note }))} />}
       <div>
         {deck === null ? (
-          <div className="card-stage" aria-busy="true">
-            <div className="flashcard">
-              <div className="card-face ruled with-margin" />
+          <div className="flash-stage" aria-busy="true">
+            {stage}
+            <div className="card-stage">
+              <div className="flashcard">
+                <div className="card-face ruled with-margin" />
+              </div>
             </div>
           </div>
         ) : !done && card && term ? (
@@ -112,6 +135,8 @@ export function Flashcards() {
             <p className="muted small" style={{ marginBottom: 16 }}>
               Kartu {i + 1} dari {deck?.length}. Ketuk kartu atau tekan spasi untuk membalik.
             </p>
+            <div className="flash-stage">
+            {stage}
             <div className="card-stage">
               <div
                 className="flashcard"
@@ -166,7 +191,8 @@ export function Flashcards() {
                 </div>
               </div>
             </div>
-            <div className="btn-row mt-5" style={{ maxWidth: 560 }}>
+            </div>
+            <div className="btn-row mt-5" style={{ maxWidth: 640 }}>
               {flipped ? (
                 <>
                   <button type="button" className="btn" style={{ flex: 1 }} onClick={() => grade(false)}>
@@ -196,8 +222,8 @@ export function Flashcards() {
                 <RotateCcw size={18} strokeWidth={1.75} aria-hidden />
                 Sesi baru
               </button>
-              <Link className="btn" href={`/bahasa/${lang.slug}/`}>
-                Kembali ke pelajaran {lang.name}
+              <Link className="btn" href={`/bahasa/${lang.slug}/jalur/`}>
+                Kembali ke jalur {lang.name}
               </Link>
             </div>
           </div>
