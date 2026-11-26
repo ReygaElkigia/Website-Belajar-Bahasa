@@ -5614,3 +5614,82 @@ button.world-flag[aria-current="true"] {
 .world-warp:has(.scene-video) .particles {
   display: none;
 }
+
+/* Tuu di layar sempit: pesan otomatis diringkas jadi tombol kecil selama
+   pengunjung masih di bagian atas halaman, agar judul dan tombol Mulai tetap
+   terlihat. Balon terbuka saat diketuk atau setelah halaman digulir. */
+.tuu-nudge {
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 36px;
+  padding: 6px 12px 6px 10px;
+  border: 2px solid var(--stroke);
+  border-radius: 999px 999px 6px 999px;
+  background: var(--sheet);
+  color: var(--ink);
+  box-shadow: var(--hard);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  animation: tuu-bubble-in 300ms var(--ease);
+}
+
+.tuu-dock[data-side="left"] .tuu-nudge {
+  border-radius: 999px 999px 999px 6px;
+}
+
+.tuu-nudge-dots {
+  display: inline-flex;
+  gap: 3px;
+}
+
+.tuu-nudge-dots i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--pen);
+  animation: tuu-nudge-dot 1.2s ease-in-out infinite;
+}
+
+.tuu-nudge-dots i:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.tuu-nudge-dots i:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes tuu-nudge-dot {
+  0%,
+  60%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+  30% {
+    transform: translateY(-3px);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 520px) {
+  .tuu-dock {
+    --tuu-size: 60px;
+  }
+  .tuu-bubble {
+    max-width: min(280px, calc(100vw - 32px));
+  }
+  .tuu-bubble p {
+    font-size: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tuu-nudge-dots i {
+    animation: none;
+    opacity: 1;
+  }
+}

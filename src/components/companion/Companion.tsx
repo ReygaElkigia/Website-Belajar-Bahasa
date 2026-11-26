@@ -31,6 +31,8 @@ interface Msg {
   ms: number;
   actions?: Action[];
   sticky?: boolean;
+  /** Pesan otomatis: di layar sempit diringkas dulu agar tidak menutupi isi halaman. */
+  peek?: boolean;
 }
 
 interface SayOpts {
@@ -42,6 +44,7 @@ interface SayOpts {
   key?: string;
   cooldown?: number;
   sticky?: boolean;
+  peek?: boolean;
 }
 
 interface Memory {
@@ -140,6 +143,9 @@ export function Companion() {
   const [typed, setTyped] = useState(0);
   const [menu, setMenu] = useState(false);
   const [dragPos, setDragPos] = useState<{ x: number; y: number } | null>(null);
+  /** Layar sempit dan pengunjung masih di bagian atas halaman (pembuka dan tombol utama terlihat). */
+  const [nearTop, setNearTop] = useState(false);
+  const [opened, setOpened] = useState(0);
 
   const root = useRef<HTMLDivElement>(null);
   const spriteBox = useRef<HTMLButtonElement>(null);
@@ -175,6 +181,18 @@ export function Companion() {
 
   useEffect(() => setMounted(true), []);
 
+  useEffect(() => {
+    const narrow = window.matchMedia("(max-width: 859px)");
+    const check = () => setNearTop(narrow.matches && window.scrollY < 240);
+    check();
+    window.addEventListener("scroll", check, { passive: true });
+    narrow.addEventListener("change", check);
+    return () => {
+      window.removeEventListener("scroll", check);
+      narrow.removeEventListener("change", check);
+    };
+  }, []);
+
   /* ---------- Ekspresi ---------- */
 
   const settle = useCallback(() => {
@@ -201,7 +219,6 @@ export function Companion() {
     setTyped(0);
     if (next) {
       flash(next.mood, Math.min(next.ms, 4200));
-      if (!next.sticky) hideTimer.current = window.setTimeout(showNext, next.ms);
     }
   }, [flash]);
 
@@ -223,7 +240,7 @@ export function Companion() {
         return;
       }
       const ms = o.ms ?? Math.min(9000, 2600 + text.length * 45) + (o.actions?.length ? 4000 : 0);
-      const m: Msg = { id: ++seq.current, text, mood, priority, ms, actions: o.actions, sticky: o.sticky };
+      const m: Msg = { id: ++seq.current, text, mood, priority, ms, actions: o.actions, sticky: o.sticky, peek: o.peek };
       const cur = msgRef.current;
       if (cur && cur.priority > priority) {
         if (queue.current.length < 3) queue.current.push(m);
@@ -241,9 +258,11 @@ export function Companion() {
 
   const dismiss = () => showNext();
 
-  // Efek mesin ketik
+  const collapsed = !!msg?.peek && nearTop && opened !== msg.id;
+
+  // Efek mesin ketik (menunggu sampai balon dibuka)
   useEffect(() => {
-    if (!msg) return;
+    if (!msg || collapsed) return;
     if (reducedMotion()) {
       setTyped(msg.text.length);
       return;
@@ -258,7 +277,14 @@ export function Companion() {
       });
     }, 22);
     return () => window.clearInterval(t);
-  }, [msg]);
+  }, [msg, collapsed]);
+
+  // Balon hilang sendiri setelah dibaca; selama masih diringkas, waktunya belum berjalan.
+  useEffect(() => {
+    if (!msg || msg.sticky || collapsed) return;
+    hideTimer.current = window.setTimeout(showNext, msg.ms);
+    return () => window.clearTimeout(hideTimer.current);
+  }, [msg, collapsed, showNext]);
 
   /* ---------- Ingatan dan sapaan pertama ---------- */
 
@@ -285,6 +311,7 @@ export function Companion() {
             mood: i === 0 ? "wave" : i === 1 ? "happy" : "wink",
             priority: 2,
             sticky: true,
+            peek: i === 0,
             actions: [
               i < L.INTRO.length - 1
                 ? { label: "Lanjut", run: () => step(i + 1) }
@@ -307,8 +334,8 @@ export function Companion() {
       }
       if (!sessionOnce("tuu:greeted")) return;
       const days = prevSeen ? Math.floor((Date.now() - prevSeen) / 86_400_000) : 0;
-      if (days >= 2) say(L.fill(L.pick(L.WELCOME_BACK.days), { d: days }), { mood: "love", priority: 1 });
-      else say(L.pick(L.TIME_GREET[L.timeSlot()]), { mood: L.timeSlot() === "larut" ? "sleep" : "wave", priority: 1 });
+      if (days >= 2) say(L.fill(L.pick(L.WELCOME_BACK.days), { d: days }), { mood: "love", priority: 1, peek: true });
+      else say(L.pick(L.TIME_GREET[L.timeSlot()]), { mood: L.timeSlot() === "larut" ? "sleep" : "wave", priority: 1, peek: true });
     }, 1200);
     return () => {
       window.clearTimeout(t);
@@ -332,6 +359,7 @@ export function Companion() {
       say(L.fill(L.pick(ctx.lines), ctx.vars), {
         mood: ctx.base === "focus" ? "focus" : ctx.base === "read" ? "read" : ctx.base === "proud" ? "proud" : ctx.base === "wave" ? "wave" : "happy",
         priority: 0,
+        peek: true,
         actions: ctx.speakHello && lang ? [{ label: `Dengar ${lang.hello}`, speak: { text: lang.hello, tts: lang.tts } }] : undefined,
       });
     }, 1100);
@@ -559,6 +587,7 @@ export function Companion() {
           mood: "wave",
           priority: 2,
           sticky: true,
+          peek: true,
           actions: [
             { label: "Ulangi sekarang", href: "/latihan/" },
             { label: "Nanti saja", run: () => showNext() },
@@ -769,7 +798,17 @@ export function Companion() {
         } as React.CSSProperties
       }
     >
-      {msg && !dragPos && !menu && (
+      {msg && !dragPos && !menu && collapsed && (
+        <button type="button" className="tuu-nudge" key={`nudge-${msg.id}`} onClick={() => setOpened(msg.id)} aria-label="Buka pesan dari Tuu">
+          <span className="tuu-nudge-dots" aria-hidden>
+            <i />
+            <i />
+            <i />
+          </span>
+          Pesan dari Tuu
+        </button>
+      )}
+      {msg && !dragPos && !menu && !collapsed && (
         <div className="tuu-bubble" role="status" aria-live="polite" key={msg.id}>
           <button type="button" className="tuu-bubble-x" onClick={dismiss} aria-label="Tutup pesan Tuu">
             <X size={14} />
