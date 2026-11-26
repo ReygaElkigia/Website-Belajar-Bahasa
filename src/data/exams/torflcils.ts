@@ -302,5 +302,307 @@ export const cilsC: Exam = {
   ],
 };
 
+/* ---------------------------------------------------------------- Latihan tambahan */
+
+torflA2.parts.push({
+  id: "eshche",
+  section: "Чтение · Аудирование · Письмо",
+  title: "Latihan tambahan",
+  instructions: "Baca, dengarkan, atau tulis sesuai tugas.",
+  minutes: 12,
+  questions: [
+    mc({ task: "Падежи", prompt: "Я часто звоню (　).", opts: ["маме", "маму", "мамы", "мамой"], explain: "звонить + datif." }),
+    mc({ task: "Падежи", prompt: "У меня нет (　).", opts: ["машины", "машина", "машину", "машиной"], explain: "нет + genitif." }),
+    mc({ task: "Падежи", prompt: "Мы долго говорили (　).", opts: ["о фильме", "фильм", "фильма", "с фильмом"], explain: "говорить о + preposisional." }),
+    mc({
+      task: "Чтение",
+      passage: "Объявление. Магазин «Книги» работает с 10 до 20 часов, в субботу — с 11 до 18. В воскресенье магазин не работает. Скидка студентам — 10%.",
+      prompt: "Когда магазин закрыт?",
+      opts: ["в воскресенье", "в субботу", "в понедельник", "каждый день после 18"],
+    }),
+    mc({
+      task: "Чтение",
+      passage: "Меня зовут Анна. Я живу в Казани и учусь в университете на экономическом факультете. Утром у меня лекции, а вечером я работаю в кафе. В свободное время я люблю гулять по набережной.",
+      prompt: "Что Анна делает вечером?",
+      opts: ["работает в кафе", "слушает лекции", "гуляет по набережной", "учит экономику дома"],
+    }),
+    mc({
+      task: "Аудирование",
+      audio: "— Привет, Олег! Пойдём завтра в кино? — Завтра не могу, у меня экзамен. Давай в пятницу? — Хорошо, в пятницу в семь.",
+      prompt: "Когда они пойдут в кино?",
+      opts: ["в пятницу в семь", "завтра в семь", "после экзамена завтра", "в субботу"],
+    }),
+    {
+      type: "write",
+      task: "Письмо",
+      prompt: "Напишите письмо другу о вашем выходном дне: где вы были, что делали, что вам понравилось (не менее 50 слов).",
+      minWords: 50,
+      minutes: 15,
+      checklist: ["Salam pembuka dan penutup.", "Kata kerja lampau (был, ходил, смотрел).", "Kesan (мне понравилось…)."],
+    },
+  ],
+});
+
+torflB1.parts.push({
+  id: "eshche",
+  section: "Лексика · Аудирование · Говорение",
+  title: "Latihan tambahan",
+  instructions: "Kerjakan tugas berikut.",
+  minutes: 12,
+  questions: [
+    mc({ task: "Грамматика", prompt: "Если бы у меня было время, я (　) с тобой в театр.", opts: ["пошёл бы", "пойду", "иду", "ходил"], explain: "Kalimat pengandaian: если бы … , … бы." }),
+    mc({ task: "Грамматика", prompt: "Студенты, (　) в общежитии, часто готовят вместе.", opts: ["живущие", "живущих", "живущим", "жившим"], explain: "Partisip aktif nominatif jamak." }),
+    mc({ task: "Лексика", prompt: "Он (　) экзамен с первого раза.", opts: ["сдал", "сдавал", "отдал", "продал"], explain: "сдать экзамен = lulus ujian (perfektif)." }),
+    mc({ task: "Глаголы движения", prompt: "Вчера друзья (　) ко мне в гости.", opts: ["приходили", "уходили", "выходили", "проходили"] }),
+    mc({
+      task: "Аудирование",
+      audio: "Внимание! Поезд номер двенадцать Москва — Санкт-Петербург отправляется с третьего пути. Повторяем: с третьего пути. Нумерация вагонов начинается с головы поезда.",
+      prompt: "С какого пути отправляется поезд?",
+      opts: ["с третьего", "с двенадцатого", "с первого", "с пятого"],
+    }),
+    mc({
+      task: "Аудирование",
+      audio: "— Ты решил, где будешь отдыхать летом? — Сначала хотел поехать на море, но билеты очень дорогие. Поеду лучше к бабушке в деревню: там тихо, лес, река.",
+      prompt: "Почему он не поедет на море?",
+      opts: ["билеты дорогие", "он не любит море", "бабушка болеет", "у него нет отпуска"],
+    }),
+    {
+      type: "speak",
+      task: "Говорение",
+      prompt: "Расскажите о своём родном городе: где он находится, чем известен, что бы вы посоветовали посмотреть туристам.",
+      prepSeconds: 60,
+      speakSeconds: 150,
+      checklist: ["Lokasi dan ciri kota.", "Tempat yang disarankan (советую посмотреть…).", "Kalimat majemuk dengan который."],
+    },
+  ],
+});
+
+torflB2.parts.push({
+  id: "eshche",
+  section: "Лексика · Аудирование · Письмо",
+  title: "Latihan tambahan",
+  instructions: "Kerjakan tugas berikut.",
+  minutes: 18,
+  questions: [
+    mc({ task: "Грамматика", prompt: "(　) работу, он сразу пошёл домой.", opts: ["Закончив", "Заканчивая", "Закончивший", "Закончить"], explain: "Gerund perfektif: tindakan selesai sebelum tindakan utama." }),
+    mc({ task: "Лексика", prompt: "Компания приняла решение (　) расходы на рекламу.", opts: ["сократить", "сокращаться", "укоротить", "убавиться"] }),
+    mc({ task: "Лексика", prompt: "Этот вопрос не (　) к теме нашей встречи.", opts: ["относится", "принадлежит", "касается к", "подходит в"] }),
+    mc({
+      task: "Аудирование",
+      audio: "Эксперт: Многие думают, что для изучения языка нужен особый талант. На самом деле гораздо важнее регулярность. Двадцать минут каждый день дают больше, чем три часа один раз в неделю.",
+      prompt: "Что, по мнению эксперта, важнее всего?",
+      opts: ["регулярность занятий", "талант", "длинные занятия раз в неделю", "дорогие курсы"],
+    }),
+    mc({
+      task: "Чтение",
+      passage: "Электронные книги не вытеснили бумажные, как предсказывали десять лет назад. Продажи бумажных книг даже немного выросли. Исследователи объясняют это тем, что для многих читателей книга — это не только текст, но и предмет, который приятно держать в руках и дарить.",
+      prompt: "Как исследователи объясняют популярность бумажных книг?",
+      opts: ["Книга ценится и как предмет.", "Электронные книги слишком дорогие.", "Бумажные книги легче читать в темноте.", "Электронных книг мало."],
+    }),
+    {
+      type: "write",
+      task: "Письмо: официальное письмо",
+      prompt: "Напишите официальное письмо в администрацию университета с просьбой продлить срок сдачи курсовой работы. Объясните причину и предложите новый срок (не менее 100 слов).",
+      minWords: 100,
+      minutes: 25,
+      checklist: ["Format resmi (Уважаемый…, С уважением).", "Alasan jelas.", "Usul tenggat baru.", "Gaya bahasa resmi (прошу Вас…)."],
+    },
+  ],
+});
+
+torflC.parts.push({
+  id: "eshche",
+  section: "Чтение · Письмо",
+  title: "Latihan tambahan",
+  instructions: "Kerjakan tugas berikut.",
+  minutes: 20,
+  questions: [
+    mc({
+      task: "Чтение",
+      passage:
+        "Принято сетовать на то, что молодёжь разучилась писать. Между тем никогда прежде люди не писали так много: сообщения, комментарии, посты. Иное дело, что эта письменная речь подчиняется другим законам — она ближе к устной и ценит скорость выше точности.",
+      prompt: "Какова позиция автора?",
+      opts: ["Письменная речь изменилась, а не исчезла.", "Молодёжь совсем перестала писать.", "Сообщения ничем не отличаются от книг.", "Точность важнее скорости."],
+    }),
+    mc({ task: "Фразеология", prompt: "«Бить баклуши» значит:", opts: ["бездельничать", "много работать", "ссориться", "торопиться"] }),
+    mc({ task: "Фразеология", prompt: "«Как с гуся вода» говорят о человеке, которому:", opts: ["всё нипочём", "очень холодно", "некуда идти", "всё время везёт"] }),
+    mc({ task: "Стиль", prompt: "Какое слово уместно в научном тексте?", opts: ["следовательно", "короче", "вообще-то", "типа"] }),
+    {
+      type: "write",
+      task: "Письмо: аргументированный текст",
+      prompt: "Напишите статью для студенческого журнала на тему «Нужно ли сохранять обязательное изучение литературы в школе?» (около 200 слов).",
+      minWords: 180,
+      maxWords: 240,
+      minutes: 40,
+      checklist: ["Pengantar topik.", "Argumen dengan contoh.", "Argumen lawan.", "Kesimpulan.", "Gaya publisistik."],
+    },
+  ],
+});
+
+cilsA2.parts.push({
+  id: "ancora",
+  section: "Ascolto · Lettura · Produzione",
+  title: "Latihan tambahan",
+  instructions: "Dengarkan, baca, atau tulis sesuai tugas.",
+  minutes: 12,
+  questions: [
+    mc({
+      task: "Ascolto",
+      audio: "Attenzione: il treno regionale per Firenze delle ore 10 e 15 partirà dal binario 6 invece che dal binario 3. Ci scusiamo per il disagio.",
+      prompt: "Da quale binario parte il treno per Firenze?",
+      opts: ["dal binario 6", "dal binario 3", "dal binario 10", "dal binario 15"],
+    }),
+    mc({
+      task: "Ascolto",
+      audio: "Donna: Andiamo al ristorante stasera? Uomo: Stasera sono stanco, preferisco mangiare a casa. Domani sera va bene? Donna: Va bene, domani allora.",
+      prompt: "Quando vanno al ristorante?",
+      opts: ["domani sera", "stasera", "a pranzo", "non ci vanno"],
+    }),
+    mc({
+      task: "Comprensione della lettura",
+      passage: "Cercasi cameriere/a per ristorante in centro. Orario: dal martedì alla domenica, sera. Richiesta esperienza minima di un anno e conoscenza dell'inglese. Inviare il CV a lavoro@trattoria.it",
+      prompt: "Cosa è richiesto per il lavoro?",
+      opts: ["un anno di esperienza e l'inglese", "lavorare il lunedì", "una laurea", "la patente"],
+    }),
+    mc({
+      task: "Comprensione della lettura",
+      passage: "Cara Giulia,\nsono arrivata a Napoli ieri sera. La città è bellissima e la pizza è buonissima! Oggi visito il museo archeologico e domani vado a Pompei. Torno sabato.\nUn abbraccio,\nSara",
+      prompt: "Che cosa fa Sara domani?",
+      opts: ["va a Pompei", "visita il museo", "torna a casa", "arriva a Napoli"],
+    }),
+    mc({ task: "Strutture", prompt: "La settimana scorsa (　) un bel libro.", opts: ["ho letto", "sono letto", "leggo", "leggerò"] }),
+    mc({ task: "Strutture", prompt: "Domani (　) al mare con i miei amici.", opts: ["andrò", "sono andato", "andavo", "vado stato"] }),
+    {
+      type: "write",
+      task: "Produzione scritta",
+      prompt: "Scrivi un messaggio a un amico italiano: lo inviti a cena a casa tua sabato. Spiega a che ora, chi viene e cosa cucini (40–50 parole).",
+      minWords: 40,
+      maxWords: 60,
+      minutes: 15,
+      checklist: ["Salam.", "Jam, siapa yang datang, menu.", "Penutup."],
+    },
+  ],
+});
+
+cilsB1.parts.push({
+  id: "ancora",
+  section: "Ascolto · Strutture · Produzione",
+  title: "Latihan tambahan",
+  instructions: "Kerjakan tugas berikut.",
+  minutes: 14,
+  questions: [
+    mc({
+      task: "Ascolto",
+      audio: "Intervistatore: Perché ha deciso di aprire un negozio di biciclette? Donna: Perché in città sempre più persone usano la bici per andare al lavoro, ma mancavano posti dove ripararla. Ho visto un'occasione e l'ho presa.",
+      prompt: "Perché la donna ha aperto il negozio?",
+      opts: ["Mancavano posti per riparare le bici.", "Voleva vendere automobili.", "Le biciclette costano poco.", "Non aveva altro lavoro."],
+    }),
+    mc({
+      task: "Ascolto",
+      audio: "Radio: Il museo civico resterà chiuso per lavori di restauro fino alla fine di marzo. Durante la chiusura, alcune opere saranno esposte nella biblioteca comunale.",
+      prompt: "Dove si possono vedere alcune opere durante la chiusura?",
+      opts: ["nella biblioteca comunale", "al museo civico", "in una galleria privata", "da nessuna parte"],
+    }),
+    mc({
+      task: "Comprensione della lettura",
+      passage: "Sempre più italiani scelgono di passare le vacanze in campagna, negli agriturismi. Oltre a dormire e mangiare prodotti locali, gli ospiti possono partecipare alla vendemmia o alla raccolta delle olive.",
+      prompt: "Cosa possono fare gli ospiti degli agriturismi?",
+      opts: ["partecipare alla raccolta delle olive", "visitare musei in città", "lavorare in un hotel", "fare corsi di lingua"],
+    }),
+    mc({ task: "Strutture", prompt: "Spero che domani (　) bel tempo.", opts: ["faccia", "fa", "farà", "faceva"], explain: "Sperare che + congiuntivo." }),
+    mc({ task: "Strutture", prompt: "Quando ero piccolo, (　) sempre al parco.", opts: ["giocavo", "ho giocato", "giocherò", "gioco"] }),
+    mc({ task: "Strutture", prompt: "Ti piacciono le mele? Sì, (　) mangio una ogni giorno.", opts: ["ne", "le", "ci", "la"], explain: "ne = darinya (kuantitas)." }),
+    {
+      type: "write",
+      task: "Produzione scritta",
+      prompt: "Scrivi un'e-mail all'ufficio turistico di Siena per chiedere informazioni su visite guidate, prezzi e orari per un gruppo di dieci persone (80–100 parole).",
+      minWords: 80,
+      maxWords: 100,
+      minutes: 25,
+      checklist: ["Salam formal (Gentili signori,).", "Tiga informasi yang ditanyakan.", "Condizionale untuk sopan (vorrei, potreste).", "Penutup formal (Distinti saluti)."],
+    },
+  ],
+});
+
+cilsB2.parts.push({
+  id: "ancora",
+  section: "Ascolto · Lettura · Produzione",
+  title: "Latihan tambahan",
+  instructions: "Kerjakan tugas berikut.",
+  minutes: 18,
+  questions: [
+    mc({
+      task: "Ascolto",
+      audio: "Esperta: Il lavoro da remoto ha ridotto il traffico nelle grandi città, ma ha creato nuovi problemi: molti lavoratori faticano a separare la vita privata da quella professionale e rispondono alle e-mail anche di sera.",
+      prompt: "Quale problema segnala l'esperta?",
+      opts: ["La difficoltà a separare lavoro e vita privata.", "L'aumento del traffico.", "La mancanza di computer.", "Gli stipendi più bassi."],
+    }),
+    mc({
+      task: "Comprensione della lettura",
+      passage:
+        "Il fenomeno dello spopolamento colpisce molti piccoli borghi italiani. Alcuni comuni hanno messo in vendita case abbandonate a un euro, con l'obbligo di ristrutturarle entro tre anni. L'iniziativa ha attirato l'attenzione internazionale, anche se non tutti gli acquirenti si trasferiscono stabilmente.",
+      prompt: "Quale condizione devono rispettare gli acquirenti?",
+      opts: ["ristrutturare la casa entro tre anni", "vivere nel borgo per sempre", "pagare un euro al mese", "essere cittadini italiani"],
+    }),
+    mc({
+      task: "Comprensione della lettura",
+      passage: "Secondo un recente sondaggio, i giovani italiani leggono più libri dei loro genitori, ma preferiscono il formato digitale e gli audiolibri. Gli editori stanno quindi investendo in nuove piattaforme.",
+      prompt: "Come reagiscono gli editori?",
+      opts: ["investono in piattaforme digitali", "smettono di pubblicare libri", "abbassano i prezzi della carta", "chiudono le librerie"],
+    }),
+    mc({ task: "Strutture", prompt: "Nonostante (　) stanco, ha continuato a lavorare.", opts: ["fosse", "era", "sarebbe", "è stato"], explain: "Nonostante + congiuntivo." }),
+    mc({ task: "Strutture", prompt: "Il libro (　) ti ho parlato è finalmente uscito.", opts: ["di cui", "che", "a cui", "il quale"], explain: "parlare di → di cui." }),
+    {
+      type: "write",
+      task: "Produzione scritta: testo argomentativo",
+      prompt: "«Le città dovrebbero vietare le auto nei centri storici?» Scrivi un testo argomentativo per il giornale locale (160–180 parole).",
+      minWords: 160,
+      maxWords: 180,
+      minutes: 40,
+      checklist: ["Pengantar.", "Argumen pro dan kontra.", "Penghubung (tuttavia, inoltre, quindi).", "Kesimpulan pribadi."],
+    },
+    {
+      type: "speak",
+      task: "Produzione orale",
+      prompt: "Parla per circa tre minuti del tema «Studiare all'estero: vantaggi e difficoltà», facendo riferimento alla tua esperienza o a quella di persone che conosci.",
+      prepSeconds: 60,
+      speakSeconds: 180,
+      checklist: ["Struktur jelas.", "Pengalaman atau contoh.", "Kelebihan dan kesulitan.", "Pendapat pribadi."],
+    },
+  ],
+});
+
+cilsC.parts.push({
+  id: "ancora",
+  section: "Lettura · Produzione",
+  title: "Latihan tambahan",
+  instructions: "Kerjakan tugas berikut.",
+  minutes: 20,
+  questions: [
+    mc({
+      task: "Comprensione della lettura",
+      passage:
+        "Si tende a considerare il dialetto un retaggio del passato destinato a scomparire. Eppure, in molte regioni, i giovani lo recuperano nella musica e sui social, non come lingua d'uso quotidiano ma come segno d'identità. Più che di declino, si dovrebbe parlare di trasformazione.",
+      prompt: "Qual è la tesi dell'autore?",
+      opts: ["Il dialetto si sta trasformando, non scomparendo.", "Il dialetto scomparirà presto.", "I giovani parlano solo dialetto.", "Il dialetto è vietato sui social."],
+    }),
+    mc({ task: "Lessico", prompt: "«Avere le mani bucate» significa:", opts: ["spendere troppo", "essere ferito", "lavorare molto", "essere maldestro"] }),
+    mc({ task: "Strutture", prompt: "Qualora (　) problemi, contatti subito l'assistenza.", opts: ["sorgessero", "sorgono", "sorgeranno", "sono sorti"], explain: "Qualora + congiuntivo." }),
+    mc({ task: "Registro", prompt: "Quale espressione è adatta a un saggio accademico?", opts: ["Ne consegue che…", "Cioè, tipo…", "Insomma, alla fine…", "Ma dai, è ovvio che…"] }),
+    {
+      type: "write",
+      task: "Riformulazione di registro",
+      passage: "Messaggio vocale: «Ciao a tutti, domani niente riunione, il capo sta male. La spostiamo a martedì, stessa ora. Portate i dati, mi raccomando!»",
+      prompt: "Riscrivi il messaggio come e-mail formale indirizzata a partner esterni.",
+      minWords: 50,
+      maxWords: 110,
+      minutes: 15,
+      checklist: ["Register formal.", "Semua informasi tetap ada.", "Salam formal."],
+      model:
+        "Gentili partner,\nVi comunichiamo che la riunione prevista per domani è rinviata a causa di un'indisposizione del nostro direttore. Vi proponiamo di tenerla martedì prossimo alla stessa ora. Vi saremmo grati se poteste portare i dati aggiornati.\nCordiali saluti",
+    },
+  ],
+});
+
 export const torflHigher = [torflA2, torflB1, torflB2, torflC];
 export const cilsHigher = [cilsA2, cilsB1, cilsB2, cilsC];

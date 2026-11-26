@@ -1,5 +1,5 @@
 import type { Exam, Question } from "./types";
-import { mc } from "./build";
+import { gap, mc } from "./build";
 
 /**
  * Goethe-Zertifikat A2 sampai C2. Struktur dan batas lulus dari goethe.de;
@@ -348,5 +348,323 @@ export const goetheC2: Exam = {
     },
   ],
 };
+
+/* ---------------------------------------------------------------- Latihan tambahan */
+
+goetheA2.parts.push({
+  id: "mehr",
+  section: "Lesen · Hören · Sprechen",
+  title: "Latihan tambahan",
+  instructions: "Baca, dengarkan, atau bicara sesuai tugas.",
+  minutes: 10,
+  questions: [
+    rf({
+      task: "Lesen Teil 1: Zeitungstext",
+      passage: "Seit Montag gibt es im Stadtpark einen neuen Spielplatz. Er ist täglich von 8 bis 20 Uhr geöffnet. Hunde dürfen nicht auf den Spielplatz. Die Stadt hat für den Spielplatz 80.000 Euro bezahlt.",
+      prompt: "Hunde dürfen mit auf den Spielplatz.",
+      ok: false,
+    }),
+    mc({
+      task: "Lesen Teil 3: E-Mail",
+      passage: "Liebe Anna,\nich bin jetzt seit zwei Wochen in Hamburg. Die Arbeit gefällt mir gut, nur die Wohnung ist zu klein und zu teuer. Am Wochenende suche ich eine neue. Kommst du mich im Mai besuchen?\nLiebe Grüße\nTom",
+      prompt: "Was ist Toms Problem?",
+      opts: ["Seine Wohnung ist klein und teuer.", "Die Arbeit gefällt ihm nicht.", "Er hat keine Freunde in Hamburg.", "Er muss am Wochenende arbeiten."],
+    }),
+    mc({
+      task: "Lesen Teil 4: Anzeigen",
+      passage: "A) Sprachkurs Spanisch, abends, 2× pro Woche\nB) Kochkurs für Kinder, samstags 10 Uhr\nC) Yoga am Morgen, Mo–Fr 7 Uhr\nD) Fotokurs am Wochenende, Kamera mitbringen",
+      prompt: "Lena arbeitet tagsüber und möchte abends eine Sprache lernen. Welche Anzeige passt?",
+      opts: ["A", "B", "C", "D"],
+    }),
+    mc({
+      task: "Hören Teil 1: Radio",
+      audio: "Und jetzt das Wetter: Am Vormittag ist es noch sonnig, am Nachmittag kommen von Westen Wolken und es regnet. Die Temperaturen liegen bei 18 Grad.",
+      prompt: "Wie wird das Wetter am Nachmittag?",
+      opts: ["Es regnet.", "Es ist sonnig.", "Es schneit.", "Es ist sehr heiß."],
+    }),
+    mc({
+      task: "Hören Teil 4: Interview",
+      audio: "Reporterin: Herr Lang, Sie fahren jeden Tag mit dem Fahrrad zur Arbeit, auch im Winter? Herr Lang: Ja, nur wenn es schneit, nehme ich den Bus. Das Fahrrad ist schneller als das Auto, weil ich nie im Stau stehe.",
+      prompt: "Wann fährt Herr Lang mit dem Bus?",
+      opts: ["wenn es schneit", "jeden Montag", "wenn er spät aufsteht", "im Sommer"],
+    }),
+    gap({
+      task: "Grammatik im Kontext",
+      prompt: "Pilih kata yang tepat.",
+      text: "Gestern [0] ich mit meiner Schwester ins Kino gegangen. Der Film war gut, [1] er war ein bisschen zu lang.",
+      gaps: [
+        ["bin", "habe", "war", "hatte"],
+        ["aber", "denn", "oder", "weil"],
+      ],
+    }),
+    {
+      type: "speak",
+      task: "Sprechen Teil 2: Über sich sprechen",
+      prompt: "Erzählen Sie: Was machen Sie am Wochenende gern? Mit wem? Wo?",
+      prepSeconds: 30,
+      speakSeconds: 60,
+      checklist: ["Kegiatan akhir pekan.", "Dengan siapa.", "Di mana.", "Kalimat lengkap dengan kata kerja di posisi kedua."],
+      model: "Am Wochenende schlafe ich gern lange. Am Samstag gehe ich oft mit meinen Freunden in den Park, und am Sonntag koche ich mit meiner Familie.",
+    },
+    {
+      type: "speak",
+      task: "Sprechen Teil 3: Gemeinsam etwas planen",
+      prompt: "Sie und Ihr Partner möchten einer Kollegin ein Geschenk kaufen. Machen Sie Vorschläge: Was? Wie viel Geld? Wer kauft es? Wann?",
+      prepSeconds: 30,
+      speakSeconds: 90,
+      checklist: ["Menawarkan usul (Wollen wir…?).", "Menanggapi usul (Gute Idee! / Lieber…).", "Menyepakati keputusan."],
+    },
+  ],
+});
+
+goetheB1.parts.push({
+  id: "mehr",
+  section: "Lesen · Hören · Sprechen",
+  title: "Latihan tambahan",
+  instructions: "Kerjakan tugas berikut.",
+  minutes: 14,
+  questions: [
+    mc({
+      task: "Lesen Teil 2: Zeitungsartikel",
+      passage:
+        "Immer mehr Menschen teilen sich ein Auto. Beim Carsharing bucht man das Fahrzeug per App und bezahlt nur für die Zeit, die man es nutzt. Besonders in Großstädten ist das beliebt, weil Parkplätze knapp und teuer sind. Auf dem Land dagegen fehlen oft die Angebote.",
+      prompt: "Warum ist Carsharing in Großstädten beliebt?",
+      opts: ["Weil Parkplätze knapp und teuer sind.", "Weil es dort keine Busse gibt.", "Weil die Autos kostenlos sind.", "Weil man kein Handy braucht."],
+    }),
+    mc({
+      task: "Lesen Teil 3: Anzeigen",
+      passage: "a) Nachhilfe Mathe, alle Klassen, auch online\nb) Gitarrenunterricht für Erwachsene, Anfänger willkommen\nc) Babysitter gesucht, 2× pro Woche abends\nd) Deutschkurs B2, Prüfungsvorbereitung, Samstag",
+      prompt: "Herr Ortiz möchte sich auf eine Deutschprüfung vorbereiten. Welche Anzeige passt?",
+      opts: ["d", "a", "b", "c"],
+    }),
+    rf({
+      task: "Lesen Teil 5: Hausordnung",
+      passage: "Hausordnung: Die Mülltonnen werden jeden Dienstag geleert. Fahrräder dürfen nicht im Treppenhaus abgestellt werden. Bitte nutzen Sie den Fahrradkeller. Zwischen 22 und 6 Uhr ist Nachtruhe.",
+      prompt: "Fahrräder kann man im Treppenhaus abstellen.",
+      ok: false,
+    }),
+    mc({
+      task: "Hören Teil 2: Führung",
+      audio: "Herzlich willkommen im Stadtmuseum! Unser Rundgang dauert etwa eine Stunde. Wir beginnen im Erdgeschoss mit der Stadtgeschichte. Fotografieren ist erlaubt, aber bitte ohne Blitz. Am Ende können Sie im Museumscafé im dritten Stock eine Pause machen.",
+      prompt: "Was ist im Museum nicht erlaubt?",
+      opts: ["mit Blitz fotografieren", "fotografieren", "ins Café gehen", "Fragen stellen"],
+    }),
+    rf({
+      task: "Hören Teil 3: Gespräch",
+      audio: "Frau: Sag mal, fährst du dieses Jahr wieder nach Italien? Mann: Nein, diesmal nicht. Wir haben so viel Geld für die neue Küche ausgegeben, wir bleiben im Sommer zu Hause und machen nur ein paar Ausflüge.",
+      prompt: "Der Mann fährt in diesem Sommer nach Italien.",
+      ok: false,
+    }),
+    mc({
+      task: "Hören Teil 4: Diskussion",
+      audio: "Moderator: Sollen Schüler schon um sieben Uhr Unterricht haben? Frau Weber, Lehrerin: Ich halte das für keine gute Idee. Jugendliche sind morgens oft müde und lernen schlechter. Ein späterer Beginn um halb neun wäre besser.",
+      prompt: "Was meint Frau Weber?",
+      opts: ["Der Unterricht sollte später beginnen.", "Schüler sollten früher aufstehen.", "Sieben Uhr ist ideal.", "Es sollte weniger Unterricht geben."],
+    }),
+    {
+      type: "write",
+      task: "Schreiben Teil 1: E-Mail an Freund",
+      prompt: "Sie sind vor kurzem umgezogen. Schreiben Sie einer Freundin: Beschreiben Sie die neue Wohnung. Was gefällt Ihnen in der neuen Umgebung besonders? Laden Sie sie zu einer kleinen Party ein (ca. 80 Wörter).",
+      minWords: 70,
+      maxWords: 110,
+      minutes: 20,
+      checklist: ["Ketiga poin ada.", "Anrede dan salam informal.", "Konektor: und, aber, deshalb, außerdem.", "Sekitar 80 kata."],
+    },
+    {
+      type: "speak",
+      task: "Sprechen Teil 1: Gemeinsam etwas planen",
+      prompt: "Ein Freund aus Ihrem Deutschkurs hat Geburtstag. Planen Sie mit Ihrem Partner eine Überraschung: Wo feiern? Wer wird eingeladen? Essen und Getränke? Geschenk?",
+      prepSeconds: 30,
+      speakSeconds: 150,
+      checklist: ["Menawarkan dan menanggapi usul.", "Menolak dengan sopan dan memberi alternatif.", "Menyepakati semua poin."],
+    },
+  ],
+});
+
+goetheB2.parts.push({
+  id: "mehr",
+  section: "Lesen · Hören · Sprechen",
+  title: "Latihan tambahan",
+  instructions: "Kerjakan tugas berikut.",
+  minutes: 18,
+  questions: [
+    mc({
+      task: "Lesen Teil 1: Meinungen",
+      passage: "Thema: Sollte das Plastikgeschirr in Kantinen verboten werden?\nJonas: »Ein Verbot ist überfällig. Mehrweggeschirr ist längst erprobt und spart Unmengen an Müll.«\nPetra: »Grundsätzlich richtig, aber kleine Kantinen haben oft keine Spülmaschinen. Man sollte ihnen Zeit für die Umstellung geben.«",
+      prompt: "Welche Haltung hat Petra?",
+      opts: ["Sie ist dafür, fordert aber eine Übergangszeit.", "Sie lehnt ein Verbot strikt ab.", "Sie hält Mehrweggeschirr für unhygienisch.", "Sie hat keine Meinung."],
+    }),
+    gap({
+      task: "Lesen Teil 3: Lückentext",
+      prompt: "Pilih kata yang paling tepat.",
+      text: "Viele Unternehmen setzen inzwischen auf flexible Arbeitszeiten. [0] die Mitarbeitenden zufriedener sind, sinkt auch die Zahl der Krankmeldungen. Kritiker bemängeln [1], dass die Grenze zwischen Arbeit und Freizeit verschwimmt.",
+      gaps: [
+        ["Da", "Obwohl", "Damit", "Sobald"],
+        ["jedoch", "deshalb", "nämlich", "also"],
+      ],
+    }),
+    mc({
+      task: "Lesen Teil 4: Leserbriefe",
+      passage: "»Ich finde es richtig, dass unsere Stadt die Innenstadt für Autos sperrt. Seitdem kaufe ich wieder lieber im Zentrum ein, weil es ruhiger ist. Allerdings müssten die Busse dann auch öfter fahren.« – Maria K.",
+      prompt: "Was kritisiert Maria K.?",
+      opts: ["dass die Busse zu selten fahren", "die Sperrung der Innenstadt", "die Geschäfte im Zentrum", "den Lärm"],
+    }),
+    mc({
+      task: "Hören Teil 1: Kurze Texte",
+      audio: "Liebe Kundinnen und Kunden, aufgrund einer Systemstörung können wir heute leider keine Kartenzahlung annehmen. Bargeld erhalten Sie am Automaten neben dem Eingang. Wir bitten um Ihr Verständnis.",
+      prompt: "Was sollen die Kunden tun?",
+      opts: ["bar bezahlen", "mit Karte bezahlen", "morgen wiederkommen", "online bestellen"],
+    }),
+    mc({
+      task: "Hören Teil 3: Radiodiskussion",
+      audio: "Moderatorin: Herr Dr. Brandt, macht Social Media einsam? Dr. Brandt: Pauschal kann man das nicht sagen. Wer soziale Netzwerke nutzt, um bestehende Freundschaften zu pflegen, fühlt sich eher verbunden. Problematisch wird es, wenn man passiv scrollt und sich ständig mit anderen vergleicht.",
+      prompt: "Wann ist Social Media laut Dr. Brandt problematisch?",
+      opts: ["beim passiven Scrollen und Vergleichen", "beim Pflegen von Freundschaften", "grundsätzlich immer", "nur bei Jugendlichen"],
+    }),
+    mc({
+      task: "Hören Teil 4: Vortrag",
+      audio: "In meinem Vortrag geht es um die sogenannte Schwammstadt. Gemeint sind Städte, die Regenwasser wie ein Schwamm speichern – durch Grünflächen, begrünte Dächer und durchlässige Böden. Das schützt vor Überschwemmungen und kühlt die Stadt im Sommer.",
+      prompt: "Was ist das Ziel einer Schwammstadt?",
+      opts: ["Regenwasser speichern und die Stadt kühlen", "mehr Parkplätze schaffen", "Gebäude höher bauen", "Wasser schneller ableiten"],
+    }),
+    {
+      type: "write",
+      task: "Schreiben Teil 1: Forumsbeitrag",
+      prompt: "Im Online-Forum einer Zeitung wird diskutiert: »Sollten Supermärkte unverkaufte Lebensmittel spenden müssen?« Schreiben Sie einen Beitrag (ca. 150 Wörter): Äußern Sie Ihre Meinung, nennen Sie Gründe und Beispiele, gehen Sie auf ein Gegenargument ein.",
+      minWords: 140,
+      maxWords: 190,
+      minutes: 50,
+      checklist: ["Einleitung.", "Dua argumen dengan contoh.", "Satu argumen lawan dan tanggapan.", "Schluss.", "Sekitar 150 kata."],
+    },
+    {
+      type: "speak",
+      task: "Sprechen Teil 1: Vortrag",
+      prompt: "Halten Sie einen kurzen Vortrag (ca. 4 Minuten) zum Thema »Sollte Wohnen in Großstädten staatlich stärker reguliert werden?« Strukturieren Sie: Einleitung, Situation im Heimatland, Vor- und Nachteile, eigene Meinung, Schluss.",
+      prepSeconds: 120,
+      speakSeconds: 240,
+      checklist: ["Struktur diumumkan di awal.", "Contoh dari negara asal.", "Pro dan kontra.", "Pendapat yang jelas.", "Penutup."],
+    },
+  ],
+});
+
+goetheC1.parts.push({
+  id: "mehr",
+  section: "Lesen · Hören · Sprechen",
+  title: "Latihan tambahan",
+  instructions: "Kerjakan tugas berikut.",
+  minutes: 18,
+  questions: [
+    gap({
+      task: "Lesen Teil 1: Lückentext",
+      prompt: "Pilih kata yang paling tepat.",
+      text: "Die Digitalisierung der Verwaltung kommt nur schleppend voran. Bürgerinnen und Bürger müssen [0] vieler Online-Angebote nach wie vor persönlich im Amt erscheinen, [1] die Prozesse im Hintergrund noch auf Papier beruhen.",
+      gaps: [
+        ["trotz", "wegen", "statt", "infolge"],
+        ["da", "obwohl", "sofern", "indem"],
+      ],
+    }),
+    mc({
+      task: "Lesen Teil 3: Textverständnis",
+      passage:
+        "Dass Langeweile kreativ macht, ist mehr als eine Küchenweisheit. In Experimenten fanden Versuchspersonen, die zuvor eine monotone Aufgabe erledigt hatten, bei anschließenden Ideenaufgaben originellere Lösungen. Die Forschenden vermuten, dass das Gehirn in reizarmen Phasen nach eigener Stimulation sucht – ein Effekt, der verloren geht, wenn jede Leerlaufminute mit dem Smartphone gefüllt wird.",
+      prompt: "Welche Schlussfolgerung legt der Text nahe?",
+      opts: [
+        "Ständige Ablenkung kann kreative Prozesse behindern.",
+        "Monotone Arbeit sollte vermieden werden.",
+        "Smartphones fördern die Kreativität.",
+        "Langeweile ist wissenschaftlich nicht erforscht.",
+      ],
+    }),
+    mc({
+      task: "Wortschatz",
+      prompt: "Die Regierung will die Maßnahmen zunächst in einem Modellprojekt … , bevor sie bundesweit eingeführt werden.",
+      opts: ["erproben", "erörtern", "erheben", "ergreifen"],
+      explain: "erproben = menguji coba.",
+    }),
+    mc({
+      task: "Hören Teil 1: Interview",
+      audio:
+        "Journalist: Frau Professorin Lindner, Sie forschen zu Mehrsprachigkeit. Schadet es Kindern, wenn sie mit zwei Sprachen aufwachsen? Lindner: Das ist ein hartnäckiger Mythos. Kurzfristig mischen Kinder die Sprachen zwar mitunter, langfristig zeigen mehrsprachige Kinder aber häufig Vorteile, etwa beim Wechsel zwischen Aufgaben.",
+      prompt: "Was sagt Professorin Lindner über Mehrsprachigkeit?",
+      opts: ["Langfristig überwiegen oft die Vorteile.", "Sie schadet der Sprachentwicklung.", "Kinder sollten nur eine Sprache lernen.", "Das Mischen der Sprachen ist ein dauerhaftes Problem."],
+    }),
+    mc({
+      task: "Hören Teil 2: Vortrag",
+      audio:
+        "Viele glauben, Recycling löse unser Müllproblem. Doch selbst bei vorbildlicher Trennung wird nur ein Teil des Kunststoffs tatsächlich wiederverwertet. Wirksamer wäre es, Verpackungen von vornherein zu vermeiden und Produkte so zu gestalten, dass sie repariert werden können.",
+      prompt: "Was hält der Redner für am wirksamsten?",
+      opts: ["Verpackungen vermeiden und reparierbare Produkte", "noch besser Müll trennen", "mehr Recyclinganlagen bauen", "Kunststoff verbrennen"],
+    }),
+    {
+      type: "write",
+      task: "Schreiben Teil 2: Formelle Mitteilung",
+      prompt: "Sie haben an einer Weiterbildung teilgenommen, die nicht den Angaben in der Ausschreibung entsprach (weniger Unterrichtsstunden, kein Zertifikat). Schreiben Sie an den Veranstalter (ca. 120 Wörter): Schildern Sie die Mängel, nehmen Sie Bezug auf die Ausschreibung und formulieren Sie eine Forderung.",
+      minWords: 110,
+      maxWords: 150,
+      minutes: 30,
+      checklist: ["Register formal.", "Kekurangan dijelaskan konkret.", "Merujuk pada iklan/pengumuman.", "Tuntutan yang jelas dan sopan (Ich bitte Sie daher…)."],
+    },
+    {
+      type: "speak",
+      task: "Sprechen Teil 2: Diskussion",
+      prompt: "Diskutieren Sie: »Sollten Universitäten Studiengebühren erheben, um die Qualität der Lehre zu verbessern?« Vertreten Sie eine Position, reagieren Sie auf Gegenargumente und versuchen Sie, zu einer Lösung zu kommen.",
+      prepSeconds: 60,
+      speakSeconds: 240,
+      checklist: ["Posisi jelas dengan alasan.", "Menanggapi argumen lawan secara langsung.", "Ungkapan diskusi (Da muss ich widersprechen…, Ein Kompromiss wäre…).", "Mengusulkan solusi."],
+    },
+  ],
+});
+
+goetheC2.parts.push({
+  id: "mehr",
+  section: "Lesen · Hören · Schreiben",
+  title: "Latihan tambahan",
+  instructions: "Kerjakan tugas berikut.",
+  minutes: 20,
+  questions: [
+    mc({
+      task: "Lesen: Textverständnis",
+      passage:
+        "Wer heute von »Authentizität« spricht, meint selten das Unverstellte, sondern meist eine sorgfältig inszenierte Natürlichkeit. Gerade in sozialen Medien wird das scheinbar Spontane zur Ware – ein Paradox, das umso weniger auffällt, je perfekter die Inszenierung gelingt.",
+      prompt: "Worin besteht das vom Autor beschriebene Paradox?",
+      opts: [
+        "Natürlichkeit wird bewusst inszeniert und vermarktet.",
+        "Soziale Medien lehnen Authentizität ab.",
+        "Spontaneität ist heute verboten.",
+        "Inszenierungen fallen immer sofort auf.",
+      ],
+    }),
+    mc({ task: "Redewendung", prompt: "Mit seinem Vorschlag hat er bei der Geschäftsführung offene Türen … .", opts: ["eingerannt", "eingeschlagen", "aufgesperrt", "zugeschlagen"], explain: "offene Türen einrennen = mengusulkan sesuatu yang sudah disetujui." }),
+    mc({ task: "Stil", prompt: "Welche Umformulierung ist am präzisesten? »Die Firma hat viel Geld verloren.«", opts: ["Das Unternehmen verzeichnete erhebliche Verluste.", "Die Firma hat echt viel Kohle verloren.", "Da ist viel Geld weg.", "Die Firma ist pleite."] }),
+    gap({
+      task: "Lückentext",
+      prompt: "Pilih ungkapan yang paling tepat.",
+      text: "Die Reform ist zwar gut gemeint, [0] an der Lebensrealität vieler Familien vorbei. Es bleibt abzuwarten, [1] die Regierung nachbessert.",
+      gaps: [
+        ["geht aber", "gehen aber", "geht also", "ging deshalb"],
+        ["inwieweit", "sodass", "weshalb nicht", "damit"],
+      ],
+    }),
+    mc({
+      task: "Hören: Radiofeature",
+      audio:
+        "Der Begriff »Heimat« erlebt eine erstaunliche Renaissance. Lange galt er als belastet, heute verwenden ihn Politiker aller Lager. Doch gerade diese Beliebtheit macht ihn unscharf: Jeder versteht darunter etwas anderes – vom Dorf der Kindheit bis zum Gefühl, irgendwo nicht fremd zu sein.",
+      prompt: "Welches Problem sieht der Sprecher im Begriff »Heimat«?",
+      opts: ["Er ist durch seine Beliebtheit unscharf geworden.", "Niemand benutzt ihn mehr.", "Er bezieht sich nur auf Dörfer.", "Er ist gesetzlich definiert."],
+    }),
+    {
+      type: "write",
+      task: "Schreiben: Umformulieren",
+      passage: "Hey Leute, kurze Info: Die Sitzung morgen fällt flach, der Chef ist krank. Wir machen's dann nächsten Dienstag, gleiche Uhrzeit. Bringt bitte eure Zahlen mit!",
+      prompt: "Formulieren Sie die Nachricht als formelle E-Mail an externe Projektpartner um.",
+      minWords: 50,
+      maxWords: 110,
+      minutes: 15,
+      checklist: ["Register formal sepenuhnya.", "Informasi tetap lengkap (batal, alasan, jadwal baru, membawa data).", "Anrede dan salam formal."],
+      model:
+        "Sehr geehrte Damen und Herren,\nleider müssen wir die für morgen geplante Besprechung absagen, da unser Abteilungsleiter erkrankt ist. Wir schlagen vor, den Termin auf kommenden Dienstag zur gleichen Uhrzeit zu verlegen. Wir wären Ihnen dankbar, wenn Sie die aktuellen Kennzahlen mitbringen könnten.\nMit freundlichen Grüßen",
+    },
+  ],
+});
 
 export const goetheHigher = [goetheA2, goetheB1, goetheB2, goetheC1, goetheC2];

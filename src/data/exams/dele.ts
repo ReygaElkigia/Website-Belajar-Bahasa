@@ -1,5 +1,5 @@
 import type { Exam } from "./types";
-import { mc } from "./build";
+import { gap, mc } from "./build";
 
 /**
  * DELE A2 sampai C2. Struktur dari examenes.cervantes.es; soal latihan
@@ -246,5 +246,259 @@ export const deleC2: Exam = {
     },
   ],
 };
+
+/* ---------------------------------------------------------------- Latihan tambahan */
+
+deleA2.parts.push({
+  id: "mas",
+  section: "Comprensión · Expresión oral",
+  title: "Latihan tambahan",
+  instructions: "Baca, dengarkan, atau bicara sesuai tugas.",
+  minutes: 10,
+  questions: [
+    mc({
+      task: "Comprensión de lectura",
+      passage: "Se alquila habitación en piso compartido. Céntrica, cerca del metro. 350 € al mes, gastos incluidos. No se admiten animales. Preferiblemente estudiantes. Llamar por las tardes.",
+      prompt: "¿Qué está prohibido en el piso?",
+      opts: ["tener animales", "ser estudiante", "llamar por la tarde", "usar el metro"],
+    }),
+    mc({
+      task: "Comprensión de lectura",
+      passage: "Biblioteca Municipal\nHorario: lunes a viernes, de 9:00 a 21:00. Sábados, de 10:00 a 14:00. Domingos, cerrado.\nPréstamo: máximo 5 libros durante 15 días.",
+      prompt: "¿Cuántos libros puedes llevarte como máximo?",
+      opts: ["cinco", "quince", "dos", "uno"],
+    }),
+    mc({
+      task: "Comprensión auditiva",
+      audio: "Mujer: ¿Vienes a cenar el viernes? Hombre: El viernes no puedo, tengo que trabajar hasta tarde. ¿Qué tal el sábado? Mujer: Perfecto, el sábado a las nueve.",
+      prompt: "¿Cuándo van a cenar?",
+      opts: ["el sábado a las nueve", "el viernes a las nueve", "el viernes tarde", "el domingo"],
+    }),
+    mc({
+      task: "Comprensión auditiva",
+      audio: "Hola, soy Marcos, de la tienda de bicicletas. Su bicicleta ya está arreglada. Puede pasar a recogerla mañana a partir de las diez. Son cuarenta euros.",
+      prompt: "¿Por qué llama Marcos?",
+      opts: ["La bicicleta ya está arreglada.", "La bicicleta no tiene arreglo.", "Quiere vender una bicicleta.", "La tienda está cerrada mañana."],
+    }),
+    mc({ task: "Gramática", prompt: "Ayer (　) al cine con mis amigos.", opts: ["fui", "voy", "iba a", "iré"], explain: "Ayer → pretérito indefinido: fui." }),
+    mc({ task: "Gramática", prompt: "Esta mañana (　) un café con leche.", opts: ["he tomado", "tomaba", "tomaré", "tomo"], explain: "Esta mañana → pretérito perfecto." }),
+    {
+      type: "speak",
+      task: "Tarea 1: monólogo",
+      prompt: "Habla de tu rutina diaria: a qué hora te levantas, qué haces por la mañana y por la tarde, y qué te gusta hacer los fines de semana.",
+      prepSeconds: 60,
+      speakSeconds: 120,
+      checklist: ["Jam dan kegiatan.", "Penanda waktu (primero, después, luego).", "Gustos (me gusta…)."],
+    },
+    {
+      type: "speak",
+      task: "Tarea 4: conversación",
+      prompt: "Estás en una tienda de ropa. Quieres cambiar una camisa porque es demasiado pequeña. Habla con el dependiente (el examinador).",
+      prepSeconds: 30,
+      speakSeconds: 90,
+      checklist: ["Menjelaskan masalah.", "Meminta ukuran lain atau uang kembali.", "Sopan (por favor, ¿podría…?)."],
+    },
+  ],
+});
+
+deleB1.parts.push({
+  id: "mas",
+  section: "Comprensión · Expresión escrita",
+  title: "Latihan tambahan",
+  instructions: "Kerjakan tugas berikut.",
+  minutes: 14,
+  questions: [
+    mc({
+      task: "Comprensión de lectura",
+      passage:
+        "El ayuntamiento ha puesto en marcha un programa de huertos urbanos en solares abandonados. Los vecinos pueden solicitar una parcela gratuita durante dos años, con la condición de no usar pesticidas químicos y participar en las tareas comunes de mantenimiento.",
+      prompt: "¿Qué condición deben cumplir los vecinos?",
+      opts: ["no usar pesticidas químicos", "pagar una cuota anual", "vender lo que cultivan", "vivir en el solar"],
+    }),
+    mc({
+      task: "Comprensión de lectura",
+      passage: "Mensaje de Clara: «Al final no voy a poder ir a la excursión del domingo. Mi hermano se casa el sábado y el domingo tenemos comida familiar. ¡Hacedme muchas fotos!»",
+      prompt: "¿Por qué no va Clara a la excursión?",
+      opts: ["Tiene una comida familiar.", "Está enferma.", "No le gustan las excursiones.", "Tiene que trabajar."],
+    }),
+    mc({
+      task: "Comprensión auditiva",
+      audio: "Locutor: Según los últimos datos, el uso de la bicicleta en la ciudad ha aumentado un treinta por ciento desde que se construyeron los nuevos carriles bici. Sin embargo, los ciclistas piden más aparcamientos seguros.",
+      prompt: "¿Qué piden los ciclistas?",
+      opts: ["más aparcamientos seguros", "más carriles bici", "bicicletas gratuitas", "menos coches"],
+    }),
+    mc({
+      task: "Comprensión auditiva",
+      audio: "Hombre: ¿Al final aceptaste el trabajo en Barcelona? Mujer: No, me pagaban más, pero tendría que mudarme y dejar a mi familia. Prefiero quedarme aquí, al menos por ahora.",
+      prompt: "¿Por qué rechazó la mujer el trabajo?",
+      opts: ["No quería dejar a su familia.", "Le pagaban poco.", "No le gusta Barcelona.", "Ya tenía otro trabajo mejor."],
+    }),
+    mc({ task: "Gramática", prompt: "Cuando (　) a casa, te llamaré.", opts: ["llegue", "llego", "llegaré", "llegaba"], explain: "Cuando + subjuntivo untuk masa depan." }),
+    mc({ task: "Gramática", prompt: "Me alegra que (　) venir a la fiesta.", opts: ["puedas", "puedes", "podrás", "pudiste"] }),
+    gap({
+      task: "Texto con huecos",
+      prompt: "Pilih kata yang tepat.",
+      text: "Me encanta viajar, [0] no siempre tengo dinero. Por eso, [1] puedo, busco ofertas de última hora.",
+      gaps: [
+        ["pero", "porque", "así que", "aunque si"],
+        ["siempre que", "a pesar de", "en vez de", "sin que"],
+      ],
+    }),
+    {
+      type: "write",
+      task: "Tarea 2: texto",
+      prompt: "Escribe un texto para un blog de viajes sobre un viaje que recuerdas especialmente: adónde fuiste, con quién, qué pasó y por qué lo recuerdas (130–150 palabras).",
+      minWords: 130,
+      maxWords: 150,
+      minutes: 30,
+      checklist: ["Narasi dengan indefinido dan imperfecto.", "Kejadian penting.", "Alasan mengingatnya.", "130–150 kata."],
+    },
+  ],
+});
+
+deleB2.parts.push({
+  id: "mas",
+  section: "Comprensión · Expresión",
+  title: "Latihan tambahan",
+  instructions: "Kerjakan tugas berikut.",
+  minutes: 20,
+  questions: [
+    mc({
+      task: "Comprensión de lectura",
+      passage:
+        "Los expertos en nutrición insisten en que no existen alimentos milagro. Ningún producto aislado, por saludable que sea, compensa una dieta desequilibrada. Lo determinante es el patrón global de alimentación a lo largo del tiempo.",
+      prompt: "¿Cuál es la idea principal del texto?",
+      opts: ["Lo importante es el conjunto de la dieta.", "Hay alimentos que lo curan todo.", "Hay que evitar ciertos alimentos.", "Las dietas deben ser cortas."],
+    }),
+    gap({
+      task: "Comprensión de lectura: huecos",
+      prompt: "Pilih kata yang paling tepat.",
+      text: "El turismo masivo genera ingresos importantes, [0] también provoca la subida de los alquileres en los centros históricos. [1], muchos vecinos se ven obligados a abandonar sus barrios.",
+      gaps: [
+        ["si bien", "puesto que", "a fin de que", "en cuanto"],
+        ["Como consecuencia", "En cambio", "Sin embargo", "Es decir"],
+      ],
+    }),
+    mc({
+      task: "Comprensión auditiva",
+      audio: "Conferenciante: Durante años se pensó que la inteligencia era fija. Hoy sabemos que el cerebro cambia con el aprendizaje durante toda la vida. Eso no significa que todos podamos ser genios, sino que nunca es tarde para mejorar nuestras capacidades.",
+      prompt: "¿Qué afirma la conferenciante?",
+      opts: ["Siempre es posible mejorar nuestras capacidades.", "La inteligencia no cambia.", "Todos podemos ser genios.", "Solo los niños aprenden."],
+    }),
+    mc({
+      task: "Comprensión auditiva",
+      audio: "Mujer: ¿Has leído que van a peatonalizar el centro? Hombre: Sí, y al principio me pareció mal por los comercios, pero en otras ciudades las ventas incluso han subido. Así que ahora lo veo con buenos ojos.",
+      prompt: "¿Cómo ha cambiado la opinión del hombre?",
+      opts: ["Ahora está a favor.", "Ahora está en contra.", "Nunca tuvo opinión.", "Siempre estuvo a favor."],
+    }),
+    mc({ task: "Gramática", prompt: "Si lo (　) sabido antes, te habría avisado.", opts: ["hubiera", "habría", "había", "haya"], explain: "Si + pluscuamperfecto de subjuntivo, condicional compuesto." }),
+    {
+      type: "write",
+      task: "Tarea 2: artículo de opinión",
+      prompt: "Escribe un artículo de opinión para la revista de tu universidad sobre el tema «¿Deberían ser obligatorias las prácticas en empresas durante la carrera?» (150–180 palabras).",
+      minWords: 150,
+      maxWords: 180,
+      minutes: 40,
+      checklist: ["Judul.", "Pendapat jelas.", "Argumen dengan contoh.", "Argumen lawan dan bantahan.", "Kesimpulan."],
+    },
+    {
+      type: "speak",
+      task: "Tarea 1: valorar propuestas",
+      prompt: "Para reducir el estrés de los estudiantes se proponen: horarios más flexibles, menos exámenes y más trabajos, talleres de gestión del tiempo, y apoyo psicológico gratuito. Valora las propuestas y explica cuál te parece mejor y por qué.",
+      prepSeconds: 120,
+      speakSeconds: 180,
+      checklist: ["Menilai setiap usulan.", "Memilih yang terbaik dengan alasan.", "Ungkapan penilaian (me parece…, sería conveniente que…)."],
+    },
+  ],
+});
+
+deleC1.parts.push({
+  id: "mas",
+  section: "Comprensión · Destrezas integradas",
+  title: "Latihan tambahan",
+  instructions: "Kerjakan tugas berikut.",
+  minutes: 22,
+  questions: [
+    mc({
+      task: "Comprensión de lectura",
+      passage:
+        "La llamada «economía de la atención» parte de una premisa sencilla: en un mundo saturado de información, el recurso escaso no es el contenido, sino el tiempo que los usuarios están dispuestos a dedicarle. De ahí que las plataformas compitan, más que por ofrecer calidad, por retener la mirada el mayor tiempo posible.",
+      prompt: "Según el texto, ¿por qué compiten las plataformas?",
+      opts: ["por retener la atención de los usuarios", "por ofrecer el contenido más barato", "por producir más información", "por respetar el tiempo libre"],
+    }),
+    mc({
+      task: "Comprensión auditiva",
+      audio:
+        "Entrevistadora: ¿Es realista pensar en ciudades sin coches? Urbanista: Sin coches, quizá no. Pero sí con muchos menos. La clave está en que la alternativa resulte más cómoda: transporte público frecuente, barrios con servicios a quince minutos a pie y calles pensadas para las personas.",
+      prompt: "¿Qué considera clave el urbanista?",
+      opts: ["que las alternativas al coche sean más cómodas", "prohibir los coches por completo", "construir más aparcamientos", "subir el precio de la gasolina"],
+    }),
+    mc({ task: "Uso de la lengua", prompt: "(　) que me lo pidas mil veces, no voy a cambiar de opinión.", opts: ["Aunque", "Ya", "Puesto", "Dado"], explain: "Aunque + subjuntivo (konsesi hipotetis)." }),
+    mc({ task: "Léxico", prompt: "La empresa decidió (　) el proyecto por falta de financiación.", opts: ["paralizar", "fomentar", "impulsar", "agilizar"] }),
+    gap({
+      task: "Uso de la lengua: texto",
+      prompt: "Pilih ungkapan yang paling tepat.",
+      text: "La investigación no ha concluido todavía; [0], los primeros resultados son prometedores. [1] se confirmen, podría cambiar el tratamiento de la enfermedad.",
+      gaps: [
+        ["no obstante", "por tanto", "es decir", "de modo que"],
+        ["En caso de que", "Ya que", "Mientras", "A menos que no"],
+      ],
+    }),
+    {
+      type: "write",
+      task: "Tarea 2: texto argumentativo",
+      prompt: "Escribe un artículo de opinión (220–250 palabras) para un periódico digital sobre «¿Debe la universidad ser gratuita para todos?». Incluye argumentos a favor y en contra y una conclusión personal.",
+      minWords: 220,
+      maxWords: 250,
+      minutes: 45,
+      checklist: ["Struktur jelas.", "Argumen kedua sisi.", "Penghubung formal (no obstante, en definitiva).", "Kesimpulan pribadi."],
+    },
+    {
+      type: "speak",
+      task: "Prueba 4: exposición",
+      prompt: "A partir de un texto sobre «el aumento del trabajo freelance», expón las ideas principales durante 3–5 minutos y después conversa con el entrevistador sobre ventajas y riesgos.",
+      prepSeconds: 120,
+      speakSeconds: 300,
+      checklist: ["Ringkasan ide utama.", "Opini dengan nuansa.", "Kosakata kerja dan ekonomi.", "Menanggapi pertanyaan."],
+    },
+  ],
+});
+
+deleC2.parts.push({
+  id: "mas",
+  section: "Comprensión · Destrezas integradas",
+  title: "Latihan tambahan",
+  instructions: "Kerjakan tugas berikut.",
+  minutes: 25,
+  questions: [
+    mc({
+      task: "Comprensión de lectura",
+      passage:
+        "Se suele decir que la traducción es una traición. Sería más justo decir que es una negociación: el traductor renuncia a ciertos matices para salvar otros que considera esenciales. Lo que distingue una buena traducción no es la ausencia de pérdidas, sino la lucidez con que se eligen.",
+      prompt: "¿Qué idea defiende el autor?",
+      opts: ["Traducir implica elegir conscientemente qué se pierde.", "Una buena traducción no pierde nada.", "Traducir es siempre traicionar.", "Los matices no importan al traducir."],
+    }),
+    mc({ task: "Léxico", prompt: "«Estar en el ajo» significa:", opts: ["estar al tanto de un asunto", "cocinar con ajo", "estar enfadado", "no entender nada"] }),
+    mc({ task: "Uso de la lengua", prompt: "De (　) sabido, no habría venido.", opts: ["haberlo", "saberlo", "habiéndolo", "haber"], explain: "De + infinitivo compuesto = si lo hubiera sabido." }),
+    mc({
+      task: "Comprensión auditiva",
+      audio: "Tertulia: La lectura en pantalla no es peor en sí misma; lo que cambia es la actitud. Ante una pantalla tendemos a leer en diagonal, saltando de un enlace a otro. El reto es recuperar la lectura lenta, sea cual sea el soporte.",
+      prompt: "¿Cuál es el reto, según el tertuliano?",
+      opts: ["recuperar la lectura lenta", "abandonar las pantallas", "leer más rápido", "volver solo al papel"],
+    }),
+    {
+      type: "write",
+      task: "Tarea: cambio de registro",
+      passage: "Nota de voz: «Oye, que mañana no hay reunión, que el jefe está malo. La pasamos al martes a la misma hora. Traed los números, ¿vale?»",
+      prompt: "Reescribe el mensaje como correo formal dirigido a socios externos.",
+      minWords: 50,
+      maxWords: 110,
+      minutes: 15,
+      checklist: ["Register formal penuh.", "Informasi lengkap.", "Salam pembuka dan penutup formal."],
+      model:
+        "Estimados socios:\nLes informamos de que la reunión prevista para mañana queda aplazada debido a la indisposición de nuestro director. Les proponemos celebrarla el próximo martes a la misma hora. Les agradeceríamos que aportaran los datos actualizados.\nReciban un cordial saludo.",
+    },
+  ],
+});
 
 export const deleHigher = [deleA2, deleB1, deleB2, deleC1, deleC2];

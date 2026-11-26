@@ -510,4 +510,165 @@ export const hsk79: Exam = {
   ],
 };
 
+/* ---------------------------------------------------------------- Latihan tambahan */
+
+hsk2.parts.push({
+  id: "gengduo",
+  section: "听力 · 阅读",
+  title: "Latihan tambahan",
+  instructions: "Dengarkan atau baca, lalu jawab.",
+  minutes: 6,
+  questions: [
+    tf({ task: "判断对错", audio: "我哥哥在医院工作，他是医生。", prompt: "Pernyataan: 他哥哥是老师。", ok: false }),
+    mc({ task: "对话理解", audio: "女：你的手机呢？男：在桌子上，你看，就在电脑旁边。", prompt: "手机在哪儿？", opts: ["电脑旁边", "椅子下面", "男的手里"] }),
+    mc({ task: "对话理解", audio: "男：这儿离火车站远吗？女：不远，走路十分钟就到了。", prompt: "从这儿到火车站要多长时间？", opts: ["十分钟", "一个小时", "两分钟"] }),
+    mc({ task: "选词填空", prompt: "他（　）在打电话，你等一下吧。", opts: ["正", "也", "再", "很"], explain: "正在 = sedang." }),
+    mc({ task: "选词填空", prompt: "外面下雨了，你（　）带伞吧。", opts: ["最好", "已经", "一起", "非常"] }),
+    tf({ task: "判断对错", passage: "我今天起床晚了，没吃早饭就去公司了，现在很饿。", prompt: "Pernyataan: ★ 他吃了早饭。", ok: false }),
+    mc({ task: "句子匹配", prompt: "你为什么不去看电影？", opts: ["因为明天有考试。", "电影很好看。", "下午三点。", "我和朋友去。"] }),
+  ],
+});
+
+hsk3.parts.push({
+  id: "gengduo",
+  section: "听力 · 阅读 · 书写",
+  title: "Latihan tambahan",
+  instructions: "Kerjakan tugas berikut.",
+  minutes: 6,
+  questions: [
+    tf({ task: "判断对错", audio: "我本来想坐飞机去上海，但是机票太贵了，所以最后坐了火车。", prompt: "Pernyataan: ★ 他坐火车去了上海。", ok: true }),
+    mc({ task: "对话", audio: "男：你最近怎么瘦了这么多？女：我每天下班以后都去游泳，晚饭也吃得很少。", prompt: "女的为什么瘦了？", opts: ["每天游泳，吃得少", "生病了", "工作太忙"] }),
+    mc({ task: "选词填空", prompt: "这件事你（　）告诉别人，我们先保密。", opts: ["别", "没", "不用", "还"] }),
+    { type: "order", task: "完成句子", prompt: "Susun menjadi satu kalimat.", items: ["我", "把", "作业", "写完了"], joiner: "", explain: "我把作业写完了。" },
+    { type: "type", task: "写汉字", prompt: "Tulis hanzi untuk pinyin dalam kurung.", display: "我（mǎi）了一本新书。", answer: "买", explain: "mǎi = 买 (membeli)." },
+  ],
+});
+
+hsk4.parts.push({
+  id: "gengduo",
+  section: "听力 · 阅读 · 书写",
+  title: "Latihan tambahan",
+  instructions: "Kerjakan tugas berikut.",
+  minutes: 8,
+  questions: [
+    tf({ task: "判断对错", audio: "现在很多年轻人喜欢在网上买东西，因为又方便又便宜，而且可以送到家。", prompt: "Pernyataan: ★ 网上购物很方便。", ok: true }),
+    mc({ task: "对话", audio: "男：你的签证办好了吗？女：还没有，材料交了，大使馆说要等两个星期。", prompt: "关于女的签证，可以知道什么？", opts: ["还要等两个星期", "已经办好了", "材料还没交", "被拒绝了"] }),
+    mc({ task: "选词填空", prompt: "他做事很（　），从来不会忘记重要的事情。", opts: ["仔细", "马虎", "随便", "热闹"] }),
+    { type: "order", task: "排列顺序", prompt: "Urutkan ketiga bagian.", items: ["这家餐厅的菜虽然不便宜，", "但是味道特别好，", "所以周末常常需要排队。"], joiner: "" },
+    mc({
+      task: "阅读理解",
+      passage: "有些人觉得失败是一件很丢人的事，所以不敢尝试新东西。其实，每个成功的人都经历过很多次失败。重要的不是失败了多少次，而是失败以后能不能总结经验，继续努力。",
+      prompt: "这段话主要是说：",
+      opts: ["要从失败中总结经验", "失败很丢人", "不要尝试新东西", "成功的人很少失败"],
+    }),
+    { type: "order", task: "完成句子", prompt: "Susun menjadi satu kalimat.", items: ["这个问题", "比我想的", "复杂", "得多"], joiner: "", explain: "这个问题比我想的复杂得多。" },
+  ],
+});
+
+hsk5.parts.push({
+  id: "gengduo",
+  section: "听力 · 阅读",
+  title: "Latihan tambahan",
+  instructions: "Kerjakan tugas berikut.",
+  minutes: 10,
+  questions: [
+    mc({ task: "对话", audio: "女：这个方案你觉得怎么样？男：总体不错，就是预算有点儿超了，我们得想办法把成本降下来。", prompt: "男的觉得方案有什么问题？", opts: ["成本太高", "时间太紧", "内容太少", "人手不够"] }),
+    mc({
+      task: "短文",
+      audio: "很多人以为，多喝咖啡就能提高工作效率。其实，咖啡只能让人暂时兴奋，如果喝得太多，反而会影响睡眠，第二天精神更差。保证充足的睡眠，才是提高效率的根本。",
+      prompt: "说话人认为提高效率的根本是什么？",
+      opts: ["保证充足的睡眠", "多喝咖啡", "少休息", "多运动"],
+    }),
+    gap({
+      task: "选词填空",
+      prompt: "Pilih kata yang paling tepat.",
+      text: "随着生活水平的提高，人们越来越[0]健康。不少人开始[1]锻炼身体，选择更健康的饮食方式。",
+      gaps: [
+        ["重视", "重复", "重量", "重新"],
+        ["坚持", "坚决", "坚强", "坚固"],
+      ],
+    }),
+    mc({
+      task: "选择与文段一致的一项",
+      passage: "大熊猫是中国特有的动物，主要生活在四川、陕西等地的山区。它们每天要花十几个小时吃竹子。虽然属于食肉目动物，但大熊猫的食物中百分之九十九都是竹子。",
+      prompt: "根据这段话，可以知道：",
+      opts: ["大熊猫主要吃竹子", "大熊猫生活在海边", "大熊猫每天只吃一次", "大熊猫不属于食肉目"],
+    }),
+    mc({
+      task: "阅读理解",
+      passage: "小李刚参加工作时，总是等领导安排任务。后来他发现，主动的人进步更快：他们会提前想好下一步要做什么，遇到问题先自己找办法。于是小李也开始改变，一年后就成了部门的骨干。",
+      prompt: "小李为什么能成为部门的骨干？",
+      opts: ["他变得更主动了", "领导很喜欢他", "他换了工作", "他工作时间最长"],
+    }),
+    { type: "order", task: "完成句子", prompt: "Susun menjadi satu kalimat.", items: ["这次活动", "受到了", "大家的", "热烈欢迎"], joiner: "", explain: "这次活动受到了大家的热烈欢迎。" },
+  ],
+});
+
+hsk6.parts.push({
+  id: "gengduo",
+  section: "听力 · 阅读",
+  title: "Latihan tambahan",
+  instructions: "Kerjakan tugas berikut.",
+  minutes: 10,
+  questions: [
+    mc({
+      task: "选择与录音一致",
+      audio: "研究表明，人在心情愉快时，更容易产生新的想法。因此，一些公司特意为员工布置轻松的办公环境，比如设置休息区、允许带宠物上班，以激发员工的创造力。",
+      prompt: "根据录音，公司布置轻松环境的目的是：",
+      opts: ["激发员工的创造力", "降低办公成本", "减少员工数量", "延长工作时间"],
+    }),
+    mc({
+      task: "找出病句",
+      prompt: "Kalimat mana yang mengandung kesalahan?",
+      opts: ["他的学习成绩是全班最优秀的学生。", "经过大家的努力，问题终于解决了。", "这座古老的建筑已有三百多年的历史。", "她不仅会说汉语，而且会说日语。"],
+      explain: "成绩 tidak bisa menjadi 学生. Benar: 他是全班学习成绩最优秀的学生。",
+    }),
+    mc({
+      task: "找出病句",
+      prompt: "Kalimat mana yang mengandung kesalahan?",
+      opts: ["我们要避免不再犯同样的错误。", "这本书对我的影响很大。", "他把房间收拾得干干净净。", "春天来了，公园里开满了鲜花。"],
+      explain: "避免 sudah bermakna menghindari, jadi 不再 membuat makna terbalik. Benar: 避免再犯同样的错误。",
+    }),
+    gap({
+      task: "选词填空",
+      prompt: "Pilih kata yang paling tepat.",
+      text: "这位老艺术家一生[0]于传统手工艺的保护，即使年事已高，仍然[1]在第一线，培养了大批年轻传人。",
+      gaps: [
+        ["致力", "致使", "导致", "以致"],
+        ["坚守", "坚定", "守卫", "保守"],
+      ],
+    }),
+    mc({
+      task: "阅读理解",
+      passage: "“碎片化阅读”是指利用零散时间，通过手机等设备进行的简短阅读。有人认为它让知识变得浅薄；也有人认为，在快节奏的生活中，它是获取信息的有效方式。关键在于，读者能否在碎片中建立联系，形成自己的知识体系。",
+      prompt: "作者认为碎片化阅读的关键是：",
+      opts: ["能否形成自己的知识体系", "读得越多越好", "必须用纸质书", "完全放弃"],
+    }),
+  ],
+});
+
+hsk79.parts.push({
+  id: "gengduo",
+  section: "阅读 · 听力",
+  title: "Latihan tambahan",
+  instructions: "Kerjakan tugas berikut.",
+  minutes: 8,
+  questions: [
+    mc({ task: "成语", prompt: "“他做事总是半途而废。”句中“半途而废”的意思是：", opts: ["事情没做完就放弃", "做事很有耐心", "走路走到一半", "浪费了很多东西"] }),
+    mc({ task: "词语辨析", prompt: "这项政策的出台，（　）了社会各界的广泛关注。", opts: ["引起", "引导", "引用", "吸引了于"] }),
+    mc({
+      task: "听力",
+      audio: "访谈：主持人：您认为传统文化如何吸引年轻人？嘉宾：关键不在于把传统包装得多么时髦，而在于让年轻人参与进来。当他们亲手做过一次剪纸、写过一次书法，这份文化就不再遥远。",
+      prompt: "嘉宾认为吸引年轻人的关键是：",
+      opts: ["让年轻人亲身参与", "把传统包装得时髦", "多做广告", "降低门票价格"],
+    }),
+    mc({
+      task: "阅读理解",
+      passage: "所谓“内卷”，原指一种文化模式发展到一定阶段后停滞不前、只在内部精细化的现象。如今它被广泛用来形容同一领域内的过度竞争：投入不断增加，回报却没有相应提高。",
+      prompt: "现在人们用“内卷”形容：",
+      opts: ["投入增加而回报不增的过度竞争", "文化的快速发展", "经济的全面繁荣", "个人的自我提升"],
+    }),
+  ],
+});
+
 export const hskHigher = [hsk2, hsk3, hsk4, hsk5, hsk6, hsk79];
