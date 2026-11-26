@@ -51,6 +51,8 @@ for (const slug of readdirSync(join(out, "bahasa")).filter((d) => statSync(join(
     ...core,
     ...pageFiles(join(out, "bahasa", slug)),
     ...(examsByLang[slug] ?? []).flatMap((id) => pageFiles(join(out, "ujian", id))),
+    // Data kanji (rincian dan urutan goresan) untuk bahasa Jepang.
+    ...(slug === "jepang" ? walk(join(out, "kanji")).filter((f) => f.endsWith(".json")) : []),
   ];
   const assets = assetsOf(files);
   const all = [...new Set([...files.map(rel), ...assets])];

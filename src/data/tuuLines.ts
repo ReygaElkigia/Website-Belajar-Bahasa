@@ -163,6 +163,10 @@ export const ROUTE = {
   bahasaIndex: ["Dua belas dunia, dua belas bahasa. Pilih yang paling bikin penasaran!", "Bingung memilih? Mulai dari yang tantangannya ringan dulu juga bagus."],
   lang: ["{hello} Selamat datang di dunia {theme}!", "{hello} Ini dunia {theme}. Siap belajar bahasa {name}?"],
   unit: ["Unit {unit}. Dengarkan setiap kata, ucapkan keras-keras, lalu tutup dengan kuis.", "Unit {unit}! Coba tebak arti kata sebelum melihat terjemahannya."],
+  kanji: [
+    "Ketuk kanji untuk melihat urutan goresannya. Coba tiru di udara dengan jarimu!",
+    "Sepuluh soal sehari sudah cukup. Kanji yang benar dua kali kutandai hafal.",
+  ],
   huruf: ["Ketuk setiap huruf untuk mendengar bunyinya. Tirukan dengan keras, ya!", "Huruf dulu, kata kemudian. Pelan-pelan saja."],
   bacaan: ["Aku suka cerita! Coba tebak artinya dulu sebelum membuka terjemahan.", "Waktunya membaca. Dengarkan sekali, lalu baca sendiri dengan suaramu."],
   jalur: [

@@ -108,6 +108,7 @@ function contextFor(path: string, level: number, run: number): Ctx {
     const lang = L.LANG[b];
     const vars = { name: lang?.name ?? b, hello: lang?.hello ?? "", theme: themeFor(b).name };
     if (!c) return { key: `lang:${b}`, lines: L.ROUTE.lang, vars, base: "wave", slug: b, speakHello: true };
+    if (c === "kanji") return { key: `kanji:${b}`, lines: L.ROUTE.kanji, vars, base: "think", slug: b };
     if (c === "huruf") return { key: `huruf:${b}`, lines: L.ROUTE.huruf, vars, base: "idle", slug: b };
     if (c === "bacaan") return { key: `bacaan:${b}`, lines: L.ROUTE.bacaan, vars, base: "read", slug: b };
     if (c === "tonton") return { key: `tonton:${b}`, lines: L.ROUTE.tonton, vars, base: "idle", slug: b };

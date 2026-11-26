@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef } from "react";
-import { BookOpenText, Clapperboard, Compass, ListOrdered, Route, Type } from "lucide-react";
+import { BookOpenText, Brush, Clapperboard, Compass, ListOrdered, Route, Type } from "lucide-react";
 import { units } from "@/data/curriculum";
 import { PASS, useProgress } from "@/lib/progress";
 import { speak } from "@/lib/speech";
@@ -19,7 +19,7 @@ export function LangSubnav({ lang, accent, pop }: { lang: LangMeta; accent: stri
   const progress = useProgress();
   const base = `/bahasa/${lang.slug}/`;
   const rest = path.startsWith(base) ? path.slice(base.length).replace(/\/$/, "") : "";
-  const unitIdx = units.findIndex((u) => u.id === rest);
+  const unitIdx = units.findIndex((u) => u.id === rest.split("/")[0]);
   const done = units.filter((u) => (progress.done[lang.slug]?.[u.id] ?? 0) >= PASS).length;
   const scroller = useRef<HTMLDivElement>(null);
 
@@ -27,6 +27,7 @@ export function LangSubnav({ lang, accent, pop }: { lang: LangMeta; accent: stri
     { href: `${base}jalur/`, label: "Jalur", icon: Route, on: rest === "jalur" || rest === "pelajaran" },
     { href: base, label: "Tentang", icon: Compass, on: rest === "" },
     { href: `${base}huruf/`, label: "Huruf", icon: Type, on: rest === "huruf" },
+    ...(lang.slug === "jepang" ? [{ href: `${base}kanji/`, label: "Kanji", icon: Brush, on: rest === "kanji" || rest.startsWith("kanji/") }] : []),
     { href: `${base}${units[0].id}/`, label: "Unit", icon: ListOrdered, on: unitIdx >= 0 },
     { href: `${base}bacaan/`, label: "Bacaan", icon: BookOpenText, on: rest === "bacaan" },
     { href: `${base}tonton/`, label: "Tonton", icon: Clapperboard, on: rest === "tonton" },

@@ -3,6 +3,7 @@ import { conceptById, languages } from "@/data";
 import { creditsFor, recordingCount } from "@/data/audioCredits";
 import { PageHero } from "@/components/anime/Themed";
 import { heroVideos } from "@/data/heroVideos";
+import { KANJI_SOURCES } from "@/data/kanji";
 import { themes } from "@/data/themes";
 
 export const metadata: Metadata = {
@@ -115,6 +116,29 @@ export default function CreditsPage() {
               </div>
             </section>
           )}
+
+          <section>
+            <h2 style={{ marginBottom: 8 }}>Kanji JLPT</h2>
+            <p className="muted" style={{ marginBottom: 12 }}>
+              Data kanji N5 sampai N1 disusun dari sumber terbuka berikut. Arti dalam bahasa Indonesia diterjemahkan oleh Tutur, dan berkas data
+              turunannya dibagikan dengan lisensi CC BY-SA yang sama. KANJIDIC2 dan JMdict adalah milik Electronic Dictionary Research and
+              Development Group, dipakai sesuai{" "}
+              <a href="https://www.edrdg.org/edrdg/licence.html" target="_blank" rel="noreferrer">
+                lisensinya
+              </a>
+              .
+            </p>
+            <ul style={{ margin: 0, paddingLeft: 20, display: "grid", gap: 6 }}>
+              {KANJI_SOURCES.map((s) => (
+                <li key={s.url}>
+                  <a href={s.url} target="_blank" rel="noreferrer">
+                    {s.label}
+                  </a>{" "}
+                  <span className="muted small">({s.license})</span>
+                </li>
+              ))}
+            </ul>
+          </section>
 
           <section>
             <h2 style={{ marginBottom: 8 }}>Video</h2>

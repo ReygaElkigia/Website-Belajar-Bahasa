@@ -61,6 +61,18 @@ export default async function AlphabetPage({ params }: { params: Promise<{ slug:
               Mulai unit 1
             </Link>
           </div>
+
+          {l.slug === "jepang" && (
+            <div className="panel mt-5 row between">
+              <div>
+                <h3 style={{ marginBottom: 4 }}>Setelah kana, kanji</h3>
+                <p className="small muted">2.211 kanji JLPT N5 sampai N1 dengan urutan goresan, cara baca, dan kuis. Mulai dari 79 kanji N5.</p>
+              </div>
+              <Link className="btn" href="/bahasa/jepang/kanji/">
+                Buka kanji
+              </Link>
+            </div>
+          )}
         </div>
       </section>
     </Themed>
