@@ -8,7 +8,7 @@ export const jlpt: Exam = {
   name: "JLPT N5",
   fullName: "日本語能力試験 (Japanese-Language Proficiency Test) N5",
   org: "Japan Foundation dan Japan Educational Exchanges and Services",
-  level: "N5 (dasar) sampai N1 (mahir)",
+  level: "N5 (paling dasar)",
   about:
     "Ujian bahasa Jepang paling dikenal di dunia, diadakan dua kali setahun (Juli dan Desember) di Indonesia. N5 menguji kemampuan memahami kalimat dasar dalam hiragana, katakana, dan kanji sederhana. N4 dan N3 sering diminta untuk program magang dan kerja di Jepang.",
   format: [
@@ -22,7 +22,7 @@ export const jlpt: Exam = {
     "Semua soal berupa pilihan ganda; tidak ada bagian menulis atau berbicara.",
   ],
   tips: [
-    "Kuasai hiragana dan katakana sepenuhnya; N5 sudah memakai sekitar 100 kanji.",
+    "Kuasai hiragana dan katakana sepenuhnya, lalu 79 kanji N5 di halaman Kanji Tutur.",
     "Soal ★ (文の組み立て) meminta urutan kata: cari partikel yang menempel ke kata sebelumnya.",
   ],
   official: { label: "jlpt.jp", url: "https://www.jlpt.jp/e/guideline/testsections.html" },
